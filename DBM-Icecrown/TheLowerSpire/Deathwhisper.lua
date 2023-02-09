@@ -11,6 +11,7 @@ mod:RegisterEvents(
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_START",
+	"SPELL_CAST_SUCCESS",
 	"SPELL_INTERRUPT",
 	"SPELL_SUMMON",
 	"SWING_DAMAGE",
@@ -29,7 +30,7 @@ local warnSummonSpirit				= mod:NewSpellAnnounce(71426, 2)
 local warnReanimating				= mod:NewAnnounce("WarnReanimating", 3)
 local warnDarkTransformation		= mod:NewSpellAnnounce(70900, 4)
 local warnDarkEmpowerment			= mod:NewSpellAnnounce(70901, 4)
-local warnPhase2					= mod:NewPhaseAnnounce(2, 1)	
+local warnPhase2					= mod:NewPhaseAnnounce(2, 1)
 local warnFrostbolt					= mod:NewCastAnnounce(72007, 2)
 local warnTouchInsignificance		= mod:NewAnnounce("WarnTouchInsignificance", 2, 71204, mod:IsTank() or mod:IsHealer())
 local warnDarkMartyrdom				= mod:NewSpellAnnounce(72499, 4)
@@ -45,18 +46,27 @@ local specWarnVengefulShade			= mod:NewSpecialWarning("SpecWarnVengefulShade", n
 local timerAdds						= mod:NewTimer(60, "TimerAdds", 61131)
 local timerDominateMind				= mod:NewBuffActiveTimer(12, 71289)
 local timerDominateMindCD			= mod:NewCDTimer(40, 71289)
-local timerSummonSpiritCD			= mod:NewCDTimer(10, 71426, nil, false)
+local timerSummonSpiritCD			= mod:NewCDTimer(10, 71426)
 local timerFrostboltCast			= mod:NewCastTimer(4, 72007)
 local timerTouchInsignificance		= mod:NewTargetTimer(30, 71204, nil, mod:IsTank() or mod:IsHealer())
 
-local berserkTimer					= mod:NewBerserkTimer(600)
+local berserkTimer					= mod:NewBerserkTimer(420)
 
+local ttsDominateMindCD = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\mindcontrolIn5.mp3", "TTS Dominate Mind Countdown", true)
+local ttsDominateMindCDOffset = 6.9
+local ttsSpiritsSpawned = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\spiritSpawned.mp3", "TTS Spirit spawn callout", true)
+local ttsOnYouRun = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\onYouRun.mp3", "TTS Spirit target callout", true)
+local ttsEquipped = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\equipped.mp3", "TTS auto equp callout", true)
+local ttsUnequipped = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\unequipped.mp3", "TTS auto unequip callout", true)
+
+mod:AddBoolOption("EnableOldAutoWeaponUnequipOnMC", false)
+mod:AddBoolOption("EnableAutoWeaponUnequipOnMC", false)
+mod:AddBoolOption("SpiritTargetDebug", false)
 mod:AddBoolOption("SetIconOnDominateMind", true)
 mod:AddBoolOption("SetIconOnDeformedFanatic", true)
 mod:AddBoolOption("SetIconOnEmpoweredAdherent", false)
 mod:AddBoolOption("ShieldHealthFrame", true, "misc")
 mod:RemoveOption("HealthFrame")
-
 
 local lastDD	= 0
 local dominateMindTargets	= {}
@@ -64,18 +74,54 @@ local dominateMindIcon 	= 6
 local deformedFanatic
 local empoweredAdherent
 
+-- TODO: Try to use https://wowwiki.fandom.com/wiki/API_UnitDetailedThreatSituation to check for spirits (and exclude lady and adds)
+-- alternative TODO: Just exclude tanks by mod:IsTank() or check if your targettarget is yourself
+-- alternative TODO: Just enable it in phase 2 for mdps/healer/rdps
+-- function checkSpiritTarget()
+-- 	isTanking = UnitDetailedThreatSituation("player", "target")
+-- 	if UnitThreatSituation("player")==3 and not isTanking then
+-- 		specWarnVengefulShade:Show()
+-- 		SendChatMessage("Spirit on me!", "SAY")
+-- 		ttsOnYouRun:Play()
+-- 	elseif time() - lastSpirit < 4 then
+-- 		mod:Schedule(0.15, checkSpiritTarget)
+-- 	end
+-- end
+local spiritDetectionFrame = CreateFrame("Frame")
+local function spiritDetection(self, event, arg)
+	if not spiritDetectionFrame.enabled then return end
+	local isTanking = UnitDetailedThreatSituation("player", "target")
+	if UnitThreatSituation("player") == 3 and not isTanking then
+		arg = arg or "nil"
+		print("DEBUG: event="..event.."; arg="..arg)
+		-- specWarnVengefulShade:Show()
+		-- SendChatMessage("Spirit on me!", "SAY")
+		-- ttsOnYouRun:Play()
+	end
+end
+spiritDetectionFrame:RegisterEvent("UNIT_THREAT_SITUATION_UPDATE")
+spiritDetectionFrame:RegisterEvent("UNIT_THREAT_LIST_UPDATE")
+
 function mod:OnCombatStart(delay)
+	spiritDetectionFrame.enabled = self.Options.SpiritTargetDebug
+	spiritDetectionFrame:SetScript("OnEvent", spiritDetection)
 	if self.Options.ShieldHealthFrame then
 		DBM.BossHealth:Show(L.name)
 		DBM.BossHealth:AddBoss(36855, L.name)
 		self:ScheduleMethod(0.5, "CreateShildHPFrame")
-	end		
+	end
 	berserkTimer:Start(-delay)
 	timerAdds:Start(7)
 	warnAddsSoon:Schedule(4)			-- 3sec pre-warning on start
 	self:ScheduleMethod(7, "addsTimer")
 	if not mod:IsDifficulty("normal10") then
 		timerDominateMindCD:Start(30)		-- Sometimes 1 fails at the start, then the next will be applied 70 secs after start ?? :S
+		ttsDominateMindCD:Schedule(30-ttsDominateMindCDOffset)
+		-- if mod:IsDifficulty("heroic25") and self.Options.EnableOldAutoWeaponUnequipOnMC then -- TODO
+		if (mod:IsDifficulty("heroic25") or mod:IsDifficulty("heroic10")) and self.Options.EnableOldAutoWeaponUnequipOnMC then
+			-- print("DEBUG:schedule unequip")
+			self:ScheduleMethod(26.5, "unequip")
+		end
 	end
 	table.wipe(dominateMindTargets)
 	dominateMindIcon = 6
@@ -84,14 +130,17 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:OnCombatEnd()
+	spiritDetectionFrame:SetScript("OnEvent", nil)
 	DBM.BossHealth:Clear()
+	ttsDominateMindCD:Cancel()
+	self:UnscheduleMethod("unequip")
 end
 
 do	-- add the additional Shield Bar
 	local last = 100
 	local function getShieldPercent()
 		local guid = UnitGUID("focus")
-		if mod:GetCIDFromGUID(guid) == 36855 then 
+		if mod:GetCIDFromGUID(guid) == 36855 then
 			last = math.floor(UnitMana("focus")/UnitManaMax("focus") * 100)
 			return last
 		end
@@ -115,8 +164,8 @@ function mod:addsTimer()
 	warnAddsSoon:Cancel()
 	if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
 		warnAddsSoon:Schedule(40)	-- 5 secs prewarning
-		self:ScheduleMethod(45, "addsTimer")
-		timerAdds:Start(45)
+		self:ScheduleMethod(44, "addsTimer")
+		timerAdds:Start(48)
 	else
 		warnAddsSoon:Schedule(55)	-- 5 secs prewarning
 		self:ScheduleMethod(60, "addsTimer")
@@ -141,51 +190,99 @@ function mod:TrySetTarget()
 	end
 end
 
-do
-	local function showDominateMindWarning()
-		warnDominateMind:Show(table.concat(dominateMindTargets, "<, >"))
-		timerDominateMind:Start()
-		timerDominateMindCD:Start()
-		table.wipe(dominateMindTargets)
-		dominateMindIcon = 6
+function mod:showDominateMindWarning()
+	-- print("DEBUG:showDominateMindWarning() call")
+	warnDominateMind:Show(table.concat(dominateMindTargets, "<, >"))
+	timerDominateMind:Start()
+	timerDominateMindCD:Start()
+	if (mod:IsDifficulty("heroic25") or mod:IsDifficulty("heroic10")) and self.Options.EnableOldAutoWeaponUnequipOnMC then
+		-- print("DEBUG:schedule unequip")
+		self:UnscheduleMethod("unequip")
+		self:ScheduleMethod(41, "unequip")
 	end
-	
-	function mod:SPELL_AURA_APPLIED(args)
-		if args:IsSpellID(71289) then
-			dominateMindTargets[#dominateMindTargets + 1] = args.destName
-			if self.Options.SetIconOnDominateMind then
-				self:SetIcon(args.destName, dominateMindIcon, 12)
-				dominateMindIcon = dominateMindIcon - 1
+	ttsDominateMindCD:Schedule(41-ttsDominateMindCDOffset)
+	table.wipe(dominateMindTargets)
+	dominateMindIcon = 6
+end
+
+function mod:SPELL_AURA_APPLIED(args)
+	if args:IsSpellID(71289) then
+		dominateMindTargets[#dominateMindTargets + 1] = args.destName
+		if self.Options.SetIconOnDominateMind then
+			self:SetIcon(args.destName, dominateMindIcon, 12)
+			dominateMindIcon = dominateMindIcon - 1
+		end
+		self:UnscheduleMethod("showDominateMindWarning")
+		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("normal25") or (mod:IsDifficulty("heroic25") and #dominateMindTargets >= 3) then
+			-- if mod:IsDifficulty("heroic25") -- TODO: somehow detect resisted mind controls
+			-- 	and self.Options.EnableOldAutoWeaponUnequipOnMC
+			-- 	and dominateMindTargets[1] ~= UnitName("player")
+			-- 	and dominateMindTargets[2] ~= UnitName("player")
+			-- 	and dominateMindTargets[3] ~= UnitName("player") then
+			-- 	self:equip()
+			-- end
+			if (mod:IsDifficulty("heroic25") or mod:IsDifficulty("heroic10")) and self.Options.EnableOldAutoWeaponUnequipOnMC then
+				self:equip()
 			end
-			self:Unschedule(showDominateMindWarning)
-			if mod:IsDifficulty("heroic10") or mod:IsDifficulty("normal25") or (mod:IsDifficulty("heroic25") and #dominateMindTargets >= 3) then
-				showDominateMindWarning()
-			else
-				self:Schedule(0.9, showDominateMindWarning)
-			end
-		elseif args:IsSpellID(71001, 72108, 72109, 72110) then
-			if args:IsPlayer() then
-				specWarnDeathDecay:Show()
-			end
-			if (GetTime() - lastDD > 5) then
-				warnDeathDecay:Show()
-				lastDD = GetTime()
-			end
-		elseif args:IsSpellID(71237) and args:IsPlayer() then
-			specWarnCurseTorpor:Show()
-		elseif args:IsSpellID(70674) and not args:IsDestTypePlayer() and (UnitName("target") == L.Fanatic1 or UnitName("target") == L.Fanatic2 or UnitName("target") == L.Fanatic3) then
-			specWarnVampricMight:Show(args.destName)
-		elseif args:IsSpellID(71204) then
-			warnTouchInsignificance:Show(args.spellName, args.destName, args.amount or 1)
-			timerTouchInsignificance:Start(args.destName)
-			if args:IsPlayer() and (args.amount or 1) >= 3 and (mod:IsDifficulty("normal10") or mod:IsDifficulty("normal25")) then
-				specWarnTouchInsignificance:Show(args.amount)
-			elseif args:IsPlayer() and (args.amount or 1) >= 5 and (mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25")) then
-				specWarnTouchInsignificance:Show(args.amount)
-			end
+			self:showDominateMindWarning()
+		else
+			self:ScheduleMethod(0.9, "showDominateMindWarning")
+		end
+	elseif args:IsSpellID(71001, 72108, 72109, 72110) then
+		if args:IsPlayer() then
+			specWarnDeathDecay:Show()
+		end
+		if (GetTime() - lastDD > 5) then
+			warnDeathDecay:Show()
+			lastDD = GetTime()
+		end
+	elseif args:IsSpellID(71237) and args:IsPlayer() then
+		specWarnCurseTorpor:Show()
+	elseif args:IsSpellID(70674) and not args:IsDestTypePlayer() and (UnitName("target") == L.Fanatic1 or UnitName("target") == L.Fanatic2 or UnitName("target") == L.Fanatic3) then
+		specWarnVampricMight:Show(args.destName)
+	elseif args:IsSpellID(71204) then
+		warnTouchInsignificance:Show(args.spellName, args.destName, args.amount or 1)
+		timerTouchInsignificance:Start(args.destName)
+		if args:IsPlayer() and (args.amount or 1) >= 3 and (mod:IsDifficulty("normal10") or mod:IsDifficulty("normal25")) then
+			specWarnTouchInsignificance:Show(args.amount)
+		elseif args:IsPlayer() and (args.amount or 1) >= 5 and (mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25")) then
+			specWarnTouchInsignificance:Show(args.amount)
 		end
 	end
-	mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
+end
+mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
+
+function mod:unequip()
+	-- print("DEBUG: unequip() called")
+	if mod:IsTank() or mod:IsHealer() then
+		return
+	end
+
+	if GetInventoryItemID("player", 16) then
+		PickupInventoryItem(16)
+		PutItemInBackpack()
+		PickupInventoryItem(17)
+		PutItemInBackpack()
+		PickupInventoryItem(18)
+		PutItemInBackpack()
+		ttsUnequipped:Play()
+	end
+end
+
+function mod:equip()
+	if not GetInventoryItemID("player", 16) and not UnitAura("player", "Dominate Mind") and HasFullControl() and not UnitIsDeadOrGhost("player") then
+		if GetEquipmentSetInfoByName("dps") then
+			UseEquipmentSet("dps")
+			ttsEquipped:Play()
+		end
+	end
+end
+
+function mod:equip_fallback()
+	if not GetInventoryItemID("player", 16) then
+		self:equip()
+		self:ScheduleMethod(0.1, "equip_fallback")
+	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
@@ -196,6 +293,16 @@ function mod:SPELL_AURA_REMOVED(args)
 			warnAddsSoon:Cancel()
 			self:UnscheduleMethod("addsTimer")
 		end
+	elseif args:IsSpellID(71289) and (self.Options.EnableOldAutoWeaponUnequipOnMC or self.Options.EnableAutoWeaponUnequipOnMC) and (mod:IsDifficulty("heroic25") or mod:IsDifficulty("heroic10")) then
+		self:equip()
+		-- attempt to reequip every 0.1 sec in case you are still CCd
+		self:ScheduleMethod(0.1, "equip_fallback")
+	end
+end
+
+function mod:SPELL_CAST_SUCCESS(args)
+	if self.Options.EnableAutoWeaponUnequipOnMC and args:IsSpellID(71289) and args:IsPlayer() then
+		self:unequip()
 	end
 end
 
@@ -232,15 +339,32 @@ function mod:SPELL_SUMMON(args)
 	if args:IsSpellID(71426) then -- Summon Vengeful Shade
 		if time() - lastSpirit > 5 then
 			warnSummonSpirit:Show()
+			ttsSpiritsSpawned:Play()
 			timerSummonSpiritCD:Start()
 			lastSpirit = time()
+			mod:Schedule(0.5, checkSpiritTarget)
 		end
+	end
+end
+
+-- temporary detection logic from https://github.com/Chenocide/Deadly-Boss-Mods
+-- after more testing, will use event based triggers for less latency and maybe even zero false positives
+function checkSpiritTarget()
+	local isTanking = UnitDetailedThreatSituation("player", "target")
+	if UnitThreatSituation("player")==3 and not isTanking then
+		specWarnVengefulShade:Show()
+		SendChatMessage("Spirit on me!", "SAY")
+		ttsOnYouRun:Play()
+		print("--- spirit detected ---")
+	elseif time() - lastSpirit < 4 then
+		mod:Schedule(0.15, checkSpiritTarget)
 	end
 end
 
 function mod:SWING_DAMAGE(args)
 	if args:IsPlayer() and args:GetSrcCreatureID() == 38222 then
 		specWarnVengefulShade:Show()
+		-- ttsOnYouRun:Play() -- broken, only activates once spirits exploded
 	end
 end
 

@@ -28,13 +28,17 @@ local warnRuneofBlood		= mod:NewTargetAnnounce(72410, 3, nil, mod:IsTank() or mo
 local specwarnMark			= mod:NewSpecialWarningTarget(72444, false)
 local specwarnRuneofBlood	= mod:NewSpecialWarningTarget(72410, mod:IsTank())
 
-local timerCombatStart		= mod:NewTimer(48, "TimerCombatStart", 2457)
+local timerCombatStart		= mod:NewTimer(47.3, "TimerCombatStart", 2457)
 local timerRuneofBlood		= mod:NewNextTimer(20, 72410, nil, mod:IsTank() or mod:IsHealer())
 local timerBoilingBlood		= mod:NewNextTimer(15.5, 72441)
 local timerBloodNova		= mod:NewNextTimer(20, 73058)
 local timerCallBloodBeast	= mod:NewNextTimer(40, 72173)
 
-local enrageTimer			= mod:NewBerserkTimer(480)
+local enrageTimer			= mod:NewBerserkTimer(420)
+
+local ttsPing = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\ping.mp3", "TTS mark on you ping", select(2, UnitClass("player")) == "ROGUE" or select(2, UnitRace("player")) == "NightElf")
+local ttsVanishOnMark = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\vanish.mp3", "TTS vanish callout on mark if rogue", select(2, UnitClass("player")) == "ROGUE")
+local ttsShadowmeldOnMark = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\onYou.mp3", "TTS 'on you' callout if you can shadowmeld mark", select(2, UnitRace("player")) == "NightElf")
 
 mod:AddBoolOption("RangeFrame", mod:IsRanged())
 mod:AddBoolOption("RunePowerFrame", true, "misc")
@@ -88,7 +92,7 @@ do	-- add the additional Rune Power Bar
 	local last = 0
 	local function getRunePowerPercent()
 		local guid = UnitGUID("focus")
-		if mod:GetCIDFromGUID(guid) == 37813 then 
+		if mod:GetCIDFromGUID(guid) == 37813 then
 			last = math.floor(UnitPower("focus")/UnitPowerMax("focus") * 100)
 			return last
 		end
@@ -131,7 +135,7 @@ do
 		currentIcon = 1
 		iconsSet = 0
 	end
-	
+
 	local lastBeast = 0
 	function mod:SPELL_SUMMON(args)
 		if args:IsSpellID(72172, 72173) or args:IsSpellID(72356, 72357, 72358) then -- Summon Blood Beasts
@@ -150,7 +154,7 @@ do
 			end
 		end
 	end
-	
+
 	mod:RegisterOnUpdateHandler(function(self)
 		if self.Options.BeastIcons and (DBM:GetRaidRank() > 0 and not (iconsSet == 5 and self:IsDifficulty("normal25", "heroic25") or iconsSet == 2 and self:IsDifficulty("normal10", "heroic10"))) then
 			for i = 1, GetNumRaidMembers() do
@@ -170,6 +174,17 @@ function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(72293) then		-- Mark of the Fallen Champion
 		warnMark:Show(args.destName)
 		specwarnMark:Show(args.destName)
+		if args:IsPlayer() then
+			if GetSpellCooldown("Vanish") == 0 then
+				ttsPing:Play()
+				ttsVanishOnMark:Play()
+			end
+
+			if GetSpellCooldown("Shadowmeld") == 0 then
+				ttsPing:Play()
+				ttsShadowmeldOnMark:Play()
+			end
+		end
 	elseif args:IsSpellID(72385, 72441, 72442, 72443) then	-- Boiling Blood
 		boilingBloodTargets[#boilingBloodTargets + 1] = args.destName
 		timerBoilingBlood:Start()
@@ -197,7 +212,7 @@ end
 function mod:UNIT_HEALTH(uId)
 	if not warned_preFrenzy and self:GetUnitCreatureId(uId) == 37813 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.33 then
 		warned_preFrenzy = true
-		warnFrenzySoon:Show()	
+		warnFrenzySoon:Show()
 	end
 end
 
@@ -205,6 +220,6 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if msg:find(L.PullAlliance, 1, true) then
 		timerCombatStart:Start()
 	elseif msg:find(L.PullHorde, 1, true) then
-		timerCombatStart:Start(99)
+		timerCombatStart:Start(98.96)	-- Deathbringer Saurfang Pull Timer
 	end
 end

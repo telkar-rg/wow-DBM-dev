@@ -1,9 +1,9 @@
 local mod	= DBM:NewMod("Gehennas", "DBM-MC", 1)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 183 $"):sub(12, -3))
-mod:SetCreatureID(12259)--, 11661
-mod:RegisterCombat("combat", 12259)
+mod:SetRevision(("$Revision: 132 $"):sub(12, -3))
+mod:SetCreatureID(12259)
+mod:RegisterCombat("combat")
 
 mod:RegisterEvents(
 	"SPELL_CAST_SUCCESS",

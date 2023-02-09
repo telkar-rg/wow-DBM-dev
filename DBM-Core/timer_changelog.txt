@@ -1,0 +1,29 @@
+2020-05-18 data provided by "Aegwyhn | Ymiria"
+	ChamberOfAspects/Ruby/Zarithrian/timerCleaveArmor 30->15
+	Icecrown/TheLowerSpire/LordMarrowgar/berserkTimer 600->360
+	Icecrown/TheLowerSpire/Deathwhisper/berserkTimer 600->420
+	Icecrown/TheLowerSpire/Deathbringer/enrageTimer 480->420
+	Icecrown/TheCrimsonHall/BPCouncil/berserkTimer 600->360
+	Icecrown/TheCrimsonHall/Lanathel/berserkTimer 330->300
+
+2020-05-19
+	Putricide phase 3 timerChokingGasBombCD 12->35.5
+	Lich King first necrotic timer CD 27->31
+
+2020-05-26
+	Deathwhisper/timerDominateMindCD on combat start 30->27.5
+
+2020-07-30
+	Icecrown/ThePlagueworks/Putricide/berserkTimer 600 -> 480
+
+Mon Aug 10 01:51:30 CEST 2020
+	Deathwhisper/timerDominateMindCD on combat start 30->27.5 for normal aswell
+
+Sun Aug 16 15:08:29 CEST 2020
+	Deathwhisper/addsTimer on combat start 7->6
+
+Tue Oct 27 20:18:23 CET 2020
+	initial heroic phase 2 cutter CD: DBM-ChamberOfAspects/Ruby/Halion/timerTwilightCutterCD:Start 30->35
+
+Fri Feb 12 20:05:15 CET 2021
+	DBM-Coliseum/NorthrendBeasts.lua/timerCombatStart 15 -> 23.5

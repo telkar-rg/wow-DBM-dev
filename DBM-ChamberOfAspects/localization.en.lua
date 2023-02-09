@@ -192,5 +192,7 @@ L:SetMiscLocalization({
 	WhisperCombustion		= "Combustion on you! Run to the wall!",
 	YellConsumption			= "Consumption on me!",
 	WhisperConsumption		= "Consumption on you! Run to the wall!",
-	Kill					= "Relish this victory, mortals, for it will be your last. This world will burn with the master's return!"
+	Kill					= "Relish this victory, mortals, for it will be your last. This world will burn with the master's return!",
+	CorporealityOut			= "Your efforts force Halion further out of the twilight realm!",
+	CorporealityIn			= "Your companions' efforts force Halion further into the twilight realm!"
 })

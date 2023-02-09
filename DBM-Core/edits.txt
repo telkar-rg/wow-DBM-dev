@@ -1,0 +1,47 @@
+not up-to-date:
+
+Based on DBM-4.52(4442) edited by Raf
+	Backported minimap-esque range radar from cata DBM
+	Fixed up ToC scripts
+	and more
+
+
+Applied most timer fixes for warmane from Sariyo
+https://forum.warmane.com/showthread.php?t=417042
+https://github.com/Ayaro1/DBM_Warmane_Icecrown
+up to date with Latest commit 615003c May 14, 2020
+
+
+Audio cues for:
+Festergut
+	Gas Spore callout
+	Gas Spore chat message as tank
+BPCouncil:
+	Near Vortex callout
+BQL:
+	SwarmingShadows Countdown
+	SwarmingShadows callout
+	Pact callout
+LK:
+	Defile Countdown
+	Soulreaper Countdown for tanks
+	Necrotic Countdown
+	Necrotic callout on non-tanks
+	Infest Countdown for healer
+Putricide:
+	UnboundPlagueCD countdown
+	MalleableGoo callout
+	Ooze/Gas variable callout
+	Choking callout
+Lady:
+	Mindcontrol Countdown
+	Spirit spawn callout
+	Spirit target callout
+Sindy:
+	High Chilled to the Bone callout
+	Beacon callout
+	Unchained callout
+Valithria:
+	Supresser callout
+Rotface:
+	Poison Slime Pipes Countdown for rdps
