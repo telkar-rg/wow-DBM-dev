@@ -563,6 +563,7 @@ function createRadarFrame()
 		)
 		charm:Hide()
 		charms[i] = charm
+	end
 	
 	for i=1, 10 do -- DBM 1.4a
 		local numeral = radarFrame:CreateTexture("DBMRangeCheckRadarNumeral"..i, "OVERLAY")
@@ -763,6 +764,7 @@ do
 				end
 				for i = 1, 8 do
 					charms[i]:Hide()
+				end
 				for i = 1, 10 do -- DBM 1.4a
 					icon_numerals[i]:Hide()
 				end
@@ -791,6 +793,7 @@ do
 					end
 					for i=1, 8 do
 						charms[i]:Hide()
+					end
 					for i = 1, 10 do -- DBM 1.4a
 						icon_numerals[i]:Hide()
 					end
@@ -844,6 +847,8 @@ do
 					radarFrame.circle:SetVertexColor(1,1,0)
 				else
 					radarFrame.circle:SetVertexColor(0,1,0)
+				end
+				
 				-- added for DBM 1.4a Numerals
 				if coord_numerals and coord_numerals["mapName"] == mapName and coord_numerals["mapLevel"] == level and coord_numerals["length"] > 0 then
 					-- if correct mapName and mapLevel and valid table length, then use the numerals
@@ -881,6 +886,7 @@ do
 				end
 				for i = 1, 8 do
 					charms[i]:Hide()
+				end
 				for i = 1, 10 do -- DBM 1.4a
 					icon_numerals[i]:Hide()
 				end
