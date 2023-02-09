@@ -68,6 +68,20 @@ local brainLinkTargets = {}
 local brainLinkIcon = 7
 local Guardians = 0
 
+local numeral_table = { -- DBM 1.4a
+	["mapName"] = "Ulduar",
+	["mapLevel"] = 3, -- only in "descent into madness"
+	[1] = {0.681031, 0.356199},
+	[2] = {0.695205, 0.362903},
+	[3] = {0.703943, 0.379381},
+	[4] = {0.705289, 0.400340},
+	[5] = {0.699395, 0.418070},
+	[6] = {0.681031, 0.430334},
+	[7] = {0.662667, 0.418070},
+	[8] = {0.656773, 0.400340},
+	[9] = {0.658119, 0.379381},
+	[10] = {0.666857, 0.362903},
+}
 function mod:OnCombatStart(delay)
 	Guardians = 0
 	phase = 1
@@ -78,6 +92,9 @@ function mod:OnCombatStart(delay)
 	end
 	if self.Options.ShowSaraHealth then
 		DBM.BossHealth:AddBoss(33134, L.Sara)
+	end
+	if self.Options.RangeFrame then -- DBM 1.4a
+		DBM.RangeCheck:Show("range", 12, "filter", GetRaidTargetIndex, "numeral", numeral_table)
 	end
 	table.wipe(targetWarningsShown)
 	table.wipe(brainLinkTargets)
@@ -233,5 +250,9 @@ function mod:OnSync(msg)
 		warnBrainPortalSoon:Cancel()
 		timerNextDeafeningRoar:Start(30)
 		warnDeafeningRoarSoon:Schedule(25)
+		
+		if self.Options.RangeFrame then -- DBM 1.4a
+			DBM.RangeCheck:Hide()
+		end
 	end
 end

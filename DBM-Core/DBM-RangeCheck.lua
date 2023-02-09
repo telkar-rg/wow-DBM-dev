@@ -66,6 +66,9 @@ local initializeDropdown
 local initRangeCheck -- initializes the range check for a specific range (if necessary), returns false if the initialization failed (because of a map range check in an unknown zone)
 local dots = {}
 local charms = {}
+local icon_numerals = {}
+local dot_numerals = {}
+local coord_numerals = {}
 
 -- for Phanx' Class Colors
 local RAID_CLASS_COLORS = CUSTOM_CLASS_COLORS or RAID_CLASS_COLORS
@@ -81,6 +84,14 @@ local CHARM_TEX_COORDS = {
 	[8] = 	{ 0.75, 1,    0.25, 0.5  }
 }
 
+-- DBM 1.4a
+local NUMERAL_COLORS = {
+	[0] = { 1.0, 1.0, 1.0 },
+	[1] = { 0.6, 1.0, 0.3 }, -- green
+	[2] = { 1.0, 0.4, 0.8 }, -- magenta
+	[3] = { 1.0, 0.9, 0.3 }, -- yellow
+	[4] = { 0.3, 0.7, 1.0 }  -- blue
+}
 local hexColors = {}
 local vertexColors = {}
 for k, v in pairs(RAID_CLASS_COLORS) do
@@ -552,6 +563,17 @@ function createRadarFrame()
 		)
 		charm:Hide()
 		charms[i] = charm
+	
+	for i=1, 10 do -- DBM 1.4a
+		local numeral = radarFrame:CreateTexture("DBMRangeCheckRadarNumeral"..i, "OVERLAY")
+		numeral:SetTexture( string.format("Interface\\AddOns\\DBM-Core\\textures\\Numerals\\numeral_%d.tga", i) )
+		numeral:SetWidth(16)
+		numeral:SetHeight(16)
+		numeral:SetVertexColor(unpack(NUMERAL_COLORS[i % 5]))
+		numeral.x = 0
+		numeral.y = 0
+		numeral:Hide()
+		icon_numerals[i] = numeral
 	end
 
 	radarFrame:Hide()
@@ -623,6 +645,10 @@ do
 	end
 
 	local function setDotColor(id, class)
+		if not class then -- set to white color, dont set .class so we can try again later when class returns properly i guess?
+			dots[id].dot:SetVertexColor(unpack(vertexColors["PRIEST"]))
+			return
+		end
 		if class and class == dots[id].class then return end
 
 		dots[id].dot:SetVertexColor(unpack(vertexColors[class]))
@@ -682,6 +708,39 @@ do
 			dots[id].maybeTooClose = false
 		end
 	end
+	
+	-- DBM 1.4a
+	local function createDotNumeral(idx)
+		local numeral = radarFrame:CreateTexture("DBMRangeCheckRadarNumeral"..idx, "OVERLAY")
+		numeral:SetTexture( string.format("Interface\\AddOns\\DBM-Core\\textures\\Numerals\\numeral_%d.tga", idx) )
+		numeral:SetWidth(16)
+		numeral:SetHeight(16)
+		numeral:SetVertexColor(unpack(NUMERAL_COLORS[idx % 5]))
+		numeral:Hide()
+		icon_numerals[idx] = numeral
+	
+		return numeral
+	end
+
+	local function setDotNumeral(idx)
+		if not(type(idx)=="number" and (idx>=1 and idx<=10) ) then return end
+		
+		local numeral = icon_numerals[idx] or createDotNumeral(idx)		-- load the dot, or create a new one if none exists yet (creating new probably never happens as the dots are created when the frame is created)
+		local x = numeral.x
+		local y = numeral.y
+		local range = (x*x + y*y) ^ 0.5
+		if range < (1.5 * frame.range) then							-- if person is closer than 1.5 * range, show the dot. Else hide it
+			local dx = ((x * math.cos(rotation)) - (-y * math.sin(rotation))) * pixelsperyard		-- Rotate the X,Y based on player facing
+			local dy = ((x * math.sin(rotation)) + (-y * math.cos(rotation))) * pixelsperyard
+
+			numeral:ClearAllPoints()
+			numeral:SetPoint("CENTER", radarFrame, "CENTER", dx, dy)
+			numeral:Show()
+		else
+			numeral:Hide()
+		end
+	end
+	-- ######
 
 	function onUpdateRadar(self, elapsed)
 		if initRangeCheck(frame.range) then--This is basically fixing a bug with map not being on right dungeon level half the time.
@@ -704,6 +763,8 @@ do
 				end
 				for i = 1, 8 do
 					charms[i]:Hide()
+				for i = 1, 10 do -- DBM 1.4a
+					icon_numerals[i]:Hide()
 				end
 			else
 				isInSupportedArea = true
@@ -730,6 +791,8 @@ do
 					end
 					for i=1, 8 do
 						charms[i]:Hide()
+					for i = 1, 10 do -- DBM 1.4a
+						icon_numerals[i]:Hide()
 					end
 				end
 				prevNumPlayers = numPlayers
@@ -781,7 +844,29 @@ do
 					radarFrame.circle:SetVertexColor(1,1,0)
 				else
 					radarFrame.circle:SetVertexColor(0,1,0)
+				-- added for DBM 1.4a Numerals
+				if coord_numerals and coord_numerals["mapName"] == mapName and coord_numerals["mapLevel"] == level and coord_numerals["length"] > 0 then
+					-- if correct mapName and mapLevel and valid table length, then use the numerals
+					local x,y
+					
+					for i = 1, 10 do
+						if i > coord_numerals["length"] then
+							icon_numerals[i]:Hide() -- hide all numerals that are unused
+						else
+							x = coord_numerals[i][1] -- get numeral fixed coordinates
+							y = coord_numerals[i][2]
+							icon_numerals[i].x = (x - playerX) * dims[1] -- calculate delta coordinates to player
+							icon_numerals[i].y = (y - playerY) * dims[2]
+							setDotNumeral(i) -- update the numeral with new delta coords
+						end
+					end
+				else -- otherwise make sure that they are hidden
+					for i = 1, 10 do
+						icon_numerals[i]:Hide()
+					end
 				end
+				
+				
 				self:Show()
 			end
 		else
@@ -796,6 +881,8 @@ do
 				end
 				for i = 1, 8 do
 					charms[i]:Hide()
+				for i = 1, 10 do -- DBM 1.4a
+					icon_numerals[i]:Hide()
 				end
 			end
 		end
@@ -890,11 +977,52 @@ end
 ---------------
 --  Methods  --
 ---------------
-function rangeCheck:Show(range, filter)
+-- function rangeCheck:Show(range, filter)
+function rangeCheck:Show(...)
+	local args,arg1,arg2,range,filter,numeral_arg
+	args = {...}
+	arg1, arg2 = ...
+	
 	SetMapToCurrentZone()--Set map to current zone before checking other stuff, work around annoying bug i hope?
-	if type(range) == "function" then -- the first argument is optional
-		return self:Show(nil, range)
+	
+	if type(arg1) == "function" then -- the first argument is optional
+		return self:Show(nil, arg1)
 	end
+	
+	if type(arg1) == "number" then -- old 2.0 functionality
+		range = arg1
+		filter = arg2
+	else -- 2.0a functionality: We expect (string-kw-arg, value-arg) pairs in the argument list
+		for i=1, #args/2 do -- go through all arg-pairs we got
+			arg1 = table.remove(args, 1)
+			arg2 = table.remove(args, 1)
+			
+			if arg1 == "range" then
+				range = arg2
+			elseif arg1 == "filter" then
+				filter = arg2
+			elseif arg1 == "numeral" then
+				numeral_arg = arg2
+			end
+		end
+	end
+	
+	if type(numeral_arg) == "table" then
+		local x, y, i, c
+		i=0
+		for k,v in pairs(coord_numerals) do coord_numerals[k] = nil end -- clear old numeral settings
+		coord_numerals["mapName"] =  numeral_arg["mapName"]  -- store new mapname
+		coord_numerals["mapLevel"] = numeral_arg["mapLevel"] -- store new level
+		coord_numerals["length"] = 0 -- default value
+		
+		for i=1,10  do -- get numeral coordinates (up to 10, cuz we have 10 numeral images)
+			if not numeral_arg[i]then break end -- stop if less than 10
+			coord_numerals[i] = numeral_arg[i]
+			coord_numerals["length"] = i -- store current number of numeral coords
+		end
+	end
+	
+	-- unchanged 1.4 code
 	local mapName = GetMapInfo()
 	range = range or 10
 	frame = frame or createFrame()
