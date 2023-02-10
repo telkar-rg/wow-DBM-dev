@@ -997,7 +997,7 @@ function rangeCheck:Show(...)
 		return self:Show(nil, arg1)
 	end
 	
-	if type(arg1) == "number" then -- old 2.0 functionality
+	if type(arg1) == "number" then -- old 1.4 functionality
 		range = arg1
 		filter = arg2
 	else -- 2.0a functionality: We expect (string-kw-arg, value-arg) pairs in the argument list
