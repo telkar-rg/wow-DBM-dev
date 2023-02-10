@@ -62,6 +62,8 @@ mod:AddBoolOption("SetIconOnFervorTarget")
 mod:AddBoolOption("SetIconOnBrainLinkTarget")
 mod:AddBoolOption("MaladyArrow")
 
+mod:AddBoolOption("RangeFramePortal", true)
+
 local phase							= 1
 local targetWarningsShown			= {}
 local brainLinkTargets = {}
@@ -70,7 +72,7 @@ local Guardians = 0
 
 local numeral_table = { -- DBM 1.4a
 	["mapName"] = "Ulduar",
-	["mapLevel"] = 3, -- only in "descent into madness"
+	["mapLevel"] = 4, -- only in "descent into madness"
 	[1] = {0.681031, 0.356199},
 	[2] = {0.695205, 0.362903},
 	[3] = {0.703943, 0.379381},
@@ -93,11 +95,19 @@ function mod:OnCombatStart(delay)
 	if self.Options.ShowSaraHealth then
 		DBM.BossHealth:AddBoss(33134, L.Sara)
 	end
-	if self.Options.RangeFrame then -- DBM 1.4a
+	if self.Options.RangeFramePortal then -- DBM 1.4a
 		DBM.RangeCheck:Show("range", 12, "filter", GetRaidTargetIndex, "numeral", numeral_table)
 	end
 	table.wipe(targetWarningsShown)
 	table.wipe(brainLinkTargets)
+	
+	DEFAULT_CHAT_FRAME:AddMessage("-- DEBUG")
+end
+
+function mod:OnCombatEnd()
+	if self.Options.RangeFrame then -- DBM 1.4a
+		DBM.RangeCheck:Hide()
+	end
 end
 
 function mod:FervorTarget()
@@ -251,7 +261,7 @@ function mod:OnSync(msg)
 		timerNextDeafeningRoar:Start(30)
 		warnDeafeningRoarSoon:Schedule(25)
 		
-		if self.Options.RangeFrame then -- DBM 1.4a
+		if self.Options.RangeFramePortal then -- DBM 1.4a
 			DBM.RangeCheck:Hide()
 		end
 	end

@@ -754,7 +754,9 @@ do
 			end
 
 			local mapName = GetMapInfo()
-			local dims  = DBM.MapSizes[mapName] and DBM.MapSizes[mapName][GetCurrentMapDungeonLevel()]
+			local mapLevel = GetCurrentMapDungeonLevel()
+			
+			local dims  = DBM.MapSizes[mapName] and DBM.MapSizes[mapName][mapLevel]
 			if not dims then -- This ALWAYS happens when leaving a zone that has a map and moving into one that does not.
 				if select(3, radarFrame.circle:GetVertexColor()) < 0.5 then
 					radarFrame.circle:SetVertexColor(1,1,1)
@@ -850,7 +852,7 @@ do
 				end
 				
 				-- added for DBM 1.4a Numerals
-				if coord_numerals and coord_numerals["mapName"] == mapName and coord_numerals["mapLevel"] == level and coord_numerals["length"] > 0 then
+				if coord_numerals and coord_numerals["mapName"] == mapName and coord_numerals["mapLevel"] == mapLevel and coord_numerals["length"] > 0 then
 					-- if correct mapName and mapLevel and valid table length, then use the numerals
 					local x,y
 					
