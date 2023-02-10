@@ -100,8 +100,6 @@ function mod:OnCombatStart(delay)
 	end
 	table.wipe(targetWarningsShown)
 	table.wipe(brainLinkTargets)
-	
-	DEFAULT_CHAT_FRAME:AddMessage("-- DEBUG")
 end
 
 function mod:OnCombatEnd()
