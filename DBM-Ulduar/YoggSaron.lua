@@ -62,7 +62,7 @@ mod:AddBoolOption("SetIconOnFervorTarget")
 mod:AddBoolOption("SetIconOnBrainLinkTarget")
 mod:AddBoolOption("MaladyArrow")
 
-mod:AddBoolOption("RangeFramePortal", true)
+mod:AddBoolOption("RangeFramePortal25", true)
 
 local phase							= 1
 local targetWarningsShown			= {}
@@ -95,9 +95,12 @@ function mod:OnCombatStart(delay)
 	if self.Options.ShowSaraHealth then
 		DBM.BossHealth:AddBoss(33134, L.Sara)
 	end
-	if self.Options.RangeFramePortal then -- DBM 1.4a
-		DBM.RangeCheck:Show("range", 12, "filter", GetRaidTargetIndex, "numeral", numeral_table)
+	if self.Options.RangeFramePortal25 then -- DBM 1.4a
+		if (mod:IsDifficulty("normal25") or mod:IsDifficulty("heroic25")) then	-- 25 player mode only
+			DBM.RangeCheck:Show("range", 12, "filter", GetRaidTargetIndex, "numeral", numeral_table)
+		end
 	end
+	
 	table.wipe(targetWarningsShown)
 	table.wipe(brainLinkTargets)
 end
@@ -259,7 +262,7 @@ function mod:OnSync(msg)
 		timerNextDeafeningRoar:Start(30)
 		warnDeafeningRoarSoon:Schedule(25)
 		
-		if self.Options.RangeFramePortal then -- DBM 1.4a
+		if self.Options.RangeFramePortal25 then -- DBM 1.4a
 			DBM.RangeCheck:Hide()
 		end
 	end
