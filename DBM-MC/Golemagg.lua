@@ -1,9 +1,9 @@
 local mod	= DBM:NewMod("Golemagg", "DBM-MC", 1)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 132 $"):sub(12, -3))
-mod:SetCreatureID(11988)
-mod:RegisterCombat("combat")
+mod:SetRevision(("$Revision: 183 $"):sub(12, -3))
+mod:SetCreatureID(11988)--, 11672
+mod:RegisterCombat("combat", 11988)
 
 mod:RegisterEvents(
 	"SPELL_AURA_APPLIED",
