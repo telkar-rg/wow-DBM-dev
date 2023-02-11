@@ -326,7 +326,10 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill			= "第一隻元素死亡 - 大約12秒後復活"
+	WarnSimulKill		= "第一隻元素死亡 - 大約12秒後復活"
+	SpecWarnFury		= "自然之怒",
+	WarningTremor		= "大地震颤"
+	-- WarnRoots			= "Iron Roots on >%s<"
 }
 
 L:SetTimerLocalization{
@@ -353,12 +356,22 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
+	SpecWarnFistOfStone		= "岩石之拳",
+	SpecWarnGroundTremor	= "大地震颤",
+	specWarnPetrifiedBark	= "石化树皮"
 }
 
 L:SetOptionLocalization{
-	PlaySoundOnFistOfStone		= "為石拳連擊播放音效",
+	SpecWarnFistOfStone		= "當你中了$spell:62344時顯示特別警告",
+	SpecWarnGroundTremor	= "當你中了$spell:62932時顯示特別警告",
+	specWarnPetrifiedBark	= "當你中了$spell:62933時顯示特別警告",
+	PlaySoundOnFistOfStone	= "當$spell:62344施放時播放音效",
+	PlaySoundOnGroundTremor	= "當$spell:62932施放時播放音效",
+	PlaySoundOnPetrifiedBark	= "當$spell:62933施放時播放音效",
 	TrashRespawnTimer		= "為芙蕾雅的小怪重生顯示計時器"
 }
+-- "當$spell:63490施放時播放音效"
+--"當你中了$spell:64733時顯示特別警告",
 
 ---------------
 --  Mimiron  --

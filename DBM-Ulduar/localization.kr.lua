@@ -390,10 +390,10 @@ L:SetOptionLocalization{
 	WarnSimulKill			= "첫번째 소환수 죽음 알리기",
 	WarnRoots 				= "무쇠뿌리 대상 알리기",	
 	SpecWarnFury 			= "당신이 자연의 격노일 경우 특수 경고 보기",
-	PlaySoundOnFury			= "자연의 격노 특수 사운드 재생",
 	WarningTremor  	 		= "지진 시전 특수 경고 보기 (하드 모드)",
-	TimerSimulKill			= "소환수 부활 타이머 보기",	
-	UnstableEnergy			= "당신이 불안정한 힘에게 영향을 받을 때 특수 경고 보기"	
+	PlaySoundOnFury			= "자연의 격노 특수 사운드 재생",
+	PlaySoundOnGroundTremor = "지반 떨림 사운드 재생",	-- deepl.com translation
+	TimerSimulKill			= "소환수 부활 타이머 보기"
 }
 
 ----------------------
@@ -408,6 +408,7 @@ L:SetGeneralLocalization{
 L:SetWarningLocalization{
 	SpecWarnFistOfStone 	= "돌덩이 주먹",
 	SpecWarnGroundTremor  	= "지진 - 시전 중지!"
+	specWarnPetrifiedBark	= "지진 - 근접 전투 중지"	-- deepl.com translation
 }
 
 L:SetMiscLocalization{
@@ -416,8 +417,11 @@ L:SetMiscLocalization{
 
 L:SetOptionLocalization{
 	SpecWarnFistOfStone		= "돌덩이 주먹 특수 경고 보기",
-	PlaySoundOnFistOfStone	= "돌덩이 주먹 특수 사운드 재생",
 	SpecWarnGroundTremor	= "지진 특수 경고 보기",
+	specWarnPetrifiedBark	= "석화된 나무껍질 특별 경고 보기", 	-- deepl.com translation
+	PlaySoundOnFistOfStone	= "돌덩이 주먹 특수 사운드 재생",
+	PlaySoundOnGroundTremor	= "땅 떨림 특수 효과음 재생 ", 	-- deepl.com translation
+	PlaySoundOnPetrifiedBark	= "석화된 나무껍질 특수 효과음 재생 ", 	-- deepl.com translation
 	TrashRespawnTimer		= "프레이야 지역 리젠 타이머 보기"
 }
 

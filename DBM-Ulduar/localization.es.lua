@@ -335,7 +335,10 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill	= "Primer add muerto - Resurrección en ~12 seg"
+	WarnSimulKill		= "Primer add muerto - Resurrección en ~12 seg"
+	SpecWarnFury		= "Furia de la naturaleza sobre ti!",	-- deepl.com translation
+	WarningTremor		= "Tremor terrenal - dejar de lanzar hechizos!",	-- deepl.com translation
+	WarnRoots			= "Raíces férreas sobre >%s<"	-- deepl.com translation
 }
 
 L:SetTimerLocalization{
@@ -344,7 +347,11 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarnSimulKill		= "Anunciar primer mob muerto",
-	PlaySoundOnFury 	= "Reproducir sonido cuando te afecte Furia de la naturaleza",
+	WarnRoots			= "Mostrar aviso para  $spell:62438",
+	SpecWarnFury		= "Mostrar aviso especial para $spell:63571",
+	WarningTremor		= "Mostrar aviso especial para $spell:62859",
+	PlaySoundOnFury 	= "Reproducir sonido cuando te afecte $spell:63571",
+	PlaySoundOnGroundTremor = "Reproducir sonido cuando castee $spell:62859",
 	TimerSimulKill		= "Mostrar resureccion de los mobs"
 }
 
@@ -363,11 +370,19 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
+	SpecWarnGroundTremor	= "Tremor terrenal - dejar de lanzar hechizos!",
+	SpecWarnFistOfStone		= "Puños de piedra",
+	specWarnPetrifiedBark	= "Petrified Bark - Detener melé & Cazador"
 }
 
 L:SetOptionLocalization{
-	PlaySoundOnFistOfStone	= "Reproducir sonido cuando castee Puños de piedra",
-	TrashRespawnTimer	= "Mostrar tiempo para reaparición de adds"
+	SpecWarnFistOfStone		= "Mostrar aviso especial para $spell:62344",
+	SpecWarnGroundTremor	= "Mostrar aviso especial para $spell:62932",
+	specWarnPetrifiedBark	= "Mostrar aviso especial para $spell:62933",
+	PlaySoundOnFistOfStone	= "Reproducir sonido cuando castee $spell:62344",
+	PlaySoundOnGroundTremor	= "Reproducir sonido cuando castee $spell:62932",
+	PlaySoundOnPetrifiedBark	= "Reproducir sonido cuando castee $spell:62933",
+	TrashRespawnTimer		= "Mostrar tiempo para reaparición de adds"
 }
 
 
