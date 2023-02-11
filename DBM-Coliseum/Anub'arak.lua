@@ -2,13 +2,13 @@
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision: 4435 $"):sub(12, -3))
-mod:SetCreatureID(34564)  
+mod:SetCreatureID(34564)
 
 mod:RegisterCombat("yell", L.YellPull)
 
 mod:RegisterEvents(
 	"SPELL_AURA_APPLIED",
-	"SPELL_AURA_REFRESH", 	
+	"SPELL_AURA_REFRESH",
 	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_START",
 	"CHAT_MSG_RAID_BOSS_EMOTE"
@@ -22,7 +22,6 @@ mod:AddBoolOption("RemoveHealthBuffsInP3", false)
 -- Adds
 local warnAdds				= mod:NewAnnounce("warnAdds", 3, 45419)
 local timerAdds				= mod:NewTimer(45, "timerAdds", 45419)
-local Burrowed				= false 
 
 -- Pursue
 local warnPursue			= mod:NewTargetAnnounce(67574, 4)
@@ -64,10 +63,15 @@ local preWarnShadowStrike	= mod:NewSoonAnnounce(66134, 3)
 local warnShadowStrike		= mod:NewSpellAnnounce(66134, 4)
 local specWarnShadowStrike	= mod:NewSpecialWarning("SpecWarnShadowStrike", mod:IsTank())
 
+local TTSstun = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\stunIn3.mp3", "TTS stun countdown", true)
+local stunTTSOffset = 4.87
+mod:AddBoolOption("BroadcastStunTimer", true)
+-- Shadow Strik stuns
+local stunTimer = mod:NewTimer(30, "Stun Adds!")
+
 function mod:OnCombatStart(delay)
-	Burrowed = false 
-	timerAdds:Start(10-delay) 
-	warnAdds:Schedule(10-delay) 
+	timerAdds:Start(10-delay)
+	warnAdds:Schedule(10-delay)
 	self:ScheduleMethod(10-delay, "Adds")
 	warnSubmergeSoon:Schedule(70-delay)
 	specWarnSubmergeSoon:Schedule(70-delay)
@@ -75,20 +79,73 @@ function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
 	timerFreezingSlash:Start(-delay)
 	if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
-		timerShadowStrike:Start()
-		preWarnShadowStrike:Schedule(25.5-delay)
-		self:ScheduleMethod(30.5-delay, "ShadowStrike")
+		-- Does not work on warmane, use "Stun Adds!" timer instead
+		-- timerShadowStrike:Start()
+		-- preWarnShadowStrike:Schedule(25.5-delay)
+		-- self:ScheduleMethod(30.5-delay, "ShadowStrike")
+		self:nextStunTimer()
 	end
 end
 
-function mod:Adds() 
-	if self:IsInCombat() then 
-		if not Burrowed then 
-			timerAdds:Start() 
-			warnAdds:Schedule(45) 
-			self:ScheduleMethod(45, "Adds") 
-		end 
-	end 
+function mod:nextStunTimer(duration)
+	local duration = duration or 30
+	self:UnscheduleMethod("nextStunTimer")
+	stunTimer:Cancel()
+	TTSstun:Cancel()
+	if self.Options.BroadcastStunTimer then
+		DBM:CreatePizzaTimer(duration, "Stun Adds!", true)
+	end
+	stunTimer:Start(duration)
+	TTSstun:Schedule(duration-stunTTSOffset)
+	self:ScheduleMethod(duration, "nextStunTimer")
+end
+
+--[[ old implementation
+-- set/reset on combatstart/combatend
+local stunCount = 0
+local stunTimerValues = {30, 30, 115, 30, 115, 30} -- for 2xburrow kill
+function mod:nextStunTimer()
+	self:UnscheduleMethod("nextStunTimer")
+	-- keep using the last when list exhausted
+	if stunCount < #stunTimerValues then
+		stunCount = stunCount + 1
+	end
+	local duration = stunTimerValues[stunCount]
+	if self.Options.BroadcastStunTimer then
+		DBM:CreatePizzaTimer(duration, "Stun Adds!", true)
+	end
+	stunTimer:Start(duration)
+	TTSstun:Schedule(duration-stunTTSOffset)
+	self:ScheduleMethod(duration, "nextStunTimer")
+end
+--]]
+
+--[[ older implementation
+function mod:nextStunTimer()
+	self:UnscheduleMethod("nextStunTimer")
+	local duration = stunTimerValues[1+(stunCount % #stunTimerValues)]
+	if self.Options.BroadcastStunTimer then
+		DBM:CreatePizzaTimer(duration, "Stun Adds!", true)
+	end
+	stunTimer:Start(duration)
+	TTSstun:Schedule(duration-stunTTSOffset)
+	self:ScheduleMethod(duration, "nextStunTimer")
+	stunCount = stunCount + 1
+end
+--]]
+
+function mod:OnCombatEnd()
+	self:UnscheduleMethod("nextStunTimer")
+	stunTimer:Stop()
+	TTSstun:Cancel()
+end
+
+function mod:Adds()
+	if self:IsInCombat() then
+		timerAdds:Start()
+		warnAdds:Schedule(45)
+		self:ScheduleMethod(45, "Adds")
+	end
 end
 
 function mod:ShadowStrike()
@@ -117,7 +174,7 @@ do
 				self:SetIcon(UnitName(v), PColdIcon)
 				PColdIcon = PColdIcon - 1
 			end
-			table.wipe(PColdTargets)	
+			table.wipe(PColdTargets)
 		end
 	end
 end
@@ -144,7 +201,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				self:SetPcoldIcons()--Sort and fire as early as possible once we have all targets.
 			end
 		end
-		timerPCold:Show() 
+		timerPCold:Show()
 	elseif args:IsSpellID(66012) then							-- Freezing Slash
 		warnFreezingSlash:Show(args.destName)
 		timerFreezingSlash:Start()
@@ -179,41 +236,35 @@ function mod:SPELL_CAST_START(args)
 			mod:ScheduleMethod(0.1, "RemoveBuffs")
 		end
 		if mod:IsDifficulty("normal10") or mod:IsDifficulty("normal25") then
-			timerAdds:Cancel() 
-			warnAdds:Cancel() 
+			timerAdds:Cancel()
+			warnAdds:Cancel()
 			self:UnscheduleMethod("Adds")
 		end
-	elseif args:IsSpellID(66134) then							-- Shadow Strike
-		self:ShadowStrike()
-		specWarnShadowStrike:Show()
-		warnShadowStrike:Show()
+	--elseif args:IsSpellID(66134) then							-- Shadow Strike
+		-- Does not work on warmane, use "Stun Adds!" timer instead
+		-- self:ShadowStrike()
+		-- specWarnShadowStrike:Show()
+		-- warnShadowStrike:Show()
 	end
 end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg)
 	if msg and msg:find(L.Burrow) then
-		Burrowed = true
 		timerAdds:Cancel()
 		warnAdds:Cancel()
 		warnSubmerge:Show()
 		warnEmergeSoon:Schedule(55)
 		timerEmerge:Start()
 		timerFreezingSlash:Stop()
-	elseif msg and msg:find(L.Emerge) then
-		Burrowed = false
-		timerAdds:Start(5)
-		warnAdds:Schedule(5)
-		self:ScheduleMethod(5, "Adds")
-		warnEmerge:Show()
-		warnSubmergeSoon:Schedule(65)
-		specWarnSubmergeSoon:Schedule(65)
-		timerSubmerge:Start()
-		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
-			timerShadowStrike:Stop()
-			preWarnShadowStrike:Cancel()
-			self:UnscheduleMethod("ShadowStrike")
-			self:ScheduleMethod(5.5, "ShadowStrike")  -- 35-36sec after Emerge next ShadowStrike
-		end
+		self:nextStunTimer(95)
+
+		timerAdds:Start(75)
+		warnAdds:Schedule(75)
+		self:UnscheduleMethod("Adds")
+		self:ScheduleMethod(75, "Adds")
+		warnSubmergeSoon:Schedule(130)
+		specWarnSubmergeSoon:Schedule(55)
+		timerSubmerge:Schedule(65)
 	end
 end
 

@@ -2,7 +2,7 @@ local mod	= DBM:NewMod("Valithria", "DBM-Icecrown", 4)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision: 4436 $"):sub(12, -3))
-mod:SetCreatureID(36789)
+mod:SetCreatureID(36789, 38589)
 mod:SetUsedIcons(8)
 mod:RegisterCombat("yell", L.YellPull)
 mod:RegisterKill("yell", L.YellKill)
@@ -29,6 +29,11 @@ local warnPortalOpen	= mod:NewAnnounce("WarnPortalOpen", 4, 72483)
 local specWarnLayWaste	= mod:NewSpecialWarningSpell(71730)
 local specWarnManaVoid	= mod:NewSpecialWarningMove(71741)
 
+local specWarnSuppresserOne			= mod:NewSpecialWarning("Suppressors", not mod:IsHealer())
+local specWarnSuppresserTwo			= mod:NewSpecialWarning("Suppressors", not mod:IsHealer())
+local specWarnSuppresserThree		= mod:NewSpecialWarning("Suppressors", not mod:IsHealer())
+local specWarnSuppresserFour		= mod:NewSpecialWarning("Suppressors", not mod:IsHealer())
+
 local timerLayWaste		= mod:NewBuffActiveTimer(12, 69325)
 local timerNextPortal	= mod:NewCDTimer(46.5, 72483, nil)
 local timerPortalsOpen	= mod:NewTimer(10, "TimerPortalsOpen", 72483)
@@ -37,6 +42,11 @@ local timerGutSpray		= mod:NewTargetTimer(12, 71283, nil, mod:IsTank() or mod:Is
 local timerCorrosion	= mod:NewTargetTimer(6, 70751, nil, false)
 local timerBlazingSkeleton	= mod:NewTimer(50, "TimerBlazingSkeleton", 17204)
 local timerAbom				= mod:NewTimer(50, "TimerAbom", 43392)--Experimental
+
+local timerSuppresserOne	= mod:NewTimer(69, "1st wave of Suppressors", not mod:IsHealer())
+local timerSuppresserTwo	= mod:NewTimer(60, "2nd wave of Suppressors", not mod:IsHealer())
+local timerSuppresserThree	= mod:NewTimer(70, "3rd wave of Suppressors", not mod:IsHealer())
+local timerSuppresserFour	= mod:NewTimer(70, "4th wave of Suppressors", not mod:IsHealer())
 
 local berserkTimer		= mod:NewBerserkTimer(420)
 
@@ -47,6 +57,8 @@ local spamSupression = 0
 local BlazingSkeletonTimer = 60
 local AbomTimer = 60
 local blazingSkeleton = nil
+
+local ttsSuppressersSpawned = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\suppressersSpawned.mp3", "TTS Unchained callout", mod:IsMelee() or mod:IsRanged())
 
 local function warnGutSprayTargets()
 	warnGutSpray:Show(table.concat(GutSprayTargets, "<, >"))
@@ -81,13 +93,30 @@ function mod:OnCombatStart(delay)
 	self:ScheduleMethod(46.5, "Portals")--This will never be perfect, since it's never same. 45-48sec variations
 	BlazingSkeletonTimer = 60
 	AbomTimer = 60
-	self:ScheduleMethod(50-delay, "StartBlazingSkeletonTimer")
-	self:ScheduleMethod(23-delay, "StartAbomTimer")
-	timerBlazingSkeleton:Start(-delay)
-	timerAbom:Start(23-delay)
+	self:ScheduleMethod(30-delay, "StartBlazingSkeletonTimer")
+	self:ScheduleMethod(5-delay, "StartAbomTimer")
+	timerBlazingSkeleton:Start(30-delay)
+	timerAbom:Start(5-delay)
 	table.wipe(GutSprayTargets)
 	blazingSkeleton = nil
+	timerSuppresserOne:Start(-delay)
+	timerSuppresserTwo:Schedule(69)
+	timerSuppresserThree:Schedule(124)
+	timerSuppresserFour:Schedule(179)
+	specWarnSuppresserOne:Schedule(69)
+	ttsSuppressersSpawned:Schedule(69)
+	specWarnSuppresserTwo:Schedule(130)
+	ttsSuppressersSpawned:Schedule(130)
+	specWarnSuppresserThree:Schedule(193)
+	ttsSuppressersSpawned:Schedule(193)
+	specWarnSuppresserFour:Schedule(254)
+	ttsSuppressersSpawned:Schedule(254)
 end
+
+function mod:OnCombatEnd()
+	ttsSuppressersSpawned:Cancel()
+end
+
 
 function mod:Portals()
 	warnPortal:Show()

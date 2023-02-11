@@ -24,10 +24,10 @@ local specWarnWhirlwind		= mod:NewSpecialWarningRun(69076)
 
 local timerBoneSpike		= mod:NewCDTimer(18, 69057)
 local timerWhirlwindCD		= mod:NewCDTimer(90, 69076)
-local timerWhirlwind		= mod:NewBuffActiveTimer(20, 69076)
+local timerWhirlwind		= mod:NewBuffActiveTimer(31, 69076)
 local timerBoned			= mod:NewAchievementTimer(8, 4610, "AchievementBoned")
 
-local berserkTimer			= mod:NewBerserkTimer(600)
+local berserkTimer			= mod:NewBerserkTimer(360)
 
 local soundWhirlwind = mod:NewSound(69076)
 mod:AddBoolOption("SetIconOnImpale", true)

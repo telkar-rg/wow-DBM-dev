@@ -46,6 +46,12 @@ local berserkTimer					= mod:NewBerserkTimer(320)
 
 local soundSwarmingShadows			= mod:NewSound(71266)
 
+local ttsSwarmingShadowsCD = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\swarmingShadows.mp3", "TTS Swarming Shadows Countdown", true)
+local ttsSwarmingShadowsCDOffset = 5.2
+local ttsMove = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\move.mp3", "TTS Swarming Shadows call", true)
+local ttsPact = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\pact.mp3", "TTS Pact call", true)
+local ttsPing = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\ping.mp3", "TTS Swarming Shadows ping", true)
+
 mod:AddBoolOption("BloodMirrorIcon", false)
 mod:AddBoolOption("SwarmingShadowsIcon", true)
 mod:AddBoolOption("SetIconOnDarkFallen", true)
@@ -67,6 +73,7 @@ function mod:OnCombatStart(delay)
 	timerFirstBite:Start(-delay)
 	timerNextPactDarkfallen:Start(15-delay)
 	timerNextSwarmingShadows:Start(-delay)
+	ttsSwarmingShadowsCD:Schedule(30-ttsSwarmingShadowsCDOffset)
 	table.wipe(pactTargets)
 	pactIcons = 6
 	if self.Options.RangeFrame then
@@ -75,7 +82,7 @@ function mod:OnCombatStart(delay)
 	if mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10") then
 		timerNextInciteTerror:Start(124-delay)
 	else
-		timerNextInciteTerror:Start(127-delay)
+		timerNextInciteTerror:Start(135-delay)
 	end
 end
 
@@ -83,6 +90,7 @@ function mod:OnCombatEnd()
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Hide()
 	end
+	ttsSwarmingShadowsCD:Cancel()
 end
 
 function mod:SPELL_AURA_APPLIED(args)
@@ -90,6 +98,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		pactTargets[#pactTargets + 1] = args.destName
 		if args:IsPlayer() then
 			specWarnPactDarkfallen:Show()
+			ttsPact:Play()
 		end
 		if self.Options.SetIconOnDarkFallen then--Debuff doesn't actually last 30 seconds
 			self:SetIcon(args.destName, pactIcons, 28)--it lasts forever, but if you still have it after 28 seconds
@@ -161,6 +170,8 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnInciteTerror:Show()
 		timerInciteTerror:Start()
 		timerNextSwarmingShadows:Start()--This resets the swarming shadows timer
+		ttsSwarmingShadowsCD:Cancel()
+		ttsSwarmingShadowsCD:Schedule(30.5-ttsSwarmingShadowsCDOffset)
 		timerNextPactDarkfallen:Start(25)--and the Pact timer also reset -5 seconds
 		if mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10") then
 			timerNextInciteTerror:Start(120)--120 seconds in between first and second on 10 man
@@ -182,6 +193,7 @@ do
 		if args:IsPlayer() and args:IsSpellID(71277, 72638, 72639, 72640) then		--Swarn of Shadows (spell damage, you're standing in it.)
 			if GetTime() - 3 > lastswarm then
 				specWarnSwarmingShadows:Show()
+				ttsPing:Play()
 				lastswarm = GetTime()
 			end
 		end
@@ -192,8 +204,12 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, _, _, _, target)
 	if msg:match(L.SwarmingShadows) then
 		warnSwarmingShadows:Show(target)
 		timerNextSwarmingShadows:Start()
+		ttsSwarmingShadowsCD:Cancel()
+		ttsSwarmingShadowsCD:Schedule(30.5-ttsSwarmingShadowsCDOffset)
 		if target == UnitName("player") then
 			specWarnSwarmingShadows:Show()
+			ttsPing:Play()
+			ttsMove:Play()
 			soundSwarmingShadows:Play()
 		end
 		if self.Options.SwarmingShadowsIcon then

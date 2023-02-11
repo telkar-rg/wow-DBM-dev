@@ -40,15 +40,18 @@ local timerShadowConsumptionCD		= mod:NewNextTimer(25, 74792)
 local timerFieryConsumptionCD		= mod:NewNextTimer(25, 74562)
 local timerMeteorCD					= mod:NewNextTimer(40, 74648)
 local timerMeteorCast				= mod:NewCastTimer(7, 74648)--7-8 seconds from boss yell the meteor impacts.
-local timerTwilightCutterCast		= mod:NewCastTimer(5, 77844)
+-- local timerTwilightCutterCast		= mod:NewCastTimer(5, 77844)
 local timerTwilightCutter			= mod:NewBuffActiveTimer(10, 77844)
-local timerTwilightCutterCD			= mod:NewNextTimer(15, 77844)
+local timerTwilightCutterCD			= mod:NewNextTimer(20, 77844)
 local timerShadowBreathCD			= mod:NewCDTimer(19, 75954, nil, mod:IsTank() or mod:IsHealer())--Same as debuff timers, same CD, can be merged into 1.
 local timerFieryBreathCD			= mod:NewCDTimer(19, 74526, nil, mod:IsTank() or mod:IsHealer())--But unique icons are nice pertaining to phase you're in ;)
 
-local berserkTimer					= mod:NewBerserkTimer(480)
+local ttsPing = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\ping.mp3", "TTS Ping when consumption on you", true)
+local ttsCutterIn5 = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\cutterIn5.mp3", "TTS Cutter countdown", true)
+local ttsCutterIn5Offset = 6.5
 
-local soundConsumption 				= mod:NewSound(74562, "SoundOnConsumption")
+local berserkTimer = mod:NewBerserkTimer(480)
+local soundConsumption = mod:NewSound(74562, "SoundOnConsumption")
 
 mod:AddBoolOption("YellOnConsumption", true, "announce")
 mod:AddBoolOption("AnnounceAlternatePhase", true, "announce")
@@ -100,6 +103,11 @@ function mod:OnCombatStart(delay)--These may still need retuning too, log i had 
 	updateHealthFrame(1)
 end
 
+function mod:OnCombatEnd()
+	ttsCutterIn5:Cancel()
+	-- TODO: add more things to cancel ?
+end
+
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(74806, 75954, 75955, 75956) then
 		warningShadowBreath:Show()
@@ -122,7 +130,7 @@ function mod:SPELL_CAST_SUCCESS(args)--We use spell cast success for debuff time
 		end
 	elseif args:IsSpellID(74562) then
 		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
-			timerFieryConsumptionCD:Start(20)
+			timerFieryConsumptionCD:Start(25)
 		else
 			timerFieryConsumptionCD:Start()
 		end
@@ -146,6 +154,7 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		if args:IsPlayer() then
 			specWarnShadowConsumption:Show()
 			soundConsumption:Play()
+			ttsPing:Play()
 			if self.Options.YellOnConsumption then
 				SendChatMessage(L.YellConsumption, "SAY")
 			end
@@ -165,6 +174,7 @@ function mod:SPELL_AURA_APPLIED(args)--We don't use spell cast success for actua
 		end
 		if args:IsPlayer() then
 			specWarnFieryConsumption:Show()
+			ttsPing:Play()
 			soundConsumption:Play()
 			if self.Options.YellOnConsumption then
 				SendChatMessage(L.YellCombustion, "SAY")
@@ -215,12 +225,14 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		timerFieryConsumptionCD:Cancel()
 		warnPhase2:Show()
 		timerShadowBreathCD:Start(25)
-		timerShadowConsumptionCD:Start(20)--not exact, 15 seconds from tank aggro, but easier to add 5 seconds to it as a estimate timer than trying to detect this
-		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then --These i'm not sure if they start regardless of drake aggro, or if it should be moved too.
-			timerTwilightCutterCD:Start(30)
-		else
-			timerTwilightCutterCD:Start(35)
-		end
+		timerShadowConsumptionCD:Start(30)--not exact, 15 seconds from tank aggro, but easier to add 5 seconds to it as a estimate timer than trying to detect this
+		-- if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then --These i'm not sure if they start regardless of drake aggro, or if it should be moved too.
+		-- 	timerTwilight-CD:Start(40)
+		-- else
+		-- 	timerTwilight-CD:Start(40)
+		-- end
+		timerTwilightCutterCD:Start(40)
+		ttsCutterIn5:Schedule(40-ttsCutterIn5Offset)
 	elseif msg == L.Phase3 or msg:find(L.Phase3) then
 		self:SendSync("Phase3")
 	elseif msg == L.MeteorCast or msg:find(L.MeteorCast) then--There is no CLEU cast trigger for meteor, only yell
@@ -235,14 +247,17 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 	end
 end
 
+local lastEmote = 0 -- only react on the first emote, warmane only sometimes puts another emote right when the cutter starts
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg)
-	if msg == L.twilightcutter or msg:find(L.twilightcutter) then
-			specWarnTwilightCutter:Schedule(5)
+	if (msg == L.twilightcutter or msg:find(L.twilightcutter)) and GetTime() - lastEmote > 16 then
+		specWarnTwilightCutter:Schedule(5)
 		if not self.Options.AnnounceAlternatePhase then
+			lastEmote = GetTime()
 			warningTwilightCutter:Show()
-			timerTwilightCutterCast:Start()
+			-- timerTwilightCutterCast:Start()
 			timerTwilightCutter:Schedule(5)--Delay it since it happens 5 seconds after the emote
 			timerTwilightCutterCD:Schedule(15)
+			ttsCutterIn5:Schedule(35-ttsCutterIn5Offset)
 		end
 		if mod:LatencyCheck() then
 			self:SendSync("TwilightCutter")
@@ -252,11 +267,13 @@ end
 
 function mod:OnSync(msg, target)
 	if msg == "TwilightCutter" then
-		if self.Options.AnnounceAlternatePhase then
+		if self.Options.AnnounceAlternatePhase and GetTime() - lastEmote > 16 then
+			lastEmote = GetTime()
 			warningTwilightCutter:Show()
-			timerTwilightCutterCast:Start()
+			-- timerTwilightCutterCast:Start()
 			timerTwilightCutter:Schedule(5)--Delay it since it happens 5 seconds after the emote
 			timerTwilightCutterCD:Schedule(15)
+			ttsCutterIn5:Schedule(35-ttsCutterIn5Offset)
 		end
 	elseif msg == "Meteor" then
 		if self.Options.AnnounceAlternatePhase then
@@ -281,7 +298,7 @@ function mod:OnSync(msg, target)
 	elseif msg == "ShadowCD" then
 		if self.Options.AnnounceAlternatePhase then
 			if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
-				timerShadowConsumptionCD:Start(20)
+				timerShadowConsumptionCD:Start(25)
 			else
 				timerShadowConsumptionCD:Start()
 			end
@@ -289,7 +306,7 @@ function mod:OnSync(msg, target)
 	elseif msg == "FieryCD" then
 		if self.Options.AnnounceAlternatePhase then
 			if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
-				timerFieryConsumptionCD:Start(20)
+				timerFieryConsumptionCD:Start(25)
 			else
 				timerFieryConsumptionCD:Start()
 			end

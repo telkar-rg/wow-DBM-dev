@@ -37,13 +37,18 @@ local specWarnVileGas			= mod:NewSpecialWarningYou(72272)
 
 local timerStickyOoze			= mod:NewNextTimer(16, 69774, nil, mod:IsTank())
 local timerWallSlime			= mod:NewTimer(20, "NextPoisonSlimePipes", 69789)
-local timerSlimeSpray			= mod:NewNextTimer(21, 69508)
+local timerSlimeSpray			= mod:NewNextTimer(25, 69508)
 local timerMutatedInfection		= mod:NewTargetTimer(12, 71224)
 local timerOozeExplosion		= mod:NewCastTimer(4, 69839)
 local timerVileGasCD			= mod:NewNextTimer(30, 72272)
 
 local soundMutatedInfection		= mod:NewSound(71224)
-mod:AddBoolOption("RangeFrame", mod:IsRanged())
+
+-- slime pipes timers are broken on warmane
+local ttsSlimePipesIn = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\slimePipesIn3.mp3", "TTS Slime Pipes countdown", mod:IsRanged())
+local ttsSlimePipesInOffset = 5
+
+mod:AddBoolOption("RangeFrame", mod:IsRanged() or mod:IsHealer())
 mod:AddBoolOption("InfectionIcon", true)
 mod:AddBoolOption("TankArrow")
 
@@ -57,14 +62,16 @@ local function warnRFVileGasTargets()
 end
 
 function mod:OnCombatStart(delay)
-	timerWallSlime:Start(25-delay)
+	timerWallSlime:Start(30-delay) -- Adjust from 25 to 9 to have a correct timer from the start
+	ttsSlimePipesIn:Schedule(30-delay-ttsSlimePipesInOffset)
+	timerSlimeSpray:Start(15-delay) -- Custom add for the first Slime Spray
+	timerVileGasCD:Start(34-delay) -- Adjusted from 22 to 34
 	self:ScheduleMethod(25-delay, "WallSlime")
 	InfectionIcon = 8
 	spamOoze = 0
 	if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
-		timerVileGasCD:Start(22-delay)
 		if self.Options.RangeFrame then
-			DBM.RangeCheck:Show(8)
+			DBM.RangeCheck:Show(10)
 		end
 	end
 end
@@ -73,6 +80,7 @@ function mod:OnCombatEnd()
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Hide()
 	end
+	ttsSlimePipesIn:Cancel()
 end
 --this function seems rathor limited but not entirely hopeless. i imagine it only works if you or someone else targets the big ooze, but that pretty much means it's useless if kiter doesn't have dbm.
 --[[function mod:SlimeTank()
@@ -84,8 +92,10 @@ end--]]
 function mod:WallSlime()
 	if self:IsInCombat() then
 		timerWallSlime:Start()
+		ttsSlimePipesIn:Cancel()
+		ttsSlimePipesIn:Schedule(20-ttsSlimePipesInOffset)
 		self:UnscheduleMethod("WallSlime")
-		self:ScheduleMethod(20, "WallSlime")
+		self:ScheduleMethod(25, "WallSlime")
 	end
 end
 

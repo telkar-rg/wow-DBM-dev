@@ -1,0 +1,105 @@
+[... lots of unrecorded things]
+4.815
+	Optimize callout activation time
+	On DBS mark on you, added callout for "vanish" as rogue and "on you" as
+	druid for shadowmeld
+
+4.82
+	Except for ICC and RS, recert every timer changes on every raid (except RS
+	combat start timers in ToG)
+
+4.822
+	Add ping sound for reaction time crucial mechanics like unbound plague as
+	melee on putricide, defile on lich king, flames on BQL and mark on DBS as
+	nightelf or rogue (if your vanish/shadowmeld is off cooldown).
+
+4.823
+	Add difficulty announce to avoid wrong pulls on /dbm pull
+	Disabled by default, toggle at /dbm -> Options -> General Options -> TTS
+	general options -> Tick "Enable difficulty announce on pull"
+
+4.824
+	Add frost breath countdown (enabled only for tanks by default)
+
+4.825
+	Add periodic combatlog fixer (that is not spamming every frame)
+	Add BPC Shadow Prison metronom. Everytime it ticks, the server checks if
+	you are moving and applies a stack. You can easily move without getting a
+	stack inbetween the ticks.
+
+4.827
+	Fixed broken Shadow Prison metronom
+
+4.828
+	- Fixed Putricide berserk timer
+	- Added 14 stun timers for Anub 25 heroic and TTS audio cue
+	- Add yellow color mode to range radar circle when everyone is technically
+	  out of range, but stuff might still hit you due to latency/server inaccuracy.
+	- Fix tts countdowns not being cancelled on combat end
+	- Fix multiple tts countdowns on pull being active after applying a new pull
+
+4.829
+	- Enable difficulty announce on /dbm pull by default
+	- Anub stun timers are now broadcasted to players without this DBM edit
+	- Fix Deathwhisper's add spawn time
+	- Add auto unequip on Lady 25hc mode before Mind Control as dps.
+	  Turned off by default
+	- Fix first initial mind control timer on lady 25nm
+	- Fix Anub stun timer, (wrong data)
+
+4.830
+	Fixed Shadow Prison Metronom on BPC running out of sync
+	Fixed Deathwhisper equip stuff (still expertimental)
+	Fixed desynced Deathwhisper add spawn timer
+
+4.832
+	Added toggle for auto combatlog fix every 2 sec
+	Fixed Deathwhisper equip stuff (hopefully the last time)
+	Fix issue with too many timers being active with 14 stun timers on AnubHC
+	Add toggle for tts equip stuff on deathwhisper
+
+4.832_hotfix1
+	Fixed typo in Deathwhisper TTS
+
+4.833
+	Enable range frame for healers by default on rotface
+	Added 83 and 37 callouts (if warnings are not enough) on Putricide for cleaner pushes
+	Revert fix for wrong difficulty given by server. Works now like stock DBM again
+
+4.835
+	Fixed the stun timers for anub that warmane changed (30, 30, 115)
+	Stole Jaraxxus.lua from https://github.com/ajseward/DBM-Frostmourne for proper timers
+	Smoothed out a few tts here and there
+
+4.836
+	Added 2 sec offset to initial anub stun timers because warmane (28,30,115,30,30,115,30,30,115,etc) (I don't know yet if this is correct)
+	Fixed wrong RangeRadar/RangeCheck bounds checking when moving (couldn't move it to the bottom before)
+	Fixed initial deathwhisper HC unequip occuring on normal mode and smoothed out some tts on there
+	Fix shadow prison metronom sometimes staying on if people do PP event + ninja pull BPC
+	Add message on combat start on BPC explaining shadow prison metronom and where to turn it off
+
+4.837
+	Fix anub stun timers, now set for 2x burrow
+	Add anub stun timers from 25hc to 10hc
+	Fix typo in BPC shadow prison metronom previous fix
+	Remove wrong lady spirit detection TTS that only fired when it already exploded
+	Added beta debug lady spirit target detection by checking threat values (idea by Flowless/choban) enable it by ticking SpiritTargetDebug in the options
+
+4.838
+	Add (most likely) working lady spirit target detection. You can help make it cleaner by ticking the SpiritTargetDebug and reporting the "DEBUG" chat messages
+
+4.839
+	Thanks to Septimun/Zaham for helping:
+		Fixed and cleaned up cutter timers for Halion
+		Added dynamic Anub'arak stun timers
+		Fixed broken Anub'arak timers after a submerge/burrow
+4.839a
+	Add "spirits spawned" tts back to deathwhisper in case the target detection doesn't work
+
+4.84
+	Lady hc unequip is now working only on the soon to be mindcontrolled people. This will automatically replace the old unequip mechanic, but the old is still accessible through EnableOldAutoWeaponUnequipOnMC instead of EnableAutoWeaponUnequipOnMC
+	Enabled Lady unequip/re-equip stuff on 10hc aswell
+	Removed the update reminder because some people edited theirs as version 5.0+
+	Infest Countdown is now a "Infest Soon" warning, since Infest isn't on a fixed schedule anymore
+	Fixed ToGC northrend beast pull/combatstart timer
+	Add safeguard to Lady hc re-equip TTS spam if you don't have the appropiate equipment manager set
