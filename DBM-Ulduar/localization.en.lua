@@ -504,6 +504,7 @@ L:SetOptionLocalization{
 	ShowSaraHealth					= "Show health frame for Sara in Phase 1 (must be targeted or focused by at least one raid member)",
 	SpecWarnMaladyNear				= "Show special warning for $spell:63881 near you",
 	SetIconOnBrainLinkTarget		= "Set icons on $spell:63802 targets",
-	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you"
+	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you",
+	RangeFramePortal25				= "Show range frame for portal position (25 players)"
 }
 

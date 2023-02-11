@@ -506,6 +506,7 @@ L:SetOptionLocalization{
 	ShowSaraHealth					= "Показывать здоровье Сары в фазе 1 (должна быть в цели или фокусе хотя бы у одного члена рейда)",
 	SpecWarnMaladyNear				= "Спец-предупреждение о $spell:63881 около вас",
 	SetIconOnBrainLinkTarget		= "Устанавливать метки на цели заклинания $spell:63802",
-	MaladyArrow						= "Показывать стрелку, когда $spell:63881 около вас"
+	MaladyArrow						= "Показывать стрелку, когда $spell:63881 около вас",
+	RangeFramePortal25				= "Показать рамку расстояния для позиции портала (25 игроков)"	-- 1.4a (deepl.com translation)
 }
 

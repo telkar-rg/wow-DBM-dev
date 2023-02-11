@@ -502,5 +502,6 @@ L:SetOptionLocalization{
 	ShowSaraHealth			= "顯示薩拉在第1階段的血量 (必須有最少一名團隊成員設置目標或專注目標)",
 	WarnEmpowerSoon			= "為暗影信標顯示預先警告",
 	SpecWarnMaladyNear		= "當你附近的人中了心靈缺陷時顯示特別警告",
-	MaladyArrow			= "當你附近的人中了$spell:63881時顯示DBM箭頭"
+	MaladyArrow			= "當你附近的人中了$spell:63881時顯示DBM箭頭",
+	RangeFramePortal25	= "显示门户位置的距离框架 (25 名球员)"	-- 1.4a
 }

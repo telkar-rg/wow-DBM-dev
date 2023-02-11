@@ -512,6 +512,7 @@ L:SetOptionLocalization{
 	ShowSaraHealth					= "Mostrar barra de vida de Sara en Fase 1",
 	SpecWarnMaladyNear				= "Mostrar aviso especial para $spell:63881 cerca de ti",
 	SetIconOnBrainLinkTarget		= "Poner iconos en los objetivos de $spell:63802",
-	MaladyArrow						= "Mostrar flecha cuando $spell:63881 está cerca de ti"
+	MaladyArrow						= "Mostrar flecha cuando $spell:63881 está cerca de ti",
+	RangeFramePortal25				= "Mostrar marco de distancia para posición de portal (25 jugadores)"	-- 1.4a (deepl.com translation)
 }
 

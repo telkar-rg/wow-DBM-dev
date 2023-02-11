@@ -580,6 +580,7 @@ L:SetOptionLocalization{
 	WarnEmpowerSoon					= "Alerte avant le Renforcement des ombres",
 	SpecWarnMaladyNear				= "Montre une alerte spéciale si une personne à côté de vous est victime du Mal de la raison",
 	SpecWarnDeafeningRoar			= "Montre une alerte spéciale pour le Rugissement assourdissant (silence et haut-fait)",
-	SetIconOnBrainLinkTarget		= "Met une icone sur la cible des Cerveaux liés"
+	SetIconOnBrainLinkTarget		= "Met une icone sur la cible des Cerveaux liés",
+	RangeFramePortal25				= "Afficher le cadre de distance pour la position du portail (25 joueurs)"	-- 1.4a (deepl.com translation)
 }
 
