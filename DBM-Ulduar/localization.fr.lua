@@ -376,8 +376,7 @@ L:SetWarningLocalization{
 	WarnSimulKill 	= "Premier add mort - Résurrection dans 1 minute",
 	SpecWarnFury 	= "Fureur de la nature sur VOUS!",
 	WarningTremor   = "Tremblement de terre - Arretez d'incanter!",
-	WarnRoots		= "Racines de fer sur >%s<",
-	UnstableEnergy	= "Energie instable - BOUGEZ!"
+	WarnRoots		= "Racines de fer sur >%s<"
 }
 
 L:SetTimerLocalization{
@@ -386,12 +385,12 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarnSimulKill	= "Annonce la mort du premier mob",
-	WarnRoots		= "Annonce les cibles des racines de fer",
-	SpecWarnFury	= "Montre des alertes spéciales pour la Fureur de la Nature",
-	WarningTremor	= "Montre une alerte spéciale pour le tremblement de terre (Hard-Mode)",
-	PlaySoundOnFury = "Joue un sons quand vous êtes affecter par la Fureur de la nature",
-	TimerSimulKill	= "Montre le timer de la résurrection des mobs",
-	UnstableEnergy	= "Montre une alerte spéciale pour l'énergie instable"
+	WarnRoots		= "Annonce les cibles des $spell:62438",
+	SpecWarnFury	= "Montre des alertes spéciales pour la $spell:63571",
+	WarningTremor	= "Montre une alerte spéciale pour le $spell:62859 (Hard-Mode)",
+	PlaySoundOnFury = "Joue un sons quand vous êtes affecter par la $spell:63571",
+	PlaySoundOnGroundTremor = "Jouer le son sur $spell:62859",	-- deepl.com translation
+	TimerSimulKill	= "Montre le timer de la résurrection des mobs"
 }
 
 ----------------------
@@ -410,12 +409,16 @@ L:SetMiscLocalization{
 L:SetWarningLocalization{
 	SpecWarnGroundTremor	= "Tremblement de terre - Arrêtez les sorts !",
 	SpecWarnFistOfStone		= "Poings de pierre"
+	specWarnPetrifiedBark	= "Ecorce pétrifiée - Terminer rapproché & Chasseur"	-- deepl.com translation
 }
 
 L:SetOptionLocalization{
-	SpecWarnFistOfStone		= "Montre une alerte spéciale pour le coup de poings de pierre",
-	SpecWarnGroundTremor	= "Montre une alerte spéciale pour le tremblement de terre",
-	PlaySoundOnFistOfStone	= "Joue un son à l'incantation des poings de pierre",
+	SpecWarnFistOfStone		= "Montre une alerte spéciale pour $spell:62344",
+	SpecWarnGroundTremor	= "Montre une alerte spéciale pour $spell:62932",
+	specWarnPetrifiedBark	= "Montre une alerte spéciale pour $spell:62933",
+	PlaySoundOnFistOfStone	= "Joue un son à l'incantation des $spell:62344",
+	PlaySoundOnGroundTremor	= "Joue un son à l'incantation des $spell:62932",
+	PlaySoundOnPetrifiedBark	= "Joue un son à l'incantation des $spell:62933",
 	TrashRespawnTimer		= "Montre le timer du repop des trashs"
 }
 
@@ -580,6 +583,7 @@ L:SetOptionLocalization{
 	WarnEmpowerSoon					= "Alerte avant le Renforcement des ombres",
 	SpecWarnMaladyNear				= "Montre une alerte spéciale si une personne à côté de vous est victime du Mal de la raison",
 	SpecWarnDeafeningRoar			= "Montre une alerte spéciale pour le Rugissement assourdissant (silence et haut-fait)",
-	SetIconOnBrainLinkTarget		= "Met une icone sur la cible des Cerveaux liés"
+	SetIconOnBrainLinkTarget		= "Met une icone sur la cible des Cerveaux liés",
+	RangeFramePortal25				= "Afficher le cadre de distance pour la position du portail (25 joueurs)"	-- 1.4a (deepl.com translation)
 }
 

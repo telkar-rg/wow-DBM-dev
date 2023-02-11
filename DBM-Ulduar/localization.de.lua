@@ -372,8 +372,7 @@ L:SetWarningLocalization{
 	WarnSimulKill		= "Erster tot - Wiederbelebung in ~12 sec",
 	SpecWarnFury		= "Furor der Natur auf dir!",
 	WarningTremor		= "Bebende Erde - nicht mehr zaubern!",
-	WarnRoots		= "Eiserne Wurzeln auf >%s<",
-	UnstableEnergy		= "Instabile Energie - lauf!"
+	WarnRoots			= "Eiserne Wurzeln auf >%s<"
 }
 
 L:SetTimerLocalization{
@@ -382,12 +381,12 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarnSimulKill		= "Verkünde Tod des Ersten der Dreiergruppe",
-	WarnRoots		= "Warnung für Verstärkte Eiserne Wurzeln",
-	SpecWarnFury		= "Zeige Spezialwarnung für Furor der Natur",
-	WarningTremor		= "Zeige Spezialwarnung für Bebende Erde",
-	PlaySoundOnFury = "Spiele Sound wenn du von Furor der Natur betroffen bist",
-	TimerSimulKill		= "Zeige Timer für Gegner-Wiederbelebung",
-	UnstableEnergy		= "Zeige Spezialwarnung für Instabile Energie"
+	WarnRoots			= "Warnung für $spell:62438",
+	SpecWarnFury		= "Zeige Spezialwarnung für $spell:63571",
+	WarningTremor		= "Zeige Spezialwarnung für $spell:62859",
+	PlaySoundOnFury 	= "Spiele Sound wenn du von $spell:63571 betroffen bist",
+	PlaySoundOnGroundTremor = "Spiele Sound bei $spell:62859",
+	TimerSimulKill		= "Zeige Timer für Gegner-Wiederbelebung"
 }
 
 ----------------------
@@ -405,13 +404,17 @@ L:SetMiscLocalization{
 
 L:SetWarningLocalization{
 	SpecWarnGroundTremor	= "Bebende Erde - Stoppe Zauber",
-	SpecWarnFistOfStone		= "Fäuste aus Stein"
+	SpecWarnFistOfStone		= "Fäuste aus Stein",
+	specWarnPetrifiedBark	= "Versteinerte Rinde - Stoppe Nahkampf & Jäger"
 }
 
 L:SetOptionLocalization{
-	SpecWarnFistOfStone		= "Zeige Spezialwarnung für Fäuste aus Stein",
-	SpecWarnGroundTremor	= "Zeige Spezialwarnung für Bebende Erde",
-	PlaySoundOnFistOfStone	= "Spiele Sound bei Fäuste aus Stein",
+	SpecWarnFistOfStone		= "Zeige Spezialwarnung für $spell:62344",
+	SpecWarnGroundTremor	= "Zeige Spezialwarnung für $spell:62932",
+	specWarnPetrifiedBark	= "Zeige Spezialwarnung für $spell:62933",
+	PlaySoundOnFistOfStone	= "Spiele Sound bei $spell:62344",
+	PlaySoundOnGroundTremor	= "Spiele Sound bei $spell:62932",
+	PlaySoundOnPetrifiedBark	= "Spiele Sound bei $spell:62933",
 	TrashRespawnTimer		= "Zeige Timer für Trash-Respawn"
 }
 
@@ -573,6 +576,7 @@ L:SetOptionLocalization{
 	SpecWarnMaladyNear				= "Zeige Spezialwarnung für Geisteskrankheit in deiner Nähe",
 	SpecWarnDeafeningRoar			= "Zeige Spezialwarnung wenn Ohrenbetäubendes Gebrüll gezaubert wird (Stille und für Vala'nyr)",
 	SetIconOnBrainLinkTarget		= "Setze Zeichen auf Ziele von Gehirnverbindung",
-	MaladyArrow						= "Zeige Pfeil wenn $spell:63881 in deiner Nähe ist"
+	MaladyArrow						= "Zeige Pfeil wenn $spell:63881 in deiner Nähe ist",
+	RangeFramePortal25				= "Zeige Abstandsfenster für Portal Positionen (25 Spieler)"
 }
 

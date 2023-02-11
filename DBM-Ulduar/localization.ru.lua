@@ -331,7 +331,10 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill	= "Первый помощник погиб - воскрешение через ~12 сек."
+	WarnSimulKill		= "Первый помощник погиб - воскрешение через ~12 сек."
+	SpecWarnFury		= "Гнев природы на вас!", 	-- deepl.com translation
+	WarningTremor		= "Дрожание земли - прекращение литья!", 	-- deepl.com translation
+	WarnRoots			= "Железные корни на >%s<" 	-- deepl.com translation
 }
 
 L:SetTimerLocalization{
@@ -339,9 +342,13 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	WarnSimulKill	= "Объявлять, когда первый монстр погибает",
-	PlaySoundOnFury = "Звуковой сигнал, когда на вас $spell:63571",
-	TimerSimulKill	= "Отсчет времени до воскрешения монстров"
+	WarnSimulKill		= "Объявлять, когда первый монстр погибает",
+	WarnRoots			= "Предупреждение о $spell:62438", 	-- deepl.com translation
+	SpecWarnFury		= "Спец-предупреждение о $spell:63571", 	-- deepl.com translation
+	WarningTremor		= "Спец-предупреждение о $spell:62859", 	-- deepl.com translation
+	PlaySoundOnFury 	= "Звуковой сигнал, когда на вас $spell:63571",
+	PlaySoundOnGroundTremor = "Звуковой сигнал при $spell:62859",
+	TimerSimulKill		= "Отсчет времени до воскрешения монстров"
 }
 
 ----------------------
@@ -358,10 +365,18 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
+	SpecWarnGroundTremor	= "Дрожание земли - прекращение литья!", 	-- deepl.com translation
+	SpecWarnFistOfStone		= "Каменные кулаки",
+	specWarnPetrifiedBark	= "Окаменевшая кора - остановить рукопашную & Охотник" 	-- deepl.com translation
 }
 
 L:SetOptionLocalization{
-	PlaySoundOnFistOfStone	= "Звуковой сигнал при Каменных кулаках",
+	SpecWarnFistOfStone		= "Спец-предупреждение о $spell:62344",
+	SpecWarnGroundTremor	= "Спец-предупреждение о $spell:62932",
+	specWarnPetrifiedBark	= "Спец-предупреждение о $spell:62933",
+	PlaySoundOnFistOfStone	= "Звуковой сигнал при $spell:62344",
+	PlaySoundOnGroundTremor	= "Звуковой сигнал при $spell:62932",
+	PlaySoundOnPetrifiedBark	= "Звуковой сигнал при $spell:62933",
 	TrashRespawnTimer		= "Отсчет времени до возрождения монстров"
 }
 
@@ -506,6 +521,7 @@ L:SetOptionLocalization{
 	ShowSaraHealth					= "Показывать здоровье Сары в фазе 1 (должна быть в цели или фокусе хотя бы у одного члена рейда)",
 	SpecWarnMaladyNear				= "Спец-предупреждение о $spell:63881 около вас",
 	SetIconOnBrainLinkTarget		= "Устанавливать метки на цели заклинания $spell:63802",
-	MaladyArrow						= "Показывать стрелку, когда $spell:63881 около вас"
+	MaladyArrow						= "Показывать стрелку, когда $spell:63881 около вас",
+	RangeFramePortal25				= "Показать рамку расстояния для позиции портала (25 игроков)"	-- 1.4a (deepl.com translation)
 }
 

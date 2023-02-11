@@ -390,10 +390,10 @@ L:SetOptionLocalization{
 	WarnSimulKill			= "첫번째 소환수 죽음 알리기",
 	WarnRoots 				= "무쇠뿌리 대상 알리기",	
 	SpecWarnFury 			= "당신이 자연의 격노일 경우 특수 경고 보기",
-	PlaySoundOnFury			= "자연의 격노 특수 사운드 재생",
 	WarningTremor  	 		= "지진 시전 특수 경고 보기 (하드 모드)",
-	TimerSimulKill			= "소환수 부활 타이머 보기",	
-	UnstableEnergy			= "당신이 불안정한 힘에게 영향을 받을 때 특수 경고 보기"	
+	PlaySoundOnFury			= "자연의 격노 특수 사운드 재생",
+	PlaySoundOnGroundTremor = "지반 떨림 사운드 재생",	-- deepl.com translation
+	TimerSimulKill			= "소환수 부활 타이머 보기"
 }
 
 ----------------------
@@ -408,6 +408,7 @@ L:SetGeneralLocalization{
 L:SetWarningLocalization{
 	SpecWarnFistOfStone 	= "돌덩이 주먹",
 	SpecWarnGroundTremor  	= "지진 - 시전 중지!"
+	specWarnPetrifiedBark	= "지진 - 근접 전투 중지"	-- deepl.com translation
 }
 
 L:SetMiscLocalization{
@@ -416,8 +417,11 @@ L:SetMiscLocalization{
 
 L:SetOptionLocalization{
 	SpecWarnFistOfStone		= "돌덩이 주먹 특수 경고 보기",
-	PlaySoundOnFistOfStone	= "돌덩이 주먹 특수 사운드 재생",
 	SpecWarnGroundTremor	= "지진 특수 경고 보기",
+	specWarnPetrifiedBark	= "석화된 나무껍질 특별 경고 보기", 	-- deepl.com translation
+	PlaySoundOnFistOfStone	= "돌덩이 주먹 특수 사운드 재생",
+	PlaySoundOnGroundTremor	= "땅 떨림 특수 효과음 재생 ", 	-- deepl.com translation
+	PlaySoundOnPetrifiedBark	= "석화된 나무껍질 특수 효과음 재생 ", 	-- deepl.com translation
 	TrashRespawnTimer		= "프레이야 지역 리젠 타이머 보기"
 }
 
@@ -581,5 +585,6 @@ L:SetOptionLocalization{
 	SpecWarnMaladyNear				= "병든 정신이 걸린 플레이어가 근처에 있을 경우 특수 경고 알리기(병든 정신 종료 후)",
 	SpecWarnDeafeningRoar			= "귀청이 터질듯한 포효 시전을 할 경우 특수 경고 보기 (침묵 그리고 레전드리를 위하여!!)",
 	SetIconOnBrainLinkTarget		= "두뇌 연결 대상 공격대 아이콘 설정",
-	MaladyArrow						= "$spell:63881 걸린 공대원이 주변에 있을 경우 화살표 보기"	
+	MaladyArrow						= "$spell:63881 걸린 공대원이 주변에 있을 경우 화살표 보기",
+	RangeFramePortal25				= "포털 위치 거리 프레임 표시(25명)"	-- 1.4a (deepl.com translation)
 }

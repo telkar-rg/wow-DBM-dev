@@ -329,17 +329,24 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill	= "First add down - Resurrection in ~12 seconds"
+	WarnSimulKill		= "First add down - Resurrection in ~12 seconds"
+	SpecWarnFury		= "Nature's Fury on you!",
+	WarningTremor		= "Ground Tremor - stop casting!",
+	WarnRoots			= "Iron Roots on >%s<"
 }
 
 L:SetTimerLocalization{
-	TimerSimulKill	= "Resurrection"
+	TimerSimulKill		= "Resurrection"
 }
 
 L:SetOptionLocalization{
-	WarnSimulKill	= "Announce first mob down",
-	PlaySoundOnFury = "Play sound when you are affected by $spell:63571",
-	TimerSimulKill	= "Show timer for mob resurrection"
+	WarnSimulKill		= "Announce first mob down",
+	WarnRoots			= "Show warning for $spell:62438",
+	SpecWarnFury		= "Show special warning for $spell:63571",
+	WarningTremor		= "Show special warning for $spell:62859",
+	PlaySoundOnFury 	= "Play sound when you are affected by $spell:63571",
+	PlaySoundOnGroundTremor = "Play sound on $spell:62859 cast",
+	TimerSimulKill		= "Show timer for mob resurrection"
 }
 
 ----------------------
@@ -356,10 +363,18 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
+	SpecWarnGroundTremor	= "Ground Tremor - Stop Casting!",
+	SpecWarnFistOfStone		= "Fist Of Stone",
+	specWarnPetrifiedBark	= "Petrified Bark - Stop Melee & Hunter"
 }
 
 L:SetOptionLocalization{
-	PlaySoundOnFistOfStone	= "Play sound on Fists of Stone",
+	SpecWarnFistOfStone		= "Show special warning for $spell:62344",
+	SpecWarnGroundTremor	= "Show special warning for $spell:62932",
+	specWarnPetrifiedBark	= "Show special warning for $spell:62933",
+	PlaySoundOnFistOfStone	= "Play sound on $spell:62344",
+	PlaySoundOnGroundTremor	= "Play sound on $spell:62932",
+	PlaySoundOnPetrifiedBark	= "Play sound on $spell:62933",
 	TrashRespawnTimer		= "Show timer for trash respawn"
 }
 
@@ -504,6 +519,7 @@ L:SetOptionLocalization{
 	ShowSaraHealth					= "Show health frame for Sara in Phase 1 (must be targeted or focused by at least one raid member)",
 	SpecWarnMaladyNear				= "Show special warning for $spell:63881 near you",
 	SetIconOnBrainLinkTarget		= "Set icons on $spell:63802 targets",
-	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you"
+	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you",
+	RangeFramePortal25				= "Show range frame for portal position (25 players)"
 }
 
