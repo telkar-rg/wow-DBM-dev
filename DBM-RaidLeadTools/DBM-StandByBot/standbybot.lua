@@ -25,6 +25,11 @@
 --    * Noncommercial. You may not use this work for commercial purposes.
 --    * Share Alike. If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one.
 --
+--
+--	Additional contributions by:
+--    * Vargoth @ Rising-Gods
+--    * Telkar @ Rising-Gods
+
 
 local mainframe = CreateFrame("frame", "DBM_StandyByBot", UIParent)
 

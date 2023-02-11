@@ -41,6 +41,11 @@
 --    * alarmclockbeeps.ogg by tedthetrumpet (http://www.freesound.org/usersViewSingle.php?id=177)
 --    * blip_8.ogg by Corsica_S (http://www.freesound.org/usersViewSingle.php?id=7037)
 --  The full of text of the license can be found in the file "Sounds\Creative Commons Sampling Plus 1.0.txt".
+--
+--
+--	Additional contributions by:
+--    * Vargoth @ Rising-Gods
+--    * Telkar @ Rising-Gods
 
 ---------------
 --  Globals  --
