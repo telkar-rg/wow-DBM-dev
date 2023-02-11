@@ -203,9 +203,9 @@ L:SetOptionLocalization{
 
 L:SetMiscLocalization{
 	YellPull				= "Euer Handeln ist unlogisch. Alle Möglichkeiten dieser Begegnung wurden berechnet. Das Pantheon wird die Nachricht des Beobachters erhalten, ungeachtet des Ausgangs.",
-	YellKill				= "I have seen worlds bathed in the Makers' flames, their denizens fading without as much as a whimper. Entire planetary systems born and razed in the time that it takes your mortal hearts to beat once. Yet all throughout, my own heart devoid of emotion... of empathy. I. Have. Felt. Nothing. A million-million lives wasted. Had they all held within them your tenacity? Had they all loved life as you do?", --to be translated
+	YellKill				= "Ich sah Welten umhüllt von den Flammen der Schöpfer, sah ohne einen Hauch von Trauer ihre Bewohner vergehen. Ganze Planetensysteme geboren und vernichtet, während Eure sterblichen Herzen nur einmal schlagen. Doch immer war mein Herz kalt... ohne Mitgefühl. Ich - habe - nichts - gefühlt. Millionen, Milliarden Leben verschwendet. Trugen sie alle dieselbe Beharrlichkeit in sich, wie Ihr? Liebten sie alle das Leben so sehr, wie Ihr es tut?",
 	Emote_CollapsingStar	= "%s beginnt damit, kollabierende Sterne zu beschwören!!",
-	Phase2					= "Behold the tools of creation",	--to be translated
+	Phase2					= "Erblicket die Instrumente der Schöpfung!",
 	PullCheck		= "Zeit, bis Algalon mit dem Uplink beginnt= (%d+) min."
 }
 
@@ -510,7 +510,7 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	EmoteSaroniteVapors		= "A cloud of saronite vapors coalesces nearby!",	--to be translated
+	EmoteSaroniteVapors		= "Eine Wolke Saronitdämpfe bildet sich in der Nähe!",
 	CrashWhisper			= "Schattengeschoss auf dir - lauf weg!",
 	YellLeech			= "Mal der Gesichtslosen auf mir!",
 	YellCrash			= "Schattengeschoss auf mir!"
@@ -526,8 +526,8 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 					= "The time to strike at the head of the beast will soon be upon us! Focus your anger and hatred on his minions!",	--to be translated
-	YellPhase2 					= "I am the lucid dream.",	--to be translated
+	YellPull 					= "Bald ist die Zeit gekommen, dem Untier den Kopf abzuschlagen! Konzentriert Euren Zorn und Euren Hass auf seine Diener!",
+	YellPhase2 					= "Ich bin der strahlende Traum.",
 	Sara 						= "Sara",
 	WarningYellSqueeze			= "Quetschen auf mir! Hilfe!"
 }
