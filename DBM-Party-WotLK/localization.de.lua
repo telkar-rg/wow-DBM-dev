@@ -1172,7 +1172,7 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd	= "My congratulations, champions. Through trials both planned and unexpected, you have triumphed."	-- can also be "No! I must not fail... again ..."	-- to be translated
+	YellCombatEnd	= "Meine Glückwünsche, Champions. In Prüfungen sowohl geplant als auch unerwartet habt Ihr triumphiert."
 })
 
 -----------------------
@@ -1191,7 +1191,7 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd	= "Well fought! Your next challenge comes from the Crusade's own ranks. You will be tested against their considerable prowess."	-- to be translated
+	YellCombatEnd	= "Gut gekämpft! Eure nächste Herausforderung kommt aus den eigenen Reihen des Kreuzzugs. Ihr werdet Euch gegen ihre eindrucksvolle Tapferkeit beweisen müssen."
 })
 
 ----------------------------------
@@ -1464,7 +1464,7 @@ L:SetMiscLocalization({
 	Abom			= "Schwerfällige Monstrosität",--creature id 37069
 	WitchDoctor		= "Auferstandener Hexendoktor",--creature id 36941
 	ACombatStart	= "Seine Macht ist zu groß. Wir müssen diesen Ort sofort verlassen! Meine Magie kann ihn nur kurze Zeit halten. Beeilt Euch, Helden!",
-	HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",	-- to be translated
+	HCombatStart	= "Er ist... zu mächtig. Schnell, Helden... kommt! Wir müssen fliehen. Ich werde mein Möglichstes tun, um ihn solange es geht an Ort und Stelle zu halten.",
 	Wave1			= "Es gibt kein Entkommen!",
 	Wave2			= "Ergebt Euch der Grabeskälte!",
 	Wave3			= "Eine weitere Sackgasse!",
