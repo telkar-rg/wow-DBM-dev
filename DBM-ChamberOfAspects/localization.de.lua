@@ -175,9 +175,9 @@ L:SetOptionLocalization({
 	WarnPhase2Soon			= "Zeige Vorwarnung für Phase 2 (bei ~79%)",	
 	WarnPhase3Soon			= "Zeige Vorwarnung für Phase 3 (bei ~54%)",
 	-- SoundOnConsumption		= "Spiele Sound bei Einäschern",--We use localized text for these functions
-	SoundOnConsumption		= "Spiele Sound bei $spell:74562 oder \n$spell:74792",--We use localized text for these functions
+	SoundOnConsumption		= "Spiele Sound bei $spell:74562 oder $spell:74792",
 	-- SetIconOnConsumption	= "Setze Zeichen auf Ziele von Einäschern"--So we can use single functions for both versions of spell."--So we can use single functions for both versions of spell.
-	SetIconOnConsumption	= "Setze Zeichen auf Ziele von $spell:74562 oder \n$spell:74792 Ziele"--So we can use single functions for both versions of spell."--So we can use single functions for both versions of spell.
+	SetIconOnConsumption	= "Setze Zeichen auf Ziele von $spell:74562 oder $spell:74792"
 })
 
 L:SetMiscLocalization({
@@ -185,7 +185,7 @@ L:SetMiscLocalization({
 	Phase2					= "Ihr werdet im Reich des Zwielichts nur Leid finden! Tretet ein, wenn ihr es wagt!",
 	Phase3					= "Ich bin das Licht und die Dunkelheit!",--partial, message find should find it though.
 	twilightcutter			= "Die kreisenden Sphären pulsieren vor dunkler Energie!",
-	YellCombustion			= "Einäscherung auf MIR!",--needs translation
-	YellConsumption			= "Seelenverzehrung auf MIR!",--needs translation
-	Kill					= "Relish this victory, mortals, for it will be your last. This world will burn with the master's return!"--needs translation
+	YellCombustion			= "Einäscherung auf MIR!",
+	YellConsumption			= "Seelenverzehrung auf MIR!",
+	Kill					= "Genießt euren Sieg, Sterbliche, denn es war euer letzter. Bei der Rückkehr des Meisters wird diese Welt brennen!"
 })

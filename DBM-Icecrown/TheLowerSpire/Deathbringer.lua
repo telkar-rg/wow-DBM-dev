@@ -51,6 +51,9 @@ local boilingBloodTargets = {}
 local boilingBloodIcon 	= 8
 local spamBloodBeast = 0
 
+local pull_timer_horde = 82 	-- old timer
+pull_timer_horde = 98.96 		-- fixed timer @RG
+
 local function warnBoilingBloodTargets()
 	warnBoilingBlood:Show(table.concat(boilingBloodTargets, "<, >"))
 	table.wipe(boilingBloodTargets)
@@ -220,6 +223,6 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 	if msg:find(L.PullAlliance, 1, true) then
 		timerCombatStart:Start()
 	elseif msg:find(L.PullHorde, 1, true) then
-		timerCombatStart:Start(98.96)	-- Deathbringer Saurfang Pull Timer
+		timerCombatStart:Start(pull_timer_horde) 	-- fixed pull timer horde @RG
 	end
 end

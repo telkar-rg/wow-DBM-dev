@@ -9,7 +9,7 @@
 ## Notes-koKR: Deadly Boss Mods를 이용한 레이드 관리 툴 (BidBot, StandByBot, ...)
 ## LoadOnDemand: 0
 ## RequiredDeps: DBM-Core
-## DefaultState: enabled
+## DefaultState: disabled
 ## Author: Nitram and Tandanu
 ## URL: http://www.deadlybossmods.com
 ## SavedVariables: DBM_BidBot_ItemHistory, DBM_BidBot_Settings, DBM_AutoInvite_Settings, DBM_DKP_System_Settings, DBM_Standby_Settings, DBM_RaidLead_Settings
