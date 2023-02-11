@@ -56,7 +56,7 @@ local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
 local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189)
 local timerAchieve					= mod:NewAchievementTimer(420, 3012, "TimerSpeedKill")
 
-mod:AddBoolOption("ShowSaraHealth")
+mod:AddBoolOption("ShowSaraHealth", true)
 mod:AddBoolOption("SetIconOnFearTarget")
 mod:AddBoolOption("SetIconOnFervorTarget")
 mod:AddBoolOption("SetIconOnBrainLinkTarget")
