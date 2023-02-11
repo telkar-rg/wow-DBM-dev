@@ -97,8 +97,8 @@
 	DBM_KAEL_OPTION_BARRIER2				= "Schockbarriere in Phase 5 ansagen";
 	DBM_KAEL_OPTION_PHOENIX					= "Phönixe ansagen";
 	DBM_KAEL_OPTION_WARNMC					= "Gedankenkontrolle ansagen";
-	DBM_KAEL_OPTION_ICONMC					= "Icons auf gedankenkontrollte setzen";
-	DBM_KAEL_OPTION_GRAVITY					= "Announce gravity lapse"; --translate me 
+	DBM_KAEL_OPTION_ICONMC					= "Icons auf Gedankenkontrollte setzen";
+	DBM_KAEL_OPTION_GRAVITY					= "Gravitationsverlust ansagen";
 
 	DBM_KAEL_YELL_PHASE1					= "Energie. Kraft. Mein Volk ist süchtig danach... Eine Abhängigkeit, die entstand, nachdem der Sonnenbrunnen zerstört wurde. Willkommen in der Zukunft. Ein Jammer, dass Ihr zu spät seid, um sie zu verhindern. Niemand kann mich jetzt noch aufhalten! Selama ashal'anore!";
 	DBM_KAEL_EMOTE_THALADRED_TARGET			= "behält ([^%s]+) im Blickfeld!";
@@ -116,7 +116,7 @@
 	DBM_KAEL_YELL_PHASE2					= "Wie Ihr seht, habe ich viele Waffen in meinem Arsenal...";
 	DBM_KAEL_YELL_PHASE3					= "Vielleicht habe ich Euch unterschätzt. Es wäre unfair, Euch gegen meine vier Berater gleichzeitig kämpfen zu lassen, aber... mein Volk wurde auch nie fair behandelt. Ich vergelte nur Gleiches mit Gleichem.";
 	DBM_KAEL_YELL_PHASE4					= "Ach, manchmal muss man die Sache selbst in die Hand nehmen. Balamore shanal!";
-	DBM_KAEL_YELL_PHASE5					= "I have not come this far to be stopped! The future I have planned will not be jeopardized! Now you will taste true power!!"; -- translate me
+	DBM_KAEL_YELL_PHASE5					= "Ich bin nicht so weit gekommen, um jetzt noch aufgehalten zu werden! Die Zukunft, die ich geplant habe, wird nicht gefährdet werden. Jetzt bekommt Ihr wahre Macht zu spüren!";
 
 	DBM_KAEL_WEAPONS = {
 		["Stab der Auflösung"] = 1,
@@ -163,8 +163,8 @@
 	DBM_KAEL_FADE_MINDCONTROL				= "([^%s]+)%s?'s 'Gedankenkontrolle' wurde durch";
 	DBM_KAEL_FADE_MINDCONTROL_YOU			= "Eure '?Gedankenkontrolle'? wurde durch"; --?
 	DBM_KAEL_EGG							= "Phönixei";
-	DBM_KAEL_YELL_GRAVITY_LAPSE				= "Having trouble staying grounded?"; --translate
-	DBM_KAEL_YELL_GRAVITY_LAPSE2			= "Let us see how you fare when your world is turned upside down."; -- translate
+	DBM_KAEL_YELL_GRAVITY_LAPSE				= "Habt Ihr Probleme mit der Bodenhaftung?";
+	DBM_KAEL_YELL_GRAVITY_LAPSE2			= "Mal sehen, wie Ihr klarkommt, wenn Eure Welt auf den Kopf gestellt wird.";
 
 
 	DBM_KAEL_SPECWARN_THALADRED_TARGET		= "Renn weg!";
@@ -192,9 +192,9 @@
 	DBM_KAEL_WARN_PHOENIX					= "*** Phönix ***";
 	DBM_KAEL_WARN_MC_TARGETS				= "*** Gedankenkontrolle: %s ***";
 	DBM_KAEL_WARN_REBIRTH					= "*** Phönix tot - Ei gespawnt ***";
-	DBM_KAEL_WARN_GRAVITY_LAPSE				= "*** Gravity Lapse ***"; -- translate me
-	DBM_KAEL_GRAVITY_SOON					= "*** Gravity Lapse bald ***"; -- translate me
-	DBM_KAEL_GRAVITY_END_SOON				= "*** Gravity Lapse hört in 5 Sek auf ***"; -- translate me
+	DBM_KAEL_WARN_GRAVITY_LAPSE				= "*** Gravitationsverlust ***";
+	DBM_KAEL_GRAVITY_SOON					= "*** Gravitationsverlust bald ***";
+	DBM_KAEL_GRAVITY_END_SOON				= "*** Gravitationsverlust hört in 5 Sek auf ***";
 
 	DBM_SBT["Lord Sanguinar"]				= "Fürst Blutdurst";
 	DBM_SBT["Next Fear"]					= "Nächster Fear";
@@ -203,8 +203,8 @@
 	DBM_SBT["Next Shock Barrier"]			= "Nächste Schockbarriere";
 	DBM_SBT["Phoenix"]						= "Phönix";
 	DBM_SBT["Rebirth"]						= "Widergeburt";
-	DBM_SBT["Gravity Lapse"]				= "Gravity Lapse";
-	DBM_SBT["Next Gravity Lapse"]			= "Next Gravity Lapse"; -- translate me
+	DBM_SBT["Gravity Lapse"]				= "Gravitationsverlust";
+	DBM_SBT["Next Gravity Lapse"]			= "Nächster Gravitationsverlust";
 	
 	DBM_SBT["KaelThas"]							= {
 		[1] = {
