@@ -41,7 +41,8 @@ local timerFury				= mod:NewTargetTimer(10, 63571)
 local timerTremorCD 		= mod:NewCDTimer(28, 62859)
 
 mod:AddBoolOption("HealthFrame", true)
-mod:AddBoolOption("PlaySoundOnFury")
+mod:AddBoolOption("PlaySoundOnFury", true)
+mod:AddBoolOption("PlaySoundOnGroundTremor", true)
 
 local adds		= {}
 local rootedPlayers 	= {}
@@ -72,6 +73,9 @@ function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(62437, 62859) then
 		specWarnTremor:Show()
 		timerTremorCD:Start()
+		if self.Options.PlaySoundOnGroundTremor then
+			PlaySoundFile("Sound\\Spells\\PVPFlagTaken.wav")
+		end
 	end
 end 
 

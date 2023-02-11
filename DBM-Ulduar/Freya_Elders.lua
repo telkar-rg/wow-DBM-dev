@@ -19,8 +19,11 @@ local timerImpale			= mod:NewTargetTimer(5, 62928)
 
 local specWarnFistofStone	= mod:NewSpecialWarningSpell(62344, mod:IsTank())
 local specWarnGroundTremor	= mod:NewSpecialWarningCast(62932, true)
+local specWarnPetrifiedBark	= mod:NewSpecialWarningCast(62933, true)
 
 mod:AddBoolOption("PlaySoundOnFistOfStone", false)
+mod:AddBoolOption("PlaySoundOnGroundTremor", true)
+mod:AddBoolOption("PlaySoundOnPetrifiedBark", true)
 mod:AddBoolOption("TrashRespawnTimer", true, "timer")
 
 --
@@ -35,7 +38,7 @@ mod:AddBoolOption("TrashRespawnTimer", true, "timer")
 -- Elder Ironbranch: 32913
 -- Elder Brightleaf: 32915
 -- Elder Stonebark: 32914
---
+-- /script PlaySoundFile("Sound/SPELLS/PVPFlagCapturedHorde.wav")
 
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(62344) then 					-- Fists of Stone
@@ -45,6 +48,14 @@ function mod:SPELL_CAST_START(args)
 		end
 	elseif args:IsSpellID(62325, 62932) then		-- Ground Tremor
 		specWarnGroundTremor:Show()
+		if self.Options.PlaySoundOnGroundTremor then
+			PlaySoundFile("Sound\\Spells\\PVPFlagTaken.wav")
+		end
+	elseif args:IsSpellID(62933, 62337) then		-- Petrified Bark
+		specWarnPetrifiedBark:Show()
+		if self.Options.PlaySoundOnPetrifiedBark then
+			PlaySoundFile("Sound\\Spells\\PVPFlagTakenHorde.wav")
+		end
 	end
 end
 
