@@ -329,7 +329,7 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill		= "First add down - Resurrection in ~12 seconds"
+	WarnSimulKill		= "First add down - Resurrection in ~12 seconds",
 	SpecWarnFury		= "Nature's Fury on you!",
 	WarningTremor		= "Ground Tremor - stop casting!",
 	WarnRoots			= "Iron Roots on >%s<"

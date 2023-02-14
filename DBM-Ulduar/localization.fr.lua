@@ -408,7 +408,7 @@ L:SetMiscLocalization{
 
 L:SetWarningLocalization{
 	SpecWarnGroundTremor	= "Tremblement de terre - Arrêtez les sorts !",
-	SpecWarnFistOfStone		= "Poings de pierre"
+	SpecWarnFistOfStone		= "Poings de pierre",
 	specWarnPetrifiedBark	= "Ecorce pétrifiée - Terminer rapproché & Chasseur"	-- deepl.com translation
 }
 

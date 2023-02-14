@@ -335,7 +335,7 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill		= "Primer add muerto - Resurrección en ~12 seg"
+	WarnSimulKill		= "Primer add muerto - Resurrección en ~12 seg",
 	SpecWarnFury		= "Furia de la naturaleza sobre ti!",	-- deepl.com translation
 	WarningTremor		= "Tremor terrenal - dejar de lanzar hechizos!",	-- deepl.com translation
 	WarnRoots			= "Raíces férreas sobre >%s<"	-- deepl.com translation

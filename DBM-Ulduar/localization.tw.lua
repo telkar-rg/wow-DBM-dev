@@ -326,7 +326,7 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill		= "第一隻元素死亡 - 大約12秒後復活"
+	WarnSimulKill		= "第一隻元素死亡 - 大約12秒後復活",
 	SpecWarnFury		= "自然之怒",
 	WarningTremor		= "大地震颤"
 	-- WarnRoots			= "Iron Roots on >%s<"

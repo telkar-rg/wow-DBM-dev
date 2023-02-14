@@ -331,7 +331,7 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill		= "Первый помощник погиб - воскрешение через ~12 сек."
+	WarnSimulKill		= "Первый помощник погиб - воскрешение через ~12 сек.",
 	SpecWarnFury		= "Гнев природы на вас!", 	-- deepl.com translation
 	WarningTremor		= "Дрожание земли - прекращение литья!", 	-- deepl.com translation
 	WarnRoots			= "Железные корни на >%s<" 	-- deepl.com translation

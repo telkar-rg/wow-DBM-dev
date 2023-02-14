@@ -407,7 +407,7 @@ L:SetGeneralLocalization{
 
 L:SetWarningLocalization{
 	SpecWarnFistOfStone 	= "돌덩이 주먹",
-	SpecWarnGroundTremor  	= "지진 - 시전 중지!"
+	SpecWarnGroundTremor  	= "지진 - 시전 중지!",
 	specWarnPetrifiedBark	= "지진 - 근접 전투 중지"	-- deepl.com translation
 }
 
