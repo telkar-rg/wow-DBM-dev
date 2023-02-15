@@ -332,7 +332,8 @@ L:SetWarningLocalization{
 	WarnSimulKill		= "First add down - Resurrection in ~12 seconds",
 	SpecWarnFury		= "Nature's Fury on you!",
 	WarningTremor		= "Ground Tremor - stop casting!",
-	WarnRoots			= "Iron Roots on >%s<"
+	WarnRoots			= "Iron Roots on >%s<",
+	UnstableEnergy		= "Unstable Energy - run!"
 }
 
 L:SetTimerLocalization{
@@ -346,7 +347,8 @@ L:SetOptionLocalization{
 	WarningTremor		= "Show special warning for $spell:62859",
 	PlaySoundOnFury 	= "Play sound when you are affected by $spell:63571",
 	PlaySoundOnGroundTremor = "Play sound on $spell:62859 cast",
-	TimerSimulKill		= "Show timer for mob resurrection"
+	TimerSimulKill		= "Show timer for mob resurrection",
+	UnstableEnergy		= "Show special warning for $spell:62451"
 }
 
 ----------------------
