@@ -1,4 +1,5 @@
-﻿﻿if GetLocale() ~= "zhCN" then return end
+﻿--
+if GetLocale() ~= "zhCN" then return end
 
 local L
 

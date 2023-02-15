@@ -79,7 +79,9 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	SayCombatStart		= "Haben sie sich die Mühe gemacht und Euch gesagt, wer ich bin und warum ich das hier tue?"
+	SayCombatStart		= "Haben sie sich die Mühe gemacht und Euch gesagt, wer ich bin und warum ich das hier tue?",
+	SayCombatStart2		= "... oder benutzen sie Euch nur, so wie sie alle anderen benutzen?",
+	SayCombatStart3		= "Doch was macht das? Es ist an der Zeit, dass das hier endet."
 })
 
 -----------------------

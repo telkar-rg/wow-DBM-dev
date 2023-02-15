@@ -72,7 +72,9 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	SayCombatStart		= "Did they bother to tell you who I am and why I am doing this?"
+	SayCombatStart		= "Did they bother to tell you who I am and why I am doing this?",
+	SayCombatStart2		= "...or are they just using you like they do everybody else?",
+	SayCombatStart3		= "But what does it matter. It is time for this to end."
 })
 
 -------------

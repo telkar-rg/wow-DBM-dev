@@ -12,14 +12,21 @@ mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_SAY"
 )
 
+local timer1 = 10.5
+local timer2 = 18.5
+local timer3 = 26.5
+local dt1 = 4
+local dt2 = 6.5
+
+
 local warnChainReaction			= mod:NewCastAnnounce(68821, 3)
 
 local specWarnPerfumeSpill		= mod:NewSpecialWarningMove(68927)
 local specWarnCologneSpill		= mod:NewSpecialWarningMove(68934)
 
-local timerHummel				= mod:NewTimer(10.5, "HummelActive", 2457, nil, false)
-local timerBaxter				= mod:NewTimer(18.5, "BaxterActive", 2457, nil, false)
-local timerFrye					= mod:NewTimer(26.5, "FryeActive", 2457, nil, false)
+local timerHummel				= mod:NewTimer(timer1, "HummelActive", 2457, nil, false)
+local timerBaxter				= mod:NewTimer(timer2, "BaxterActive", 2457, nil, false)
+local timerFrye					= mod:NewTimer(timer3, "FryeActive",   2457, nil, false)
 mod:AddBoolOption("TrioActiveTimer", true, "timer")
 local timerChainReaction		= mod:NewCastTimer(3, 68821)
 
@@ -45,11 +52,26 @@ do
 end
 
 function mod:CHAT_MSG_MONSTER_SAY(msg)
-	if msg == L.SayCombatStart or msg:find(L.SayCombatStart) then
-		if self.Options.TrioActiveTimer then
+	if self.Options.TrioActiveTimer then
+		if L.SayCombatStart and ( msg == L.SayCombatStart or msg:find(L.SayCombatStart) ) then
+			-- Did they bother to tell you who I am and why I am doing this?
 			timerHummel:Start()
 			timerBaxter:Start()
 			timerFrye:Start()
+		elseif L.SayCombatStart2 and ( msg == L.SayCombatStart2 or msg:find(L.SayCombatStart2) ) then
+			-- ...or are they just using you like they do everybody else?
+			if not timerFrye:IsStarted() then
+				timerHummel:Start(timer1 - dt1)
+				timerBaxter:Start(timer2 - dt1)
+				timerFrye:Start(timer3 - dt1)
+			end
+		elseif L.SayCombatStart3 and ( msg == L.SayCombatStart3 or msg:find(L.SayCombatStart3) ) then
+			-- But what does it matter. It is time for this to end.
+			if not timerFrye:IsStarted() then
+				timerHummel:Start(timer1 - dt2)
+				timerBaxter:Start(timer2 - dt2)
+				timerFrye:Start(timer3 - dt2)
+			end
 		end
 	end
 end
