@@ -9,6 +9,7 @@ mod:RegisterCombat("combat")
 mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_DAMAGE",
+	"SPELL_AURA_APPLIED",
 	"CHAT_MSG_MONSTER_SAY"
 )
 
@@ -41,14 +42,15 @@ do
 	local lastPerfspill = 0
 	local lastColnspill = 0
 	function mod:SPELL_DAMAGE(args)
-		if args:IsSpellID(68927) and args:IsPlayer() and time() - lastPerfspill > 2 then
+		if args:IsSpellID(68927) and args:IsPlayer() and GetTime() - lastPerfspill > 2 then
 			specWarnPerfumeSpill:Show()
-			lastPerfspill = time()
-		elseif args:IsSpellID(68934) and args:IsPlayer() and time() - lastColnspill > 2 then
+			lastPerfspill = GetTime()
+		elseif args:IsSpellID(68934) and args:IsPlayer() and GetTime() - lastColnspill > 2 then
 			specWarnCologneSpill:Show()
-			lastColnspill = time()
+			lastColnspill = GetTime()
 		end
 	end
+	mod.SPELL_AURA_APPLIED = mod.SPELL_DAMAGE
 end
 
 function mod:CHAT_MSG_MONSTER_SAY(msg)
@@ -63,14 +65,14 @@ function mod:CHAT_MSG_MONSTER_SAY(msg)
 			if not timerFrye:IsStarted() then
 				timerHummel:Start(timer1 - dt1)
 				timerBaxter:Start(timer2 - dt1)
-				timerFrye:Start(timer3 - dt1)
+				timerFrye:Start(  timer3 - dt1)
 			end
 		elseif L.SayCombatStart3 and ( msg == L.SayCombatStart3 or msg:find(L.SayCombatStart3) ) then
 			-- But what does it matter. It is time for this to end.
 			if not timerFrye:IsStarted() then
 				timerHummel:Start(timer1 - dt2)
 				timerBaxter:Start(timer2 - dt2)
-				timerFrye:Start(timer3 - dt2)
+				timerFrye:Start(  timer3 - dt2)
 			end
 		end
 	end
