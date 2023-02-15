@@ -335,14 +335,14 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Sapphiron")
 
 L:SetGeneralLocalization({
-	name 				= "薩菲隆"
+	name 					= "薩菲隆"
 })
 
 L:SetOptionLocalization({
 	WarningAirPhaseSoon		= "為空中階段顯示預先警告",
 	WarningAirPhaseNow		= "提示空中階段",
 	WarningLanded			= "提示地上階段",
-	TimerAir			= "為空中階段顯示計時器",
+	TimerAir				= "為空中階段顯示計時器",
 	TimerLanding			= "為降落顯示計時器",
 	TimerIceBlast			= "為冰息術顯示計時器",
 	WarningDeepBreath		= "為冰息術顯示特別警告",
@@ -350,7 +350,7 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	EmoteBreath			= "%s深深地吸了一口氣。",
+	EmoteBreath				= "%s深深地吸了一口氣。",
 	WarningYellIceblock		= "我是冰塊!"
 })
 
@@ -362,7 +362,7 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerAir			= "空中階段",
+	TimerAir				= "空中階段",
 	TimerLanding			= "降落",
 	TimerIceBlast			= "冰息術"	
 })
@@ -374,19 +374,22 @@ L:SetTimerLocalization({
 L = DBM:GetModLocalization("Kel'Thuzad")
 
 L:SetGeneralLocalization({
-	name 				= "科爾蘇加德"
+	name 					= "科爾蘇加德"
 })
 
 L:SetOptionLocalization({
-	TimerPhase2			= "為第二階段顯示計時器",
+	TimerPhase2				= "為第二階段顯示計時器",
 	specwarnP2Soon			= "為科爾蘇加德攻擊前10秒顯示特別警告",
 	warnAddsSoon			= "為寒冰皇冠守護者顯示預先警告",
-	BlastAlarm			= "當冰霜衝擊正在施放時播放自定義警報聲",
-	ShowRange			= "當第二階段開始時顯示距離監視框"
+	BlastAlarm				= "當冰霜衝擊正在施放時播放自定義警報聲",
+	SetIconOnMC				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(28410),
+	SetIconOnManaBomb		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(27819),
+	SetIconOnFrostTomb		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(27808),
+	ShowRange				= "當第二階段開始時顯示距離監視框"
 })
 
 L:SetMiscLocalization({
-	Yell 				= "僕從們，侍衛們，隸屬於黑暗與寒冷的戰士們!聽從科爾蘇加德的召喚!"
+	Yell 					= "僕從們，侍衛們，隸屬於黑暗與寒冷的戰士們!聽從科爾蘇加德的召喚!"
 })
 
 L:SetWarningLocalization({
@@ -395,5 +398,5 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerPhase2			= "第二階段"
+	TimerPhase2				= "第二階段"
 })
