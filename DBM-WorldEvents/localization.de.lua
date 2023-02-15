@@ -17,14 +17,14 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	specWarnBrew		= "Get rid of the brew befüre she tosses you another one!",	--to be translated
-	specWarnBrewStun	= "HINT: You were bonked, remember to drink the brew next time!"	--to be translated
+	specWarnBrew		= "Werde das Bier los, bevor sie dir ein neues zuwirft!",
+	specWarnBrewStun	= "HINWEIS: Du wurdest betäubt. Nächstes Mal, trink das Bier!"
 })
 
 L:SetOptionLocalization({
-	specWarnBrew		= "Zeige Spezialwarnung für Bier der dunklen Schankmaid",
-	specWarnBrewStun	= "Zeige Spezialwarnung für Betäubung der dunklen Schankmaid",
-	YellOnBarrel		= "Schreie bei Fass"
+	specWarnBrew		= "Zeige Spezialwarnung für $spell:47376",
+	specWarnBrewStun	= "Zeige Spezialwarnung für $spell:47340",
+	YellOnBarrel		= "Schreie bei $spell:51413"
 })
 
 L:SetMiscLocalization({
