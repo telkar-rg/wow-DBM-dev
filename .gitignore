@@ -1,3 +1,5 @@
+*.patch
+
 # Compiled Lua sources
 luac.out
 
