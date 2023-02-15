@@ -372,7 +372,8 @@ L:SetWarningLocalization{
 	WarnSimulKill		= "Erster tot - Wiederbelebung in ~12 sec",
 	SpecWarnFury		= "Furor der Natur auf dir!",
 	WarningTremor		= "Bebende Erde - nicht mehr zaubern!",
-	WarnRoots			= "Eiserne Wurzeln auf >%s<"
+	WarnRoots			= "Eiserne Wurzeln auf >%s<",
+	UnstableEnergy		= "Instabile Energie - lauf!"
 }
 
 L:SetTimerLocalization{
@@ -386,7 +387,8 @@ L:SetOptionLocalization{
 	WarningTremor		= "Zeige Spezialwarnung für $spell:62859",
 	PlaySoundOnFury 	= "Spiele Sound wenn du von $spell:63571 betroffen bist",
 	PlaySoundOnGroundTremor = "Spiele Sound bei $spell:62859",
-	TimerSimulKill		= "Zeige Timer für Gegner-Wiederbelebung"
+	TimerSimulKill		= "Zeige Timer für Gegner-Wiederbelebung",
+	UnstableEnergy		= "Zeige Spezialwarnung für $spell:62451"
 }
 
 ----------------------
