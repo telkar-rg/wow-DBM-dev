@@ -393,7 +393,8 @@ L:SetOptionLocalization{
 	WarningTremor  	 		= "지진 시전 특수 경고 보기 (하드 모드)",
 	PlaySoundOnFury			= "자연의 격노 특수 사운드 재생",
 	PlaySoundOnGroundTremor = "지반 떨림 사운드 재생",	-- deepl.com translation
-	TimerSimulKill			= "소환수 부활 타이머 보기"
+	TimerSimulKill			= "소환수 부활 타이머 보기",
+	UnstableEnergy			= "당신이 불안정한 힘에게 영향을 받을 때 특수 경고 보기"	
 }
 
 ----------------------
