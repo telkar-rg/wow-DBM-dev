@@ -364,33 +364,35 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	SpawnYell 	= "Mes enfants, venez m'aider !",
-	WaterSpirit = "Esprit de l'eau ancien",
-	Snaplasher 	= "Flagellant mordant",
-	StormLasher = "Flagellant des tempêtes",
-	YellKill	= "Son emprise sur moi se dissipe. J'y vois à nouveau clair. Merci, héros.",
-	TrashRespawnTimer		= "Respawn des Trashs de Freya"
+	SpawnYell 			= "Mes enfants, venez m'aider !",
+	WaterSpirit 		= "Esprit de l'eau ancien",
+	Snaplasher 			= "Flagellant mordant",
+	StormLasher 		= "Flagellant des tempêtes",
+	YellKill			= "Son emprise sur moi se dissipe. J'y vois à nouveau clair. Merci, héros.",
+	TrashRespawnTimer	= "Respawn des Trashs de Freya"
 }
 
 L:SetWarningLocalization{
-	WarnSimulKill 	= "Premier add mort - Résurrection dans 1 minute",
-	SpecWarnFury 	= "Fureur de la nature sur VOUS!",
-	WarningTremor   = "Tremblement de terre - Arretez d'incanter!",
-	WarnRoots		= "Racines de fer sur >%s<"
+	WarnSimulKill 		= "Premier add mort - Résurrection dans 1 minute",
+	SpecWarnFury 		= "Fureur de la nature sur VOUS!",
+	WarningTremor   	= "Tremblement de terre - Arretez d'incanter!",
+	WarnRoots			= "Racines de fer sur >%s<",
++	UnstableEnergy		= "Energie instable - BOUGEZ!"
 }
 
 L:SetTimerLocalization{
-	TimerSimulKill 			= "Résurrection"
+	TimerSimulKill 		= "Résurrection"
 }
 
 L:SetOptionLocalization{
-	WarnSimulKill	= "Annonce la mort du premier mob",
-	WarnRoots		= "Annonce les cibles des $spell:62438",
-	SpecWarnFury	= "Montre des alertes spéciales pour la $spell:63571",
-	WarningTremor	= "Montre une alerte spéciale pour le $spell:62859 (Hard-Mode)",
-	PlaySoundOnFury = "Joue un sons quand vous êtes affecter par la $spell:63571",
+	WarnSimulKill		= "Annonce la mort du premier mob",
+	WarnRoots			= "Annonce les cibles des $spell:62438",
+	SpecWarnFury		= "Montre des alertes spéciales pour la $spell:63571",
+	WarningTremor		= "Montre une alerte spéciale pour le $spell:62859 (Hard-Mode)",
+	PlaySoundOnFury 	= "Joue un sons quand vous êtes affecter par la $spell:63571",
 	PlaySoundOnGroundTremor = "Jouer le son sur $spell:62859",	-- deepl.com translation
-	TimerSimulKill	= "Montre le timer de la résurrection des mobs"
+	TimerSimulKill		= "Montre le timer de la résurrection des mobs",
+	UnstableEnergy		= "Montre une alerte spéciale pour $spell:62451"
 }
 
 ----------------------
