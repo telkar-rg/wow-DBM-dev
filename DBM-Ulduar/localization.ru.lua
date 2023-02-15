@@ -334,7 +334,8 @@ L:SetWarningLocalization{
 	WarnSimulKill		= "Первый помощник погиб - воскрешение через ~12 сек.",
 	SpecWarnFury		= "Гнев природы на вас!", 	-- deepl.com translation
 	WarningTremor		= "Дрожание земли - прекращение литья!", 	-- deepl.com translation
-	WarnRoots			= "Железные корни на >%s<" 	-- deepl.com translation
+	WarnRoots			= "Железные корни на >%s<", 	-- deepl.com translation
+	UnstableEnergy		= "Нестабильная энергия - бегите!"
 }
 
 L:SetTimerLocalization{
@@ -348,7 +349,8 @@ L:SetOptionLocalization{
 	WarningTremor		= "Спец-предупреждение о $spell:62859", 	-- deepl.com translation
 	PlaySoundOnFury 	= "Звуковой сигнал, когда на вас $spell:63571",
 	PlaySoundOnGroundTremor = "Звуковой сигнал при $spell:62859",
-	TimerSimulKill		= "Отсчет времени до воскрешения монстров"
+	TimerSimulKill		= "Отсчет времени до воскрешения монстров",
+	UnstableEnergy		= "Спец-предупреждение о $spell:62451"
 }
 
 ----------------------
