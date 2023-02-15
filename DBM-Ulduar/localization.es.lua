@@ -336,9 +336,10 @@ L:SetMiscLocalization{
 
 L:SetWarningLocalization{
 	WarnSimulKill		= "Primer add muerto - Resurrección en ~12 seg",
-	SpecWarnFury		= "Furia de la naturaleza sobre ti!",	-- deepl.com translation
-	WarningTremor		= "Tremor terrenal - dejar de lanzar hechizos!",	-- deepl.com translation
-	WarnRoots			= "Raíces férreas sobre >%s<"	-- deepl.com translation
+	SpecWarnFury		= "¡Furia de la naturaleza sobre ti!",	-- deepl.com translation
+	WarningTremor		= "¡Tremor terrenal - dejar de lanzar hechizos!",	-- deepl.com translation
+	WarnRoots			= "Raíces férreas sobre >%s<",	-- deepl.com translation
+	UnstableEnergy		= "Energía inestable - ¡Muévete!"
 }
 
 L:SetTimerLocalization{
@@ -352,7 +353,8 @@ L:SetOptionLocalization{
 	WarningTremor		= "Mostrar aviso especial para $spell:62859",
 	PlaySoundOnFury 	= "Reproducir sonido cuando te afecte $spell:63571",
 	PlaySoundOnGroundTremor = "Reproducir sonido cuando castee $spell:62859",
-	TimerSimulKill		= "Mostrar resureccion de los mobs"
+	TimerSimulKill		= "Mostrar resureccion de los mobs",
+	UnstableEnergy		= "Mostrar aviso especial para $spell:62451"
 }
 
 ----------------------
