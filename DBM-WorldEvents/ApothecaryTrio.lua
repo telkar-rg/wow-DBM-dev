@@ -9,6 +9,7 @@ mod:RegisterCombat("combat")
 mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_DAMAGE",
+	"SPELL_MISSED",
 	"SPELL_AURA_APPLIED",
 	"CHAT_MSG_MONSTER_SAY"
 )
@@ -51,6 +52,7 @@ do
 		end
 	end
 	mod.SPELL_AURA_APPLIED = mod.SPELL_DAMAGE
+	mod.SPELL_MISSED = mod.SPELL_DAMAGE
 end
 
 function mod:CHAT_MSG_MONSTER_SAY(msg)
