@@ -377,7 +377,7 @@ L:SetWarningLocalization{
 	SpecWarnFury 		= "Fureur de la nature sur VOUS!",
 	WarningTremor   	= "Tremblement de terre - Arretez d'incanter!",
 	WarnRoots			= "Racines de fer sur >%s<",
-+	UnstableEnergy		= "Energie instable - BOUGEZ!"
+	UnstableEnergy		= "Energie instable - BOUGEZ!"
 }
 
 L:SetTimerLocalization{
