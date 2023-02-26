@@ -648,11 +648,7 @@
 					self:CreateButtons( getglobal(self:GetName().."DBMOptions") )
 					self:UpdateMenuFrame( getglobal(self:GetName().."BossMods") )
 				end
-				if math.random(1,2) == 1 then	-- who is first? hmm lets do it random :)
-					getglobal(self:GetName().."Authors"):SetText("DBMv4 by Nitram@EU-Azshara and Tandanu@EU-Aegwynn - visit www.deadlybossmods.com")
-				else
-					getglobal(self:GetName().."Authors"):SetText("DBMv4 by Tandanu@EU-Aegwynn and Nitram@EU-Azshara - visit www.deadlybossmods.com")
-				end
+				getglobal(self:GetName().."Authors"):SetText("DBM T5 edited by Telkar@RG - visit https://github.com/telkar-rg/wow-DBM-dev")
 			</OnShow>
 			<OnDragStart>
 				self:StartMoving()
