@@ -48,6 +48,7 @@ L.EnableDBM 		= "Aktiviere DBM"
 L.EnableStatus 		= "Antworte auf 'status'-Flüsteranfragen"
 L.AutoRespond 		= "Aktiviere automatische Antwort während eines Bosskampfes"
 L.EnableMiniMapIcon	= "Aktiviere Minimap-Symbol"
+L.FixCLEUOnCombatStart		= "Kampflog bei Encounter-Beginn zurücksetzen"
 
 L.Button_RangeFrame	= "Zeige/Verberge Abstandsfenster"
 L.Button_TestBars	= "Starte Testbalken"
