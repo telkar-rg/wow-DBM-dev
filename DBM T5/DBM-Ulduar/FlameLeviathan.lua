@@ -1,7 +1,10 @@
 local mod	= DBM:NewMod("FlameLeviathan", "DBM-Ulduar")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4181 $"):sub(12, -3))
+local _, TableShared = ...
+local T = TableShared.Timers["FlameLeviathan"]
+
+mod:SetRevision(("$Revision: 5002 $"):sub(12, -3))
 
 mod:SetCreatureID(33113)
 
@@ -21,9 +24,9 @@ local warnSystemOverload	= mod:NewSpecialWarningSpell(62475)
 local pursueSpecWarn		= mod:NewSpecialWarning("SpecialPursueWarnYou")
 local warnWardofLife		= mod:NewSpecialWarning("warnWardofLife")
 
-local timerSystemOverload	= mod:NewBuffActiveTimer(20, 62475)
-local timerFlameVents		= mod:NewCastTimer(10, 62396)
-local timerPursued			= mod:NewTargetTimer(30, 62374)
+local timerSystemOverload	= mod:NewBuffActiveTimer(T["SystemOverload"], 62475)
+local timerFlameVents		= mod:NewCastTimer(T["FlameVents"], 62396)
+local timerPursued			= mod:NewTargetTimer(T["Pursued"], 62374)
 
 local soundPursued = mod:NewSound(62374)
 
@@ -55,7 +58,7 @@ function mod:SPELL_AURA_APPLIED(args)
 
 	elseif args:IsSpellID(62374) then	-- Pursued
 		local player = guids[args.destGUID]
-		warnNextPursueSoon:Schedule(25)
+		warnNextPursueSoon:Schedule(T["Pursued"]-5)
 		timerPursued:Start(player)
 		pursueTargetWarn:Show(player)
 		if player == UnitName("player") then
