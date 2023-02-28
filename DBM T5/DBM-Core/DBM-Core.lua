@@ -60,8 +60,9 @@ DBM.DefaultOptions = {
 		{r = 1.00, g = 0.50, b = 0.00}, -- Color 3 - #FF8000 - Orange
 		{r = 1.00, g = 0.10, b = 0.10}, -- Color 4 - #FF1A1A - Red
 	},
-	RaidWarningSound = "Sound\\Doodad\\BellTollNightElf.wav",
-	SpecialWarningSound = "Sound\\Spells\\PVPFlagTaken.wav",
+	RaidWarningSound =     "Sound\\Doodad\\BellTollNightElf.wav",
+	SpecialWarningSound =  "Sound\\Spells\\PVPFlagTaken.wav",
+	SpecialWarningSound2 = "Sound\\Doodad\\Belltollalliance.wav",
 	RaidWarningPosition = {
 		Point = "TOP",
 		X = 0,
