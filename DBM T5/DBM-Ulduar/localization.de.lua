@@ -74,60 +74,42 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{	
-	SpecWarnDevouringFlame     = "Verschlingende Flamme - LAUF RAUS",
-	warnTurretsReadySoon       = "letzer Turm bereit in 20 Sek",
-	warnTurretsReady           = "letzer Turm bereit",
-	SpecWarnDevouringFlameCast = "Verschlingende Flamme auf dir",
-	WarnDevouringFlameCast     = "Verschlingende Flamme auf >%s<" 
+	SpecWarnDevouringFlame		= "Verschlingende Flamme - LAUF RAUS",
+	warnTurretsReadySoon		= "letzer Turm bereit in 20 Sek",
+	warnTurretsReady		= "letzer Turm bereit",
+	SpecWarnDevouringFlameCast	= "Verschlingende Flamme auf dir",
+	WarnDevouringFlameCast		= "Verschlingende Flamme auf >%s<" 
 }
 
 L:SetTimerLocalization{
-	timerTurret1  = "Turm 1",
-	timerTurret2  = "Turm 2",
-	timerTurret3  = "Turm 3",
-	timerTurret4  = "Turm 4",
-	timerGrounded = "auf dem Boden"
+	timerTurret1			= "Turm 1",
+	timerTurret2			= "Turm 2",
+	timerTurret3			= "Turm 3",
+	timerTurret4			= "Turm 4",
+	timerGrounded	= "auf dem Boden"
 }
 
 L:SetOptionLocalization{
-	SpecWarnDevouringFlame     = "Zeige Spezialwarnung wenn in einer Verschlingende Flamme",
-	PlaySoundOnDevouringFlame  = "Spiele Sound wenn betroffen durch Verschlingende Flamme",
-	warnTurretsReadySoon       = "Zeige Vorwarnung für Turmfertigstellung",
-	warnTurretsReady           = "Zeige Warnung für fertige Türme",
-	SpecWarnDevouringFlameCast = "Zeige Spezialwarnung wenn Verschlingende Flamme auf dich gezaubert wird",
-	timerTurret1         = "Zeige Timer für Turm 1",
-	timerTurret2         = "Zeige Timer für Turm 2",
-	timerTurret3         = "Zeige Timer für Turm 3 (25 Spieler)",
-	timerTurret4         = "Zeige Timer für Turm 4 (25 Spieler)",
-	OptionDevouringFlame = "Verkünde Ziel der Verschlingenden Flamme (nicht verlässlich)",
-	timerGrounded        = "Zeige Timer für Dauer der Bodenphase"
+	SpecWarnDevouringFlame		= "Zeige Spezialwarnung wenn in einer Verschlingende Flamme",
+	PlaySoundOnDevouringFlame	= "Spiele Sound wenn betroffen durch Verschlingende Flamme",
+	warnTurretsReadySoon		= "Zeige Vorwarnung für Turmfertigstellung",
+	warnTurretsReady		= "Zeige Warnung für fertige Türme",
+	SpecWarnDevouringFlameCast	= "Zeige Spezialwarnung wenn Verschlingende Flamme auf dich gezaubert wird",
+	timerTurret1			= "Zeige Timer für Turm 1",
+	timerTurret2			= "Zeige Timer für Turm 2",
+	timerTurret3			= "Zeige Timer für Turm 3 (25 Spieler)",
+	timerTurret4			= "Zeige Timer für Turm 4 (25 Spieler)",
+	OptionDevouringFlame		= "Verkünde Ziel der Verschlingenden Flamme (nicht verlässlich)",
+	timerGrounded			    = "Zeige Timer für Dauer der Bodenphase"
 }
 
 L:SetMiscLocalization{
-	-- YellAir				= "Gebt uns einen Moment, damit wir uns auf den Bau der Geschütze vorbereiten können.",
-	YellAir				= "Haltet die Augen offen! Bald werden Maulwurfmaschinen mit diesen widerlichen Eisenzwergen auftauchen!",
-	-- YellAir2			= "Feuer einstellen! Lasst uns diese Geschütze reparieren!",
-	YellAir2			= "Feuer gelöscht! Lasst uns diese Geschütze reparieren!",
+	YellAir				= "Gebt uns einen Moment, damit wir uns auf den Bau der Geschütze vorbereiten können.",
+	YellAir2			= "Feuer einstellen! Lasst uns diese Geschütze reparieren!",
 	YellGround			= "Beeilt Euch! Sie wird nicht lange am Boden bleiben!", 
-	-- EmotePhase2			= "%%s grounded permanently!",
-	EmotePhase2			= "%%s ist dauerhaft an den Boden gebunden!",
+	EmotePhase2			= "%%s grounded permanently!",
 	FlamecastUnknown		= DBM_CORE_UNKNOWN
 }
--- ["Kommandant der Expedition"] = {
-	-- ["CHAT_MSG_MONSTER_YELL || Haltet die Augen offen! Bald werden Maulwurfmaschinen mit diesen widerlichen Eisenzwergen auftauchen!"] = 1677187641,
-	-- ["CHAT_MSG_MONSTER_YELL || Beeilt Euch! Sie wird nicht lange am Boden bleiben!"] = 1677187964,
--- },
--- ["Klingenschuppe"] = {
-	-- ["CHAT_MSG_RAID_BOSS_EMOTE || %s ist dauerhaft an den Boden gebunden!"] = 1677187978,
-	-- ["CHAT_MSG_RAID_BOSS_EMOTE || %s holt tief Luft..."] = 1677187998,
--- },
--- ["Klingenschuppe Controller"] = {
-	-- ["CHAT_MSG_RAID_BOSS_EMOTE || Harpunengeschütz ist einsatzbereit!"] = 1677187945,
--- },
--- ["Ingenieur der Expedition"] = {
-	-- ["CHAT_MSG_MONSTER_YELL || Bereit, rauszugehen, haltet uns diese Zwerge vom Leib!"] = 1677187627,
-	-- ["CHAT_MSG_MONSTER_YELL || Feuer gelöscht! Lasst uns diese Geschütze reparieren!"] = 1677187854,
--- },
 
 ----------------------------
 --  XT-002 Deconstructor  --
