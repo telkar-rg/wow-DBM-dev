@@ -24,8 +24,8 @@ local warnSystemOverload	= mod:NewSpecialWarningSpell(62475)
 local pursueSpecWarn		= mod:NewSpecialWarning("SpecialPursueWarnYou")
 local warnWardofLife		= mod:NewSpecialWarning("warnWardofLife")
 
-local timerSystemOverload	= mod:NewBuffActiveTimer(T.SystemOverload, 62475)
-local timerFlameVents		= mod:NewCastTimer(T.FlameVents, 62396)
+local timerSystemOverload	= mod:NewBuffActiveTimer(20, 62475)
+local timerFlameVents		= mod:NewCastTimer(10, 62396)
 local timerPursued			= mod:NewTargetTimer(T.Pursued, 62374)
 
 local soundPursued = mod:NewSound(62374)
