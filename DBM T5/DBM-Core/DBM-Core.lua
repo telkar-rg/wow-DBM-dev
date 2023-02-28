@@ -793,6 +793,9 @@ SlashCmdList["DEADLYBOSSMODS"] = function(msg)
 			elseif subCmd:upper() == "MOVE" then
 				DBM.Arrow:Move()
 				success = true
+			elseif subCmd:upper() == "RESET" then
+				DBM.Arrow:Reset()
+				success = true
 			elseif subCmd:upper() == "TARGET" then
 				DBM.Arrow:ShowRunTo("target")
 				success = true

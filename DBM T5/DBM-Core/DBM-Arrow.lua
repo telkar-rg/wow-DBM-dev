@@ -248,3 +248,10 @@ end
 function DBM.Arrow:LoadPosition()
 	frame:SetPoint(DBM.Options.ArrowPoint, DBM.Options.ArrowPosX, DBM.Options.ArrowPosY)
 end
+
+
+function DBM.Arrow:Reset()
+	DBM.Options.ArrowPosX  = DBM.DefaultOptions.ArrowPosX
+	DBM.Options.ArrowPosY  = DBM.DefaultOptions.ArrowPosY
+	DBM.Options.ArrowPoint = DBM.DefaultOptions.ArrowPoint
+end
