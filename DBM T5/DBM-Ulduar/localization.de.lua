@@ -104,8 +104,8 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	-- YellAir				= "Gebt uns einen Moment, damit wir uns auf den Bau der Geschütze vorbereiten können.",
-	YellAir				= "Haltet die Augen offen! Bald werden Maulwurfmaschinen mit diesen widerlichen Eisenzwergen auftauchen!",
+	YellAir				= "Gebt uns einen Moment, damit wir uns auf den Bau der Geschütze vorbereiten können.",
+	-- YellAir				= "Haltet die Augen offen! Bald werden Maulwurfmaschinen mit diesen widerlichen Eisenzwergen auftauchen!",
 	-- YellAir2			= "Feuer einstellen! Lasst uns diese Geschütze reparieren!",
 	YellAir2			= "Feuer gelöscht! Lasst uns diese Geschütze reparieren!",
 	YellGround			= "Beeilt Euch! Sie wird nicht lange am Boden bleiben!", 
