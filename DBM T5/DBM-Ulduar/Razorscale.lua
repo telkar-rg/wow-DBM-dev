@@ -39,7 +39,7 @@ local combattime = 0
 
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
-	combattime = GetTime()
+	combattime = GetTime()+30
 	if mod:IsDifficulty("heroic10") then
 		warnTurretsReadySoon:Schedule(53-delay)
 		warnTurretsReady:Schedule(73-delay)
@@ -77,7 +77,8 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(emote)
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg, mob)
-	if (msg == L.YellAir or msg == L.YellAir2) and GetTime() - combattime > 30 then
+	if (msg == L.YellAir or msg == L.YellAir2) and GetTime() > combattime then
+		combattime = GetTime()+30
 		if mod:IsDifficulty("heroic10") then -- not sure?
 			warnTurretsReadySoon:Schedule(23)
 			warnTurretsReady:Schedule(43)

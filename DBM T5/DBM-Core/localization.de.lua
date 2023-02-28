@@ -186,8 +186,9 @@ DBM_ARROW_MOVABLE					= "Pfeil beweglich"
 DBM_ARROW_NO_RAIDGROUP				= "Diese Funktion steht nur in Schlachtzügen und innerhalb von Instanzen zu Verfügung." 
 DBM_ARROW_ERROR_USAGE	= {
 	"Benutzung von DBM-Arrow:",
-	"/dbm arrow <x> <y>  erzeugt einen Pfeil, der auf bestimmte Koordinaten zeigt (0 < x/y < 100)",
-	"/dbm arrow <player>  erzeugt einen Pfeil, der auf einen bestimmten Spieler in deiner Gruppe oder deinem Schlachtzug zeigt",
-	"/dbm arrow hide  versteckt den Pfeil",
-	"/dbm arrow move  macht den Pfeil beweglich",
+	"/dbm arrow <x> <y>: erzeugt einen Pfeil, der auf bestimmte Koordinaten zeigt (0 < x/y < 100)",
+	"/dbm arrow <player>: erzeugt einen Pfeil, der auf einen bestimmten Spieler in deiner Gruppe oder deinem Schlachtzug zeigt",
+	"/dbm arrow hide: versteckt den Pfeil",
+	"/dbm arrow move: macht den Pfeil beweglich",
+	"/dbm arrow reset: setzt Pfeilposition zurück",
 }
