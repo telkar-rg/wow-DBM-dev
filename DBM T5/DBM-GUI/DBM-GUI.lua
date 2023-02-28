@@ -1293,9 +1293,9 @@ local function CreateOptionsMenu()
 		-- RaidWarn Sound
 		local Sounds = {
 			{	text = L.NoSound,	value	= "" },
-			{	text = "Default", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
-			{	text = "Classic", value = "Sound\\interface\\RaidWarning.wav",   sound=true },
-			{	text = "Bell Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
+			{	text = "Default: Bell Toll NightElf", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
+			{	text = "Classic: Raid Warning", value = "Sound\\interface\\RaidWarning.wav",   sound=true },
+			{	text = "Bell Toll Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
 			{	text = "Simon: Green",  value = "Sound\\Doodad\\Simongame_smallgreentree.Wav",  sound=true },
 			{	text = "Simon: Yellow", value = "Sound\\Doodad\\Simongame_smallyellowtree.Wav", sound=true },
 			{	text = "Simon: Red",    value = "Sound\\Doodad\\Simongame_smallredtree.Wav",    sound=true },
