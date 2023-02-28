@@ -74,7 +74,7 @@ function mod:SPELL_CAST_START(args)
 		specWarnTremor:Show()
 		timerTremorCD:Start()
 		if self.Options.PlaySoundOnGroundTremor then
-			PlaySoundFile("Sound\\Spells\\PVPFlagTaken.wav")
+			PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
 		end
 	end
 end 

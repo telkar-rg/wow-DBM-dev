@@ -2892,7 +2892,7 @@ do
 			frame:SetAlpha(1)
 			frame.timer = 5
 			if self.sound then
-				PlaySoundFile(DBM.Options.SpecialWarningSound)
+				PlaySoundFile(self.soundFile or DBM.Options.SpecialWarningSound)
 			end
 		end
 	end
@@ -2912,6 +2912,7 @@ do
 				option = optionName or text,
 				mod = self,
 				sound = not noSound,
+				soundFile = (runSound ~= "" and runSound) or nil,
 				color = color,
 			},
 			mt
@@ -2940,6 +2941,7 @@ do
 				option = optionName or text,
 				mod = self,
 				sound = not noSound,
+				soundFile = (runSound ~= "" and runSound) or nil,
 				color = color,
 			},
 			mt

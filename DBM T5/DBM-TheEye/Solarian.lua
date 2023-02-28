@@ -104,7 +104,7 @@ function Solarian:OnSync(msg)
 				  self:AddSpecialWarning(DBM_SOLARIAN_SPECWARN_WRATH); 
 			   end 
 			   if self.Options.SoundWarning then 
-				  PlaySoundFile("Sound\\Spells\\PVPFlagTaken.wav"); 
+				  PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav"); 
 				  PlaySoundFile("Sound\\Creature\\HoodWolf\\HoodWolfTransformPlayer01.wav");
 			   end 
 			end

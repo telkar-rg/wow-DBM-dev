@@ -58,7 +58,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		self:UnscheduleMethod("AnnounceBlastTargets")
 		self:ScheduleMethod(0.5, "AnnounceBlastTargets")
 		if self.Options.BlastAlarm then
-			PlaySoundFile("Interface\\Addons\\DBM-Core\\sounds\\alarm1.wav")
+			PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
 		end
 		blastTimer:Start()
 	elseif args:IsSpellID(27819) then -- Mana Bomb
