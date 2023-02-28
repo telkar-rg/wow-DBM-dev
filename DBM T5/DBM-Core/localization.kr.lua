@@ -182,6 +182,7 @@ DBM_ARROW_ERROR_USAGE	= {
 	"/dbm arrow move  화살표를 움직이도록 합니다.",
 	"/dbm arrow target 대상을 가르키는 화살표를 만듭니다.",
 	"/dbm arrow focus  주시대상을 가르키는 화살표를 만듭니다.",
+	"/dbm arrow reset  resets the arrow position",
 }
 
 end

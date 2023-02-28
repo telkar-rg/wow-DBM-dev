@@ -188,4 +188,5 @@ DBM_ARROW_ERROR_USAGE	= {
 	"/dbm arrow <玩家>  建立並箭頭指向你的隊伍或團隊中特定的玩家",
 	"/dbm arrow hide  隱藏箭頭",
 	"/dbm arrow move  可移動箭頭",
+	"/dbm arrow reset  resets the arrow position",
 }

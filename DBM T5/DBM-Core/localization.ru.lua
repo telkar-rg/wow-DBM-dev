@@ -191,6 +191,7 @@ DBM_ARROW_ERROR_USAGE	= {
 	"/dbm arrow <player>: создает стрелку, указывающую на определенного игрока в вашей группе или рейде",
 	"/dbm arrow hide: скрывает стрелку",
 	"/dbm arrow move: разрешает перемещение стрелки",
+	"/dbm arrow reset: resets the arrow position",
 }
 
 

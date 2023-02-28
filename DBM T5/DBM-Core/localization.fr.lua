@@ -191,4 +191,5 @@ DBM_ARROW_ERROR_USAGE	= {
 	"/dbm flèche <player> crée une flèche qui pointe vers un joueur précis dans votre groupe ou raid",
 	"/dbm flèche cache la flèche",
 	"/dbm flèche fait déplacer",
+	"/dbm flèche reset: resets the arrow position",
 }

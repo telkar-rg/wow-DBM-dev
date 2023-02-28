@@ -190,5 +190,6 @@ DBM_ARROW_ERROR_USAGE	= {
 	"/dbm arrow <jugador>: Crea una flecha que apunta a un miembro específico de la banda",
 	"/dbm arrow hide: Oculta la flecha",
 	"/dbm arrow move: Hace la flecha movible",
+	"/dbm arrow reset: resets the arrow position",
 }
 
