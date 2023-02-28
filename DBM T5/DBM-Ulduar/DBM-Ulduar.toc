@@ -39,6 +39,7 @@ localization.es.lua
 localization.cn.lua
 
 MapSizes.lua
+Timers.lua
 
 FlameLeviathan.lua
 Ignis.lua

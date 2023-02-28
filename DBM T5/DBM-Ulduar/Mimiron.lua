@@ -328,3 +328,12 @@ function mod:OnSync(event, args)
 		self:NextPhase()
 	end
 end
+
+-- end P1:   20:42:32 "WUNDERBAR! Das sind Ergebnisse nach meinem Geschmack! Integrität der Hülle bei 98,9 Prozent! So gut wie keine Dellen! Und weiter geht's."
+-- begin p2: 20:43:15.983  SPELL_AURA_APPLIED,0xF150008373000CEC,"VX-001",0xa48,0xF150008373000CEC,"VX-001",0xa48,64582,"Notfallmodus",0x1,BUFF
+
+-- end P2:  20:44:17 || CHAT_MSG_MONSTER_YELL || Mimiron || "Danke Euch, Freunde! Eure Anstrengungen haben fantastische Daten geliefert! So, wo habe ich noch gleich... Ah, hier ist…"
+-- begin P3 20:44:50.220  SPELL_AURA_APPLIED,0xF150008386000D43,"Luftkommandoeinheit",0xa48,0xF150008386000D43,"Luftkommandoeinheit",0xa48,64582,"Notfallmodus",0x1,BUFF
+
+-- end P3   20:46:23 || CHAT_MSG_MONSTER_YELL || Mimiron || "Vorversuchsphase abgeschlossen. Jetzt kommt der eigentliche Test!"
+-- begin P4 20:46:48.659  SPELL_CAST_START,0xF150008386000D43,"Luftkommandoeinheit",0xa48,0x0000000000000000,nil,0x80000000,65647,"Plasmakugel",0x44

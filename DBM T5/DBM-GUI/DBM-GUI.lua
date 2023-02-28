@@ -1292,15 +1292,27 @@ local function CreateOptionsMenu()
 
 		-- RaidWarn Sound
 		local Sounds = {
-			{	text	= L.NoSound,	value	= "" },
-			{	text	= "Default",	value 	= "Sound\\interface\\RaidWarning.wav", 		sound=true },
-			{	text	= "Classic",	value 	= "Sound\\Doodad\\BellTollNightElf.wav", 	sound=true }
+			{	text = L.NoSound,	value	= "" },
+			{	text = "Default", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
+			{	text = "Classic", value = "Sound\\interface\\RaidWarning.wav",   sound=true },
+			{	text = "Bell Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
+			{	text = "Simon: Green",  value = "Sound\\Doodad\\Simongame_smallgreentree.Wav",  sound=true },
+			{	text = "Simon: Yellow", value = "Sound\\Doodad\\Simongame_smallyellowtree.Wav", sound=true },
+			{	text = "Simon: Red",    value = "Sound\\Doodad\\Simongame_smallredtree.Wav",    sound=true },
+			{	text = "Simon: Blue",   value = "Sound\\Doodad\\Simongame_smallbluetree.Wav",   sound=true }
 		}
 		if GetSharedMedia3() then
+			local t = {}
+			local t2 = {}
 			for k,v in next, GetSharedMedia3():HashTable("sound") do
 				if k ~= "None" then -- lol ace .. playsound accepts empty strings.. quite.mp3 wtf!
-					table.insert(Sounds, {text=k, value=v, sound=true})
+					table.insert(t, k)
+					t2[k] = v
 				end
+			end
+			table.sort(t)	-- wir sortieren die sounds zuerst
+			for _,k in pairs(t) do
+				table.insert(Sounds, {text=k, value=t2[k], sound=true})
 			end
 		end
 		local RaidWarnSoundDropDown = raidwarnoptions:CreateDropdown(L.RaidWarnSound, Sounds, 
@@ -1725,15 +1737,27 @@ local function CreateOptionsMenu()
 
 		-- SpecialWarn Sound
 		local Sounds = {
-			{	text	= L.NoSound,		value	= "" },
-			{	text	= "Default",		value 	= "Sound\\Spells\\PVPFlagTaken.wav", 		sound=true },
-			{	text	= "NightElfBell",	value 	= "Sound\\Doodad\\BellTollNightElf.wav", 	sound=true }
+			{	text = L.NoSound,	value	= "" },
+			{	text = "Default", value = "Sound\\Spells\\PVPFlagTaken.wav",     sound=true },
+			{	text = "Classic", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
+			{	text = "Bell Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
+			{	text = "Simon: Green",  value = "Sound\\Doodad\\Simongame_smallgreentree.Wav",  sound=true },
+			{	text = "Simon: Yellow", value = "Sound\\Doodad\\Simongame_smallyellowtree.Wav", sound=true },
+			{	text = "Simon: Red",    value = "Sound\\Doodad\\Simongame_smallredtree.Wav",    sound=true },
+			{	text = "Simon: Blue",   value = "Sound\\Doodad\\Simongame_smallbluetree.Wav",   sound=true }
 		}
 		if GetSharedMedia3() then
+			local t = {}
+			local t2 = {}
 			for k,v in next, GetSharedMedia3():HashTable("sound") do
 				if k ~= "None" then -- lol ace .. playsound accepts empty strings.. quite.mp3 wtf!
-					table.insert(Sounds, {text=k, value=v, sound=true})
+					table.insert(t, k)
+					t2[k] = v
 				end
+			end
+			table.sort(t)	-- wir sortieren die sounds zuerst
+			for _,k in pairs(t) do
+				table.insert(Sounds, {text=k, value=t2[k], sound=true})
 			end
 		end
 		local SpecialWarnSoundDropDown = specArea:CreateDropdown(L.SpecialWarnSound, Sounds, 

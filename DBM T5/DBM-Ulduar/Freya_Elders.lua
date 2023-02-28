@@ -49,12 +49,12 @@ function mod:SPELL_CAST_START(args)
 	elseif args:IsSpellID(62325, 62932) then		-- Ground Tremor
 		specWarnGroundTremor:Show()
 		if self.Options.PlaySoundOnGroundTremor then
-			PlaySoundFile("Sound\\Spells\\PVPFlagTaken.wav")
+			PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
 		end
 	elseif args:IsSpellID(62933, 62337) then		-- Petrified Bark
 		specWarnPetrifiedBark:Show()
 		if self.Options.PlaySoundOnPetrifiedBark then
-			PlaySoundFile("Sound\\Spells\\PVPFlagTakenHorde.wav")
+			PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
 		end
 	end
 end

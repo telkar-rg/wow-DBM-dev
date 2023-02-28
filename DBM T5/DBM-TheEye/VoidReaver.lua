@@ -75,7 +75,7 @@ function VoidReaver:OnArcaneOrb(target)
 		end
 		self:AddSpecialWarning(DBM_VOIDREAVER_SPECWARN_ORB);
 		if self.Options.SoundWarning then
-			PlaySoundFile("Sound\\Spells\\PVPFlagTaken.wav"); 
+			PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav"); 
 			PlaySoundFile("Sound\\Creature\\HoodWolf\\HoodWolfTransformPlayer01.wav");
 		end 
 	end

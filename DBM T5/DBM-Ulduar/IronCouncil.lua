@@ -131,18 +131,26 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerShieldofRunes:Start()		
 	elseif args:IsSpellID(64637, 61888) then	-- Overwhelming Power
 		warnOverwhelmingPower:Show(args.destName)
-		if mod:IsDifficulty("heroic10") then
+		
+		if args:IsSpellID(64637) then -- 60 sec (25 mode) ===========
+		-- if mod:IsDifficulty("heroic10") then
 			timerOverwhelmingPower:Start(60, args.destName)
-		else
-			timerOverwhelmingPower:Start(35, args.destName)
-		end
-		if self.Options.SetIconOnOverwhelmingPower then
-			if mod:IsDifficulty("heroic10") then
+			if self.Options.SetIconOnOverwhelmingPower then
 				self:SetIcon(args.destName, 8, 60) -- skull for 60 seconds (until meltdown)
-			else
+			end
+		else -- 35 sec (10 mode) ===========
+			timerOverwhelmingPower:Start(35, args.destName)
+			if self.Options.SetIconOnOverwhelmingPower then
 				self:SetIcon(args.destName, 8, 35) -- skull for 35 seconds (until meltdown)
 			end
 		end
+		-- if self.Options.SetIconOnOverwhelmingPower then
+			-- if mod:IsDifficulty("heroic10") then
+				-- self:SetIcon(args.destName, 8, 60) -- skull for 60 seconds (until meltdown)
+			-- else
+				-- self:SetIcon(args.destName, 8, 35) -- skull for 35 seconds (until meltdown)
+			-- end
+		-- end
 	elseif args:IsSpellID(63486, 61887) then	-- Lightning Tendrils
 		timerLightningTendrils:Start()
 		specwarnLightningTendrils:Show()

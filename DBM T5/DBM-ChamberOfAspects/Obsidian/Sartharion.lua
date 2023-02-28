@@ -57,7 +57,7 @@ function mod:OnSync(event)
 		warnFireWall:Show()
 		
 		if self.Options.PlaySoundOnFireWall then
---			PlaySoundFile("Sound\\Spells\\PVPFlagTaken.wav")
+--			PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
 			PlaySoundFile("Sound\\Creature\\HoodWolf\\HoodWolfTransformPlayer01.wav")
 		end
 
