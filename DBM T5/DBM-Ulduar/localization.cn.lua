@@ -343,12 +343,24 @@ L:SetMiscLocalization{
 	StormLasher			= "风暴鞭笞者",
 	TreeYell      = "|cFF00FFFF生命缚誓者的礼物|r开始生长！",
 	YellKill			= "他对我的控制已经不复存在了。我又一次恢复了理智。谢谢你们，英雄们。",
-	TrashRespawnTimer		= "弗蕾亚的小怪重生"
+	TrashRespawnTimer		= "弗蕾亚的小怪重生",
+	
+	conservator_trigger = "艾欧娜尔，您的仆人需要帮助！",
+	detonate_trigger    = "元素之潮会击垮你们！",
+	elementals_trigger  = "孩子们，帮帮我！",
+	tree_trigger        = "|cFF00FFFF生命缚誓者的礼物|r开始生长！",
+	conservator_message = "古树监护者！",
+	detonate_message    = "引爆鞭笞者！",
+	elementals_message  = "古代水之精魂！",
+	
+	tree      = "艾欧娜尔的礼物",
+	tree_desc = "当弗蕾亚召唤艾欧娜尔的礼物时发出警报。"
 }
 
 L:SetWarningLocalization{
 	WarningTree   		= "艾欧娜尔的礼物出现 - 立刻攻击",
-	WarnSimulKill			= "第一只元素死亡 - 约12秒后复活"
+	WarnSimulKill			= "第一只元素死亡 - 约12秒后复活",
+	SpecWarnEonarsGift  = "艾欧娜尔的礼物"
 }
 
 L:SetTimerLocalization{
@@ -360,7 +372,8 @@ L:SetOptionLocalization{
 	WarningTree   		= "当首领召唤艾欧娜尔的礼物时显示特别警告",
 	WarnSimulKill			= "提示第一只元素死亡",
 	PlaySoundOnFury			= "当你中了$spell:63571时播放音效",
-	TimerSimulKill			= "为三元素复活显示计时条"
+	TimerSimulKill			= "为三元素复活显示计时条",
+	SpecWarnEonarsGift  = "当弗蕾亚召唤艾欧娜尔的礼物时发出警报。"
 }
 
 ----------------------

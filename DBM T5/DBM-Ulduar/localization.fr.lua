@@ -369,7 +369,18 @@ L:SetMiscLocalization{
 	Snaplasher 			= "Flagellant mordant",
 	StormLasher 		= "Flagellant des tempêtes",
 	YellKill			= "Son emprise sur moi se dissipe. J'y vois à nouveau clair. Merci, héros.",
-	TrashRespawnTimer	= "Respawn des Trashs de Freya"
+	TrashRespawnTimer	= "Respawn des Trashs de Freya",
+	
+	conservator_trigger = "Eonar, ta servante a besoin d'aide !",
+	detonate_trigger    = "La nuée des éléments va vous submerger !",
+	elementals_trigger  = "Mes enfants, venez m'aider !",
+	tree_trigger        = "Un |cFF00FFFFdon de la Lieuse-de-vie|r commence à pousser !",
+	conservator_message = "Ancien conservateur !",
+	detonate_message    = "Flagellants explosifs !",
+	elementals_message  = "Élémentaires !",
+	
+	tree      = "Cadeau d'Eonar",
+	tree_desc = "Prévient quand Freya fait apparaître un Cadeau d'Eonar."
 }
 
 L:SetWarningLocalization{
@@ -377,7 +388,8 @@ L:SetWarningLocalization{
 	SpecWarnFury 		= "Fureur de la nature sur VOUS!",
 	WarningTremor   	= "Tremblement de terre - Arretez d'incanter!",
 	WarnRoots			= "Racines de fer sur >%s<",
-	UnstableEnergy		= "Energie instable - BOUGEZ!"
+	UnstableEnergy		= "Energie instable - BOUGEZ!",
+	SpecWarnEonarsGift  = "Cadeau d'Eonar"
 }
 
 L:SetTimerLocalization{
@@ -392,7 +404,8 @@ L:SetOptionLocalization{
 	PlaySoundOnFury 	= "Joue un sons quand vous êtes affecter par la $spell:63571",
 	PlaySoundOnGroundTremor = "Jouer le son sur $spell:62859",	-- deepl.com translation
 	TimerSimulKill		= "Montre le timer de la résurrection des mobs",
-	UnstableEnergy		= "Montre une alerte spéciale pour $spell:62451"
+	UnstableEnergy		= "Montre une alerte spéciale pour $spell:62451",
+	SpecWarnEonarsGift  = "Prévient quand Freya fait apparaître un Cadeau d'Eonar."
 }
 
 ----------------------

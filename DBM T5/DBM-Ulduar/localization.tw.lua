@@ -322,14 +322,27 @@ L:SetMiscLocalization{
 	Snaplasher			= "猛攫鞭笞者",
 	StormLasher			= "風暴鞭笞者",
 	YellKill			= "他對我的操控已然退散。我已再次恢復神智了。感激不盡，英雄們。",
-	TrashRespawnTimer		= "芙蕾雅的小怪重生"
+	TrashRespawnTimer		= "芙蕾雅的小怪重生",
+	
+	conservator_trigger = "伊歐娜，你的僕從需要協助!",
+	detonate_trigger    = "元素們將襲捲你們!",
+	elementals_trigger  = "孩子們，協助我!",
+	tree_trigger        = "一個|cFF00FFFF生命守縛者之禮|r開始生長!",
+	conservator_message = "古樹護存者！",
+	detonate_message    = "引爆鞭笞者！",
+	elementals_message  = "上古水之靈！",
+	
+	tree      = "伊歐娜的贈禮",
+	tree_desc = "當芙蕾雅召喚伊歐娜的贈禮時發出警報。"
 }
 
 L:SetWarningLocalization{
 	WarnSimulKill		= "第一隻元素死亡 - 大約12秒後復活",
 	SpecWarnFury		= "自然之怒",
-	WarningTremor		= "大地震颤"
-	-- WarnRoots			= "Iron Roots on >%s<"
+	WarningTremor		= "大地震颤",
+	-- WarnRoots			= "Iron Roots on >%s<",
+	-- UnstableEnergy		= "Instabile Energie - lauf!",
+	SpecWarnEonarsGift  = "伊歐娜的贈禮"
 }
 
 L:SetTimerLocalization{
@@ -339,7 +352,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	WarnSimulKill			= "提示第一隻元素死亡",
 	PlaySoundOnFury			= "當你中了$spell:63571時播放音效",
-	TimerSimulKill			= "為三元素復活顯示計時器"
+	TimerSimulKill			= "為三元素復活顯示計時器",
+	SpecWarnEonarsGift      = "當芙蕾雅召喚伊歐娜的贈禮時發出警報。"
 }
 
 ----------------------

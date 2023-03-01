@@ -29,12 +29,12 @@ L:SetWarningLocalization{
 	PursueWarn				= "Verfolgt >%s<!",
 	warnNextPursueSoon		= "Zielwechsel in 5 Sek",
 	SpecialPursueWarnYou	= "Du wirst verfolgt - lauf weg",
-	SystemOverload			= "Kernüberladung",
+	-- SystemOverload			= "Kernüberladung", -- not needed, spell=62475
 	warnWardofLife			= "Zauberschutz des Lebens erscheint"
 }
 
 L:SetOptionLocalization{
-	SystemOverload			= "Zeige Spezialwarnung für Kernüberladung",
+	-- SystemOverload			= "Zeige Spezialwarnung für Kernüberladung", -- not needed, spell=62475
 	SpecialPursueWarnYou	= "Zeige Spezialwarnung bei Verfolgung",
 	PursueWarn				= "Verkünde Verfolgung eines Spielers",
 	warnNextPursueSoon		= "Zeige Vorwarnung vor nächstem Verfolgen",
@@ -54,14 +54,14 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningSlagPot			= "Schlackentopf auf >%s<",
-	SpecWarnJetsCast		= "Flammenstrahlen - Stoppe Zauber"
+	-- WarningSlagPot			= "Schlackentopf auf >%s<", -- not needed, NewTargetAnnounce(63477, 3)
+	-- SpecWarnJetsCast		= "Flammenstrahlen - Stoppe Zauber" -- not needed, NewSpecialWarningCast(63472)
 }
 
 L:SetOptionLocalization{
-	SpecWarnJetsCast		= "Zeige Spezialwarnung für Flammenstrahlen-Zauber",
-	WarningSlagPot			= "Verkünde Schlackentopf-Ziele",
-	SlagPotIcon			= "Setze Zeichen auf Schlackentopf-Ziele"
+	-- SpecWarnJetsCast		= "Zeige Spezialwarnung für Flammenstrahlen-Zauber", -- not needed, NewSpecialWarningCast(63472)
+	-- WarningSlagPot			= "Verkünde Schlackentopf-Ziele", -- not needed, NewTargetAnnounce(63477, 3)
+	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
 }
 
 ------------------
@@ -250,7 +250,7 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecialWarningEyebeam		= "Zeige Spezialwarnung wenn von Fokussierter Augenstrahl betroffen",
+	SpecialWarningEyebeam	= "Zeige Spezialwarnung wenn von Fokussierter Augenstrahl betroffen",
 	SpecWarnCrunchArmor2	= "Zeige Spezialwarnung für Rüstung zermalmen (>=2 Stacks)",
 	WarningEyeBeam			= "Verkünde Augenstrahl-Ziele",
 	timerLeftArm			= "Zeige Timer für Arm-Nachwachsen (links)",
@@ -383,7 +383,18 @@ L:SetMiscLocalization{
 	Snaplasher		= "Knallpeitscher",
 	StormLasher		= "Sturmpeitscher",
 	YellKill		= "Seine Macht über mich beginnt zu schwinden. Endlich kann ich wieder klar sehen. Ich danke Euch, Helden.",
-	TrashRespawnTimer  = "Freya-Trash-Respawn"
+	TrashRespawnTimer	= "Freya-Trash-Respawn",
+	
+	conservator_trigger = "Eonar, Eure Dienerin braucht Hilfe!",
+	detonate_trigger    = "Der Schwarm der Elemente soll über Euch kommen!",
+	elementals_trigger  = "Helft mir, Kinder!",
+	tree_trigger        = "Ein |cFF00FFFFGeschenk der Lebensbinderin|r fängt an zu wachsen!",
+	conservator_message = "Konservator!",
+	detonate_message    = "Explosionspeitscher!",
+	elementals_message  = "Elementare!",
+	
+	tree      = "Eonars Geschenk",
+	tree_desc = "Warnt, wenn Eonars Geschenk auftaucht."
 }
 
 L:SetWarningLocalization{
@@ -391,7 +402,8 @@ L:SetWarningLocalization{
 	SpecWarnFury		= "Furor der Natur auf dir!",
 	WarningTremor		= "Bebende Erde - nicht mehr zaubern!",
 	WarnRoots			= "Eiserne Wurzeln auf >%s<",
-	UnstableEnergy		= "Instabile Energie - lauf!"
+	UnstableEnergy		= "Instabile Energie - lauf!",
+	SpecWarnEonarsGift  = "Eonars Geschenk"
 }
 
 L:SetTimerLocalization{
@@ -406,7 +418,8 @@ L:SetOptionLocalization{
 	PlaySoundOnFury 	= "Spiele Sound wenn du von $spell:63571 betroffen bist",
 	PlaySoundOnGroundTremor = "Spiele Sound bei $spell:62859",
 	TimerSimulKill		= "Zeige Timer für Gegner-Wiederbelebung",
-	UnstableEnergy		= "Zeige Spezialwarnung für $spell:62451"
+	UnstableEnergy		= "Zeige Spezialwarnung für $spell:62451",
+	SpecWarnEonarsGift  = "Warnt, wenn Eonars Geschenk auftaucht."
 }
 
 ----------------------
@@ -448,14 +461,14 @@ L:SetGeneralLocalization{
 }
 
 L:SetWarningLocalization{
-	DarkGlare		= "Lasersalve",
+	DarkGlare			= "Lasersalve",
 	MagneticCore		= ">%s< hat Magnetischen Kern",
 	WarningShockBlast	= "Schockschlag - LAUF WEG",
 	WarnBombSpawn		= "neuer Bombenbot"
 }
 
 L:SetTimerLocalization{
-	TimerHardmode		= "Hard Mode - Selbstzerstörung",
+	TimerHardmode	= "Hard Mode - Selbstzerstörung",
 	TimeToPhase2	= "Phase 2",
 	TimeToPhase3	= "Phase 3",
 	TimeToPhase4	= "Phase 4"
@@ -475,7 +488,9 @@ L:SetOptionLocalization{
 	PlaySoundOnDarkGlare	= "Spiele Sound bei Lasersalve",
 	ShockBlastWarningInP1	= "Zeige Spezialwarnung für Schockschlag in Phase 1",
 	ShockBlastWarningInP4	= "Zeige Spezialwarnung für Schockschlag in Phase 4",
-	RangeFrame				= "Zeige Abstandsfenster in Phase 1 (6 m)"
+	RangeFrame				= "Zeige Abstandsfenster in Phase 1 (6 m)",
+	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
+	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
 }
 
 L:SetMiscLocalization{
@@ -526,7 +541,9 @@ L:SetOptionLocalization{
 	YellOnLifeLeech			= "Schreie bei Mal der Gesichtslosen (Lebensentzug)",
 	YellOnShadowCrash		= "Schreie bei Schattengeschoss",
 	WarningLeechLife				= "Verkünde Ziele von Mal der Gesichtslosen (Lebensentzug)",
-	hardmodeSpawn					= "Zeige Timer für Spawn des Saronitanimus (Hard Mode)"
+	hardmodeSpawn					= "Zeige Timer für Spawn des Saronitanimus (Hard Mode)" --,
+	-- CrashArrow						= "Mostrar una flecha cuando $spell:62660 va a caer cerca de ti",
+	-- BypassLatencyCheck				= "No usar la comprobación de sincronización basada en latencia para $spell:62660\n(sólo usar esta opción si tienes problemas de otro modo)"
 }
 
 L:SetMiscLocalization{

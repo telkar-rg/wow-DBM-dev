@@ -371,7 +371,18 @@ L:SetMiscLocalization{
 	Snaplasher 			= "악어덩굴손",
 	StormLasher 		= "폭풍덩굴손",
 	YellKill			= "내게서 그의 지배력이 걷혔다. 다시 온전한 정신을 찾았도다. 영웅들이여, 고맙다.",
-	TrashRespawnTimer	= "프레이야 지역 리젠타임"
+	TrashRespawnTimer	= "프레이야 지역 리젠타임",
+	
+	conservator_trigger = "이오나여, 당신의 종이 도움을 청합니다!",
+	detonate_trigger    = "정령의 무리가 너희를 덮치리라!",
+	elementals_trigger  = "얘들아, 날 도와라!",
+	tree_trigger        = "|cFF00FFFF생명의 어머니의 선물|r이 자라기 시작합니다!",
+	conservator_message = "수호자 소환",
+	detonate_message    = "폭발 덩굴손 소환",
+	elementals_message  = "정령 3 소환",
+	
+	tree      = "이오나의 선물",
+	tree_desc = "프레이야의 이오나의 선물 소환을 알립니다."
 }
 
 L:SetWarningLocalization{
@@ -379,7 +390,8 @@ L:SetWarningLocalization{
 	SpecWarnFury 		= "당신에게 자연의 격노!",
 	WarningTremor   	= "지진! - 시전 중지!",
 	WarnRoots 			= "무쇠 뿌리! : >%s<"	,
-	UnstableEnergy		= "불안정한 힘 - 움직이세요!"
+	UnstableEnergy		= "불안정한 힘 - 움직이세요!",
+	SpecWarnEonarsGift  = "이오나의 선물"
 }
 
 L:SetTimerLocalization{
@@ -394,7 +406,8 @@ L:SetOptionLocalization{
 	PlaySoundOnFury			= "자연의 격노 특수 사운드 재생",
 	PlaySoundOnGroundTremor = "지반 떨림 사운드 재생",	-- deepl.com translation
 	TimerSimulKill			= "소환수 부활 타이머 보기",
-	UnstableEnergy			= "당신이 불안정한 힘에게 영향을 받을 때 특수 경고 보기"	
+	UnstableEnergy			= "당신이 불안정한 힘에게 영향을 받을 때 특수 경고 보기"	,
+	SpecWarnEonarsGift      = "프레이야의 이오나의 선물 소환을 알립니다."
 }
 
 ----------------------

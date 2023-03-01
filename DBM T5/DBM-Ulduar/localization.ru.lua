@@ -327,7 +327,18 @@ L:SetMiscLocalization{
 	Snaplasher         = "Хватоплет",
 	StormLasher        = "Грозовой плеточник",
 	YellKill           = "Он больше не властен надо мной. Мой взор снова ясен. Благодарю вас, герои.",
-	TrashRespawnTimer  = "Возрождение монстров"
+	TrashRespawnTimer  = "Возрождение монстров",
+	
+	conservator_trigger = "Эонар, твоей прислужнице нужна помощь!",
+	detonate_trigger    = "Вас захлестнет сила стихий!",
+	elementals_trigger  = "Помогите мне, дети мои!",
+	tree_trigger        = "|cFF00FFFFДар Хранительницы жизни|r начинает расти!",
+	conservator_message = "Древний опекун!",
+	detonate_message    = "Взрывные плеточники!",
+	elementals_message  = "Элементали!",
+	
+	tree      = "Дар Эонара",
+	tree_desc = "Сообщать когда Фрейа призывает Дар Эонара.",
 }
 
 L:SetWarningLocalization{
@@ -335,7 +346,8 @@ L:SetWarningLocalization{
 	SpecWarnFury		= "Гнев природы на вас!", 	-- deepl.com translation
 	WarningTremor		= "Дрожание земли - прекращение литья!", 	-- deepl.com translation
 	WarnRoots			= "Железные корни на >%s<", 	-- deepl.com translation
-	UnstableEnergy		= "Нестабильная энергия - бегите!"
+	UnstableEnergy		= "Нестабильная энергия - бегите!",
+	SpecWarnEonarsGift  = "Дар Эонара"
 }
 
 L:SetTimerLocalization{
@@ -350,7 +362,8 @@ L:SetOptionLocalization{
 	PlaySoundOnFury 	= "Звуковой сигнал, когда на вас $spell:63571",
 	PlaySoundOnGroundTremor = "Звуковой сигнал при $spell:62859",
 	TimerSimulKill		= "Отсчет времени до воскрешения монстров",
-	UnstableEnergy		= "Спец-предупреждение о $spell:62451"
+	UnstableEnergy		= "Спец-предупреждение о $spell:62451",
+	SpecWarnEonarsGift  = "Сообщать когда Фрейа призывает Дар Эонара."
 }
 
 ----------------------
