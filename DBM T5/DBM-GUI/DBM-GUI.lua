@@ -300,6 +300,7 @@ do
 			setglobal(button:GetName().."Text", CreateFrame("SimpleHTML", button:GetName().."Text", button))
 			local html = getglobal(button:GetName().."Text")
 			html:SetHeight(12)
+			html:SetWidth( self.frame:GetWidth() - 50 ) ------------------
 			html:SetFontObject("GameFontNormal")
 			html:SetPoint("LEFT", button, "RIGHT", 0, 1)
 			html:SetScript("OnHyperlinkClick", onHyperlinkClick)
