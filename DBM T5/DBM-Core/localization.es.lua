@@ -147,15 +147,15 @@ DBM_CORE_AUTO_ANNOUNCE_OPTIONS = {
 -- Auto-generated Special Warning Localizations
 DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 	spell 	= "Mostrar aviso especial para $spell:%d",
-	dispel 	= "Mostrar aviso especial para dispelear/robar hechizo \n $spell:%d",
+	dispel 	= "Mostrar aviso especial para dispelear/robar hechizo $spell:%d",
 	interupt= "Mostrar aviso especial para interrumpir $spell:%d",
-	you 	= "Mostrar aviso especial cuando te afecta \n $spell:%d",
-	target 	= "Mostrar aviso especial cuando a alguien le afecta \n $spell:%d",
-	close 	= "Mostrar aviso especial cuando a alguien cerca de ti \n le afecta $spell:%d",
-	move 	= "Mostrar aviso especial cuando te afecta \n $spell:%d",
+	you 	= "Mostrar aviso especial cuando te afecta $spell:%d",
+	target 	= "Mostrar aviso especial cuando a alguien le afecta $spell:%d",
+	close 	= "Mostrar aviso especial cuando a alguien cerca de ti le afecta $spell:%d",
+	move 	= "Mostrar aviso especial cuando te afecta $spell:%d",
 	run 	= "Mostrar aviso especial para $spell:%d",
 	cast 	= "Mostrar aviso especial para casteo de $spell:%d",
-	stack 	= "Mostrar aviso especial cuando tienes >=%d marcas de \n $spell:%d"
+	stack 	= "Mostrar aviso especial cuando tienes >=%d marcas de $spell:%d"
 }
 
 DBM_CORE_AUTO_SPEC_WARN_TEXTS = {

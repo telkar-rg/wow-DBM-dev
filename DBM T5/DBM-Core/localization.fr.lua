@@ -147,15 +147,15 @@ DBM_CORE_AUTO_ANNOUNCE_OPTIONS = {
 -- Auto-generated Special Warning Localizations
 DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 	spell 		= "Afficher l’alerte spéciale pour $spell:%d",
-	dispel 		= "Afficher l’alerte spéciale à dispel/spellsteal \n $spell:%d",
+	dispel 		= "Afficher l’alerte spéciale à dispel/spellsteal $spell:%d",
 	interupt	= "Afficher l’alerte spéciale interrompre $spell:%d",
 	you 		= "Afficher l’alerte spéciale lorsque vous êtes affecté par $spell:%d",
 	target 		= "Afficher l’alerte spéciale quand quelqu'un est touché par $spell:%d",
-	close 		= "Afficher l’alerte spéciale quand quelqu'un est proche de vous \n affected by $spell:%d",
+	close 		= "Afficher l’alerte spéciale quand quelqu'un est proche de vous affected by $spell:%d",
 	move 		= "Afficher l’alerte spéciale lorsque vous êtes affecté par $spell:%d",
 	run 		= "Afficher l’alerte spéciale pour $spell:%d",
 	cast 		= "Afficher l’alerte spéciale pour $spell:%d cast",
-	stack 		= "Afficher l’alerte spéciale pour >=%d des piles de \n $spell:%d"
+	stack 		= "Afficher l’alerte spéciale pour >=%d des piles de $spell:%d"
 }
 
 DBM_CORE_AUTO_SPEC_WARN_TEXTS = {

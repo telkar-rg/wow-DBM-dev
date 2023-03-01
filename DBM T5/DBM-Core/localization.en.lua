@@ -155,15 +155,15 @@ DBM_CORE_AUTO_ANNOUNCE_OPTIONS = {
 -- Auto-generated Special Warning Localizations
 DBM_CORE_AUTO_SPEC_WARN_OPTIONS = {
 	spell 		= "Show special warning for $spell:%d",
-	dispel 		= "Show special warning to dispel/spellsteal \n $spell:%d",
+	dispel 		= "Show special warning to dispel/spellsteal $spell:%d",
 	interupt	= "Show special warning to interupt $spell:%d",
-	you 		= "Show special warning when you are affected by \n $spell:%d",
-	target 		= "Show special warning when someone is affected by \n $spell:%d",
-	close 		= "Show special warning when someone close to you is \n affected by $spell:%d",
-	move 		= "Show special warning when you are affected by \n $spell:%d",
+	you 		= "Show special warning when you are affected by $spell:%d",
+	target 		= "Show special warning when someone is affected by $spell:%d",
+	close 		= "Show special warning when someone close to you is affected by $spell:%d",
+	move 		= "Show special warning when you are affected by $spell:%d",
 	run 		= "Show special warning for $spell:%d",
 	cast 		= "Show special warning for $spell:%d cast",
-	stack 		= "Show special warning for >=%d stacks of \n $spell:%d"
+	stack 		= "Show special warning for >=%d stacks of $spell:%d"
 }
 
 DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
