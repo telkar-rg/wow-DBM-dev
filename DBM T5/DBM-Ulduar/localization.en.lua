@@ -325,7 +325,18 @@ L:SetMiscLocalization{
 	Snaplasher         = "Snaplasher",
 	StormLasher        = "Storm Lasher",
 	YellKill           = "His hold on me dissipates. I can see clearly once more. Thank you, heroes.",
-	TrashRespawnTimer  = "Freya trash respawn"
+	TrashRespawnTimer  = "Freya trash respawn",
+	
+	conservator_trigger = "Eonar, your servant requires aid!", -- from bigwigs mod
+	detonate_trigger    = "The swarm of the elements shall overtake you!",
+	elementals_trigger  = "Children, assist me!",
+	tree_trigger        = "A |cFF00FFFFLifebinder's Gift|r begins to grow!",
+	conservator_message = "Conservator!",
+	detonate_message    = "Detonating lashers!",
+	elementals_message  = "Elementals!",
+	
+	tree         = "Eonar's Gift",
+	tree_desc    = "Alert when Freya spawns a Eonar's Gift."
 }
 
 L:SetWarningLocalization{
@@ -333,7 +344,8 @@ L:SetWarningLocalization{
 	SpecWarnFury		= "Nature's Fury on you!",
 	WarningTremor		= "Ground Tremor - stop casting!",
 	WarnRoots			= "Iron Roots on >%s<",
-	UnstableEnergy		= "Unstable Energy - run!"
+	UnstableEnergy		= "Unstable Energy - run!",
+	SpecWarnEonarsGift  = "Eonar's Gift"
 }
 
 L:SetTimerLocalization{
@@ -348,7 +360,8 @@ L:SetOptionLocalization{
 	PlaySoundOnFury 	= "Play sound when you are affected by $spell:63571",
 	PlaySoundOnGroundTremor = "Play sound on $spell:62859 cast",
 	TimerSimulKill		= "Show timer for mob resurrection",
-	UnstableEnergy		= "Show special warning for $spell:62451"
+	UnstableEnergy		= "Show special warning for $spell:62451",
+	SpecWarnEonarsGift  = "Alert when Freya spawns a Eonar's Gift."
 }
 
 ----------------------
