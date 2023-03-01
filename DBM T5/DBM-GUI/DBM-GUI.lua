@@ -292,35 +292,45 @@ do
 		local button = CreateFrame('CheckButton', FrameTitle..self:GetNewID(), self.frame, 'OptionsCheckButtonTemplate')
 		button.myheight = 25 -- <= text height + 12
 		button.mytype = "checkbutton"
-		-- font strings do not support hyperlinks, so check if we need one...
+		
 		if name:find("%$spell:") then
 			name = name:gsub("%$spell:(%d+)", replaceSpellLinks)
 		end
 		
-		local html, textHeight -- small fix here
+		local nameClean = name
+		if name:find("\124H") then
+			nameClean = name:gsub("|c%S+|H[^|]+|h([^|]+)|h|r", "%1")
+		end
+		-- we check the text height for shorter text, since too big spaces may occur otherwise
+		nameClean = nameClean:sub(1,-3) 
+		getglobal(button:GetName() .. 'Text'):SetText(nameClean or "unknown")
+		
+		getglobal(button:GetName() .. 'Text'):SetWidth( self.frame:GetWidth() - 50 )
+		
+		local textHeight = getglobal(button:GetName() .. 'Text'):GetHeight() -- get newly formated text height
+		button.myheight = textHeight+12
+		
+		getglobal(button:GetName() .. 'Text'):SetText(name or "unknown")
+		getglobal(button:GetName() .. 'Text'):SetHeight(button.myheight)
+		
+		-- font strings do not support hyperlinks, so check if we need one...
 		if name and name:find("|H") then -- ...and replace it with a SimpleHTML frame
+			getglobal(button:GetName() .. 'Text'):SetText()
+			
 			setglobal(button:GetName().."Text", CreateFrame("SimpleHTML", button:GetName().."Text", button))
-			html = getglobal(button:GetName().."Text")
-			html:SetHeight(12)
+			local html = getglobal(button:GetName().."Text")
+			-- html:SetHeight(12)
+			html:SetHeight(textHeight)
 			html:SetWidth( self.frame:GetWidth() - 50 ) ------------------
 			html:SetFontObject("GameFontNormal")
 			html:SetPoint("LEFT", button, "RIGHT", 0, 1)
+			-- html:SetJustifyH("LEFT")
 			html:SetScript("OnHyperlinkClick", onHyperlinkClick)
 			html:SetScript("OnHyperlinkEnter", onHyperlinkEnter)
 			html:SetScript("OnHyperlinkLeave", onHyperlinkLeave)
+			
+			html:SetText(name or "unknown")
 		end
-		getglobal(button:GetName() .. 'Text'):SetText(name or "unknown")
-		getglobal(button:GetName() .. 'Text'):SetWidth( self.frame:GetWidth() - 50 )
-		
-		textHeight = getglobal(button:GetName() .. 'Text'):GetHeight() -- get newly formated text height
-		if html then
-			html:SetHeight(textHeight) -- fix html height
-		end
-		
-		
-		-- if getglobal(button:GetName() .. 'Text'):GetHeight() > 15 then -- DEBUG
-			-- print(button:GetName() .. 'Text'.." !! "..(name or "unknown").." !! "..tostring(getglobal(button:GetName() .. 'Text'):GetHeight()))
-		-- end
 
 		if textleft then
 			getglobal(button:GetName() .. 'Text'):ClearAllPoints()
@@ -344,7 +354,7 @@ do
 			local x = self:GetLastObj()
 			if x.mytype == "checkbutton" then
 				button:ClearAllPoints()
-				button:SetPoint('TOPLEFT', self:GetLastObj(), "BOTTOMLEFT", 0, 2)
+				button:SetPoint('TOPLEFT', self:GetLastObj(), "BOTTOMLEFT", 0, 2 - (button.myheight-25 + x.myheight-25)/2)
 			else
 				button:ClearAllPoints()
 				button:SetPoint('TOPLEFT', 10, -12)
