@@ -290,15 +290,17 @@ do
 			return DBM:AddMsg("CreateCheckButton: error: expected string, received number. You probably called mod:NewTimer(optionId) with a spell id.")
 		end
 		local button = CreateFrame('CheckButton', FrameTitle..self:GetNewID(), self.frame, 'OptionsCheckButtonTemplate')
-		button.myheight = 25
+		button.myheight = 25 -- <= text height + 12
 		button.mytype = "checkbutton"
 		-- font strings do not support hyperlinks, so check if we need one...
 		if name:find("%$spell:") then
 			name = name:gsub("%$spell:(%d+)", replaceSpellLinks)
 		end
+		
+		local html, textHeight -- small fix here
 		if name and name:find("|H") then -- ...and replace it with a SimpleHTML frame
 			setglobal(button:GetName().."Text", CreateFrame("SimpleHTML", button:GetName().."Text", button))
-			local html = getglobal(button:GetName().."Text")
+			html = getglobal(button:GetName().."Text")
 			html:SetHeight(12)
 			html:SetWidth( self.frame:GetWidth() - 50 ) ------------------
 			html:SetFontObject("GameFontNormal")
@@ -309,6 +311,16 @@ do
 		end
 		getglobal(button:GetName() .. 'Text'):SetText(name or "unknown")
 		getglobal(button:GetName() .. 'Text'):SetWidth( self.frame:GetWidth() - 50 )
+		
+		textHeight = getglobal(button:GetName() .. 'Text'):GetHeight() -- get newly formated text height
+		if html then
+			html:SetHeight(textHeight) -- fix html height
+		end
+		
+		
+		-- if getglobal(button:GetName() .. 'Text'):GetHeight() > 15 then -- DEBUG
+			-- print(button:GetName() .. 'Text'.." !! "..(name or "unknown").." !! "..tostring(getglobal(button:GetName() .. 'Text'):GetHeight()))
+		-- end
 
 		if textleft then
 			getglobal(button:GetName() .. 'Text'):ClearAllPoints()
