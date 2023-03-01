@@ -24,7 +24,7 @@ local pursueTargetWarn		= mod:NewTargetAnnounce(62374)
 local warnNextPursueSoon	= mod:NewSoonAnnounce(62374)
 
 -- local pursueSpecWarn		= mod:NewSpecialWarning("SpecialPursueWarnYou")
-local pursueSpecWarn		= mod:NewSpecialWarningMove(62374)
+local pursueSpecWarn		= mod:NewSpecialWarningMove(62374) -- if i am target, then move
 local warnSystemOverload	= mod:NewSpecialWarningSpell(62475)
 local warnWardofLife		= mod:NewSpecialWarning("warnWardofLife")
 
@@ -81,13 +81,15 @@ function mod:SPELL_AURA_REMOVED(args)
 	end
 end
 
-function mod:CHAT_MSG_RAID_BOSS_EMOTE(emote)
-	local player = string.match(emote, L.Emote)
-	if player then
+function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg)
+	local targetName = string.match(msg, L.Emote)
+	
+	if targetName and UnitIsPlayer(targetName) then
 		warnNextPursueSoon:Schedule(T.Pursued - 5)
-		timerPursued:Start(player)
-		pursueTargetWarn:Show(player)
-		if player == UnitName("player") then
+		timerPursued:Start(targetName)
+		pursueTargetWarn:Show(targetName)
+		
+		if targetName == UnitName("player") then -- if on me
 			pursueSpecWarn:Show()
 			soundPursued:Play()
 		end
