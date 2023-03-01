@@ -27,7 +27,7 @@ L:SetMiscLocalization{
 
 L:SetWarningLocalization{
 	PursueWarn				= "Verfolgt >%s<!",
-	warnNextPursueSoon		= "Zielwechsel in 5 Sek",
+	-- warnNextPursueSoon		= "Zielwechsel in 5 Sek",
 	SpecialPursueWarnYou	= "Du wirst verfolgt - lauf weg",
 	-- SystemOverload			= "Kernüberladung", -- not needed, spell=62475
 	warnWardofLife			= "Zauberschutz des Lebens erscheint"
@@ -36,7 +36,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	-- SystemOverload			= "Zeige Spezialwarnung für Kernüberladung", -- not needed, spell=62475
 	SpecialPursueWarnYou	= "Zeige Spezialwarnung bei Verfolgung",
-	PursueWarn				= "Verkünde Verfolgung eines Spielers",
+	-- PursueWarn				= "Verkünde Verfolgung eines Spielers",
 	warnNextPursueSoon		= "Zeige Vorwarnung vor nächstem Verfolgen",
 	warnWardofLife			= "Zeige Spezialwarnung für Erscheinen von Zauberschutz des Lebens"
 }
