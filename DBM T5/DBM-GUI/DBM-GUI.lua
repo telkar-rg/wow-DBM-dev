@@ -1293,9 +1293,9 @@ local function CreateOptionsMenu()
 		-- RaidWarn Sound
 		local Sounds = {
 			{	text = L.NoSound,	value	= "" },
-			{	text = "Default", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
-			{	text = "Classic", value = "Sound\\interface\\RaidWarning.wav",   sound=true },
-			{	text = "Bell Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
+			{	text = "Default: Bell Toll NightElf", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
+			{	text = "Classic: Raid Warning", value = "Sound\\interface\\RaidWarning.wav",   sound=true },
+			{	text = "Bell Toll Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
 			{	text = "Simon: Green",  value = "Sound\\Doodad\\Simongame_smallgreentree.Wav",  sound=true },
 			{	text = "Simon: Yellow", value = "Sound\\Doodad\\Simongame_smallyellowtree.Wav", sound=true },
 			{	text = "Simon: Red",    value = "Sound\\Doodad\\Simongame_smallredtree.Wav",    sound=true },
@@ -1653,7 +1653,7 @@ local function CreateOptionsMenu()
 
 	do
 		local specPanel = DBM_GUI_Frame:CreateNewPanel(L.Panel_SpecWarnFrame, "option")
-		local specArea = specPanel:CreateArea(L.Area_SpecWarn, nil, 205, true)
+		local specArea = specPanel:CreateArea(L.Area_SpecWarn, nil, 250, true)
 		specArea:CreateCheckButton(L.SpecWarn_Enabled, true, nil, "ShowSpecialWarnings")
 
 		local showbutton = specArea:CreateButton(L.SpecWarn_DemoButton, 120, 16)
@@ -1738,9 +1738,9 @@ local function CreateOptionsMenu()
 		-- SpecialWarn Sound
 		local Sounds = {
 			{	text = L.NoSound,	value	= "" },
-			{	text = "Default", value = "Sound\\Spells\\PVPFlagTaken.wav",     sound=true },
-			{	text = "Classic", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
-			{	text = "Bell Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
+			{	text = "Default: PVP Flag Taken", value = "Sound\\Spells\\PVPFlagTaken.wav",     sound=true },
+			{	text = "Classic: Bell Toll NightElf", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
+			{	text = "Bell Toll Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
 			{	text = "Simon: Green",  value = "Sound\\Doodad\\Simongame_smallgreentree.Wav",  sound=true },
 			{	text = "Simon: Yellow", value = "Sound\\Doodad\\Simongame_smallyellowtree.Wav", sound=true },
 			{	text = "Simon: Red",    value = "Sound\\Doodad\\Simongame_smallredtree.Wav",    sound=true },
@@ -1768,6 +1768,40 @@ local function CreateOptionsMenu()
 		SpecialWarnSoundDropDown:SetPoint("TOPLEFT", specArea.frame, "TOPLEFT", 130, -150)
 
 
+		-- SpecialWarn Sound 2
+		Sounds = {
+			{	text = L.NoSound,	value	= "" },
+			{	text = "Default: Bell Toll Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
+			{	text = "Classic: PVP Flag Taken", value = "Sound\\Spells\\PVPFlagTaken.wav",     sound=true },
+			{	text = "Bell Toll NightElf", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
+			{	text = "Simon: Green",  value = "Sound\\Doodad\\Simongame_smallgreentree.Wav",  sound=true },
+			{	text = "Simon: Yellow", value = "Sound\\Doodad\\Simongame_smallyellowtree.Wav", sound=true },
+			{	text = "Simon: Red",    value = "Sound\\Doodad\\Simongame_smallredtree.Wav",    sound=true },
+			{	text = "Simon: Blue",   value = "Sound\\Doodad\\Simongame_smallbluetree.Wav",   sound=true }
+		}
+		if GetSharedMedia3() then
+			local t = {}
+			local t2 = {}
+			for k,v in next, GetSharedMedia3():HashTable("sound") do
+				if k ~= "None" then -- lol ace .. playsound accepts empty strings.. quite.mp3 wtf!
+					table.insert(t, k)
+					t2[k] = v
+				end
+			end
+			table.sort(t)	-- wir sortieren die sounds zuerst
+			for _,k in pairs(t) do
+				table.insert(Sounds, {text=k, value=t2[k], sound=true})
+			end
+		end
+		local SpecialWarningSound2DropDown = specArea:CreateDropdown(L.SpecialWarnSound.." 2", Sounds, 
+			DBM.Options.SpecialWarningSound2, function(value) 
+				DBM.Options.SpecialWarningSound2 = value
+			end
+		)
+		SpecialWarningSound2DropDown:SetPoint("TOPLEFT", specArea.frame, "TOPLEFT", 130, -200)
+		
+
+
 		local resetbutton = specArea:CreateButton(L.SpecWarn_ResetMe, 120, 16)
 		resetbutton:SetPoint('BOTTOMRIGHT', specArea.frame, "BOTTOMRIGHT", -5, 5)
 		resetbutton:SetNormalFontObject(GameFontNormalSmall);
@@ -1778,6 +1812,8 @@ local function CreateOptionsMenu()
 				DBM.Options.SpecialWarningFontColor[1] = DBM.DefaultOptions.SpecialWarningFontColor[1]
 				DBM.Options.SpecialWarningFontColor[2] = DBM.DefaultOptions.SpecialWarningFontColor[2]
 				DBM.Options.SpecialWarningFontColor[3] = DBM.DefaultOptions.SpecialWarningFontColor[3]
+				DBM.Options.SpecialWarningSound  = DBM.DefaultOptions.SpecialWarningSound
+				DBM.Options.SpecialWarningSound2 = DBM.DefaultOptions.SpecialWarningSound2
 				DBM.Options.SpecialWarningPoint = DBM.DefaultOptions.SpecialWarningPoint
 				DBM.Options.SpecialWarningX = DBM.DefaultOptions.SpecialWarningX
 				DBM.Options.SpecialWarningY = DBM.DefaultOptions.SpecialWarningY
