@@ -17,11 +17,14 @@ mod:RegisterEvents(
 )
 
 local warnHodirsFury		= mod:NewTargetAnnounce(62297)
-local pursueTargetWarn		= mod:NewAnnounce("PursueWarn", 2, 62374)
-local warnNextPursueSoon	= mod:NewAnnounce("warnNextPursueSoon", 3, 62374)
+-- local pursueTargetWarn		= mod:NewAnnounce("PursueWarn", 2, 62374)
+local pursueTargetWarn		= mod:NewTargetAnnounce(62374)
+-- local warnNextPursueSoon	= mod:NewAnnounce("warnNextPursueSoon", 3, 62374)
+local warnNextPursueSoon	= mod:NewSoonAnnounce(62374)
 
 local warnSystemOverload	= mod:NewSpecialWarningSpell(62475)
-local pursueSpecWarn		= mod:NewSpecialWarning("SpecialPursueWarnYou")
+-- local pursueSpecWarn		= mod:NewSpecialWarning("SpecialPursueWarnYou")
+local pursueSpecWarn		= mod:NewSpecialWarningYou(62374)
 local warnWardofLife		= mod:NewSpecialWarning("warnWardofLife")
 
 local timerSystemOverload	= mod:NewBuffActiveTimer(20, 62475)
