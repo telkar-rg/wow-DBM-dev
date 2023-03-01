@@ -14,7 +14,8 @@ mod:RegisterEvents(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_REMOVED",
 	"UNIT_DIED",
-	"CHAT_MSG_MONSTER_YELL"
+	"CHAT_MSG_MONSTER_YELL",
+	"CHAT_MSG_RAID_BOSS_EMOTE"
 )
 
 -- Trash: 33430 Guardian Lasher (flower)
@@ -33,12 +34,14 @@ local warnRoots				= mod:NewTargetAnnounce(62438, 2)
 local specWarnFury			= mod:NewSpecialWarningYou(63571)
 local specWarnTremor		= mod:NewSpecialWarningCast(62859)	-- Hard mode
 local specWarnBeam			= mod:NewSpecialWarningMove(62865)	-- Hard mode
+local specWarnEonarsGift    = mod:NewSpecialWarning("SpecWarnEonarsGift", true, nil, false, DBM.Options.SpecialWarningSound2)
 
 local enrage 				= mod:NewBerserkTimer(600)
 local timerAlliesOfNature	= mod:NewNextTimer(60, 62678)
 local timerSimulKill		= mod:NewTimer(12, "TimerSimulKill")
 local timerFury				= mod:NewTargetTimer(10, 63571)
 local timerTremorCD 		= mod:NewCDTimer(28, 62859)
+local timerEonarsGiftCD     = mod:NewCDTimer(40, 62584)
 
 mod:AddBoolOption("HealthFrame", true)
 mod:AddBoolOption("PlaySoundOnFury", true)
@@ -50,9 +53,11 @@ local altIcon 		= true
 local killTime		= 0
 local iconId		= 6
 
+
 function mod:OnCombatStart(delay)
 	enrage:Start()
 	table.wipe(adds)
+	timerEonarsGiftCD:Start(25)
 end
 
 function mod:OnCombatEnd(wipe)
@@ -73,14 +78,14 @@ function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(62437, 62859) then
 		specWarnTremor:Show()
 		timerTremorCD:Start()
-		if self.Options.PlaySoundOnGroundTremor then
-			PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
-		end
+		-- if self.Options.PlaySoundOnGroundTremor then
+			-- PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
+		-- end
 	end
 end 
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(62678) then -- Summon Allies of Nature
+	if args:IsSpellID(62678, 62873) then -- Summon Allies of Nature
 		timerAlliesOfNature:Start()
 	elseif args:IsSpellID(63571, 62589) then -- Nature's Fury
 		altIcon = not altIcon	--Alternates between Skull and X
@@ -88,7 +93,8 @@ function mod:SPELL_CAST_SUCCESS(args)
 		warnFury:Show(args.destName)
 		if args:IsPlayer() then -- only cast on players; no need to check destFlags
 			if self.Options.PlaySoundOnFury then
-				PlaySoundFile("Sound\\Creature\\HoodWolf\\HoodWolfTransformPlayer01.wav")
+				-- PlaySoundFile("Sound\\Creature\\HoodWolf\\HoodWolfTransformPlayer01.wav")
+				PlaySoundFile(DBM.Options.RunAwaySound)
 			end
 			specWarnFury:Show()
 		end
@@ -156,4 +162,11 @@ function mod:UNIT_DIED(args)
 		end
 	end
 
+end
+
+function mod:CHAT_MSG_RAID_BOSS_EMOTE(emote)
+	if emote == L.tree_trigger or emote:find(L.tree_trigger) then
+		specWarnEonarsGift:Show()
+		timerEonarsGiftCD:Start()
+	end
 end
