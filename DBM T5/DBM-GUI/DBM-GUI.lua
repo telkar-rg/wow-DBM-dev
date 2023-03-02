@@ -1763,6 +1763,7 @@ local function CreateOptionsMenu()
 			{	text = L.NoSound,	value	= "" },
 			{	text = "Default: PVP Flag Taken", value = "Sound\\Spells\\PVPFlagTaken.wav",     sound=true },
 			{	text = "Classic: Bell Toll NightElf", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
+			{	text = "Drum Bells", value = "Interface\\AddOns\\DBM-Core\\sounds\\C_Drum_Bells_2.ogg", sound=true },
 			{	text = "Bell Toll Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
 			{	text = "Simon: Green",  value = "Sound\\Doodad\\Simongame_smallgreentree.Wav",  sound=true },
 			{	text = "Simon: Yellow", value = "Sound\\Doodad\\Simongame_smallyellowtree.Wav", sound=true },
@@ -1794,9 +1795,10 @@ local function CreateOptionsMenu()
 		-- SpecialWarn Sound 2
 		Sounds = {
 			{	text = L.NoSound,	value	= "" },
-			{	text = "Default: Bell Toll Alliance", value = "Sound\\Doodad\\Belltollalliance.Wav", sound=true },
+			{	text = "Default: Drum Bells", value = "Interface\\AddOns\\DBM-Core\\sounds\\C_Drum_Bells_2.ogg", sound=true },
 			{	text = "Classic: PVP Flag Taken", value = "Sound\\Spells\\PVPFlagTaken.wav",     sound=true },
 			{	text = "Bell Toll NightElf", value = "Sound\\Doodad\\BellTollNightElf.wav", sound=true },
+			{	text = "Bell Toll Alliance", value = "Sound\\Doodad\\Belltollalliance.wav", sound=true },
 			{	text = "Simon: Green",  value = "Sound\\Doodad\\Simongame_smallgreentree.Wav",  sound=true },
 			{	text = "Simon: Yellow", value = "Sound\\Doodad\\Simongame_smallyellowtree.Wav", sound=true },
 			{	text = "Simon: Red",    value = "Sound\\Doodad\\Simongame_smallredtree.Wav",    sound=true },

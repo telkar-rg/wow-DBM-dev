@@ -62,7 +62,8 @@ DBM.DefaultOptions = {
 	},
 	RaidWarningSound     = "Sound\\Doodad\\BellTollNightElf.wav",
 	SpecialWarningSound  = "Sound\\Spells\\PVPFlagTaken.wav",
-	SpecialWarningSound2 = "Sound\\Doodad\\Belltollalliance.wav",
+	-- SpecialWarningSound2 = "Sound\\Doodad\\Belltollalliance.wav",
+	SpecialWarningSound2 = "Interface\\AddOns\\DBM-Core\\sounds\\C_Drum_Bells_2.ogg",
 	RunAwaySound         = "Sound\\Creature\\Hoodwolf\\Hoodwolftransformplayer01.wav",
 	RaidWarningPosition = {
 		Point = "TOP",
