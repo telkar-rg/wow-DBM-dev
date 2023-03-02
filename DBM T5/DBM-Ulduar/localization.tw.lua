@@ -380,7 +380,7 @@ L:SetOptionLocalization{
 	SpecWarnGroundTremor	= "當你中了$spell:62932時顯示特別警告",
 	specWarnPetrifiedBark	= "當你中了$spell:62933時顯示特別警告",
 	PlaySoundOnFistOfStone	= "當$spell:62344施放時播放音效",
-	PlaySoundOnGroundTremor	= "當$spell:62932施放時播放音效",
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62932),
 	PlaySoundOnPetrifiedBark	= "當$spell:62933施放時播放音效",
 	TrashRespawnTimer		= "為芙蕾雅的小怪重生顯示計時器"
 }

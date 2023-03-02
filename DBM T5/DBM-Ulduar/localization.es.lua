@@ -394,7 +394,7 @@ L:SetOptionLocalization{
 	SpecWarnFury		= "Mostrar aviso especial para $spell:63571",
 	WarningTremor		= "Mostrar aviso especial para $spell:62859",
 	PlaySoundOnFury 	= "Reproducir sonido cuando te afecte $spell:63571",
-	PlaySoundOnGroundTremor = "Reproducir sonido cuando castee $spell:62859",
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62859),
 	TimerSimulKill		= "Mostrar resureccion de los mobs",
 	UnstableEnergy		= "Mostrar aviso especial para $spell:62451",
 	SpecWarnEonarsGift  = "Alerta cuando Freya invoca un Don de Eonar."
@@ -424,7 +424,7 @@ L:SetOptionLocalization{
 	SpecWarnGroundTremor	= "Mostrar aviso especial para $spell:62932",
 	specWarnPetrifiedBark	= "Mostrar aviso especial para $spell:62933",
 	PlaySoundOnFistOfStone	= "Reproducir sonido cuando castee $spell:62344",
-	PlaySoundOnGroundTremor	= "Reproducir sonido cuando castee $spell:62932",
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62932),
 	PlaySoundOnPetrifiedBark	= "Reproducir sonido cuando castee $spell:62933",
 	TrashRespawnTimer		= "Mostrar tiempo para reaparición de adds"
 }

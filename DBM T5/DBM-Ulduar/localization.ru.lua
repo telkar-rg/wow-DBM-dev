@@ -360,7 +360,7 @@ L:SetOptionLocalization{
 	SpecWarnFury		= "Спец-предупреждение о $spell:63571", 	-- deepl.com translation
 	WarningTremor		= "Спец-предупреждение о $spell:62859", 	-- deepl.com translation
 	PlaySoundOnFury 	= "Звуковой сигнал, когда на вас $spell:63571",
-	PlaySoundOnGroundTremor = "Звуковой сигнал при $spell:62859",
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62859),
 	TimerSimulKill		= "Отсчет времени до воскрешения монстров",
 	UnstableEnergy		= "Спец-предупреждение о $spell:62451",
 	SpecWarnEonarsGift  = "Сообщать когда Фрейа призывает Дар Эонара."
@@ -390,7 +390,7 @@ L:SetOptionLocalization{
 	SpecWarnGroundTremor	= "Спец-предупреждение о $spell:62932",
 	specWarnPetrifiedBark	= "Спец-предупреждение о $spell:62933",
 	PlaySoundOnFistOfStone	= "Звуковой сигнал при $spell:62344",
-	PlaySoundOnGroundTremor	= "Звуковой сигнал при $spell:62932",
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62932),
 	PlaySoundOnPetrifiedBark	= "Звуковой сигнал при $spell:62933",
 	TrashRespawnTimer		= "Отсчет времени до возрождения монстров"
 }

@@ -404,7 +404,7 @@ L:SetOptionLocalization{
 	SpecWarnFury 			= "당신이 자연의 격노일 경우 특수 경고 보기",
 	WarningTremor  	 		= "지진 시전 특수 경고 보기 (하드 모드)",
 	PlaySoundOnFury			= "자연의 격노 특수 사운드 재생",
-	PlaySoundOnGroundTremor = "지반 떨림 사운드 재생",	-- deepl.com translation
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62859),
 	TimerSimulKill			= "소환수 부활 타이머 보기",
 	UnstableEnergy			= "당신이 불안정한 힘에게 영향을 받을 때 특수 경고 보기"	,
 	SpecWarnEonarsGift      = "프레이야의 이오나의 선물 소환을 알립니다."
@@ -434,7 +434,7 @@ L:SetOptionLocalization{
 	SpecWarnGroundTremor	= "지진 특수 경고 보기",
 	specWarnPetrifiedBark	= "석화된 나무껍질 특별 경고 보기", 	-- deepl.com translation
 	PlaySoundOnFistOfStone	= "돌덩이 주먹 특수 사운드 재생",
-	PlaySoundOnGroundTremor	= "땅 떨림 특수 효과음 재생 ", 	-- deepl.com translation
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62932),
 	PlaySoundOnPetrifiedBark	= "석화된 나무껍질 특수 효과음 재생 ", 	-- deepl.com translation
 	TrashRespawnTimer		= "프레이야 지역 리젠 타이머 보기"
 }

@@ -402,7 +402,7 @@ L:SetOptionLocalization{
 	SpecWarnFury		= "Montre des alertes spéciales pour la $spell:63571",
 	WarningTremor		= "Montre une alerte spéciale pour le $spell:62859 (Hard-Mode)",
 	PlaySoundOnFury 	= "Joue un sons quand vous êtes affecter par la $spell:63571",
-	PlaySoundOnGroundTremor = "Jouer le son sur $spell:62859",	-- deepl.com translation
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62859),
 	TimerSimulKill		= "Montre le timer de la résurrection des mobs",
 	UnstableEnergy		= "Montre une alerte spéciale pour $spell:62451",
 	SpecWarnEonarsGift  = "Prévient quand Freya fait apparaître un Cadeau d'Eonar."
@@ -432,7 +432,7 @@ L:SetOptionLocalization{
 	SpecWarnGroundTremor	= "Montre une alerte spéciale pour $spell:62932",
 	specWarnPetrifiedBark	= "Montre une alerte spéciale pour $spell:62933",
 	PlaySoundOnFistOfStone	= "Joue un son à l'incantation des $spell:62344",
-	PlaySoundOnGroundTremor	= "Joue un son à l'incantation des $spell:62932",
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62932),
 	PlaySoundOnPetrifiedBark	= "Joue un son à l'incantation des $spell:62933",
 	TrashRespawnTimer		= "Montre le timer du repop des trashs"
 }

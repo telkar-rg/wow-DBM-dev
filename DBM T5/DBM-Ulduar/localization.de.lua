@@ -415,8 +415,10 @@ L:SetOptionLocalization{
 	WarnRoots			= "Warnung für $spell:62438",
 	SpecWarnFury		= "Zeige Spezialwarnung für $spell:63571",
 	WarningTremor		= "Zeige Spezialwarnung für $spell:62859",
-	PlaySoundOnFury 	= "Spiele Sound wenn du von $spell:63571 betroffen bist",
-	PlaySoundOnGroundTremor = "Spiele Sound bei $spell:62859",
+	-- PlaySoundOnFury 	= "Spiele Sound wenn du von $spell:63571 betroffen bist",
+	PlaySoundOnFury 	= DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(63571),
+	-- PlaySoundOnGroundTremor = "Spiele Sound bei $spell:62859",
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62859),
 	TimerSimulKill		= "Zeige Timer für Gegner-Wiederbelebung",
 	UnstableEnergy		= "Zeige Spezialwarnung für $spell:62451",
 	SpecWarnEonarsGift  = "Warnt, wenn Eonars Geschenk auftaucht."
@@ -446,7 +448,7 @@ L:SetOptionLocalization{
 	SpecWarnGroundTremor	= "Zeige Spezialwarnung für $spell:62932",
 	specWarnPetrifiedBark	= "Zeige Spezialwarnung für $spell:62933",
 	PlaySoundOnFistOfStone	= "Spiele Sound bei $spell:62344",
-	PlaySoundOnGroundTremor	= "Spiele Sound bei $spell:62932",
+	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62932),
 	PlaySoundOnPetrifiedBark	= "Spiele Sound bei $spell:62933",
 	TrashRespawnTimer		= "Zeige Timer für Trash-Respawn"
 }
