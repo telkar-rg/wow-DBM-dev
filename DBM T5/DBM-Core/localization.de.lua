@@ -172,7 +172,15 @@ DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 
 
 DBM_CORE_AUTO_ICONS_OPTION_TEXT		= "Setze Zeichen auf Ziele von $spell:%d"
-DBM_CORE_AUTO_SOUND_OPTION_TEXT		= "Spiele Sound bei $spell:%d"
+-- DBM_CORE_AUTO_SOUND_OPTION_TEXT		= "Spiele Sound bei $spell:%d"
+
+--Sounds
+DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "Spiele Sound bei $spell:%d"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT3		= "3-Sekunden-Audio-Countdown bis $spell:%d"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT5		= "5-Sekunden-Audio-Countdown bis $spell:%d"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU		= "Spiele Sound bei $spell:%d auf dir"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_SOON	= "Spiele Sound bei $spell:%d (Vorwarnung)"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_CLOSE	= "Spiele Sound bei $spell:%d in deiner Nähe"
 
 
 -- New special warnings

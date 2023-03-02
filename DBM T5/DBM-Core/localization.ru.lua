@@ -173,7 +173,15 @@ DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 
 
 DBM_CORE_AUTO_ICONS_OPTION_TEXT		= "Устанавливать метки на цели заклинания $spell:%d"
-DBM_CORE_AUTO_SOUND_OPTION_TEXT		= "Звуковой сигнал при $spell:%d"
+-- DBM_CORE_AUTO_SOUND_OPTION_TEXT		= "Звуковой сигнал при $spell:%d"
+
+--Sounds
+DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "Звуковой сигнал при $spell:%d"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT5		= "5-секундный звуковой отсчет до $spell:%d"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT3		= "3-секундный звуковой отсчет до $spell:%d"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU		= "Звуковой сигнал при $spell:%d на вас"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_SOON	= "Звуковой сигнал при $spell:%d скоро"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_CLOSE	= "Звуковой сигнал при $spell:%d около вас"
 
 
 -- New special warnings

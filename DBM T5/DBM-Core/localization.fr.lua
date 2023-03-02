@@ -173,7 +173,15 @@ DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 
 
 DBM_CORE_AUTO_ICONS_OPTION_TEXT		= "Set d'icônes sur $spell:%d en targets"
-DBM_CORE_AUTO_SOUND_OPTION_TEXT		= "jouer un son sur $spell:%d"
+-- DBM_CORE_AUTO_SOUND_OPTION_TEXT		= "Jouer un son sur $spell:%d"
+
+--Sounds
+DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "Jouez le son sur $spell:%d"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT5		= "Compte à rebours audio de 5 secondes jusqu'à $spell:%d"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT3		= "Compte à rebours audio de 3 secondes jusqu'à $spell:%d"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU		= "Jouer le son sur $spell:%d sur vous"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_SOON	= "Jouer le son sur $spell:%d bientôt"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_CLOSE	= "Jouer du son sur $spell:%d près de chez vous"
 
 
 -- New special warnings

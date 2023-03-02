@@ -163,7 +163,15 @@ DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 }
 
 DBM_CORE_AUTO_ICONS_OPTION_TEXT			= "$spell:%d 대상 공격대 아이콘 설정"
-DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "$spell:%d 특수 소리 재생"
+-- DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "$spell:%d 특수 소리 재생"
+
+--Sounds
+DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "$spell:%d에서 소리를 재생합니다"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT5			= "$spell:%d까지 5초 오디오 카운트다운"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT3			= "$spell:%d까지 3초 오디오 카운트다운"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU		= "$spell:%d에서 소리 재생"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_SOON		= "곧 $spell:%d에서 소리 재생"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_CLOSE		= "주변 $spell:%d에서 소리 재생"
 
 -- New special warnings
 DBM_CORE_MOVE_SPECIAL_WARNING_BAR		= "특수 경고 움직이기"

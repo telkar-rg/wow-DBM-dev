@@ -171,7 +171,15 @@ DBM_CORE_AUTO_SPEC_WARN_TEXTS = {
 }
 
 DBM_CORE_AUTO_ICONS_OPTION_TEXT			= "為$spell:%d的目標設置標記"
-DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "為$spell:%d播放音效"
+-- DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "為$spell:%d播放音效"
+
+--Sounds
+DBM_CORE_AUTO_SOUND_OPTION_TEXT			= "在$spell:%d上播放聲音"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT5		= "$spell:%d 的 5 秒音頻倒計時"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT3		= "$spell:%d 的 3 秒音頻倒計時"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU		= "如果 $spell:%d 出現在你身上，播放聲音"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_SOON	= "在 $spell:%d 上播放聲音"
+DBM_CORE_AUTO_SOUND_OPTION_TEXT_CLOSE	= "在您附近的 $spell:%d 上播放聲音"
 
 -- New special warnings
 DBM_CORE_MOVE_SPECIAL_WARNING_BAR		= "可拖動的特別警告"
