@@ -88,7 +88,7 @@ L:SetOptionLocalization{
 	PlaySoundOnDevouringFlame	= "Mostrar aviso por sonido si pisas la Llama devoradora.",
 	warnTurretsReadySoon		= "Mostrar aviso antes de que las torretas esten listas",
 	warnTurretsReady		    = "Mostrar aviso si estan listas las torretas.",
-	SpecWarnDevouringFlameCast	= "Mostrar aviso especial cuando Llama devoradora se lanze a ti.",
+	SpecWarnDevouringFlameCast	= "Mostrar aviso especial cuando $spell:64733 se lanze a ti.",
 	timerTurret1			    = "Mostrar aviso para Torreta 1",
 	timerTurret2			    = "Mostrar aviso para Torreta 2",
 	timerTurret3			    = "Mostrar aviso para Torreta 3 ( solo en banda 25 ).",
@@ -127,8 +127,8 @@ L:SetOptionLocalization{
 	-- SpecialWarningLightBomb		= "Zeige Spezialwarnung bei Lichtbombe auf dir",
 	-- SpecialWarningGravityBomb	= "Zeige Spezialwarnung bei Graviationsbombe auf dir",
 	-- specWarnConsumption			= "Zeige Spezialwarnung, wenn du von Verzehrung betroffen bist",
-	SetIconOnLightBombTarget	= "Mostrar icono a quien pone Bomba de Luz",
-	SetIconOnGravityBombTarget	= "Mostrar icono a quien pone Bomba de Gravedad",
+	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
+	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
 }
 
 --------------------

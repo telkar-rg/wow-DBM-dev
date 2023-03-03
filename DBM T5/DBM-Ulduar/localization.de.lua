@@ -90,11 +90,11 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnDevouringFlame     = "Zeige Spezialwarnung wenn in einer Verschlingende Flamme",
-	PlaySoundOnDevouringFlame  = "Spiele Sound wenn betroffen durch Verschlingende Flamme",
+	-- SpecWarnDevouringFlame     = "Zeige Spezialwarnung wenn in einer Verschlingende Flamme", -- automatic locale
+	-- PlaySoundOnDevouringFlame  = "Spiele Sound wenn betroffen durch Verschlingende Flamme",
 	warnTurretsReadySoon       = "Zeige Vorwarnung für Turmfertigstellung",
 	warnTurretsReady           = "Zeige Warnung für fertige Türme",
-	SpecWarnDevouringFlameCast = "Zeige Spezialwarnung wenn Verschlingende Flamme auf dich gezaubert wird",
+	SpecWarnDevouringFlameCast = "Zeige Spezialwarnung wenn $spell:64733 auf dich gezaubert wird",
 	timerTurret1         = "Zeige Timer für Turm 1",
 	timerTurret2         = "Zeige Timer für Turm 2",
 	timerTurret3         = "Zeige Timer für Turm 3 (25 Spieler)",
@@ -142,17 +142,17 @@ L:SetTimerLocalization{
 }
 
 L:SetWarningLocalization{
-	SpecialWarningLightBomb 	= "Lichtbombe auf dir!",
-	SpecialWarningGravityBomb	= "Graviationsbombe auf DIR",
-	specWarnConsumption			= "Verzehrung - Lauf weg"
+	-- SpecialWarningLightBomb 	= "Lichtbombe auf dir!",
+	-- SpecialWarningGravityBomb	= "Graviationsbombe auf DIR",
+	-- specWarnConsumption			= "Verzehrung - Lauf weg"
 }
 
 L:SetOptionLocalization{
-	SpecialWarningLightBomb		= "Zeige Spezialwarnung bei Lichtbombe auf dir",
-	SpecialWarningGravityBomb	= "Zeige Spezialwarnung bei Graviationsbombe auf dir",
-	specWarnConsumption			= "Zeige Spezialwarnung, wenn du von Verzehrung betroffen bist",
-	SetIconOnLightBombTarget	= "Setze Zeichen auf Ziel der Lichtbombe",
-	SetIconOnGravityBombTarget	= "Setze Zeichen auf Ziel der Graviationsbombe",
+	-- SpecialWarningLightBomb		= "Zeige Spezialwarnung bei Lichtbombe auf dir",
+	-- SpecialWarningGravityBomb	= "Zeige Spezialwarnung bei Graviationsbombe auf dir",
+	-- specWarnConsumption			= "Zeige Spezialwarnung, wenn du von Verzehrung betroffen bist",
+	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
+	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
 }
 
 --------------------

@@ -91,7 +91,7 @@ L:SetOptionLocalization{
 	PlaySoundOnDevouringFlame	= "Jouer un son quand vous êtes affecté par la Flamme dévorante",
 	warnTurretsReadySoon		= "Activer le pré-avertissement pour les tourelles",
 	warnTurretsReady			= "Activer l'avertissement pour les tourelles",
-	SpecWarnDevouringFlameCast	= "Montre une alerte spéciale quand les Flammes dévorantes sont cast sur Vous",
+	SpecWarnDevouringFlameCast	= "Montre une alerte spéciale quand les $spell:64733 sont cast sur Vous",
 	timerTurret1				= "Montre le timer pour la tourelle 1",
 	timerTurret2				= "Montre le timer pour la tourelle 2",
 	timerTurret3				= "Montre le timer pour la tourelle 3 (Héroique)",
@@ -130,8 +130,8 @@ L:SetOptionLocalization{
 	SpecialWarningLightBomb		= "Activer l'avertissement spécial quand vous êtes affecté par la bombe de lumière",
 	SpecialWarningGravityBomb	= "Activer l'avertissement spécial quand vous êtes affecté par la bombe à gravité",
 	specWarnConsumption			= "Montre une alerte spéciale quand vous subissez des dégats venant des Zone de Vide ( Hard-mode )",
-	SetIconOnLightBombTarget	= "Mettre un icône sur la cible de la bombe de lumière",
-	SetIconOnGravityBombTarget	= "Mettre un icône sur la cible de la bombe à gravité"
+	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
+	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
 }
 
 -------------------

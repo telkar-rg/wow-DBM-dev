@@ -108,7 +108,6 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-
 	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
 	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
 }

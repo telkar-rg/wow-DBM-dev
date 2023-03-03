@@ -86,7 +86,7 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	SpecWarnDevouringFlame		= "파멸의 불길 대상 특수 경고 보기",
-	SpecWarnDevouringFlameCast	= "파멸의 불길 대상이 되었을 때 특수 경고 보기",	
+	SpecWarnDevouringFlameCast	= "$spell:64733의 표적이 되면 특별 경고 보기", -- deepl translation
 	PlaySoundOnDevouringFlame	= "파멸의 불길 데미지를 받을 때 사운드 재생",
 	warnTurretsReadySoon		= "포탑 사전 경고 보기",
 	warnTurretsReady			= "포탑 경고 보기",
@@ -129,8 +129,8 @@ L:SetOptionLocalization{
 	SpecialWarningLightBomb			= "당신이 타오르는 빛의 영향을 받을 때 특수 경고 보기",
 	SpecialWarningGravityBomb		= "당신이 중력 폭탄의 영향을 받을 때 특수 경고 보기",
 	specWarnConsumption				= "공허의 지대로부터 데미지를 받을 경우 특수 경고 보기",	
-	SetIconOnLightBombTarget		= "타오르는 빛 대상에게 공격대 아이콘 표시",
-	SetIconOnGravityBombTarget		= "중력 폭탄 대상에게 공격대 아이콘 표시",
+	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
+	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
 }
 
 -------------------
