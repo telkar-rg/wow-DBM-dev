@@ -18,7 +18,7 @@ mod:RegisterEvents(
 
 local warnTurretsReadySoon			= mod:NewAnnounce("warnTurretsReadySoon", 1, 48642)
 local warnTurretsReady				= mod:NewAnnounce("warnTurretsReady", 3, 48642)
-local warnDevouringFlameCast		= mod:NewAnnounce("WarnDevouringFlameCast", 2, 64733, false, "OptionDevouringFlame") -- new option is just a work-around...the saved variable handling will be updated to allow changing and updating default values soon
+-- local warnDevouringFlameCast		= mod:NewAnnounce("WarnDevouringFlameCast", 2, 64733, false, "OptionDevouringFlame") -- new option is just a work-around...the saved variable handling will be updated to allow changing and updating default values soon
 
 local specWarnDevouringFlame		= mod:NewSpecialWarningMove(64733)
 local specWarnDevouringFlameCast	= mod:NewSpecialWarning("SpecWarnDevouringFlameCast")
@@ -32,7 +32,8 @@ local timerTurret3					= mod:NewTimer(93, "timerTurret3", 48642)
 local timerTurret4					= mod:NewTimer(113, "timerTurret4", 48642)
 local timerGrounded                 = mod:NewTimer(45, "timerGrounded")
 
-mod:AddBoolOption("PlaySoundOnDevouringFlame", false)
+-- mod:AddBoolOption("PlaySoundOnDevouringFlame", false)
+local soundDevouringFlame = mod:NewSound(64733, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(64733))
 
 local castFlames
 local combattime = 0
@@ -58,9 +59,10 @@ end
 function mod:SPELL_DAMAGE(args)
 	if args:IsSpellID(64733, 64704) and args:IsPlayer() then
 		specWarnDevouringFlame:Show()
-		if self.Options.PlaySoundOnDevouringFlame then
-			PlaySoundFile("Sound\\Creature\\HoodWolf\\HoodWolfTransformPlayer01.wav")
-		end		
+		-- if self.Options.PlaySoundOnDevouringFlame then
+			-- PlaySoundFile("Sound\\Creature\\HoodWolf\\HoodWolfTransformPlayer01.wav")
+		-- end		
+		soundDevouringFlame:Play()
 	end
 end
 
