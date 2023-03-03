@@ -174,8 +174,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	WarningSupercharge			= "Zeige Warnung wenn Superladung",
 	PlaySoundLightningTendrils		= "Spiele Sound bei Blitzranken",
-	SetIconOnOverwhelmingPower		= "Setze Zeichen auf Ziel von Überwältigende Kraft",
-	SetIconOnStaticDisruption		= "Setze Zeichen auf Ziel von Statische Störung",
+	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
+	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
 	AlwaysWarnOnOverload			= "Warne immer bei Überladen (ansonsten nur wenn Boss im Ziel)",
 	PlaySoundOnOverload			= "Spiele Sound bei Überladen",
 	PlaySoundDeathRune			= "Spiele Sound bei Rune des Todes"

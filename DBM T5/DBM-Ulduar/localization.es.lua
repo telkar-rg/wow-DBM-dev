@@ -150,8 +150,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	-- WarningSupercharge			= "Zeige Warnung wenn Superladung",
 	PlaySoundLightningTendrils		= "Sonido para Zarcillos de relampagos",
-	SetIconOnOverwhelmingPower		= "Poner icono a la persona con Poder sobrecargador",
-	SetIconOnStaticDisruption		= "Poner icono para el objetivo de Perturbación estática",
+	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
+	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
 	AlwaysWarnOnOverload			= "Siempre avisar Sobrecarga",
 	PlaySoundOnOverload			= "Reproducir sonido para Sobrecarga",
 	PlaySoundDeathRune			= "Reproducir sonido para Runa de muerte"

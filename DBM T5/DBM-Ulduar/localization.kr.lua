@@ -155,8 +155,8 @@ L:SetOptionLocalization{
 	PlaySoundOnOverload				= "과부화 일 때 소리 재생",	
 	PlaySoundLightningTendrils		= "번개 덩굴일 때 소리 재생",
 	PlaySoundDeathRune				= "죽음의 룬일 때 소리 재생",
-	SetIconOnOverwhelmingPower		= "압도적인 힘 대상 아이콘 설정",
-	SetIconOnStaticDisruption		= "전자기 붕괴 대상 타겟 아이콘 설정하기(하드 모드)"	
+	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
+	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912)
 }
 
 L:SetMiscLocalization{
