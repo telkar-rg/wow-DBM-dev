@@ -32,7 +32,7 @@ local timerSystemOverload	= mod:NewBuffActiveTimer(20, 62475)
 local timerFlameVents		= mod:NewCastTimer(10, 62396)
 local timerPursued			= mod:NewTargetTimer(T.Pursued, 62374)
 
-local soundPursued = mod:NewSound(62374)
+local soundPursued = mod:NewSound(62374, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(62374))
 
 local guids = {}
 local function buildGuidTable()
