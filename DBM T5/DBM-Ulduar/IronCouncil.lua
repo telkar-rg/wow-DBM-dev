@@ -21,45 +21,68 @@ mod:SetBossHealthInfo(
 	32857, L.StormcallerBrundir
 )
 
-local warnSupercharge			= mod:NewSpellAnnounce(61920, 3)
+-- local warnSupercharge			= mod:NewSpellAnnounce(61920, 3) -- not needed
+mod:AddBoolOption("TempFormating", true, "announce")
+
+local enrageTimer				= mod:NewBerserkTimer(900)
 
 -- Stormcaller Brundir
+-- local spacer11 = mod:AddOptionLine("announce")
+mod:AddOptionSpacer("timer")
+mod:AddOptionSpacer("misc")
 -- High Voltage ... 63498
 local warnChainlight			= mod:NewSpellAnnounce(64215, 1)
-local timerOverload				= mod:NewCastTimer(6, 63481)
-local timerLightningWhirl		= mod:NewCastTimer(5, 63483)
 local specwarnLightningTendrils	= mod:NewSpecialWarningRun(63486)
-local timerLightningTendrils	= mod:NewBuffActiveTimer(27, 63486)
 local specwarnOverload			= mod:NewSpecialWarningRun(63481) 
 mod:AddBoolOption("AlwaysWarnOnOverload", false, "announce")
+
+local timerOverload				= mod:NewCastTimer(6, 63481)
+local timerLightningWhirl		= mod:NewCastTimer(5, 63483)
+local timerLightningTendrils	= mod:NewBuffActiveTimer(27, 63486)
+
 mod:AddBoolOption("PlaySoundOnOverload", true)
 mod:AddBoolOption("PlaySoundLightningTendrils", true)
 
--- Steelbreaker
--- High Voltage ... don't know what to show here - 63498
-local warnFusionPunch			= mod:NewSpellAnnounce(61903, 4)
-local timerFusionPunchCast		= mod:NewCastTimer(3, 61903)
-local timerFusionPunchActive	= mod:NewTargetTimer(4, 61903)
-local warnOverwhelmingPower		= mod:NewTargetAnnounce(61888, 2)
-local timerOverwhelmingPower	= mod:NewTargetTimer(25, 61888)
-local warnStaticDisruption		= mod:NewTargetAnnounce(61912, 3) 
-mod:AddBoolOption("SetIconOnOverwhelmingPower")
-mod:AddBoolOption("SetIconOnStaticDisruption")
 
 -- Runemaster Molgeim
+mod:AddOptionSpacer("announce")
+mod:AddOptionSpacer("timer")
+mod:AddOptionSpacer("misc")
 -- Lightning Blast ... don't know, maybe 63491
-local timerShieldofRunes		= mod:NewBuffActiveTimer(15, 63967)
 local warnRuneofPower			= mod:NewTargetAnnounce(64320, 2)
 local warnRuneofDeath			= mod:NewSpellAnnounce(63490, 2)
 local warnShieldofRunes			= mod:NewSpellAnnounce(63489, 2)
 local warnRuneofSummoning		= mod:NewSpellAnnounce(62273, 3)
+-- Runemaster Molgeim
 local specwarnRuneofDeath		= mod:NewSpecialWarningMove(63490)
+-- Runemaster Molgeim
+local timerShieldofRunes		= mod:NewBuffActiveTimer(15, 63967)
 local timerRuneofDeathDura		= mod:NewNextTimer(30, 63490)
 local timerRuneofPower			= mod:NewCDTimer(30, 61974)
 local timerRuneofDeath			= mod:NewCDTimer(30, 63490)
-mod:AddBoolOption("PlaySoundDeathRune", true, "announce")
+-- Runemaster Molgeim
+mod:AddBoolOption("PlaySoundDeathRune", true)
 
-local enrageTimer				= mod:NewBerserkTimer(900)
+
+-- Steelbreaker
+mod:AddOptionSpacer("announce")
+mod:AddOptionSpacer("timer")
+mod:AddOptionSpacer("misc")
+-- High Voltage ... don't know what to show here - 63498
+local warnFusionPunch			= mod:NewSpellAnnounce(61903, 4)
+local warnOverwhelmingPower		= mod:NewTargetAnnounce(61888, 2)
+local warnStaticDisruption		= mod:NewTargetAnnounce(61912, 3) 
+
+local timerFusionPunchCast		= mod:NewCastTimer(3, 61903)
+local timerFusionPunchActive	= mod:NewTargetTimer(4, 61903)
+local timerOverwhelmingPower	= mod:NewTargetTimer(25, 61888)
+
+mod:AddBoolOption("SetIconOnOverwhelmingPower")
+mod:AddBoolOption("SetIconOnStaticDisruption")
+
+
+
+mod:RemoveOption("TempFormating")
 
 local disruptTargets = {}
 local disruptIcon = 7
@@ -83,9 +106,9 @@ local function warnStaticDisruptionTargets()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(61920) then -- Supercharge - Unleashes one last burst of energy as the caster dies, increasing all allies damage by 25% and granting them an additional ability.	
-		warnSupercharge:Show()
-	elseif args:IsSpellID(63479, 61879) then	-- Chain light
+	-- if args:IsSpellID(61920) then -- Supercharge - Unleashes one last burst of energy as the caster dies, increasing all allies damage by 25% and granting them an additional ability.	-- this never fires!
+		-- warnSupercharge:Show()
+	if args:IsSpellID(63479, 61879) then		-- Chain light
 		warnChainlight:Show()
 	elseif args:IsSpellID(63483, 61915) then	-- LightningWhirl
 		timerLightningWhirl:Start()
