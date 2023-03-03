@@ -33,6 +33,9 @@ local timerAchieve					= mod:NewAchievementTimer(205, 2937, "TimerSpeedKill")
 mod:AddBoolOption("SetIconOnLightBombTarget", true)
 mod:AddBoolOption("SetIconOnGravityBombTarget", true)
 
+local soundLightBomb   = mod:NewSound(65121, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(65121), false)
+local soundGravityBomb = mod:NewSound(64234, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(64234), true)
+
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
 	timerAchieve:Start()
@@ -58,6 +61,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(63018, 65121) then 	-- Light Bomb
 		if args:IsPlayer() then
 			specWarnLightBomb:Show()
+			soundLightBomb:Play()
 		end
 		if self.Options.SetIconOnLightBombTarget then
 			self:SetIcon(args.destName, 7, 9)
@@ -67,6 +71,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(63024, 64234) then		-- Gravity Bomb
 		if args:IsPlayer() then
 			specWarnGravityBomb:Show()
+			soundGravityBomb:Play()
 		end
 		if self.Options.SetIconOnGravityBombTarget then
 			self:SetIcon(args.destName, 8, 9)
