@@ -208,7 +208,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	timerLeftArm			= "Отсчет времени до Возрождения левой руки",
 	timerRightArm			= "Отсчет времени до Возрождения правой руки",
-	achievementDisarmed		= "Отсчет времени для достижения Обезоружен",
+	-- achievementDisarmed		= "Отсчет времени для достижения Обезоружен",
+	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
 	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
 	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
 	PlaySoundOnEyebeam		= "Звуковой сигнал при $spell:63346",

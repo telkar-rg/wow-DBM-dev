@@ -255,9 +255,12 @@ L:SetOptionLocalization{
 	WarningEyeBeam			= "Verkünde Augenstrahl-Ziele",
 	timerLeftArm			= "Zeige Timer für Arm-Nachwachsen (links)",
 	timerRightArm			= "Zeige Timer für Arm-Nachwachsen (rechts)",
-	achievementDisarmed		= "Zeige Timer für Erfolg 'Arm dran, weil Arm ab'",
+	-- achievementDisarmed		= "Zeige Timer für Erfolg 'Arm dran, weil Arm ab'",
+	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
+			-- spellName = select(2, GetAchievementInfo(spellId))
 	WarnGrip				= "Verkünde Ziele von Steinerner Griff",
-	SetIconOnGripTarget		= "Setze Zeichen auf Steinerner-Griff-Ziele",
+	-- SetIconOnGripTarget		= "Setze Zeichen auf Steinerner-Griff-Ziele",
+	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
 	SetIconOnEyebeamTarget	= "Setze Zeichen auf Ziele von Fokussierter Augenstrahl (Mond)",
 	PlaySoundOnEyebeam		= "Spiele Sound bei Fokussiertem Augenstrahl"
 }

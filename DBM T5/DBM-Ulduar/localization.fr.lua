@@ -243,7 +243,8 @@ L:SetOptionLocalization{
 	WarningEyeBeam			= "Annoncer la cible du Rayon de l'Œil",
 	timerLeftArm			= "Afficher un timer pour le repop du bras gauche",
 	timerRightArm			= "Afficher un timer pour le repop du bras droit",
-	achievementDisarmed		= "Afficher un timer pour le Haut Fait Désarmement",
+	-- achievementDisarmed		= "Afficher un timer pour le Haut Fait Désarmement",
+	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
 	WarnGrip				= "Annonce les cibles de la poigne",
 	SetIconOnGripTarget		= "Met une icône sur les joueurs victimes du sort poigne"
 }

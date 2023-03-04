@@ -202,7 +202,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	timerLeftArm			= "為左臂重生顯示計時器",
 	timerRightArm			= "為右臂重生顯示計時器",
-	achievementDisarmed		= "為成就:卸除手臂顯示計時器",
+	-- achievementDisarmed		= "為成就:卸除手臂顯示計時器",
+	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
 	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
 	SetIconOnEyebeamTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
 	PlaySoundOnEyebeam		= "為$spell:63346播放音效",

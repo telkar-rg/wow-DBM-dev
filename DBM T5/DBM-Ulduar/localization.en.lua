@@ -206,7 +206,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	timerLeftArm			= "Show timer for Left Arm respawn",
 	timerRightArm			= "Show timer for Right Arm respawn",
-	achievementDisarmed		= "Show timer for Disarm achievement",
+	-- achievementDisarmed		= "Show timer for Disarm achievement",
+	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
 	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
 	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
 	PlaySoundOnEyebeam		= "Play sound on $spell:63346",
