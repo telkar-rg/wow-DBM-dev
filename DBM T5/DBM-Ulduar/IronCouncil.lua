@@ -28,8 +28,8 @@ local enrageTimer				= mod:NewBerserkTimer(900)
 
 -- Stormcaller Brundir
 -- local spacer11 = mod:AddOptionLine("announce")
-mod:AddOptionSpacer("timer")
-mod:AddOptionSpacer("misc")
+-- mod:AddOptionSpacer("timer")
+-- mod:AddOptionSpacer("misc")
 -- High Voltage ... 63498
 local warnChainlight			= mod:NewSpellAnnounce(64215, 1)
 local specwarnLightningTendrils	= mod:NewSpecialWarningRun(63486)
@@ -47,9 +47,9 @@ local soundLightningTendrils = mod:NewSound(63486, DBM_CORE_AUTO_SOUND_OPTION_TE
 
 
 -- Runemaster Molgeim
-mod:AddOptionSpacer("announce")
-mod:AddOptionSpacer("timer")
-mod:AddOptionSpacer("misc")
+-- mod:AddOptionSpacer("announce")
+-- mod:AddOptionSpacer("timer")
+-- mod:AddOptionSpacer("misc")
 -- Lightning Blast ... don't know, maybe 63491
 local warnRuneofPower			= mod:NewTargetAnnounce(64320, 2)
 local warnRuneofDeath			= mod:NewSpellAnnounce(63490, 2)
@@ -68,9 +68,9 @@ local soundDeathRune = mod:NewSound(63490, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:f
 
 
 -- Steelbreaker
-mod:AddOptionSpacer("announce")
-mod:AddOptionSpacer("timer")
-mod:AddOptionSpacer("misc")
+-- mod:AddOptionSpacer("announce")
+-- mod:AddOptionSpacer("timer")
+-- mod:AddOptionSpacer("misc")
 -- High Voltage ... don't know what to show here - 63498
 local warnFusionPunch			= mod:NewSpellAnnounce(61903, 4)
 local warnOverwhelmingPower		= mod:NewTargetAnnounce(61888, 2)
