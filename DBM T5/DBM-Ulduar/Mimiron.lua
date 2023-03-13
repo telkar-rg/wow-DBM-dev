@@ -43,7 +43,7 @@ local timerNextDarkGlare		= mod:NewNextTimer(41, 63274)
 local timerNextShockblast		= mod:NewNextTimer(34, 63631)
 local timerPlasmaBlastCD		= mod:NewCDTimer(30, 64529)
 local timerShell				= mod:NewBuffActiveTimer(6, 63666)
-local timerFlameSuppressant		= mod:NewCastTimer(60, 64570)
+local timerFlameSuppressant		= mod:NewNextTimer(60, 64570)
 local timerNextFlameSuppressant	= mod:NewNextTimer(10, 65192)
 local timerNextFlames			= mod:NewNextTimer(27.5, 64566)
 local timerNextFrostBomb        = mod:NewNextTimer(30, 64623)
@@ -60,6 +60,7 @@ mod:AddBoolOption("RangeFrame")
 local hardmode = false
 local phase						= 0 
 local lootmethod, masterlooterRaidID
+local instanceSize = 10
 
 local spinningUp				= GetSpellInfo(63414)
 local lastSpinUp				= 0
@@ -88,6 +89,9 @@ function mod:OnCombatStart(delay)
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(6)
 	end
+	
+	local _, _, _, _, maxPlayers = GetInstanceInfo()
+	instanceSize = maxPlayers
 end
 
 function mod:OnCombatEnd()
@@ -273,7 +277,7 @@ do
 		if GetTime() - lastPhaseChange > 30 and (cid == 33432 or cid == 33651 or cid == 33670) then
 			if args.timestamp == last then	-- all events in the same tick to detect the phases earlier (than the yell) and localization-independent
 				count = count + 1
-				if (mod:IsDifficulty("heroic10") and count > 4) or (mod:IsDifficulty("heroic25") and count > 9) then
+				if (instanceSize==10 and count > 4) or (instanceSize > 10 and count > 9) then
 					lastPhaseChange = GetTime()
 					self:NextPhase()
 				end
@@ -302,13 +306,19 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		--DBM:AddMsg("ALPHA: yell detect phase3, syncing to clients")
 		self:SendSync("Phase4") -- SPELL_AURA_REMOVED detection might fail in phase 3...there are simply not enough debuffs on him
 
-	elseif msg:find(L.YellHardPull) then
-		timerHardmode:Start()
-		timerFlameSuppressant:Start()
+	elseif msg == L.YellHardPull or msg:find(L.YellHardPull) then
 		enrage:Stop()
 		hardmode = true
+		timerHardmode:Start()
+		timerFlameSuppressant:Start(83)
 		timerNextFlames:Start(6.5)
 		self:ScheduleMethod(6.5, "Flames")
+	
+	elseif (msg == L.YellDefeat or msg:find(L.YellDefeat)) then -- register kill
+		enrage:Stop()
+		timerHardmode:Stop()
+		timerNextFlames:Stop()
+		self:UnscheduleMethod("Flames")
 	end
 end
 
