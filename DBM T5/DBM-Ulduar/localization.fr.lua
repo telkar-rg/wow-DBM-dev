@@ -482,12 +482,27 @@ L:SetMiscLocalization{
 	MobPhase1		= "Léviathan Mod. II",
 	MobPhase2		= "VX-001",
 	MobPhase3		= "Unité de commandement aérien",
-	YellPull		= "Nous n'avons pas beaucoup de temps, les amis ! Vous allez m'aider à tester ma dernière création en date, la plus grande de toutes. Avant de changer d'avis, n'oubliez pas que que vous me devez bien ça après m'avoir complètement déglingué le XT-002.",	
-	YellHardPull	= "Mais, pourquoi",
-	YellPhase2		= "MERVEILLEUX ! Résultats parfaitement formidables !",
-	YellPhase3		= "Merci, les amis !",
-	YellPhase4		= "Fin de la phase d'essais préliminaires",
-	LootMsg			= "([^%s]+).*Hitem:(%d+)"
+	YellPull		= "Nous n'avons pas beaucoup de temps, les amis ! Vous allez m'aider à tester ma dernière création en date, la plus grande de toutes. Avant de changer d'avis, n'oubliez pas que que vous me devez bien ça après m'avoir complètement déglingué le XT-002.",	-- `entry`=-1603179	
+	YellHardPull	= 'Mais, pourquoi avez-vous été faire une chose pareille ? Vous n\'avez donc pas vu le panneau : « NE PAS APPUYER SUR CE BOUTON ! » ? Comment allons-nous finir les essais avec le mécanisme d\'autodestruction activé ?',	-- `entry`=-1603177
+	YellPhase2		= "MERVEILLEUX ! Résultats parfaitement formidables !",	-- `entry`=-1603182
+	YellPhase3		= "Merci, les amis !",	-- entry=-1603186
+	YellPhase4		= "Fin de la phase d'essais préliminaires",	-- entry=-1603190
+	LootMsg			= "([^%s]+).*Hitem:(%d+)",
+	
+	YellComputerHM	= 'Initialisation de la séquence d\'autodestruction.',	-- `entry`=-1603248
+	YellComputerTimer10	= 'Cette section va s\'autodétruire dans 10 minutes.',	-- `entry`=-1603249
+	YellComputerTimer9	= 'Cette section va s\'autodétruire dans neuf minutes.',	-- `entry`=-1603250
+	YellComputerTimer8	= 'Cette section va s\'autodétruire dans huit minutes.',	-- `entry`=-1603251
+	YellComputerTimer7	= 'Cette section va s\'autodétruire dans sept minutes.',	-- `entry`=-1603252
+	YellComputerTimer6	= 'Cette section va s\'autodétruire dans six minutes.',	-- `entry`=-1603253
+	YellComputerTimer5	= 'Cette section va s\'autodétruire dans cinq minutes.',	-- `entry`=-1603254
+	YellComputerTimer4	= 'Cette section va s\'autodétruire dans quatre minutes.',	-- `entry`=-1603255
+	YellComputerTimer3	= 'Cette section va s\'autodétruire dans trois minutes.',	-- `entry`=-1603256
+	YellComputerTimer2	= 'Cette section va s\'autodétruire dans deux minutes.',	-- `entry`=-1603257
+	YellComputerTimer1	= 'Cette section va s\'autodétruire dans une minute.',	-- `entry`=-1603258
+	YellDefeat		= 'Il semblerait que j\'aie pu faire une minime erreur de calcul. J\'ai permis à mon esprit de se laisser corrompre par ce démon dans la prison qui a désactivé ma directive principale. Tous les systèmes fonctionnent à nouveau. Terminé.',	-- `entry`=-1603194
+	
+	MiscTemp		= "MiscTemp"
 }
 
 

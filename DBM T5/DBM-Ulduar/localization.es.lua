@@ -476,12 +476,27 @@ L:SetMiscLocalization{
 	MobPhase1		= "Mk II de leviatán",
 	MobPhase2		= "VX-001",
 	MobPhase3		= "Unidad de mando aérea",
-	YellPull		= "¡No tenemos mucho tiempo, amigos! Vais a ayudarme a probar mi última y mayor creación. Ahora, antes de que cambiéis de parecer, recordad que en cierta forma, me lo debéis después del desastre que causasteis con el XA-002.",
-	YellHardPull	= "Secuencia de autodestrucción iniciada",
-	YellPhase2		= "¡Contemplad el cañón de asalto antipersonal VX-001! Puede que queráis poneros a cubierto.",
-	YellPhase3		= "¡Gracias amigos! ¡Vuestros esfuerzos me han proporcionado unos datos fantásticos! Veamos, ¿dónde puse?...ah, ahí está.",
-	YellPhase4		= "Fase de prueba preliminar completada. ¡Ahora comienza la verdadera prueba!",
-	LootMsg			= "([^%s]+).*Hitem:(%d+)"
+	YellPull		= "¡No tenemos mucho tiempo, amigos! Vais a ayudarme a probar mi última y mayor creación. Ahora, antes de que cambiéis de parecer, recordad que en cierta forma, me lo debéis después del desastre que causasteis con el XA-002.",	-- `entry`=-1603179
+	YellHardPull	= 'Veamos, ¿cómo se os ocurre hacer algo así? ¿No habéis visto la señal que dice "NO PULSAR ESTE BOTÓN"? ¿Cómo vamos a acabar la prueba con el mecanismo de autodestrucción activado?',	-- `entry`=-1603177
+	YellPhase2		= '¡ESTUPENDO! ¡Unos resultados definitivamente maravillosos! ¡La integridad del casco al 98,9 %! ¡Apenas un rasguño! ¡Adelante!',	-- `entry`=-1603182
+	YellPhase3		= "¡Gracias amigos! ¡Vuestros esfuerzos me han proporcionado unos datos fantásticos! Veamos, ¿dónde puse?...ah, ahí está.",	-- entry=-1603186
+	YellPhase4		= "Fase de prueba preliminar completada. ¡Ahora comienza la verdadera prueba!",	-- entry=-1603190
+	LootMsg			= "([^%s]+).*Hitem:(%d+)",
+	
+	YellComputerHM	= "Secuencia de autodestrucción iniciada.",	-- `entry`=-1603248
+	YellComputerTimer10	= "Esta zona se autodestruirá en diez minutos",	-- `entry`=-1603249
+	YellComputerTimer9	= "Esta zona se autodestruirá en nueve minutos",	-- `entry`=-1603250
+	YellComputerTimer8	= "Esta zona se autodestruirá en ocho minutos",	-- `entry`=-1603251
+	YellComputerTimer7	= "Esta zona se autodestruirá en siete minutos",	-- `entry`=-1603252
+	YellComputerTimer6	= "Esta zona se autodestruirá en seis minutos",	-- `entry`=-1603253
+	YellComputerTimer5	= "Esta zona se autodestruirá en cinco minutos",	-- `entry`=-1603254
+	YellComputerTimer4	= "Esta zona se autodestruirá en cuatro minutos",	-- `entry`=-1603255
+	YellComputerTimer3	= "Esta zona se autodestruirá en tres minutos",	-- `entry`=-1603256
+	YellComputerTimer2	= "Esta zona se autodestruirá en dos minutos",	-- `entry`=-1603257
+	YellComputerTimer1	= "Esta zona se autodestruirá en un minuto",	-- `entry`=-1603258
+	YellDefeat		= "Parece que me he equivocado en los cálculos. Permití que el demonio de la prisión corrompiera mi mente y se sobrepusiera a mi directiva principal. Ahora parece que todos los sistemas funcionan. Evidente.",	-- `entry`=-1603194
+	
+	MiscTemp		= "MiscTemp"
 }
 
 ---------------------

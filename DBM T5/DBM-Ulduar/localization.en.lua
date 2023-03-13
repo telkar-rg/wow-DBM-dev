@@ -438,12 +438,27 @@ L:SetMiscLocalization{
 	MobPhase1		= "Leviathan Mk II",
 	MobPhase2		= "VX-001",
 	MobPhase3		= "Aerial Command Unit",
-	YellPull		= "We haven't much time, friends! You're going to help me test out my latest and greatest creation. Now, before you change your minds, remember that you kind of owe it to me after the mess you made with the XT-002.",	
-	YellHardPull	= "Self-destruct sequence initiated",
-	YellPhase2		= "WONDERFUL! Positively marvelous results! Hull integrity at 98.9 percent! Barely a dent! Moving right along.",
-	YellPhase3		= "Thank you, friends! Your efforts have yielded some fantastic data! Now, where did I put-- oh, there it is.",
-	YellPhase4		= "Preliminary testing phase complete. Now comes the true test!",
-	LootMsg			= "([^%s]+).*Hitem:(%d+)"
+	YellPull		= "We haven't much time, friends! You're going to help me test out my latest and greatest creation. Now, before you change your minds, remember that you kind of owe it to me after the mess you made with the XT-002.",	-- `entry`=-1603179	
+	YellHardPull	= "^Now why would you go and do something like that? Didn't you see the sign that said",	-- `entry`=-1603177
+	YellPhase2		= "WONDERFUL! Positively marvelous results! Hull integrity at 98.9 percent! Barely a dent! Moving right along.",	-- `entry`=-1603182
+	YellPhase3		= "Thank you, friends! Your efforts have yielded some fantastic data! Now, where did I put-- oh, there it is.",	-- entry=-1603186
+	YellPhase4		= "Preliminary testing phase complete. Now comes the true test!",	-- entry=-1603190
+	LootMsg			= "([^%s]+).*Hitem:(%d+)",
+	
+	YellComputerHM	= "Self-destruct sequence initiated.",	-- `entry`=-1603248
+	YellComputerTimer10	= "This area will self-destruct in ten minutes.",	-- `entry`=-1603249
+	YellComputerTimer9	= "This area will self-destruct in nine minutes.",	-- `entry`=-1603250
+	YellComputerTimer8	= "This area will self-destruct in eight minutes.",	-- `entry`=-1603251
+	YellComputerTimer7	= "This area will self-destruct in seven minutes.",	-- `entry`=-1603252
+	YellComputerTimer6	= "This area will self-destruct in six minutes.",	-- `entry`=-1603253
+	YellComputerTimer5	= "This area will self-destruct in five minutes.",	-- `entry`=-1603254
+	YellComputerTimer4	= "This area will self-destruct in four minutes.",	-- `entry`=-1603255
+	YellComputerTimer3	= "This area will self-destruct in three minutes.",	-- `entry`=-1603256
+	YellComputerTimer2	= "This area will self-destruct in two minutes.",	-- `entry`=-1603257
+	YellComputerTimer1	= "This area will self-destruct in one minute.",	-- `entry`=-1603258
+	YellDefeat		= "^It would appear that I've made a slight miscalculation.",	-- `entry`=-1603194
+	
+	MiscTemp		= "MiscTemp"
 }
 
 ---------------------

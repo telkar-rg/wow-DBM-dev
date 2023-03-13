@@ -502,12 +502,27 @@ L:SetMiscLocalization{
 	MobPhase1		= "Leviathan Mk II",
 	MobPhase2		= "VX-001",
 	MobPhase3		= "Luftkommandoeinheit",
-	YellPull		= "Wir haben nicht viel Zeit, Freunde! Ihr werdet mir dabei helfen, meine neueste und großartigste Kreation zu testen. Bevor Ihr nun Eure Meinung ändert, denkt daran, dass Ihr mir etwas schuldig seid, nach dem Unfug, den Ihr mit dem XT-002 angestellt habt",
-	YellHardPull		= "Warum habt Ihr das denn jetzt gemacht? Habt Ihr das Schild nicht gesehen, auf dem steht \"DIESEN KNOPF NICHT DRÜCKEN!\"? Wie sollen wir die Tests abschließen, solange der Selbstzerstörungsmechanismus aktiv ist?",
-	YellPhase2		= "WUNDERBAR! Das sind Ergebnisse nach meinem Geschmack! Integrität der Hülle bei 98,9 Prozent! So gut wie keine Dellen! Und weiter geht's.",
-	YellPhase3		= "Danke Euch, Freunde! Eure Anstrengungen haben fantastische Daten geliefert! So, wo habe ich noch gleich... Ah, hier ist…",
-	YellPhase4		= "Vorversuchsphase abgeschlossen. Jetzt kommt der eigentliche Test!",
-	LootMsg			= "([^%s]+).*Hitem:(%d+)"
+	YellPull		= "Wir haben nicht viel Zeit, Freunde! Ihr werdet mir dabei helfen, meine neueste und großartigste Kreation zu testen. Bevor Ihr nun Eure Meinung ändert, denkt daran, dass Ihr mir etwas schuldig seid, nach dem Unfug, den Ihr mit dem XT-002 angestellt habt",	-- `entry`=-1603179
+	YellHardPull		= "Warum habt Ihr das denn jetzt gemacht? Habt Ihr das Schild nicht gesehen, auf dem steht \"DIESEN KNOPF NICHT DRÜCKEN!\"? Wie sollen wir die Tests abschließen, solange der Selbstzerstörungsmechanismus aktiv ist?",	-- `entry`=-1603177
+	YellPhase2		= "WUNDERBAR! Das sind Ergebnisse nach meinem Geschmack! Integrität der Hülle bei 98,9 Prozent! So gut wie keine Dellen! Und weiter geht's.",	-- `entry`=-1603182
+	YellPhase3		= "Danke Euch, Freunde! Eure Anstrengungen haben fantastische Daten geliefert! So, wo habe ich noch gleich... Ah, hier ist…",	-- entry=-1603186
+	YellPhase4		= "Vorversuchsphase abgeschlossen. Jetzt kommt der eigentliche Test!",	-- entry=-1603190
+	LootMsg			= "([^%s]+).*Hitem:(%d+)",
+	
+	YellComputerHM	= "Selbstzerstörungssequenz eingeleitet.",	-- `entry`=-1603248
+	YellComputerTimer10	= "Diese Zone wird sich in ZEHN Minuten selbst zerstören.",	-- `entry`=-1603249
+	YellComputerTimer9	= "Diese Zone wird sich in NEUN Minuten selbst zerstören.",	-- `entry`=-1603250
+	YellComputerTimer8	= "Diese Zone wird sich in ACHT Minuten selbst zerstören.",	-- `entry`=-1603251
+	YellComputerTimer7	= "Diese Zone wird sich in SIEBEN Minuten selbst zerstören.",	-- `entry`=-1603252
+	YellComputerTimer6	= "Diese Zone wird sich in SECHS Minuten selbst zerstören.",	-- `entry`=-1603253
+	YellComputerTimer5	= "Diese Zone wird sich in FÜNF Minuten selbst zerstören.",	-- `entry`=-1603254
+	YellComputerTimer4	= "Diese Zone wird sich in VIER Minuten selbst zerstören.",	-- `entry`=-1603255
+	YellComputerTimer3	= "Diese Zone wird sich in DREI Minuten selbst zerstören.",	-- `entry`=-1603256
+	YellComputerTimer2	= "Diese Zone wird sich in ZWEI Minuten selbst zerstören.",	-- `entry`=-1603257
+	YellComputerTimer1	= "Diese Zone wird sich in EINER Minute selbst zerstören.",	-- `entry`=-1603258
+	YellDefeat		= "Es scheint, als wäre mir eine klitzekleine Fehlkalkulation unterlaufen. Ich habe zugelassen, dass das Scheusal im Gefängnis meine Primärdirektive überschreibt. Alle Systeme nun funktionstüchtig.",	-- `entry`=-1603194
+	
+	MiscTemp		= "MiscTemp"
 }
 
 ---------------------
