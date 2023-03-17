@@ -502,7 +502,7 @@ L:SetMiscLocalization{
 	YellComputerTimer3	= '자폭 실행까지 남은 시간은 03분입니다.',	-- `entry`=-1603256
 	YellComputerTimer2	= '자폭 실행까지 남은 시간은 02분입니다.',	-- `entry`=-1603257
 	YellComputerTimer1	= '자폭 실행까지 남은 시간은 01분입니다.',	-- `entry`=-1603258
-	YellDefeat		= 내가 계산을 좀 잘못한 것 같군. 감옥에 갇힌 마귀가 내 마음을 타락시키고 제1지시를 재정의하고 말았다. 이제 모든 시스템이 제 기능을 찾았다. 정상이다.',	-- `entry`=-1603194
+	YellDefeat		= '내가 계산을 좀 잘못한 것 같군. 감옥에 갇힌 마귀가 내 마음을 타락시키고 제1지시를 재정의하고 말았다. 이제 모든 시스템이 제 기능을 찾았다. 정상이다.',	-- `entry`=-1603194
 	
 	MiscTemp		= "MiscTemp"
 }
