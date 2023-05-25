@@ -6,7 +6,7 @@ mod:SetCreatureID(33186)
 mod:SetUsedIcons(8)
 
 --mod:RegisterCombat("combat")
-mod:RegisterCombat("yell", L.YellAir)
+mod:RegisterCombat("yell", L.YellAggro)
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
@@ -15,6 +15,17 @@ mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL",
 	"CHAT_MSG_RAID_BOSS_EMOTE"
 )
+
+local castFlames
+local combattime = 0
+-- the timers in the first round (after aggroing) are a bit longer
+local c_firstRound = 38
+-- these are the timers AFTER the first round
+local c_timerTurret1 = 31
+local c_timerTurret2 = 51
+local c_timerTurret3 = 71
+local c_timerTurret4 = 91
+
 
 local warnTurretsReadySoon			= mod:NewAnnounce("warnTurretsReadySoon", 1, 48642)
 local warnTurretsReady				= mod:NewAnnounce("warnTurretsReady", 3, 48642)
@@ -26,33 +37,36 @@ local specWarnDevouringFlameCast	= mod:NewSpecialWarning("SpecWarnDevouringFlame
 local enrageTimer					= mod:NewBerserkTimer(900)
 local timerDeepBreathCooldown		= mod:NewCDTimer(21, 64021)
 local timerDeepBreathCast			= mod:NewCastTimer(2.5, 64021)
-local timerTurret1					= mod:NewTimer(53, "timerTurret1", 48642)
-local timerTurret2					= mod:NewTimer(73, "timerTurret2", 48642)
-local timerTurret3					= mod:NewTimer(93, "timerTurret3", 48642)
-local timerTurret4					= mod:NewTimer(113, "timerTurret4", 48642)
+local timerTurret1					= mod:NewTimer(c_timerTurret1, "timerTurret1", 48642)
+local timerTurret2					= mod:NewTimer(c_timerTurret2, "timerTurret2", 48642)
+local timerTurret3					= mod:NewTimer(c_timerTurret3, "timerTurret3", 48642)
+local timerTurret4					= mod:NewTimer(c_timerTurret4, "timerTurret4", 48642)
 local timerGrounded                 = mod:NewTimer(45, "timerGrounded")
 
 -- mod:AddBoolOption("PlaySoundOnDevouringFlame", false)
 local soundDevouringFlame = mod:NewSound(64733, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(64733))
 
-local castFlames
-local combattime = 0
 
 function mod:OnCombatStart(delay)
+	combattime = GetTime()+60	-- this is used to not have false timers for first round
+	
 	enrageTimer:Start(-delay)
-	combattime = GetTime()+30
+	
+	-- turret timers in first round are longer then in the following rounds
 	if mod:IsDifficulty("heroic10") then
-		warnTurretsReadySoon:Schedule(53-delay)
-		warnTurretsReady:Schedule(73-delay)
-		timerTurret1:Start(-delay)
-		timerTurret2:Start(-delay)
+		timerTurret1:Start(c_firstRound - delay)
+		timerTurret2:Start(c_firstRound - delay)
+		
+		warnTurretsReadySoon:Schedule(c_timerTurret1 + c_firstRound - delay)
+		warnTurretsReady:Schedule(c_timerTurret2 + c_firstRound - delay)
 	else
-		warnTurretsReadySoon:Schedule(93-delay)
-		warnTurretsReady:Schedule(113-delay)
-		timerTurret1:Start(-delay) -- 53sec
-		timerTurret2:Start(-delay) -- +20
-		timerTurret3:Start(-delay) -- +20
-		timerTurret4:Start(-delay) -- +20
+		timerTurret1:Start(c_firstRound - delay)
+		timerTurret2:Start(c_firstRound - delay)
+		timerTurret3:Start(c_firstRound - delay)
+		timerTurret4:Start(c_firstRound - delay)
+		
+		warnTurretsReadySoon:Schedule(c_timerTurret3 + c_firstRound - delay)
+		warnTurretsReady:Schedule(c_timerTurret4 + c_firstRound - delay)
 	end
 end
 
@@ -79,20 +93,19 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(emote)
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg, mob)
-	if (msg == L.YellAir or msg == L.YellAir2) and GetTime() > combattime then
-		combattime = GetTime()+30
+	if msg == L.YellExtinguish and (GetTime() > combattime) then
 		if mod:IsDifficulty("heroic10") then -- not sure?
-			warnTurretsReadySoon:Schedule(23)
-			warnTurretsReady:Schedule(43)
-			timerTurret1:Start(23)
-			timerTurret2:Start(43)
+			timerTurret1:Start()
+			timerTurret2:Start()
+			warnTurretsReadySoon:Schedule(c_timerTurret1)
+			warnTurretsReady:Schedule(c_timerTurret2)
 		else
-			warnTurretsReadySoon:Schedule(93)
-			warnTurretsReady:Schedule(113)
 			timerTurret1:Start()
 			timerTurret2:Start()
 			timerTurret3:Start()
 			timerTurret4:Start()
+			warnTurretsReadySoon:Schedule(c_timerTurret3)
+			warnTurretsReady:Schedule(c_timerTurret4)
 		end
 
 	elseif msg == L.YellGround then
