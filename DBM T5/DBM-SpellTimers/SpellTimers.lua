@@ -322,6 +322,9 @@ do
 			for k,v in pairs(settings.spells) do
 				if v.spell == spellid and v.enabled == true then
 					local spellinfo, _, icon = GetSpellInfo(spellid)
+					if spellid==21169 then
+						icon = "Interface\\Icons\\INV_Jewelry_Talisman_06"
+					end					
 					local bartext = v.bartext:gsub("%%spell", spellinfo):gsub("%%player", fromplayer):gsub("%%target", toplayer)	-- Changed by Florin Patan
 					SpellBars:CreateBar(v.cooldown, bartext, icon, nil, true)
 
