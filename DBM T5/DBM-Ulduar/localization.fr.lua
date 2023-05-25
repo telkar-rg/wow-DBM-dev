@@ -101,9 +101,11 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellAir 			= "Laissez un instant pour préparer la construction des tourelles.",
-	YellAir2			= "Incendie éteint ! Reconstruisons les tourelles !",
-	YellGround		= "Faites vite ! Elle va pas rester au sol très longtemps !",
+	YellAggro			= "Soyez sur vos gardes ! Des taupes mécaniques ne vont pas tarder à émerger, avec de vilains nains sombrefers à bord !",	-- 1603038
+	YellExtinguish		= "Incendie éteint ! Reconstruisons les tourelles !",	-- 1603042
+	-- YellAir 			= "Laissez un instant pour préparer la construction des tourelles.",
+	-- YellAir2			= "Incendie éteint ! Reconstruisons les tourelles !",
+	YellGround			= "Faites vite ! Elle va pas rester au sol très longtemps !",
 	EmotePhase2			= "bloquée au sol",
 	FlamecastUnknown	= DBM_CORE_UNKNOWN
 }

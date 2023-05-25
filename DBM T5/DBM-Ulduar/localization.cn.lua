@@ -98,11 +98,13 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellAir				= "给我们一点时间，做好建筑炮台的准备。",
-	YellAir2			= "火灭了！准备重建炮台！",
+	YellAggro			= "保持警惕！钻探机即将冒出地表，讨厌的铁矮人就要来了！",	-- 1603038
+	YellExtinguish		= "火灭了！准备重建炮台！",	-- 1603042
+	-- YellAir				= "给我们一点时间，做好建筑炮台的准备。",
+	-- YellAir2				= "火灭了！准备重建炮台！",
 	YellGround			= "快一点！她马上就要挣脱了！",
 	EmotePhase2			= "%%s被永久地禁锢在地面上！",
-	FlamecastUnknown		= DBM_CORE_UNKNOWN
+	FlamecastUnknown	= DBM_CORE_UNKNOWN
 }
 
 ----------------------------

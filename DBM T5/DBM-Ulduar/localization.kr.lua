@@ -99,8 +99,10 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellAir 			= "저희에게 잠깐 포탑을 설치할 시간을 주세요.",
-	YellAir2			= "불꽃이 꺼졌습니다! 포탑을 재설치합시다!",	
+	YellAggro			= "정신 바짝 차리세요! 곧 땅에서 굴착기가 솟아나 성가신 무쇠 드워프를 쏟아낼 겁니다!",	-- 1603038
+	YellExtinguish		= "불꽃이 꺼졌습니다! 포탑을 재설치합시다!",	-- 1603042
+	-- YellAir 			= "저희에게 잠깐 포탑을 설치할 시간을 주세요.",
+	-- YellAir2			= "불꽃이 꺼졌습니다! 포탑을 재설치합시다!",	
 	YellGround			= "움직이세요! 오래 붙잡아둘 순 없을 겁니다!",
 --	EmotePhase2			= "%%s이 완전히 땅에 내려앉았습니다!",	
 	EmotePhase2			= "완전히 땅에 내려앉았습니다!",	

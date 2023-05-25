@@ -88,8 +88,10 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellAir				= "Give us a moment to prepare to build the turrets.",
-	YellAir2			= "Fires out! Let's rebuild those turrets!",
+	YellAggro			= "Be on the lookout! Mole machines will be surfacing soon with those nasty Iron dwarves aboard!",	-- 1603038
+	YellExtinguish		= "Fires out! Let's rebuild those turrets!",	-- 1603042
+	-- YellAir				= "Give us a moment to prepare to build the turrets.",
+	-- YellAir2			= "Fires out! Let's rebuild those turrets!",
 	YellGround			= "Move quickly! She won't remain grounded for long!",
 	EmotePhase2			= "%%s grounded permanently!",
 	FlamecastUnknown	= DBM_CORE_UNKNOWN

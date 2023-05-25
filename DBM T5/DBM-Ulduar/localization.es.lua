@@ -98,11 +98,13 @@ L:SetOptionLocalization{
 }
 
 L:SetMiscLocalization{
-	YellAir				        = "Danos un momento para que nos preparemos para construir las torretas.",
-	YellAir2			        = "Listos para salir, ¡impedid que esos enanos se peguen a nuestra espalda!!",
-	YellGround			    = "¡Moveros! ¡No seguira mucho mas en el suelo!",
-	EmotePhase2			        = "¡%%s ha aterrizado permanentemente!",
-	FlamecastUnknown		    = DBM_CORE_UNKNOWN
+	YellAggro			= "¡Cuidado! Pronto saldrán a la superficie máquinas topo con esos desagradables enanos férreos a bordo!",	-- 1603038
+	YellExtinguish		= "¡Llamas extintas! ¡Reconstruyamos esas torretas!",	-- 1603042
+	-- YellAir				= "Danos un momento para que nos preparemos para construir las torretas.",
+	-- YellAir2			= "Listos para salir, ¡impedid que esos enanos se peguen a nuestra espalda!!", -- 1603039 (for some reason - it should also be 1603042)
+	YellGround			= "¡Moveros! ¡No seguira mucho mas en el suelo!",
+	EmotePhase2			= "¡%%s ha aterrizado permanentemente!",
+	FlamecastUnknown	= DBM_CORE_UNKNOWN
 }
 
 ----------------------------
