@@ -17,6 +17,8 @@ mod:RegisterEvents(
 	"SPELL_PERIODIC_DAMAGE"
 )
 
+local timer_combatStart = 33.3
+
 local warnUnholyPower			= mod:NewSpellAnnounce(69629, 3)
 local warnForcefulSmash			= mod:NewSpellAnnounce(69627, 2)
 local warnOverlordsBrand		= mod:NewTargetAnnounce(69172, 4)
@@ -27,7 +29,7 @@ local specWarnHoarfrostNear		= mod:NewSpecialWarning("specWarnHoarfrostNear")
 local specWarnIcyBlast			= mod:NewSpecialWarningMove(69628)
 local specWarnOverlordsBrand	= mod:NewSpecialWarningYou(69172)
 
-local timerCombatStart			= mod:NewTimer(31, "TimerCombatStart", 2457)
+local timerCombatStart			= mod:NewTimer(timer_combatStart, "TimerCombatStart", 2457)
 local timerOverlordsBrand		= mod:NewTargetTimer(8, 69172)
 local timerUnholyPower			= mod:NewBuffActiveTimer(10, 69629)
 local timerForcefulSmash		= mod:NewCDTimer(50, 69627) --hotfixed? new combat logs show it every 50 seconds'ish.
