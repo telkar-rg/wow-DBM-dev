@@ -5,8 +5,9 @@ mod:SetRevision(("$Revision: 4133 $"):sub(12, -3))
 mod:SetCreatureID(33186)
 mod:SetUsedIcons(8)
 
---mod:RegisterCombat("combat")
-mod:RegisterCombat("yell", L.YellAggro)
+mod:RegisterCombat("combat")
+mod:RegisterCombat("yell", L.YellExtinguish)
+-- mod:RegisterCombat("yell", L.YellAggro) -- this doesnt work because after 8s timeout for combat
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
@@ -17,7 +18,8 @@ mod:RegisterEvents(
 )
 
 local castFlames
-local combattime = 0
+local t_aggroYell = 0
+local razorStart = false
 -- the timers in the first round (after aggroing) are a bit longer
 local c_firstRound = 38
 -- these are the timers AFTER the first round
@@ -48,26 +50,31 @@ local soundDevouringFlame = mod:NewSound(64733, DBM_CORE_AUTO_SOUND_OPTION_TEXT_
 
 
 function mod:OnCombatStart(delay)
-	combattime = GetTime()+60	-- this is used to not have false timers for first round
+	local t_OnCombatStart = GetTime() - t_aggroYell
+	local t_diff = c_firstRound - delay - t_OnCombatStart
+	
+	-- stop if we have not seen the aggro yell in the last 60s
+	if not t_OnCombatStart or t_OnCombatStart < 0 or t_OnCombatStart > 60 then return end
 	
 	enrageTimer:Start(-delay)
 	
 	-- turret timers in first round are longer then in the following rounds
 	if mod:IsDifficulty("heroic10") then
-		timerTurret1:Start(c_firstRound - delay)
-		timerTurret2:Start(c_firstRound - delay)
+		timerTurret1:Start(c_timerTurret1 + t_diff)
+		timerTurret2:Start(c_timerTurret2 + t_diff)
 		
-		warnTurretsReadySoon:Schedule(c_timerTurret1 + c_firstRound - delay)
-		warnTurretsReady:Schedule(c_timerTurret2 + c_firstRound - delay)
+		warnTurretsReadySoon:Schedule(c_timerTurret1 + t_diff)
+		warnTurretsReady:Schedule(c_timerTurret2 + t_diff)
 	else
-		timerTurret1:Start(c_firstRound - delay)
-		timerTurret2:Start(c_firstRound - delay)
-		timerTurret3:Start(c_firstRound - delay)
-		timerTurret4:Start(c_firstRound - delay)
+		timerTurret1:Start(c_timerTurret1 + t_diff)
+		timerTurret2:Start(c_timerTurret2 + t_diff)
+		timerTurret3:Start(c_timerTurret3 + t_diff)
+		timerTurret4:Start(c_timerTurret4 + t_diff)
 		
-		warnTurretsReadySoon:Schedule(c_timerTurret3 + c_firstRound - delay)
-		warnTurretsReady:Schedule(c_timerTurret4 + c_firstRound - delay)
+		warnTurretsReadySoon:Schedule(c_timerTurret3 + t_diff)
+		warnTurretsReady:Schedule(c_timerTurret4 + t_diff)
 	end
+	
 end
 
 function mod:SPELL_DAMAGE(args)
@@ -93,23 +100,36 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(emote)
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg, mob)
-	if msg == L.YellExtinguish and (GetTime() > combattime) then
-		if mod:IsDifficulty("heroic10") then -- not sure?
-			timerTurret1:Start()
-			timerTurret2:Start()
-			warnTurretsReadySoon:Schedule(c_timerTurret1)
-			warnTurretsReady:Schedule(c_timerTurret2)
+	print("-- --","CHAT_MSG_MONSTER_YELL", GetTime()-t_aggroYell, "\n"..msg)
+	
+	
+	
+	if msg == L.YellExtinguish then
+		if razorStart then
+			-- skip on aggro (first time harpunes are handled differently)
+			razorStart = false
 		else
-			timerTurret1:Start()
-			timerTurret2:Start()
-			timerTurret3:Start()
-			timerTurret4:Start()
-			warnTurretsReadySoon:Schedule(c_timerTurret3)
-			warnTurretsReady:Schedule(c_timerTurret4)
+			if mod:IsDifficulty("heroic10") then -- not sure?
+				timerTurret1:Start()
+				timerTurret2:Start()
+				warnTurretsReadySoon:Schedule(c_timerTurret1)
+				warnTurretsReady:Schedule(c_timerTurret2)
+			else
+				timerTurret1:Start()
+				timerTurret2:Start()
+				timerTurret3:Start()
+				timerTurret4:Start()
+				warnTurretsReadySoon:Schedule(c_timerTurret3)
+				warnTurretsReady:Schedule(c_timerTurret4)
+			end
 		end
 
 	elseif msg == L.YellGround then
 		timerGrounded:Start()
+		
+	elseif msg == L.YellAggro then
+		razorStart = true
+		t_aggroYell = GetTime()
 	end
 end
 
