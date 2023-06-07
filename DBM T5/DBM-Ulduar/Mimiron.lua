@@ -6,7 +6,8 @@ mod:SetCreatureID(33432)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
 
 mod:RegisterCombat("yell", L.YellPull)
-mod:RegisterCombat("yell", L.YellHardPull)
+mod:RegisterCombat("yell", L.YellComputerHM)
+-- mod:RegisterCombat("yell", L.YellHardPull)
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
@@ -18,6 +19,14 @@ mod:RegisterEvents(
 	"CHAT_MSG_LOOT",
 	"SPELL_SUMMON"
 )
+
+local c_timerFirstFlames = 6.5
+local c_timerNextFlames = 27.5
+local c_timerNextFlamesP4 = 18
+local c_timerFlameSuppressantP1 = 83.5	-- spell=64570 -- from yell
+local c_timerFirstShockblastP1 = 43.5	-- spell=63631 -- from yell
+local c_timerPlasmaBlastP1 = 37		-- spell=64529 -- from yell
+
 
 local blastWarn					= mod:NewTargetAnnounce(64529, 4)
 local shellWarn					= mod:NewTargetAnnounce(63666, 2)
@@ -43,9 +52,9 @@ local timerNextDarkGlare		= mod:NewNextTimer(41, 63274)
 local timerNextShockblast		= mod:NewNextTimer(34, 63631)
 local timerPlasmaBlastCD		= mod:NewCDTimer(30, 64529)
 local timerShell				= mod:NewBuffActiveTimer(6, 63666)
-local timerFlameSuppressant		= mod:NewNextTimer(60, 64570)
+local timerFlameSuppressant		= mod:NewNextTimer(62, 64570)
 local timerNextFlameSuppressant	= mod:NewNextTimer(10, 65192)
-local timerNextFlames			= mod:NewNextTimer(27.5, 64566)
+local timerNextFlames			= mod:NewNextTimer(c_timerNextFlames, 64566)
 local timerNextFrostBomb        = mod:NewNextTimer(30, 64623)
 local timerBombExplosion		= mod:NewCastTimer(15, 65333)
 
@@ -82,7 +91,7 @@ function mod:OnCombatStart(delay)
 	napalmShellIcon = 7
 	table.wipe(napalmShellTargets)
 	self:NextPhase()
-	timerPlasmaBlastCD:Start(20-delay)
+	timerPlasmaBlastCD:Start(32-delay)
 	if DBM:GetRaidRank() == 2 then
 		lootmethod, _, masterlooterRaidID = GetLootMethod()
 	end
@@ -90,8 +99,8 @@ function mod:OnCombatStart(delay)
 		DBM.RangeCheck:Show(6)
 	end
 	
-	local _, _, _, _, maxPlayers = GetInstanceInfo()
-	instanceSize = maxPlayers
+	-- local _, _, _, _, maxPlayers = GetInstanceInfo()
+	-- instanceSize = maxPlayers
 end
 
 function mod:OnCombatEnd()
@@ -110,11 +119,12 @@ end
 
 function mod:Flames()
 	if phase == 4 then
-		timerNextFlames:Start(18)
-		self:ScheduleMethod(18, "Flames")
+		-- timerNextFlames:Start(-c_timerNextFlames + c_timerNextFlamesP4)
+		timerNextFlames:Start(c_timerNextFlamesP4)
+		self:ScheduleMethod(c_timerNextFlamesP4, "Flames")
 	else
 		timerNextFlames:Start()
-		self:ScheduleMethod(27.5, "Flames")
+		self:ScheduleMethod(c_timerNextFlames, "Flames")
 	end
 end
 
@@ -154,9 +164,9 @@ function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(64529, 62997) then -- plasma blast
 		timerPlasmaBlastCD:Start()
 	end
-	if args:IsSpellID(64570) then
-		timerFlameSuppressant:Start()
-	end
+	-- if args:IsSpellID(64570) then	-- "Flame Suppressant" is only cast ONCE, and not after it has been cast
+		-- timerFlameSuppressant:Start()
+	-- end
 	if args:IsSpellID(64623) then
 		warnFrostBomb:Show()
 		timerBombExplosion:Start()
@@ -205,6 +215,22 @@ function mod:SPELL_CAST_SUCCESS(args)
 	
 	elseif args:IsSpellID(65192) then
 		timerNextFlameSuppressant:Start()
+		
+	elseif args:IsSpellID(64582) then	-- Emergency Mode (Hard Mode Buff)
+		-- when this buff is applied to "Leviathan Mk II" then it is no longer invulnerable
+		-- start timer for "Flame Suppressant" (62s after "Leviathan Mk II" becomes vulnerable)
+		
+		local cid = self:GetCIDFromGUID(args.sourceGUID)
+		if cid == 33432 or cid == 34071 then	-- if "Leviathan Mk II" ID
+			timerFlameSuppressant:Stop()
+			timerFlameSuppressant:Start()	-- FlameSuppressant comes 62s after "Leviathan Mk II" attackable
+			
+			timerNextShockblast:Stop()
+			timerNextShockblast:Start(22)	-- first Shockblast comes 22s after "Leviathan Mk II" attackable
+			
+			timerPlasmaBlastCD:Stop()
+			timerPlasmaBlastCD:Start(15)	-- first PlasmaBlast comes 15s after "Leviathan Mk II" attackable
+		end
 	end
 end
 
@@ -273,19 +299,20 @@ do
 	local last = 0
 	local lastPhaseChange = 0
 	function mod:SPELL_AURA_REMOVED(args)
-		local cid = self:GetCIDFromGUID(args.destGUID)
-		if GetTime() - lastPhaseChange > 30 and (cid == 33432 or cid == 33651 or cid == 33670) then
-			if args.timestamp == last then	-- all events in the same tick to detect the phases earlier (than the yell) and localization-independent
-				count = count + 1
-				if (instanceSize==10 and count > 4) or (instanceSize > 10 and count > 9) then
-					lastPhaseChange = GetTime()
-					self:NextPhase()
-				end
-			else
-				count = 1
-			end
-			last = args.timestamp
-		elseif args:IsSpellID(63666, 65026) then -- Napalm Shell
+		-- local cid = self:GetCIDFromGUID(args.destGUID)
+		-- if GetTime() - lastPhaseChange > 30 and (cid == 33432 or cid == 33651 or cid == 33670) then
+			-- if args.timestamp == last then	-- all events in the same tick to detect the phases earlier (than the yell) and localization-independent
+				-- count = count + 1
+				-- if (instanceSize==10 and count > 4) or (instanceSize > 10 and count > 9) then
+					-- lastPhaseChange = GetTime()
+					-- self:NextPhase()
+				-- end
+			-- else
+				-- count = 1
+			-- end
+			-- last = args.timestamp
+		-- elseif
+		if args:IsSpellID(63666, 65026) then -- Napalm Shell
 			if self.Options.SetIconOnNapalm then
 				self:SetIcon(args.destName, 0)
 			end
@@ -306,18 +333,27 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		--DBM:AddMsg("ALPHA: yell detect phase3, syncing to clients")
 		self:SendSync("Phase4") -- SPELL_AURA_REMOVED detection might fail in phase 3...there are simply not enough debuffs on him
 
-	elseif msg == L.YellHardPull or msg:find(L.YellHardPull) then
+	elseif msg == L.YellComputerHM or msg:find(L.YellComputerHM) then
 		enrage:Stop()
 		hardmode = true
 		timerHardmode:Start()
-		timerFlameSuppressant:Start(83)
-		timerNextFlames:Start(6.5)
-		self:ScheduleMethod(6.5, "Flames")
+		
+		timerNextFlames:Start(c_timerFirstFlames)
+		self:ScheduleMethod(c_timerFirstFlames, "Flames")
+		
+		-- timers relative to Aggro Yell (encounter start)
+		timerFlameSuppressant:Stop()
+		timerFlameSuppressant:Start(c_timerFlameSuppressantP1)
+		timerNextShockblast:Stop()
+		timerNextShockblast:Start(c_timerFirstShockblastP1)
+		timerPlasmaBlastCD:Stop()
+		timerPlasmaBlastCD:Start(c_timerPlasmaBlastP1)
 	
 	elseif (msg == L.YellDefeat or msg:find(L.YellDefeat)) then -- register kill
 		enrage:Stop()
 		timerHardmode:Stop()
 		timerNextFlames:Stop()
+		timerNextShockblast:Stop()
 		self:UnscheduleMethod("Flames")
 	end
 end
