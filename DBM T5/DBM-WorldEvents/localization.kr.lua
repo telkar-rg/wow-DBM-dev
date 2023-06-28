@@ -83,7 +83,8 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name = "아훈"
+	-- name = "아훈"
+	name = "아훈 <서리군주님께서>"
 })
 
 L:SetWarningLocalization({
@@ -108,5 +109,10 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Pull			= "얼음 기둥이 녹아 내렸다!"
+	-- Pull			= "얼음 기둥이 녹아 내렸다!"
+	Pull			= '얼음 기둥이 녹아 내렸다!',	-- Trinity 24895
+	Pull_2			= '아훈, 네 힘은 더 커지지 못한다!',	-- Trinity 24893
+	Pull_3			= '얼어붙은 통치의 시대는 오지 않을 것이다!',	-- Trinity 24894
+	EmoteSubmerge	= '아훈이 물러납니다. 막아내는 힘이 약해집니다.',	-- Trinity 24931
+	EmoteEmergeSoon	= '아훈은 잠시 후에 다시 나타납니다.'	-- Trinity 24932
 })

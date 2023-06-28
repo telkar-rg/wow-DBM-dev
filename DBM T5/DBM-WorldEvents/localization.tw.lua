@@ -83,17 +83,18 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name 			= "艾胡恩"
+	-- name 			= "艾胡恩"
+	name 			= "艾胡恩 <冰霜之王>"
 })
 
 L:SetWarningLocalization({
 	Submerged		= "艾胡恩已隱沒",
 	Emerged			= "艾胡恩已現身",
-	specWarnAttack		= "艾胡恩擁有易傷 - 現在攻擊!"
+	specWarnAttack	= "艾胡恩擁有易傷 - 現在攻擊!"
 })
 
 L:SetTimerLocalization({
-	SubmergTimer		= "隱沒",
+	SubmergTimer	= "隱沒",
 	EmergeTimer		= "現身",
 	TimerCombat		= "戰鬥開始"
 })
@@ -101,12 +102,17 @@ L:SetTimerLocalization({
 L:SetOptionLocalization({
 	Submerged		= "當艾胡恩隱沒時顯示警告",
 	Emerged			= "當艾胡恩現身時顯示警告",
-	specWarnAttack		= "當艾胡恩擁有易傷時顯示特別警告",
-	SubmergTimer		= "為隱沒顯示計時器",
+	specWarnAttack	= "當艾胡恩擁有易傷時顯示特別警告",
+	SubmergTimer	= "為隱沒顯示計時器",
 	EmergeTimer		= "為現身顯示計時器",
 	TimerCombat		= "為戰鬥開始顯示計時器"
 })
 
 L:SetMiscLocalization({
-	Pull			= "冰石已經溶化了!"
+	-- Pull			= "冰石已經溶化了!",
+	Pull			= '冰石已經溶化了!',	-- Trinity 24895
+	Pull_2			= '艾胡恩，你的力量沒了!',	-- Trinity 24893
+	Pull_3			= '你的冰霜統治將無法實現!',	-- Trinity 24894
+	EmoteSubmerge	= '艾胡恩撤退了。他的防禦消失了。',	-- Trinity 24931
+	EmoteEmergeSoon	= '艾胡恩不久將會重新出現。'	-- Trinity 24932
 })

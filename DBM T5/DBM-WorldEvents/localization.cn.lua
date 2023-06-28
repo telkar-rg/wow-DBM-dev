@@ -84,7 +84,8 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name 			= "埃霍恩"
+	-- name 			= "埃霍恩"
+	name 			= "埃霍恩 <冰霜领主>"
 })
 
 L:SetWarningLocalization({
@@ -109,5 +110,10 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Pull			= "冰石已经溶化了!"
+	-- Pull			= "冰石已经溶化了!"
+	Pull			= '寒冰之石融化了！',	-- Trinity 24895
+	Pull_2			= '埃霍恩，你的力量再也不会增强了！',	-- Trinity 24893
+	Pull_3			= '你的野心永远都不会实现！',	-- Trinity 24894
+	EmoteSubmerge	= '埃霍恩退却了。他的防御变弱了。',	-- Trinity 24931
+	EmoteEmergeSoon	= '埃霍恩很快就会重新出现。'	-- Trinity 24932
 })

@@ -83,7 +83,8 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name = "Ахун"
+	-- name = "Ахун"
+	name = "Ахун <Повелитель Холода>"
 })
 
 L:SetWarningLocalization({
@@ -108,5 +109,10 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Pull			= "Камень Льда растаял!"
+	-- Pull			= "Камень Льда растаял!"
+	Pull			= 'Камень Льда растаял!',	-- Trinity 24895
+	Pull_2			= 'Ахун, твоя сила больше не возрастает!',	-- Trinity 24893
+	Pull_3			= 'Твоему ледяному царству придет конец!',	-- Trinity 24894
+	EmoteSubmerge	= 'Ахун отступает. Его оборона слабеет.',	-- Trinity 24931
+	EmoteEmergeSoon	= 'Ахун скоро вернется.'	-- Trinity 24932
 })

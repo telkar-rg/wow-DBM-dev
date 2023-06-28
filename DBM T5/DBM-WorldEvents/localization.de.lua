@@ -90,7 +90,8 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name = "Fürst Ahune"
+	-- name = "Fürst Ahune"
+	name = "Ahune <Der Frostfürst>"
 })
 
 L:SetWarningLocalization({
@@ -111,9 +112,13 @@ L:SetOptionLocalization({
 	specWarnAttack	= "Zeige Spezialwarnun wenn Ahune verwundbar wird",
 	SubmergTimer	= "Zeige Timer für Untertauchen",
 	EmergeTimer		= "Zeige Timer für Auftauchen",
-	TimerCombat		= "Zeige Timer für Kampfbeginn",
+	TimerCombat		= "Zeige Timer für Kampfbeginn"
 })
 
 L:SetMiscLocalization({
-	Pull			= "Der Eisbrocken ist geschmolzen!"
+	Pull			= "Der Eisbrocken ist geschmolzen!",	-- Trinity 24895
+	Pull_2			= "Ahune, stärker sollst du nicht mehr werden!",	-- Trinity 24893
+	Pull_3			= "Niemals wird Kälte herrschen!",	-- Trinity 24894
+	EmoteSubmerge	= "Ahune zieht sich zurück. Seine Verteidigung lässt nach.",	-- Trinity 24931
+	EmoteEmergeSoon	= "Ahune wird bald wieder auftauchen."	-- Trinity 24932
 })

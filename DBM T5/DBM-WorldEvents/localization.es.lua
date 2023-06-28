@@ -83,7 +83,8 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name = "Ahune"
+	-- name = "Ahune"
+	name = "Ahune <El Señor de la Escarcha>"
 })
 
 L:SetWarningLocalization({
@@ -108,5 +109,10 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Pull			= "¡La piedra de hielo se ha derretido!"
+	-- Pull			= "¡La piedra de hielo se ha derretido!"
+	Pull			= '¡La piedra de hielo se ha derretido!',	-- Trinity 24895
+	Pull_2			= '¡Ahune, tu fuerza ya no aumenta!',	-- Trinity 24893
+	Pull_3			= '¡Tu reino helado no tendrá lugar!',	-- Trinity 24894
+	EmoteSubmerge	= 'Ahune se retira. Sus defensas disminuyen.',	-- Trinity 24931
+	EmoteEmergeSoon	= 'Ahune pronto volverá a la superficie.'	-- Trinity 24932
 })

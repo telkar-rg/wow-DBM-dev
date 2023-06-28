@@ -83,7 +83,8 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name = "Ahune"
+	-- name = "Ahune"
+	name = "Ahune <The Frost Lord>"
 })
 
 L:SetWarningLocalization({
@@ -108,5 +109,10 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	Pull			= "The Ice Stone has melted!"
+	-- Pull			= "The Ice Stone has melted!"
+	Pull			= 'The Ice Stone has melted!',	-- Trinity 24895
+	Pull_2			= 'Ahune, your strength grows no more!',	-- Trinity 24893
+	Pull_3			= 'Your frozen reign will not come to pass!',	-- Trinity 24894
+	EmoteSubmerge	= 'Ahune Retreats.  His defenses diminish.',	-- Trinity 24931
+	EmoteEmergeSoon	= 'Ahune will soon resurface.'	-- Trinity 24932
 })
