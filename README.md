@@ -1,10 +1,16 @@
 # DBM T5
 DBM: modified development for WotLK
 
-### Releases ([jump to latest](https://github.com/telkar-rg/wow-DBM-dev/releases/latest))
-- [DBM T5.02 alpha](https://github.com/telkar-rg/wow-DBM-dev/releases/tag/T5.02)
+### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
+- DBM T5.005 alpha (Hotfix 1)
+  - Fix for Frostlord Ahune (detection of encounter and sub/emerge)
+- DBM T5.04 alpha
+  - Fixes in Ulduar (Mimiron timer)
+- DBM T5.03 alpha
+  - Fixes in Ulduar (Flame Leviathan timer, Razorscale locales/timer, new warning sound file for Freya)
+- DBM T5.02 alpha
   - Adds checkbos to Options to en/disable auto-clearing of CombatLog
-- [DBM T5.01 alpha](https://github.com/telkar-rg/wow-DBM-dev/releases/tag/T5.00)
+- DBM T5.01 alpha
   - Adds position of brain portals to range radar in Yogg-Saron encounter
 - [DBM v1.4 by Vargoth@RG](https://github.com/telkar-rg/wow-DBM-dev/releases/tag/v1.4)
   - Adds RangeRadar to WotLK instances
