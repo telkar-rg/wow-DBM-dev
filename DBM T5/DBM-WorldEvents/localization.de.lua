@@ -51,9 +51,9 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	HorsemanHead		= "Get over here, you idiot!",	--to be translated
-	HorsemanSoldiers	= "Soldiers arise, stand and fight! Bring victory at last to this fallen knight!",	--to be translated
-	SayCombatEnd		= "This end have I reached befüre.  What new adventure lies in store?"	--to be translated
+	HorsemanHead		= "Komm hierher, du Idiot!",	-- Trinity 22415
+	HorsemanSoldiers	= "Soldaten, erhebt Euch und kämpft immer weiter. Bringt endlich den Sieg zum gefallenen Reiter!",	-- Trinity 23861
+	SayCombatEnd		= "Dieses Ende ist mir schon bekannt. Welch neue Abenteuer hat das Schicksal zur Hand?"	-- Trinity 23455
 })
 
 -----------------------
