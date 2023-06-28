@@ -520,6 +520,7 @@ L:SetGeneralLocalization{
 L:SetMiscLocalization{
 	YellPull 			= "攻击这头野兽要害的时刻即将来临！将你们的愤怒和仇恨倾泻到它的爪牙身上！",
 	YellPhase2			= "我是清醒的梦境。",
+	YellPhase3	 		= "凝视死亡的真正面孔吧，你们的末日就要来了！",	-- from bigwigs
 	Sara 				= "萨拉",
 	WarningYellSqueeze		= "我被触须抓住了 - 快救我"
 }

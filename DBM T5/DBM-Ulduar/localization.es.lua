@@ -561,6 +561,7 @@ L:SetGeneralLocalization{
 L:SetMiscLocalization{
 	YellPull 			= "¡Pronto llegará la hora de golpear la cabeza del monstruo! ¡Centrad vuestra ira y odio en sus esbirros!",
 	YellPhase2	 		= "Soy un sueño lúcido.",
+	YellPhase3	 		= "^Look upon the true face",	-- Translation Missing!
 	Sara 				= "Sara",
 	WarningYellSqueeze	= "¡Exprimir en mi! ¡Ayudadme!"
 }

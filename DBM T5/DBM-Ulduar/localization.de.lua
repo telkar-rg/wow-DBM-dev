@@ -571,6 +571,7 @@ L:SetGeneralLocalization{
 L:SetMiscLocalization{
 	YellPull 					= "Bald ist die Zeit gekommen, dem Untier den Kopf abzuschlagen! Konzentriert Euren Zorn und Euren Hass auf seine Diener!",
 	YellPhase2 					= "Ich bin der strahlende Traum.",
+	YellPhase3 					= "^Erblickt das wahre Antlitz des Todes",	-- from bigwigs
 	Sara 						= "Sara",
 	WarningYellSqueeze			= "Quetschen auf mir! Hilfe!"
 }

@@ -569,6 +569,7 @@ L:SetGeneralLocalization{
 L:SetMiscLocalization{
 	YellPull 				= "짐승의 대장을 칠 때가 곧 다가올 거예요! 놈의 졸개들에게 노여움과 미움을 쏟아부으세요!",
 	YellPhase2 				= "나는, 살아 있는 꿈이다.",
+	YellPhase3	 			= "^죽음의 진정한 얼굴을 보아라",	-- from bigwigs
 	Sara 					= "사라",
 	WarningYellSqueeze		= "압착의 촉수에 붙잡혔어요! 살려주세요!"	
 }

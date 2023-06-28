@@ -566,6 +566,7 @@ L:SetGeneralLocalization{
 L:SetMiscLocalization{
 	YellPull 						= "Il sera bientôt temps de frapper la tête de la bête ! Concentrez votre rage et votre haine sur ses laquais !",
 	YellPhase2 						= "Je suis le rêve éveillé",
+	YellPhase3	 					= "^Contemplez le vrai visage de la mort",	-- from bigwigs
 	Sara 							= "Sara",
 	WhisperBrainLink 				= "Votre cerveau est lié ! Courez vers %s !",
 	WarningYellSqueeze				= "Ecrasement sur moi ! Aidez-moi !"

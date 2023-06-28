@@ -515,6 +515,7 @@ L:SetGeneralLocalization{
 L:SetMiscLocalization{
 	YellPull 			= "Скоро мы сразимся с главарем этих извергов! Обратите гнев и ненависть против его прислужников!",
 	YellPhase2	 		= "Я – это сон наяву.",
+	YellPhase3	 		= "^Взгляните в истинное лицо",	-- from bigwigs
 	Sara 				= "Сара",
 	WarningYellSqueeze	= "Выдавливание на мне! Помогите!"
 }
