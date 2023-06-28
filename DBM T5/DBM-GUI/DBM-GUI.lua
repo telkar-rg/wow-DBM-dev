@@ -41,7 +41,7 @@
 --    * Vargoth @ Rising-Gods
 --    * Telkar @ Rising-Gods
 
-local revision =("$Revision: 5001 $"):sub(12, -3) 
+local revision =("$Revision: 5005 $"):sub(12, -3) 
 local FrameTitle = "DBM_GUI_Option_"	-- all GUI frames get automatically a name FrameTitle..ID
 
 local PanelPrototype = {}
