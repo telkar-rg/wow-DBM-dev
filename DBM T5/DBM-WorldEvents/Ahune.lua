@@ -4,7 +4,7 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision: 5005 $"):sub(12, -3))
 mod:SetCreatureID(25740)--25740 Ahune, 25755, 25756 the two types of adds
 
-mod:RegisterCombat("say", L.Pull)
+-- mod:RegisterCombat("say", L.Pull)
 mod:RegisterCombat("combat")
 mod:SetMinCombatTime(15)
 
@@ -16,14 +16,14 @@ mod:RegisterEvents(
 
 
 local idAhune = 25740
-local t_combatStart = 13.5
+-- local t_combatStart = 13.5
 
 local warnSubmerged				= mod:NewAnnounce("Submerged", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 local warnEmerged				= mod:NewAnnounce("Emerged", 2, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
 
 local specWarnAttack			= mod:NewSpecialWarning("specWarnAttack")
 
-local timerCombatStart			= mod:NewTimer(t_combatStart, "TimerCombat", 2457)--rollplay for first pull
+-- local timerCombatStart			= mod:NewTimer(t_combatStart, "TimerCombat", 2457)--rollplay for first pull
 local timerEmerge				= mod:NewTimer(35, "EmergeTimer", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
 local timerSubmerge				= mod:NewTimer(90, "SubmergTimer", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 
@@ -32,6 +32,7 @@ function mod:OnCombatStart(delay)
 end
 
 function mod:SPELL_AURA_APPLIED(args)
+	-- start if someone causes a debuff on ahune (not perfect, but better than nothing)
 	if not self:IsInCombat() and (args:GetDestCreatureID() == idAhune) then
 		DBM:StartCombat(mod, 0)
 	end
