@@ -2,8 +2,8 @@
 DBM: modified development for WotLK
 
 ### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
-- DBM T5.005 alpha (Hotfix 1)
-  - Fix for Frostlord Ahune (detection of encounter and sub/emerge)
+- DBM T5.005 alpha (Hotfix 2)
+  - Fix for Frostlord Ahune (detection of encounter start and sub/emerge)
 - DBM T5.04 alpha
   - Fixes in Ulduar (Mimiron timer)
 - DBM T5.03 alpha
