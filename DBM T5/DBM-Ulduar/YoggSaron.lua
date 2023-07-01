@@ -288,6 +288,9 @@ end
 function mod:gotoP2()
 	if phase < 2 then
 		phase = 2
+		
+		timerFervor:Stop()
+		
 		brainportal:Start(60)
 		warnBrainPortalSoon:Schedule(57)
 		specWarnBrainPortalSoon:Schedule(57)
@@ -316,6 +319,7 @@ function mod:gotoP3()
 		brainportal:Stop()
 		specWarnBrainPortalSoon:Cancel()
 		warnBrainPortalSoon:Cancel()
+		timerMadness:Stop()
 		
 		if self.Options.RangeFramePortal25 then -- DBM 1.4a
 			DBM.RangeCheck:Hide()
