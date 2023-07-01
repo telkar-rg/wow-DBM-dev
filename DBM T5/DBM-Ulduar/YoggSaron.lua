@@ -48,8 +48,8 @@ local enrageTimer					= mod:NewBerserkTimer(900)
 local timerFervor					= mod:NewTargetTimer(15, 63138)
 local brainportal					= mod:NewTimer(20, "NextPortal")
 local timerLunaricGaze				= mod:NewCastTimer(4, 64163)
-local timerNextLunaricGaze			= mod:NewCDTimer(8.5, 64163)
-local timerEmpower					= mod:NewCDTimer(46, 64465)
+local timerNextLunaricGaze			= mod:NewCDTimer(12, 64163)
+local timerEmpower					= mod:NewCDTimer(45, 64465)
 local timerEmpowerDuration			= mod:NewBuffActiveTimer(10, 64465)
 local timerMadness 					= mod:NewCastTimer(60, 64059)
 local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
@@ -217,7 +217,8 @@ function mod:SPELL_AURA_APPLIED(args)
 		-- end
 	elseif args:IsSpellID(64163) then	-- Lunatic Gaze (reduces sanity)
 		timerLunaricGaze:Start()
-	elseif args:IsSpellID(64465) then
+		timerNextLunaricGaze:Start()
+	elseif args:IsSpellID(64465) then	-- Shadow Beacon / Empowering Shadows
 		timerEmpower:Start()
 		timerEmpowerDuration:Start()
 		warnEmpowerSoon:Schedule(40)
@@ -231,8 +232,8 @@ function mod:SPELL_AURA_REMOVED(args)
 		if mod:LatencyCheck() then
 			self:SendSync("Phase3")			-- Sync this because you don't get it in your combat log if you are in brain room.
 		end
-	elseif args:IsSpellID(64167, 64163) then	-- Lunatic Gaze
-		timerNextLunaricGaze:Start()
+	-- elseif args:IsSpellID(64167, 64163) then	-- Lunatic Gaze
+		-- timerNextLunaricGaze:Start()
 	end
 end
 
@@ -304,6 +305,9 @@ function mod:gotoP3()
 	if phase < 3 then
 		warnP3:Show()
 		phase = 3
+		
+		timerNextLunaricGaze:Start()	-- first gaze comes exactly 12s after p3 starts
+		
 		timerEmpower:Start()
 		warnEmpowerSoon:Schedule(40)
 		timerNextDeafeningRoar:Start(30)
