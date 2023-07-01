@@ -86,3 +86,13 @@ function mod:CHAT_MSG_SAY(msg)
 		self:Schedule(t_combatStart, function() DBM:StartCombat(mod, 0) end )
 	end
 end
+
+-- 'enUS','Frost Lord Ahune'
+-- 'deDE','Frostfürst Ahune'
+-- 'esES','Señor de la Escarcha Ahune'
+-- 'esMX','Señor de la Escarcha Ahune'
+-- 'frFR','Seigneur du Givre Ahune.'
+-- 'koKR','서리 군주 아훈'
+-- 'ruRU','Повелитель Холода Ахун'
+-- 'zhCN','冰霜之王埃霍恩'
+-- 'zhTW','冰霜領主艾胡恩'
