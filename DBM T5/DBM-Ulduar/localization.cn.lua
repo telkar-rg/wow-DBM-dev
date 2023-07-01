@@ -522,7 +522,8 @@ L:SetMiscLocalization{
 	YellPhase2			= "我是清醒的梦境。",
 	YellPhase3	 		= "凝视死亡的真正面孔吧，你们的末日就要来了！",	-- from bigwigs
 	Sara 				= "萨拉",
-	WarningYellSqueeze		= "我被触须抓住了 - 快救我"
+	WarningYellSqueeze		= "缠绕触须 - 快救我"
+	-- WarningYellSqueeze		= "我被触须抓住了 - 快救我"
 }
 
 L:SetWarningLocalization{

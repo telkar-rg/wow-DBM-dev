@@ -571,7 +571,8 @@ L:SetMiscLocalization{
 	YellPhase2 				= "나는, 살아 있는 꿈이다.",
 	YellPhase3	 			= "^죽음의 진정한 얼굴을 보아라",	-- from bigwigs
 	Sara 					= "사라",
-	WarningYellSqueeze		= "압착의 촉수에 붙잡혔어요! 살려주세요!"	
+	WarningYellSqueeze		= "압착의 촉수! 살려주세요!"	
+	-- WarningYellSqueeze		= "압착의 촉수에 붙잡혔어요! 살려주세요!"	
 }
 
 L:SetWarningLocalization{

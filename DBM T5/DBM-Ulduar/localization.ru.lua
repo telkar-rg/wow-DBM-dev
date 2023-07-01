@@ -517,7 +517,8 @@ L:SetMiscLocalization{
 	YellPhase2	 		= "Я – это сон наяву.",
 	YellPhase3	 		= "^Взгляните в истинное лицо",	-- from bigwigs
 	Sara 				= "Сара",
-	WarningYellSqueeze	= "Выдавливание на мне! Помогите!"
+	WarningYellSqueeze	= "Удушающее щупальце! Помогите!"
+	-- WarningYellSqueeze	= "Выдавливание на мне! Помогите!"
 }
 
 L:SetWarningLocalization{

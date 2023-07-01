@@ -507,7 +507,8 @@ L:SetMiscLocalization{
 	YellPhase3	 		= "看看死亡的真實面貌，瞭解你們的末日降臨了!",	-- from bigwigs
 	Sara 				= "薩拉",
 	WhisperBrainLink 		= "你中了腦波連結 - 跑向 %s",
-	WarningYellSqueeze		= "我被觸手抓住了 - 快救我"
+	WarningYellSqueeze		= "巨蟒觸手 - 快救我"
+	-- WarningYellSqueeze		= "我被觸手抓住了 - 快救我"
 }
 
 L:SetWarningLocalization{

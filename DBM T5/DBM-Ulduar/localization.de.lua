@@ -573,7 +573,8 @@ L:SetMiscLocalization{
 	YellPhase2 					= "Ich bin der strahlende Traum.",
 	YellPhase3 					= "^Erblickt das wahre Antlitz des Todes",	-- from bigwigs
 	Sara 						= "Sara",
-	WarningYellSqueeze			= "Quetschen auf mir! Hilfe!"
+	WarningYellSqueeze			= "Würgetentakel! Hilfe!"
+	-- WarningYellSqueeze			= "Quetschen auf mir! Hilfe!"
 }
 
 L:SetWarningLocalization{

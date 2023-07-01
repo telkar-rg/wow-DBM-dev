@@ -569,7 +569,8 @@ L:SetMiscLocalization{
 	YellPhase3	 					= "^Contemplez le vrai visage de la mort",	-- from bigwigs
 	Sara 							= "Sara",
 	WhisperBrainLink 				= "Votre cerveau est lié ! Courez vers %s !",
-	WarningYellSqueeze				= "Ecrasement sur moi ! Aidez-moi !"
+	WarningYellSqueeze				= "Tentacule constricteur ! Aidez-moi !"
+	-- WarningYellSqueeze				= "Ecrasement sur moi ! Aidez-moi !"
 }
 
 L:SetWarningLocalization{

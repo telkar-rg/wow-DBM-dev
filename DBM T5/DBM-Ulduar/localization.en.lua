@@ -515,7 +515,8 @@ L:SetMiscLocalization{
 	YellPhase2	 		= "I am the lucid dream.",
 	YellPhase3	 		= "^Look upon the true face",	-- from bigwigs
 	Sara 				= "Sara",
-	WarningYellSqueeze	= "Squeeze on me! Help me!"
+	WarningYellSqueeze	= "Constrictor Tentacle! Help me!"
+	-- WarningYellSqueeze	= "Squeeze on me! Help me!"
 }
 
 L:SetWarningLocalization{

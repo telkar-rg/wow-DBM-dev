@@ -563,7 +563,8 @@ L:SetMiscLocalization{
 	YellPhase2	 		= "Soy un sueño lúcido.",
 	YellPhase3	 		= "^Look upon the true face",	-- Translation Missing!
 	Sara 				= "Sara",
-	WarningYellSqueeze	= "¡Exprimir en mi! ¡Ayudadme!"
+	WarningYellSqueeze	= "¡Tentáculo constrictor! ¡Ayudadme!"
+	-- WarningYellSqueeze	= "¡Exprimir en mi! ¡Ayudadme!"
 }
 
 L:SetWarningLocalization{
