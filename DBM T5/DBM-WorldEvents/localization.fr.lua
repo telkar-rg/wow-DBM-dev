@@ -90,8 +90,8 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name = "Ahune"
-	-- name = "Ahune <Le seigneur du Givre>"
+	-- name = "Ahune"
+	name = "Seigneur du Givre Ahune"
 })
 
 L:SetWarningLocalization({

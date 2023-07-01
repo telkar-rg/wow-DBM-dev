@@ -83,8 +83,8 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name = "아훈"
-	-- name = "아훈 <서리군주님께서>"
+	-- name = "아훈"
+	name = "서리 군주 아훈"
 })
 
 L:SetWarningLocalization({

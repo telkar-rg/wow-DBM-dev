@@ -84,8 +84,8 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("Ahune")
 
 L:SetGeneralLocalization({
-	name 			= "埃霍恩"
-	-- name 			= "埃霍恩 <冰霜领主>"
+	-- name 			= "埃霍恩"
+	name 			= "冰霜之王埃霍恩"
 })
 
 L:SetWarningLocalization({
