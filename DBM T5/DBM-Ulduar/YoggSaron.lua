@@ -56,6 +56,10 @@ local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
 local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189)
 local timerAchieve					= mod:NewAchievementTimer(420, 3012, "TimerSpeedKill")
 
+local ttsLunaricGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1.mp3", "TTS Lunaric Gaze Countdown", true)
+local tts3to1Offset = 3.7
+-- ttsLunaricGazeCountdown:Schedule(12-tts3to1Offset)
+
 mod:AddBoolOption("ShowSaraHealth", true)
 mod:AddBoolOption("SetIconOnFearTarget")
 mod:AddBoolOption("SetIconOnFervorTarget")
@@ -109,6 +113,8 @@ function mod:OnCombatEnd()
 	if self.Options.RangeFrame then -- DBM 1.4a
 		DBM.RangeCheck:Hide()
 	end
+	
+	ttsLunaricGazeCountdown:Cancel()
 end
 
 function mod:FervorTarget()
@@ -218,6 +224,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(64163) then	-- Lunatic Gaze (reduces sanity)
 		timerLunaricGaze:Start()
 		timerNextLunaricGaze:Start()
+		ttsLunaricGazeCountdown:Schedule(12-tts3to1Offset)
 	elseif args:IsSpellID(64465) then	-- Shadow Beacon / Empowering Shadows
 		timerEmpower:Start()
 		timerEmpowerDuration:Start()
@@ -305,6 +312,7 @@ function mod:gotoP3()
 		phase = 3
 		
 		timerNextLunaricGaze:Start()	-- first gaze comes exactly 12s after p3 starts
+		ttsLunaricGazeCountdown:Schedule(12-tts3to1Offset)
 		
 		timerEmpower:Start()
 		warnEmpowerSoon:Schedule(40)
