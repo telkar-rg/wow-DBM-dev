@@ -215,7 +215,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				-- DBM.BossHealth:Hide()
 			-- end
 		-- end
-	elseif args:IsSpellID(64167, 64163) then	-- Lunatic Gaze (reduces sanity)
+	elseif args:IsSpellID(64163) then	-- Lunatic Gaze (reduces sanity)
 		timerLunaricGaze:Start()
 	elseif args:IsSpellID(64465) then
 		timerEmpower:Start()
