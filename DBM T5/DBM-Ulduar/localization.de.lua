@@ -569,12 +569,12 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 					= "Bald ist die Zeit gekommen, dem Untier den Kopf abzuschlagen! Konzentriert Euren Zorn und Euren Hass auf seine Diener!",
-	YellPhase2 					= "Ich bin der strahlende Traum.",
-	YellPhase3 					= "^Erblickt das wahre Antlitz des Todes",	-- from bigwigs
-	Sara 						= "Sara",
-	WarningYellSqueeze			= "Würgetentakel! Hilfe!"
-	-- WarningYellSqueeze			= "Quetschen auf mir! Hilfe!"
+	YellPull 			= "^Bald ist die Zeit gekommen, dem Untier den Kopf abzuschlagen",	-- trinity 34346
+	YellPhase2			= "KNIET NIEDER VOR DEM GOTT DES TODES!",	-- trinity 34357
+	YellPhase3 			= "^Erblickt das wahre Antlitz des Todes und wisset",	-- trinity 34360
+	Sara 				= "Sara",
+	WarningYellSqueeze	= "Würgetentakel! Hilfe!"
+	-- WarningYellSqueeze	= "Quetschen auf mir! Hilfe!"
 }
 
 L:SetWarningLocalization{

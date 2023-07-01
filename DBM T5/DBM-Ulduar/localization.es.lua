@@ -559,9 +559,9 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 			= "¡Pronto llegará la hora de golpear la cabeza del monstruo! ¡Centrad vuestra ira y odio en sus esbirros!",
-	YellPhase2	 		= "Soy un sueño lúcido.",
-	YellPhase3	 		= "^Look upon the true face",	-- Translation Missing!
+	YellPull 			= "^¡Pronto llegará la hora de golpear la cabeza del monstruo", -- trinity 34346	
+	YellPhase2 			= "¡INCLINAOS ANTE EL DIOS DE LA MUERTE!",	-- trinity 34357
+	YellPhase3 			= "^¡Observad el auténtico rostro de la muerte y descubrid",	-- trinity 34360
 	Sara 				= "Sara",
 	WarningYellSqueeze	= "¡Tentáculo constrictor! ¡Ayudadme!"
 	-- WarningYellSqueeze	= "¡Exprimir en mi! ¡Ayudadme!"

@@ -518,12 +518,12 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 			= "攻击这头野兽要害的时刻即将来临！将你们的愤怒和仇恨倾泻到它的爪牙身上！",
-	YellPhase2			= "我是清醒的梦境。",
-	YellPhase3	 		= "凝视死亡的真正面孔吧，你们的末日就要来了！",	-- from bigwigs
+	YellPull 			= "^攻击这头野兽要害的时刻即将来临", 	-- trinity 34346
+	YellPhase2 			= "^在死亡之神的面前屈服吧", 	-- trinity 34357
+	YellPhase3	 		= "^凝视死亡的真正面孔吧", 	-- trinity 34360
 	Sara 				= "萨拉",
-	WarningYellSqueeze		= "缠绕触须 - 快救我"
-	-- WarningYellSqueeze		= "我被触须抓住了 - 快救我"
+	WarningYellSqueeze	= "缠绕触须 - 快救我"
+	-- WarningYellSqueeze	= "我被触须抓住了 - 快救我"
 }
 
 L:SetWarningLocalization{

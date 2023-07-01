@@ -502,13 +502,12 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 			= "我們即將有機會打擊怪物的首腦!現在將你的憤怒與仇恨貫注在他的爪牙上!",
-	YellPhase2			= "我是清醒的夢境。",
-	YellPhase3	 		= "看看死亡的真實面貌，瞭解你們的末日降臨了!",	-- from bigwigs
+	YellPull 			= "^我們即將有機會打擊怪物的首腦", 	-- trinity 34346
+	YellPhase2 			= "^向死亡之神屈膝跪伏", 	-- trinity 34357
+	YellPhase3	 		= "^看看死亡的真實面貌", 	-- trinity 34360
 	Sara 				= "薩拉",
-	WhisperBrainLink 		= "你中了腦波連結 - 跑向 %s",
-	WarningYellSqueeze		= "巨蟒觸手 - 快救我"
-	-- WarningYellSqueeze		= "我被觸手抓住了 - 快救我"
+	WarningYellSqueeze	= "巨蟒觸手 - 快救我"
+	-- WarningYellSqueeze	= "我被觸手抓住了 - 快救我"
 }
 
 L:SetWarningLocalization{
