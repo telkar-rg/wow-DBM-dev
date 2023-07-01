@@ -304,12 +304,14 @@ function mod:gotoP3()
 	if phase < 3 then
 		warnP3:Show()
 		phase = 3
-		brainportal:Stop()
-        timerEmpower:Start()
-        warnEmpowerSoon:Schedule(40)	
-		warnBrainPortalSoon:Cancel()
+		timerEmpower:Start()
+		warnEmpowerSoon:Schedule(40)
 		timerNextDeafeningRoar:Start(30)
 		warnDeafeningRoarSoon:Schedule(25)
+		
+		brainportal:Stop()
+		specWarnBrainPortalSoon:Cancel()
+		warnBrainPortalSoon:Cancel()
 		
 		if self.Options.RangeFramePortal25 then -- DBM 1.4a
 			DBM.RangeCheck:Hide()
