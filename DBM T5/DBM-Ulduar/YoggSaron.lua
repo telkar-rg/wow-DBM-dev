@@ -126,10 +126,10 @@ function mod:warnBrainLink()
 end
 
 function mod:SPELL_CAST_START(args)
-	if args:IsSpellID(64059) then	-- Induce Madness
-		timerMadness:Start()
+	if args:IsSpellID(64059) then	-- Induce Madness (start of brain phase)
 		warnMadness:Show()
-		brainportal:Schedule(60)
+		timerMadness:Start()
+		brainportal:Schedule(60)	-- 
 		warnBrainPortalSoon:Schedule(78)
 		specWarnBrainPortalSoon:Schedule(78)
 		specWarnMadnessOutNow:Schedule(55)
@@ -256,7 +256,13 @@ function mod:UNIT_HEALTH(uId)
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg)
-	if msg:find(L.YellPhase3) then
+	if msg:find(L.YellPhase2) then
+		mod:gotoP2()
+		
+		if mod:LatencyCheck() then
+			self:SendSync("Phase2")
+		end
+	elseif msg:find(L.YellPhase3) then
 		mod:gotoP3()
 		
 		if mod:LatencyCheck() then
@@ -267,21 +273,10 @@ end
 
 
 function mod:OnSync(msg)
-	if msg == "Phase3" then
+	if msg == "Phase2" then
+		mod:gotoP2()
+	elseif msg == "Phase3" then
 		mod:gotoP3()
-		
-		-- warnP3:Show()
-		-- phase = 3
-		-- brainportal:Stop()
-        -- timerEmpower:Start()
-        -- warnEmpowerSoon:Schedule(40)	
-		-- warnBrainPortalSoon:Cancel()
-		-- timerNextDeafeningRoar:Start(30)
-		-- warnDeafeningRoarSoon:Schedule(25)
-		
-		-- if self.Options.RangeFramePortal25 then -- DBM 1.4a
-			-- DBM.RangeCheck:Hide()
-		-- end
 	end
 end
 
@@ -316,10 +311,11 @@ function mod:gotoP3()
 		timerNextDeafeningRoar:Start(30)
 		warnDeafeningRoarSoon:Schedule(25)
 		
+		timerMadness:Stop()
 		brainportal:Stop()
 		specWarnBrainPortalSoon:Cancel()
 		warnBrainPortalSoon:Cancel()
-		timerMadness:Stop()
+		specWarnMadnessOutNow:Cancel()
 		
 		if self.Options.RangeFramePortal25 then -- DBM 1.4a
 			DBM.RangeCheck:Hide()
