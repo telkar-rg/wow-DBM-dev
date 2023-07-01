@@ -47,8 +47,8 @@ mod:AddBoolOption("WarningSqueeze", true, "announce")
 local enrageTimer					= mod:NewBerserkTimer(900)
 local timerFervor					= mod:NewTargetTimer(15, 63138)
 local brainportal					= mod:NewTimer(20, "NextPortal")
-local timerLunaricGaze				= mod:NewCastTimer(4, 64163)
-local timerNextLunaricGaze			= mod:NewCDTimer(12, 64163)
+local timerLunaticGaze				= mod:NewCastTimer(4, 64163)
+local timerNextLunaticGaze			= mod:NewCDTimer(12, 64163)
 local timerEmpower					= mod:NewCDTimer(45, 64465)
 local timerEmpowerDuration			= mod:NewBuffActiveTimer(10, 64465)
 local timerMadness 					= mod:NewCastTimer(60, 64059)
@@ -56,9 +56,9 @@ local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
 local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189)
 local timerAchieve					= mod:NewAchievementTimer(420, 3012, "TimerSpeedKill")
 
-local ttsLunaricGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1.mp3", "TTS Lunaric Gaze Countdown", true)
+local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1.mp3", "TTS Lunatic Gaze Countdown", true)
 local tts3to1Offset = 3.7
--- ttsLunaricGazeCountdown:Schedule(12-tts3to1Offset)
+-- ttsLunaticGazeCountdown:Schedule(12-tts3to1Offset)
 
 mod:AddBoolOption("ShowSaraHealth", true)
 mod:AddBoolOption("SetIconOnFearTarget")
@@ -114,7 +114,7 @@ function mod:OnCombatEnd()
 		DBM.RangeCheck:Hide()
 	end
 	
-	ttsLunaricGazeCountdown:Cancel()
+	ttsLunaticGazeCountdown:Cancel()
 end
 
 function mod:FervorTarget()
@@ -222,9 +222,9 @@ function mod:SPELL_AURA_APPLIED(args)
 			-- end
 		-- end
 	elseif args:IsSpellID(64163) then	-- Lunatic Gaze (reduces sanity)
-		timerLunaricGaze:Start()
-		timerNextLunaricGaze:Start()
-		ttsLunaricGazeCountdown:Schedule(12-tts3to1Offset)
+		timerLunaticGaze:Start()
+		timerNextLunaticGaze:Start()
+		ttsLunaticGazeCountdown:Schedule(12-tts3to1Offset)
 	elseif args:IsSpellID(64465) then	-- Shadow Beacon / Empowering Shadows
 		timerEmpower:Start()
 		timerEmpowerDuration:Start()
@@ -240,7 +240,7 @@ function mod:SPELL_AURA_REMOVED(args)
 			self:SendSync("Phase3")			-- Sync this because you don't get it in your combat log if you are in brain room.
 		end
 	-- elseif args:IsSpellID(64167, 64163) then	-- Lunatic Gaze
-		-- timerNextLunaricGaze:Start()
+		-- timerNextLunaticGaze:Start()
 	end
 end
 
@@ -311,8 +311,8 @@ function mod:gotoP3()
 		warnP3:Show()
 		phase = 3
 		
-		timerNextLunaricGaze:Start()	-- first gaze comes exactly 12s after p3 starts
-		ttsLunaricGazeCountdown:Schedule(12-tts3to1Offset)
+		timerNextLunaticGaze:Start()	-- first gaze comes exactly 12s after p3 starts
+		ttsLunaticGazeCountdown:Schedule(12-tts3to1Offset)
 		
 		timerEmpower:Start()
 		warnEmpowerSoon:Schedule(40)
