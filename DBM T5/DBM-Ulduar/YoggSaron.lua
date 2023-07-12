@@ -56,8 +56,10 @@ local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
 local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189)
 local timerAchieve					= mod:NewAchievementTimer(420, 3012, "TimerSpeedKill")
 
-local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1.mp3", "TTS Lunatic Gaze Countdown", true)
-local tts3to1Offset = 3.7
+local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1-blip.mp3", "ttsLunaticGazeCountdown", true)
+-- local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1.mp3", "TTS Lunatic Gaze Countdown", true)
+local tts3to1Offset = 4
+-- local tts3to1Offset = 3.7
 -- ttsLunaticGazeCountdown:Schedule(12-tts3to1Offset)
 
 mod:AddBoolOption("ShowSaraHealth", true)
@@ -73,6 +75,7 @@ local targetWarningsShown			= {}
 local brainLinkTargets = {}
 local brainLinkIcon = 7
 local Guardians = 0
+local crusherDetected = {}
 
 local numeral_table = { -- DBM 1.4a
 	["mapName"] = "Ulduar",
@@ -107,6 +110,7 @@ function mod:OnCombatStart(delay)
 	
 	table.wipe(targetWarningsShown)
 	table.wipe(brainLinkTargets)
+	table.wipe(crusherDetected)
 end
 
 function mod:OnCombatEnd()
@@ -147,13 +151,19 @@ function mod:SPELL_CAST_START(args)
 	elseif args:IsSpellID(63138) then		--Sara's Fervor
 		self:ScheduleMethod(0.1, "FervorTarget")
 		warnFervorCast:Show()
+	elseif args:IsSpellID(64145) then		-- Crusher Tentacle: "Diminish Power"
+		-- 11/24 22:12:38.932  SPELL_CAST_START,0xF1300084AE0012A4,"Schmettertentakel",0xa48,0x0000000000000000,nil,0x80000000,64145,"Kraft schwächen",0x20
+		if not crusherDetected[args.sourceGUID] then 	-- have we not seen this unique GUID before?
+			crusherDetected[args.sourceGUID] = true
+			warnCrusherTentacleSpawned:Show()
+		end
 	end
 end
 
 function mod:SPELL_CAST_SUCCESS(args)
-	if args:IsSpellID(64144) and self:GetUnitCreatureId(args.sourceGUID) == 33966 then 
-		warnCrusherTentacleSpawned:Show()
-	end
+	-- if args:IsSpellID(64144) and self:GetUnitCreatureId(args.sourceGUID) == 33966 then -- currently (2023 07 12) this does not show in CLEU
+		-- warnCrusherTentacleSpawned:Show()
+	-- end
 end
 
 function mod:SPELL_SUMMON(args)
