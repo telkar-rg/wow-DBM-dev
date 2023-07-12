@@ -20,6 +20,7 @@ mod:SetUsedIcons(6, 7, 8)
 
 local warnMadness 					= mod:NewCastAnnounce(64059, 2)
 local warnFervorCast 				= mod:NewCastAnnounce(63138, 3)
+local warnMaladyCast 				= mod:NewCastAnnounce(63830, 3)
 local warnSqueeze					= mod:NewTargetAnnounce(64125, 3)
 local warnFervor					= mod:NewTargetAnnounce(63138, 4)
 local warnDeafeningRoarSoon			= mod:NewPreWarnAnnounce(64189, 5, 3)
@@ -41,6 +42,7 @@ local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189)
 local specWarnFervor				= mod:NewSpecialWarningYou(63138)
 local specWarnFervorCast			= mod:NewSpecialWarning("SpecWarnFervorCast", mod:IsMelee())
 local specWarnMaladyNear			= mod:NewSpecialWarning("SpecWarnMaladyNear", true)
+local specWarnMaladyCast			= mod:NewSpecialWarning("specWarnMaladyCast", true)
 
 mod:AddBoolOption("WarningSqueeze", true, "announce")
 
@@ -124,6 +126,14 @@ function mod:OnCombatEnd()
 	ttsLunaticGazeCountdown:Cancel()
 end
 
+function mod:MaladyTarget()
+	local targetname = self:GetBossTarget(33134)
+	if not targetname then return end
+	if targetname == UnitName("player") then
+		specWarnMaladyCast:Show()
+	end
+end
+
 function mod:FervorTarget()
 	local targetname = self:GetBossTarget(33134)
 	if not targetname then return end
@@ -155,6 +165,9 @@ function mod:SPELL_CAST_START(args)
 		warnDeafeningRoarSoon:Schedule(55)
 		timerCastDeafeningRoar:Start()
 		specWarnDeafeningRoar:Show()
+	elseif args:IsSpellID(63830) then		-- "Fear" / Malady of the Mind
+		-- self:ScheduleMethod(0.1, "MaladyTarget")
+		-- warnFervorCast:Show()
 	elseif args:IsSpellID(63138) then		--Sara's Fervor
 		self:ScheduleMethod(0.1, "FervorTarget")
 		warnFervorCast:Show()
@@ -216,11 +229,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				end
 			end 
 		end 
-	elseif args:IsSpellID(64126, 64125) then	-- Squeeze		
-		warnSqueeze:Show(args.destName)
-		if args:IsPlayer() and self.Options.WarningSqueeze then			
-			SendChatMessage(L.WarningYellSqueeze, "SAY")			
-		end	
+		
 	elseif args:IsSpellID(63138) then	-- Sara's Fervor
 		warnFervor:Show(args.destName)
 		timerFervor:Start(args.destName)
@@ -230,6 +239,12 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then 
 			specWarnFervor:Show()
 		end
+		
+	elseif args:IsSpellID(64126, 64125) then	-- Squeeze		
+		warnSqueeze:Show(args.destName)
+		if args:IsPlayer() and self.Options.WarningSqueeze then			
+			SendChatMessage(L.WarningYellSqueeze, "SAY")			
+		end	
 	elseif args:IsSpellID(63894) then	-- Shadowy Barrier of Yogg-Saron (this is happens when p2 starts)
 		mod:gotoP2()
 		-- phase = 2
