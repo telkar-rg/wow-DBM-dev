@@ -599,8 +599,9 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	WarningGuardianSpawned			= "요그사론의 수호자 소환 알리기",
 	WarningCrusherTentacleSpawned	= "분쇄의 촉수 생성 알리기",	
-	WarningBrainLink				= "두뇌의 고리 알리기",
-	SpecWarnBrainLink				= "두뇌의 고리 특수 경고 보기",
+	-- WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145, "새로운 압착 촉수"), 	-- "new squeezing tentacles" 
+	-- WarningBrainLink				= "두뇌의 고리 알리기",
+	-- SpecWarnBrainLink				= "두뇌의 고리 특수 경고 보기",
 	WarningSanity					= "이성이 낮은 경우 경고 보기",
 	SpecWarnSanity					= "이성이 매우 낮은 경우 특수 경고 보기",
 	SpecWarnGuardianLow				= "수호자의 생명력이 낮을 때 특수 경고 보기(1페이즈 / 딜러)",
@@ -609,17 +610,17 @@ L:SetOptionLocalization{
 	specWarnBrainPortalSoon			= "내부 차원문 특수 경고 알리기",	
 	SpecWarnMadnessOutNow			= "광기 유발이 끝나기 전 특수 경고 알리기",
 	-- WarningSqueeze					= "압착의 촉수의 대상이 됏을 경우 외치기",
-	WarningSqueeze					= "다음의 영향을 받을 때 비명: 쥐어짜는 촉수", 	-- deepl.com (npc name from trinity locales: 33983)
-	SetIconOnMaladyTarget				= "병든 정신 타겟 아이콘 설정하기",
-	SetIconOnFervorTarget			= "사라의 열정 타겟 아이콘 설정하기",
-	SetIconOnMCTarget				= "정신 지배에 걸린 플레이어 타겟 아이콘 설정하기",	
+	WarningSqueeze					= "다음의 영향을 받을 때 비명: 쥐어짜는 촉수 ($spell:64125)", 	-- deepl.com (npc name from trinity locales: 33983)
+	-- SetIconOnMaladyTarget				= "병든 정신 타겟 아이콘 설정하기",
+	-- SetIconOnFervorTarget			= "사라의 열정 타겟 아이콘 설정하기",
+	-- SetIconOnMCTarget				= "정신 지배에 걸린 플레이어 타겟 아이콘 설정하기",	
 	ShowSaraHealth					= "사라 체력 보기(공대원 중 사라 대상/주시 일 경우)",
-	SpecWarnFervor					= "사라의 열정 특수 경고 보기",
+	-- SpecWarnFervor					= "사라의 열정 특수 경고 보기",
 	SpecWarnFervorCast				= "당신에게 사라의 열정을 시전 할 때 특수 경고 보기(사라 대상/주시 일 경우)",	
-	WarnEmpowerSoon					= "어둠의 봉화 경고 보기",
+	-- WarnEmpowerSoon					= "어둠의 봉화 경고 보기",
 	SpecWarnMaladyNear				= "병든 정신이 걸린 플레이어가 근처에 있을 경우 특수 경고 알리기(병든 정신 종료 후)",
-	SpecWarnDeafeningRoar			= "귀청이 터질듯한 포효 시전을 할 경우 특수 경고 보기 (침묵 그리고 레전드리를 위하여!!)",
-	SetIconOnBrainLinkTarget		= "두뇌 연결 대상 공격대 아이콘 설정",
+	-- SpecWarnDeafeningRoar			= "귀청이 터질듯한 포효 시전을 할 경우 특수 경고 보기 (침묵 그리고 레전드리를 위하여!!)",
+	-- SetIconOnBrainLinkTarget		= "두뇌 연결 대상 공격대 아이콘 설정",
 	MaladyArrow						= "$spell:63881 걸린 공대원이 주변에 있을 경우 화살표 보기",
 	RangeFramePortal25				= "포털 위치 거리 프레임 표시(25명)"	-- 1.4a (deepl.com translation)
 }

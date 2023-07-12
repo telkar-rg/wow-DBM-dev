@@ -541,22 +541,23 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningGuardianSpawned			= "Предупреждение о появлении Стража",
-	WarningCrusherTentacleSpawned	= "Предупреждение о появлении Тяжелого щупальца",
+	-- WarningCrusherTentacleSpawned	= "Предупреждение о появлении Тяжелого щупальца",
+	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145, "появлении Тяжелого щупальца"),
 	WarningSanity					= "Предупреждение, когда у вас мало $spell:63050",
 	SpecWarnSanity					= "Спец-предупреждение, когда у вас очень мало $spell:63050",
 	SpecWarnGuardianLow				= "Спец-предупреждение, когда у Стража (в фазе 1) мало здоровья (для бойцов)",
 	WarnBrainPortalSoon				= "Предупреждать заранее о Провале Безумия",
 	SpecWarnMadnessOutNow			= "Спец-предупреждение незадолго до окончания $spell:64059",
-	SetIconOnMaladyTarget				= "Устанавливать метки на цели заклинания $spell:63881",
-	SpecWarnFervorCast				= "Спец-предупреждение, когда на вас накладывается $spell:63138\n(должна быть в цели или фокусе хотя бы у одного члена рейда)",
+	-- SetIconOnMaladyTarget				= "Устанавливать метки на цели заклинания $spell:63881",
+	-- SpecWarnFervorCast				= "Спец-предупреждение, когда на вас накладывается $spell:63138\n(должна быть в цели или фокусе хотя бы у одного члена рейда)",
 	specWarnBrainPortalSoon			= "Спец-предупреждение о следующем Провале Безумия",
 	-- WarningSqueeze					= "Кричать, когда на вас Выдавливание",
-	WarningSqueeze					= "Кричите, когда вас поймает Удушающее щупальце.", 	-- deepl.com (npc name from trinity locales: 33983)
+	WarningSqueeze					= "Кричите, когда вас поймает Удушающее щупальце ($spell:64125)", 	-- deepl.com (npc name from trinity locales: 33983)
 	NextPortal						= "Отсчет времени до следующего Провала Безумия",
-	SetIconOnFervorTarget			= "Устанавливать метки на цели заклинания $spell:63138",
+	-- SetIconOnFervorTarget			= "Устанавливать метки на цели заклинания $spell:63138",
 	ShowSaraHealth					= "Показывать здоровье Сары в фазе 1 (должна быть в цели или фокусе хотя бы у одного члена рейда)",
 	SpecWarnMaladyNear				= "Спец-предупреждение о $spell:63881 около вас",
-	SetIconOnBrainLinkTarget		= "Устанавливать метки на цели заклинания $spell:63802",
+	-- SetIconOnBrainLinkTarget		= "Устанавливать метки на цели заклинания $spell:63802",
 	MaladyArrow						= "Показывать стрелку, когда $spell:63881 около вас",
 	RangeFramePortal25				= "Показать рамку расстояния для позиции портала (25 игроков)"	-- 1.4a (deepl.com translation)
 }

@@ -530,24 +530,25 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningGuardianSpawned		= "為尤格薩倫守護者出現顯示警告",
-	WarningCrusherTentacleSpawned	= "為粉碎觸手出現顯示警告",
+	-- WarningCrusherTentacleSpawned	= "為粉碎觸手出現顯示警告",
+	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145, "新粉碎觸手"),
 	WarningSanity			= "當理智剩下50時顯示警告",
 	SpecWarnSanity			= "當理智過低(25,15,5)時顯示特別警告",
 	SpecWarnGuardianLow		= "當守護者(第1階段)血量過低時顯示特別警告 (DD用)",
 	WarnBrainPortalSoon		= "為腦部傳送門顯示預先警告",
 	SpecWarnMadnessOutNow		= "為瘋狂誘陷結束前顯示特別警告",
-	SetIconOnMaladyTarget		= "為心靈缺陷的目標設置標記 (頭顱)",
-	SpecWarnFervor			= "當你中了薩拉的熱誠時顯示特別警告",
+	-- SetIconOnMaladyTarget		= "為心靈缺陷的目標設置標記 (頭顱)",
+	-- SpecWarnFervor			= "當你中了薩拉的熱誠時顯示特別警告",
 	SpecWarnFervorCast		= "當薩拉的熱誠正在對你施放時顯示特別警告 (必須有最少一名團隊成員設置目標或專注目標)",
 	specWarnBrainPortalSoon		= "為下一次 腦部傳送門顯示特別警告",
 	-- WarningSqueeze			= "當你中了壓榨 (觸手綁人)時大喊",
-	WarningSqueeze			= "受到以下影響時尖叫：巨蟒觸手", 	-- deepl.com (npc name from trinity locales: 33983)
+	WarningSqueeze			= "受到以下影響時尖叫：巨蟒觸手 ($spell:64125)", 	-- deepl.com (npc name from trinity locales: 33983)
 	NextPortal			= "為下一次 傳送門顯示計時器",
 	SetIconOnFervorTarget		= "為薩拉的熱誠的目標設置標記 (三角)",
 	SetIconOnMCTarget		= "為支配心靈的目標設置標記 (三角)",
 	ShowSaraHealth			= "顯示薩拉在第1階段的血量 (必須有最少一名團隊成員設置目標或專注目標)",
-	WarnEmpowerSoon			= "為暗影信標顯示預先警告",
+	-- WarnEmpowerSoon			= "為暗影信標顯示預先警告",
 	SpecWarnMaladyNear		= "當你附近的人中了心靈缺陷時顯示特別警告",
 	MaladyArrow			= "當你附近的人中了$spell:63881時顯示DBM箭頭",
-	RangeFramePortal25	= "显示门户位置的距离框架 (25 名球员)"	-- 1.4a
+	RangeFramePortal25	= "顯示傳送門位置的距離框架（25 名玩家）"	-- 1.4a
 }

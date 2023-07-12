@@ -590,7 +590,8 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningGuardianSpawned			= "Mostrar aviso cuando salga Guardián",
-	WarningCrusherTentacleSpawned	= "Mostrar aviso cuando salga Tentáculo triturador",
+	-- WarningCrusherTentacleSpawned	= "Mostrar aviso cuando salga Tentáculo triturador",
+	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145, "salga Tentáculo triturador"),
 	-- WarningBrainLink				= "Verkünde Ziele von Gehirnverbindung",
 	-- SpecWarnBrainLink				= "Zeige Spezialwarnung wenn von Gehirnverbindung betroffen",
 	WarningSanity					= "Mostrar aviso cuando tengas poca $spell:63050",
@@ -598,20 +599,20 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow				= "Mostrar aviso especial cuando el Guardián esté a punto de morir (Fase 1)",
 	WarnBrainPortalSoon				= "Mostrar pre-aviso para Portal cerebral",
 	SpecWarnMadnessOutNow			= "Mostrar aviso especial poco antes de que $spell:64059 termine",
-	SetIconOnMaladyTarget				= "Poner iconos en los objetivos de $spell:63881",
+	-- SetIconOnMaladyTarget				= "Poner iconos en los objetivos de $spell:63881", -- default EN handles this
 	-- SpecWarnFervor					= "Zeige Spezialwarnung wenn du von Saras Eifer betroffen bist",
-	SpecWarnFervorCast				= "Mostrar aviso especial cuando $spell:63138 esté siendo casteado en ti/n(Tiene que ser el objetivo o el foco de al menos un personaje de la banda)",
+	SpecWarnFervorCast				= "Mostrar aviso especial cuando $spell:63138 esté siendo casteado en ti (Sara tiene que ser el objetivo o el foco de al menos un personaje de la banda)",
 	specWarnBrainPortalSoon			= "Mostrar aviso especial para siguiente Portal cerebral",
 	-- WarningSqueeze					= "Gritar si te afecta Exprimir",
-	WarningSqueeze					= "Grita si te atrapa Tentáculo constrictor", 	-- deepl.com (npc name from trinity locales: 33983)
+	WarningSqueeze					= "Grita si te atrapa Tentáculo constrictor ($spell:64125)", 	-- deepl.com (npc name from trinity locales: 33983)
 	NextPortal						= "Mostrar tiempo para siguiente Portal cerebral",
-	SetIconOnFervorTarget			= "Poner iconos en los objetivos de $spell:63138",
+	-- SetIconOnFervorTarget			= "Poner iconos en los objetivos de $spell:63138", -- default EN handles this
 	-- SetIconOnMCTarget				= "Setze Zeichen auf Spieler mit Gedanken beherrschen",
-	ShowSaraHealth					= "Mostrar barra de vida de Sara en Fase 1",
+	ShowSaraHealth					= "Mostrar barra de vida de Sara en Fase 1 (Sara tiene que ser el objetivo o el foco de al menos un personaje de la banda)",
 	-- WarnEmpowerSoon					= "Zeige Vorwarnung für Machtvolle Schatten",
 	SpecWarnMaladyNear				= "Mostrar aviso especial para $spell:63881 cerca de ti",
 	-- SpecWarnDeafeningRoar			= "Zeige Spezialwarnung wenn Ohrenbetäubendes Gebrüll gezaubert wird (Stille und für Vala'nyr)",				
-	SetIconOnBrainLinkTarget		= "Poner iconos en los objetivos de $spell:63802",
+	-- SetIconOnBrainLinkTarget		= "Poner iconos en los objetivos de $spell:63802", -- default EN handles this
 	MaladyArrow						= "Mostrar flecha cuando $spell:63881 está cerca de ti",
 	RangeFramePortal25				= "Mostrar marco de distancia para posición de portal (25 jugadores)"	-- 1.4a (deepl.com translation)
 }

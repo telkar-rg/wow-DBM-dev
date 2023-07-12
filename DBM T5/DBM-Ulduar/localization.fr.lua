@@ -596,29 +596,30 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningGuardianSpawned			= "Annonce l'arrivée des Gardiens",
-	WarningCrusherTentacleSpawned	= "Annonce l'arrivée des Tentacules",
-	WarningBrainLink				= "Annonce les Cerveaux liés",
-	SpecWarnBrainLink				= "Montre une alerte spéciale quand il y a des Cerveaux liés",
-	WarningSanity					= "Montre une alerte quand la Santé mentale est basse",
-	SpecWarnSanity					= "Montre une alerte quand la Santé mentale est très basse",
+	-- WarningCrusherTentacleSpawned	= "Annonce l'arrivée des Tentacules",
+	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145, "nouveau Tentacule écraseur"),
+	-- WarningBrainLink				= "Annonce les Cerveaux liés",
+	-- SpecWarnBrainLink				= "Montre une alerte spéciale quand il y a des Cerveaux liés",
+	WarningSanity					= "Montre une alerte quand la $spell:63050 est basse",
+	SpecWarnSanity					= "Montre une alerte quand la $spell:63050 est très basse",
 	SpecWarnGuardianLow				= "Montre une alerte spéciale quand les gardiens (P1) n'a plus beaucoup de vie",
 	WarnBrainPortalSoon				= "Annonce les Portails",
-	SpecWarnMadnessOutNow			= "Montre une alerte spéciale avant la fin du cast de Susciter la folie",
-	SetIconOnMaladyTarget				= "Met une icône sur la cible du fear",
-	SpecWarnFervor					= "Montre une alerte spéciale pour la ferveur de Sara",
-	SpecWarnFervorCast				= "Montre une alerte spéciale quand la Ferveur de Sara commence a cast sur vous (Il faut avoir Sara en Target/Focus)",
+	SpecWarnMadnessOutNow			= "Montre une alerte spéciale avant la fin du cast de $spell:64059",
+	-- SetIconOnMaladyTarget				= "Met une icône sur la cible du fear", -- default EN handles this
+	-- SpecWarnFervor					= "Montre une alerte spéciale pour la ferveur de Sara",
+	SpecWarnFervorCast				= "Montre une alerte spéciale quand la $spell:63138 commence a cast sur vous (Sara doit être Target/Focus par au moins un membre du raid)",
 	specWarnBrainPortalSoon			= "Annonce l'arrivée d'un portail",
 	-- WarningSqueeze					= "Annonce la cible d'Ecrasement",
-	WarningSqueeze					= "Crier si attrapé par Tentacule constricteur.", 	-- deepl.com (npc name from trinity locales: 33983)
+	WarningSqueeze					= "Crier si attrapé par Tentacule constricteur ($spell:64125)", 	-- deepl.com (npc name from trinity locales: 33983)
 	NextPortal						= "Montre un timer avant le prochain portail",
-	WhisperBrainLink				= "Envoie un whisp aux Cerveaux liés",
-	SetIconOnFervorTarget			= "Met une icône sur les cible de la ferveur de Sara",
-	SetIconOnMCTarget				= "met une icône sur la cible du contrôle mental",
-	ShowSaraHealth					= "Montre la vie de Sara durant la P1 (Doit être sélectionnée par au moins un membre du raid)",
-	WarnEmpowerSoon					= "Alerte avant le Renforcement des ombres",
-	SpecWarnMaladyNear				= "Montre une alerte spéciale si une personne à côté de vous est victime du Mal de la raison",
-	SpecWarnDeafeningRoar			= "Montre une alerte spéciale pour le Rugissement assourdissant (silence et haut-fait)",
-	SetIconOnBrainLinkTarget		= "Met une icone sur la cible des Cerveaux liés",
+	-- SetIconOnFervorTarget			= "Met une icône sur les cible de la ferveur de Sara", -- default EN handles this
+	-- SetIconOnMCTarget				= "met une icône sur la cible du contrôle mental",
+	ShowSaraHealth					= "Montre la vie de Sara durant la P1 (Sara doit être Target/Focus par au moins un membre du raid)",
+	-- WarnEmpowerSoon					= "Alerte avant le Renforcement des ombres",
+	SpecWarnMaladyNear				= "Montre une alerte spéciale si une personne à côté de vous est victime du $spell:63881",
+	-- SpecWarnDeafeningRoar			= "Montre une alerte spéciale pour le Rugissement assourdissant (silence et haut-fait)",
+	-- SetIconOnBrainLinkTarget		= "Met une icone sur la cible des Cerveaux liés", -- default EN handles this
+	-- MaladyArrow						= "Zeige DBM Pfeil wenn $spell:63881 in deiner Nähe ist",
 	RangeFramePortal25				= "Afficher le cadre de distance pour la position du portail (25 joueurs)"	-- 1.4a (deepl.com translation)
 }
 

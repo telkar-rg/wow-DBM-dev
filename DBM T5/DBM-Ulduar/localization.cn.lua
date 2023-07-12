@@ -545,23 +545,25 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
+	-- SoundWOP = "为重要技能播放额外的警报语音",
 	WarningGuardianSpawned		= "为尤格萨隆的卫士出现显示警报",
-	WarningCrusherTentacleSpawned	= "为重压触须出现显示警报",
+	-- WarningCrusherTentacleSpawned	= "为重压触须出现显示警报",
+	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145,"重压触须出现"),
 	WarningSanity			= "当理智剩下50时显示警报",
 	SpecWarnSanity			= "当理智过低(25,15,5)时显示特别警报",
 	SpecWarnGuardianLow		= "当尤格萨隆的卫士(第1阶段)血量过低时显示特别警报 (输出职业用)",
 	WarnBrainPortalSoon		= "为脑部传送门显示提前警报",
 	SpecWarnMadnessOutNow		= "为疯狂诱导结束前显示特别警报",
-	SetIconOnMaladyTarget		= "为心灵疾病的目标设置标记 (骷髅)",
+	-- SetIconOnMaladyTarget		= "为心灵疾病的目标设置标记 (骷髅)",
 	SpecWarnFervorCast		= "当萨拉的热情正在对你施放时显示特别警报 (必须至少有一名团队成员设置首领为焦点目标)",
 	specWarnBrainPortalSoon		= "为下一次脑部传送门显示特别警报",
 	-- WarningSqueeze			= "当你中了挤压(触须绑人)时大喊",
-	WarningSqueeze			= "受到以下影响时尖叫：缠绕触须", 	-- deepl.com (npc name from trinity locales: 33983)
+	WarningSqueeze			= "受到以下影响时尖叫：缠绕触须 ($spell:64125)", 	-- deepl.com (npc name from trinity locales: 33983)
 	NextPortal			= "为下一次传送门显示计时条",
-	SetIconOnFervorTarget		= "为萨拉的热情的目标设置标记",
+	-- SetIconOnFervorTarget		= "为萨拉的热情的目标设置标记",
 	ShowSaraHealth			= "显示萨拉在第1阶段的血量 (必须至少有一名团队成员设置首领为焦点目标)",
 	SpecWarnMaladyNear		= "当你附近的人中了心灵疾病时显示特别警报",
-	SetIconOnBrainLinkTarget		= "为$spell:63802的目标设置标记",
-	MaladyArrow			= "当你附近的人中了$spell:63881时显示DBM箭头"
+	-- SetIconOnBrainLinkTarget		= "为$spell:63802的目标设置标记",
+	MaladyArrow			= "当你附近的人中了$spell:63881时显示DBM箭头",
+	RangeFramePortal25	= "显示门户位置的距离框架 (25 名球员)"	-- 1.4a
 }

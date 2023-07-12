@@ -539,24 +539,28 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningGuardianSpawned			= "Show warning for Guardian spawns",
-	WarningCrusherTentacleSpawned	= "Show warning for Crusher Tentacle spawns",
+	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145, "Crusher Tentacle spawns"),
 	WarningSanity					= "Show warning when $spell:63050 is low",
 	SpecWarnSanity					= "Show special warning when $spell:63050 is very low",
 	SpecWarnGuardianLow				= "Show special warning when Guardian (Phase 1) is low (for DDs)",
 	WarnBrainPortalSoon				= "Show pre-warning for Brain Portal",
 	SpecWarnMadnessOutNow			= "Show special warning shortly before $spell:64059 ends",
-	SetIconOnMaladyTarget			= "Set icons on $spell:63881 targets",
-	SpecWarnFervorCast				= "Show special warning when $spell:63138 is being cast on you (must be targeted or focused by at least one raid member)",
+	-- SetIconOnMaladyTarget			= "Set icons on $spell:63881 targets",
+	SetIconOnMaladyTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63830),
+	SpecWarnFervorCast				= "Show special warning when $spell:63138 is being cast on you (Sara must be target or focus of a raid member)",
 	specWarnBrainPortalSoon			= "Show special warning for next Brain Portal",
 	-- WarningSqueeze					= "Yell on Squeeze",
-	WarningSqueeze					= "Yell when caught by Constrictor Tentacle",
+	WarningSqueeze					= "Yell when caught by Constrictor Tentacle ($spell:64125)",
 	NextPortal						= "Show timer for next Brain Portal",
-	SetIconOnFervorTarget			= "Set icons on $spell:63138 targets",
-	ShowSaraHealth					= "Show health frame for Sara in Phase 1 (must be targeted or focused by at least one raid member)",
+	-- SetIconOnFervorTarget			= "Set icons on $spell:63138 targets",
+	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
+	ShowSaraHealth					= "Show health frame for Sara in Phase 1 (Sara must be target or focus of a raid member)",
 	SpecWarnMaladyNear				= "Show special warning for $spell:63881 near you",
-	SetIconOnBrainLinkTarget		= "Set icons on $spell:63802 targets",
+	-- SetIconOnBrainLinkTarget		= "Set icons on $spell:63802 targets",
+	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
 	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you",
 	RangeFramePortal25				= "Show range frame for portal position (25 players)",
-	ttsLunaticGazeCountdown			= "Play countdown sound for $spell:64163"
+	-- ttsLunaticGazeCountdown			= "Play countdown sound for $spell:64163"
+	ttsLunaticGazeCountdown			= DBM_CORE_AUTO_SOUND_OPTION_TEXT3:format(64163)
 }
 

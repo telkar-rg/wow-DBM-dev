@@ -578,7 +578,7 @@ L:SetMiscLocalization{
 }
 
 L:SetWarningLocalization{
-	WarningGuardianSpawned 			= "neuer Wächter",
+	WarningGuardianSpawned 			= "neuer Wächter (%d)",
 	WarningCrusherTentacleSpawned	= "neues Schmettertentakel",
 	SpecWarnBrainLink 				= "Gehirnverbindung auf dir!",
 	WarningSanity 					= "%d Geistige Gesundheit übrig",
@@ -600,29 +600,30 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningGuardianSpawned			= "Zeige Warnung für neue Wächter",
-	WarningCrusherTentacleSpawned	= "Zeige Warnung für neue Schmettertentakel",
-	WarningBrainLink				= "Verkünde Ziele von Gehirnverbindung",
-	SpecWarnBrainLink				= "Zeige Spezialwarnung wenn von Gehirnverbindung betroffen",
-	WarningSanity					= "Zeige Warnung wenn Geistige Gesundheit niedrig ist",
-	SpecWarnSanity					= "Zeige Spezialwarnung wenn Geistige Gesundheit sehr niedrig ist",
+	-- WarningCrusherTentacleSpawned	= "Zeige Warnung für neue Schmettertentakel",
+	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145, "neue Schmettertentakel"),
+	-- WarningBrainLink				= "Verkünde Ziele von Gehirnverbindung",
+	-- SpecWarnBrainLink				= "Zeige Spezialwarnung wenn von Gehirnverbindung betroffen",
+	WarningSanity					= "Zeige Warnung wenn $spell:63050 niedrig ist",
+	SpecWarnSanity					= "Zeige Spezialwarnung wenn $spell:63050 sehr niedrig ist",
 	SpecWarnGuardianLow				= "Zeige Spezialwarnung wenn Wächter (P1) fast tot ist (für DDs)",
 	WarnBrainPortalSoon				= "Zeige Vorwarnung für Gehirnportale",
-	SpecWarnMadnessOutNow			= "Zeige Spezialwarnung kurz vor Ende von Wahnsinn hervorrufen",
-	SetIconOnMaladyTarget			= "Setze Zeichen auf Ziele von Geisteskrankheit",
-	SpecWarnFervor					= "Zeige Spezialwarnung wenn du von Saras Eifer betroffen bist",
-	SpecWarnFervorCast				= "Zeige Spezialwarnung wenn Saras Eifer auf dich gezaubert wird (muss anvisiert oder im Fokus eines Schlachtzugsmitglieds sein)",
+	SpecWarnMadnessOutNow			= "Zeige Spezialwarnung kurz vor Ende von $spell:64059",
+	-- SetIconOnMaladyTarget			= "Setze Zeichen auf Ziele von Geisteskrankheit", -- default EN handles this
+	-- SpecWarnFervor					= "Zeige Spezialwarnung wenn du von $spell:63138 betroffen bist",
+	SpecWarnFervorCast				= "Zeige Spezialwarnung wenn $spell:63138 auf dich gezaubert wird (Sara muss Ziel oder Fokus eines Schlachtzugsmitglieds sein)",
 	specWarnBrainPortalSoon			= "Zeige Spezialwarnung für nächste Gehirnportale",
 	-- WarningSqueeze					= "Schreie bei Quetschen",
-	WarningSqueeze					= "Schreie wenn von Würgetentakel gefasst",
+	WarningSqueeze					= "Schreie wenn von Würgetentakel gefasst ($spell:64125)",
 	NextPortal						= "Zeige Timer für nächste Gehirnportale",
-	SetIconOnFervorTarget			= "Setze Zeichen auf Spieler mit Saras Eifer",
-	SetIconOnMCTarget				= "Setze Zeichen auf Spieler mit Gedanken beherrschen",
-	ShowSaraHealth					= "Zeige Lebensanzeige für Sara in Phase 1 (muss anvisiert oder im Fokus eines Schlachtzugsmitglieds sein)",
-	WarnEmpowerSoon					= "Zeige Vorwarnung für Machtvolle Schatten",
-	SpecWarnMaladyNear				= "Zeige Spezialwarnung für Geisteskrankheit in deiner Nähe",
-	SpecWarnDeafeningRoar			= "Zeige Spezialwarnung wenn Ohrenbetäubendes Gebrüll gezaubert wird (Stille und für Vala'nyr)",
-	SetIconOnBrainLinkTarget		= "Setze Zeichen auf Ziele von Gehirnverbindung",
-	MaladyArrow						= "Zeige Pfeil wenn $spell:63881 in deiner Nähe ist",
+	-- SetIconOnFervorTarget			= "Setze Zeichen auf Spieler mit Saras Eifer", -- default EN handles this
+	-- SetIconOnMCTarget				= "Setze Zeichen auf Spieler mit Gedanken beherrschen",
+	ShowSaraHealth					= "Zeige Lebensanzeige für Sara in Phase 1 (Sara muss Ziel oder Fokus eines Schlachtzugsmitglieds sein)",
+	-- WarnEmpowerSoon					= "Zeige Vorwarnung für Machtvolle Schatten",
+	SpecWarnMaladyNear				= "Zeige Spezialwarnung für $spell:63881 in deiner Nähe",
+	-- SpecWarnDeafeningRoar			= "Zeige Spezialwarnung wenn Ohrenbetäubendes Gebrüll gezaubert wird (Stille und für Vala'nyr)",
+	-- SetIconOnBrainLinkTarget		= "Setze Zeichen auf Ziele von Gehirnverbindung", -- default EN handles this
+	MaladyArrow						= "Zeige DBM Pfeil wenn $spell:63881 in deiner Nähe ist",
 	RangeFramePortal25				= "Zeige Abstandsfenster für Portal Positionen (25 Spieler)"
 }
 
