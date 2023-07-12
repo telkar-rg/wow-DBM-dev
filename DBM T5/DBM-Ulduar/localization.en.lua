@@ -555,6 +555,7 @@ L:SetOptionLocalization{
 	SpecWarnMaladyNear				= "Show special warning for $spell:63881 near you",
 	SetIconOnBrainLinkTarget		= "Set icons on $spell:63802 targets",
 	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you",
-	RangeFramePortal25				= "Show range frame for portal position (25 players)"
+	RangeFramePortal25				= "Show range frame for portal position (25 players)",
+	ttsLunaticGazeCountdown			= "Play countdown sound for $spell:64163"
 }
 
