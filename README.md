@@ -2,6 +2,13 @@
 DBM: modified development for WotLK
 
 ### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
+- DBM T5.006 alpha
+  - Yogg-Saron Rework
+    - added TTS countdown to Lunatic Gaze cast
+	- fixed detection of Crusher Tentacles (testing)
+	- added detection Malady of the Mind casting from Sara (testing)
+	- fixed icon setting/resetting of raid-targets for Brain Link (testing)
+	- reworked Phase transtion detection for P2 and P3
 - DBM T5.005 alpha (Hotfix 2)
   - Fix for Frostlord Ahune (detection of encounter start and sub/emerge)
 - DBM T5.04 alpha
