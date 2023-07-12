@@ -586,6 +586,7 @@ L:SetWarningLocalization{
 	SpecWarnFervorCast				= "Ferveur de Sara commence a incanter sur vous",
 	WarnEmpowerSoon					= "Renforcement des ombres Bientôt !",
 	SpecWarnMaladyNear				= "Mal de la raison à côté de vous sur >%s<",
+	SpecWarnMaladyCast				= "Mal de la raison commence a incanter sur vous",
 	SpecWarnDeafeningRoar			= "Rugissement assourdissant",
 	specWarnBrainPortalSoon			= "Portail bientôt"
 }
@@ -617,6 +618,7 @@ L:SetOptionLocalization{
 	ShowSaraHealth					= "Montre la vie de Sara durant la P1 (Sara doit être Target/Focus par au moins un membre du raid)",
 	-- WarnEmpowerSoon					= "Alerte avant le Renforcement des ombres",
 	SpecWarnMaladyNear				= "Montre une alerte spéciale si une personne à côté de vous est victime du $spell:63881",
+	specWarnMaladyCast				= "Montre une alerte spéciale quand la $spell:63881 commence a cast sur vous (Sara doit être Target/Focus par au moins un membre du raid)",
 	-- SpecWarnDeafeningRoar			= "Montre une alerte spéciale pour le Rugissement assourdissant (silence et haut-fait)",
 	-- SetIconOnBrainLinkTarget		= "Met une icone sur la cible des Cerveaux liés", -- default EN handles this
 	-- MaladyArrow						= "Zeige DBM Pfeil wenn $spell:63881 in deiner Nähe ist",

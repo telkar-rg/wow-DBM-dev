@@ -590,6 +590,7 @@ L:SetWarningLocalization{
 	SpecWarnFervorCast				= "Saras Eifer wird auf dich gezaubert",
 	WarnEmpowerSoon					= "Machtvolle Schatten bald",
 	SpecWarnMaladyNear				= "Geisteskrankheit auf %s in deiner Nähe",
+	specWarnMaladyCast				= "Geisteskrankheit wird auf dich gezaubert",
 	SpecWarnDeafeningRoar			= "Ohrenbetäubendes Gebrüll",
 	specWarnBrainPortalSoon			= "Gehirnportale bald"
 }
@@ -611,16 +612,17 @@ L:SetOptionLocalization{
 	SpecWarnMadnessOutNow			= "Zeige Spezialwarnung kurz vor Ende von $spell:64059",
 	-- SetIconOnMaladyTarget			= "Setze Zeichen auf Ziele von Geisteskrankheit", -- default EN handles this
 	-- SpecWarnFervor					= "Zeige Spezialwarnung wenn du von $spell:63138 betroffen bist",
-	SpecWarnFervorCast				= "Zeige Spezialwarnung wenn $spell:63138 auf dich gezaubert wird (Sara muss Ziel oder Fokus eines Schlachtzugsmitglieds sein)",
+	SpecWarnFervorCast				= "Zeige Spezialwarnung wenn $spell:63138 auf dich gezaubert wird (Sara muss Ziel/Fokus eines Schlachtzugsmitglieds sein)",
 	specWarnBrainPortalSoon			= "Zeige Spezialwarnung für nächste Gehirnportale",
 	-- WarningSqueeze					= "Schreie bei Quetschen",
 	WarningSqueeze					= "Schreie wenn von Würgetentakel gefasst ($spell:64125)",
 	NextPortal						= "Zeige Timer für nächste Gehirnportale",
 	-- SetIconOnFervorTarget			= "Setze Zeichen auf Spieler mit Saras Eifer", -- default EN handles this
 	-- SetIconOnMCTarget				= "Setze Zeichen auf Spieler mit Gedanken beherrschen",
-	ShowSaraHealth					= "Zeige Lebensanzeige für Sara in Phase 1 (Sara muss Ziel oder Fokus eines Schlachtzugsmitglieds sein)",
+	ShowSaraHealth					= "Zeige Lebensanzeige für Sara in Phase 1 (Sara muss Ziel/Fokus eines Schlachtzugsmitglieds sein)",
 	-- WarnEmpowerSoon					= "Zeige Vorwarnung für Machtvolle Schatten",
 	SpecWarnMaladyNear				= "Zeige Spezialwarnung für $spell:63881 in deiner Nähe",
+	specWarnMaladyCast				= "Zeige Spezialwarnung wenn $spell:63830 auf dich gezaubert wird (Sara muss Ziel/Fokus eines Schlachtzugsmitglieds sein)",
 	-- SpecWarnDeafeningRoar			= "Zeige Spezialwarnung wenn Ohrenbetäubendes Gebrüll gezaubert wird (Stille und für Vala'nyr)",
 	-- SetIconOnBrainLinkTarget		= "Setze Zeichen auf Ziele von Gehirnverbindung", -- default EN handles this
 	MaladyArrow						= "Zeige DBM Pfeil wenn $spell:63881 in deiner Nähe ist",

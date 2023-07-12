@@ -138,7 +138,7 @@ L:SetOptionLocalization{
 	PlaySoundLightningTendrils	= "Звуковой сигнал при $spell:63486",
 	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
 	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
-	AlwaysWarnOnOverload		= "Всегда предупреждать при $spell:63481\n(иначе, только когда босс в цели)",
+	AlwaysWarnOnOverload		= "Всегда предупреждать при $spell:63481 (иначе, только когда босс в цели)",
 	PlaySoundOnOverload			= "Звуковой сигнал при $spell:63481",
 	PlaySoundDeathRune			= "Звуковой сигнал при $spell:63490"
 }
@@ -304,7 +304,7 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	TimerHardmode	= "Отсчет времени для сложного режима",
 	RangeFrame		= "Показывать окно проверки дистанции",
-	AnnounceFails	= "Объявлять игроков, попавших под $spell:62017, в рейд-чат\n(требуются права лидера или помощника)",
+	AnnounceFails	= "Объявлять игроков, попавших под $spell:62017, в рейд-чат (требуются права лидера или помощника)",
 }
 
 L:SetMiscLocalization{
@@ -487,14 +487,14 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	SetIconOnShadowCrash			= "Устанавливать метки на цели заклинания $spell:62660 (череп)",
 	SetIconOnLifeLeach				= "Устанавливать метки на цели заклинания $spell:63276 (крест)",
-	SpecialWarningShadowCrash		= "Спец-предупреждение для $spell:62660\n(должен быть в цели или фокусе хотя бы у одного члена рейда)",
+	SpecialWarningShadowCrash		= "Спец-предупреждение для $spell:62660 (должен быть в цели или фокусе хотя бы у одного члена рейда)",
 	SpecialWarningShadowCrashNear	= "Спец-предупреждение о $spell:62660 около вас",
 	SpecialWarningLLNear			= "Спец-предупреждение о $spell:63276 около вас",
 	YellOnLifeLeech					= "Кричать, когда на вас $spell:63276",
 	YellOnShadowCrash				= "Кричать, когда на вас $spell:62660",
 	hardmodeSpawn					= "Отсчет времени до появления Саронитового врага (сложный режим)",
 	CrashArrow						= "Показывать стрелку, когда $spell:62660 около вас",
-	BypassLatencyCheck				= "Отключить синхр-цию для $spell:62660\n(используйте только в случае возникновения проблем)"
+	BypassLatencyCheck				= "Отключить синхр-цию для $spell:62660 (используйте только в случае возникновения проблем)"
 }
 
 L:SetMiscLocalization{
@@ -532,6 +532,7 @@ L:SetWarningLocalization{
 	SpecWarnFervor					= "Рвение Сары на вас",
 	SpecWarnFervorCast				= "Рвение Сары накладывается на вас",
 	SpecWarnMaladyNear				= "Душевная болезнь на |3-5(%s) около вас",
+	SpecWarnMaladyCast				= "Душевная болезнь накладывается на вас",
 	specWarnBrainPortalSoon			= "Скоро Провал Безумия"
 }
 
@@ -549,7 +550,7 @@ L:SetOptionLocalization{
 	WarnBrainPortalSoon				= "Предупреждать заранее о Провале Безумия",
 	SpecWarnMadnessOutNow			= "Спец-предупреждение незадолго до окончания $spell:64059",
 	-- SetIconOnMaladyTarget				= "Устанавливать метки на цели заклинания $spell:63881",
-	-- SpecWarnFervorCast				= "Спец-предупреждение, когда на вас накладывается $spell:63138\n(должна быть в цели или фокусе хотя бы у одного члена рейда)",
+	SpecWarnFervorCast				= "Спец-предупреждение, когда на вас накладывается $spell:63138 (должна быть в цели или фокусе хотя бы у одного члена рейда)",
 	specWarnBrainPortalSoon			= "Спец-предупреждение о следующем Провале Безумия",
 	-- WarningSqueeze					= "Кричать, когда на вас Выдавливание",
 	WarningSqueeze					= "Кричите, когда вас поймает Удушающее щупальце ($spell:64125)", 	-- deepl.com (npc name from trinity locales: 33983)
@@ -557,6 +558,7 @@ L:SetOptionLocalization{
 	-- SetIconOnFervorTarget			= "Устанавливать метки на цели заклинания $spell:63138",
 	ShowSaraHealth					= "Показывать здоровье Сары в фазе 1 (должна быть в цели или фокусе хотя бы у одного члена рейда)",
 	SpecWarnMaladyNear				= "Спец-предупреждение о $spell:63881 около вас",
+	SpecWarnMaladyCast				= "Спец-предупреждение, когда на вас накладывается $spell:63881 (должна быть в цели или фокусе хотя бы у одного члена рейда)",
 	-- SetIconOnBrainLinkTarget		= "Устанавливать метки на цели заклинания $spell:63802",
 	MaladyArrow						= "Показывать стрелку, когда $spell:63881 около вас",
 	RangeFramePortal25				= "Показать рамку расстояния для позиции портала (25 игроков)"	-- 1.4a (deepl.com translation)

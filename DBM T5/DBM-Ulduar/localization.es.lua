@@ -580,6 +580,7 @@ L:SetWarningLocalization{
 	SpecWarnFervorCast				= "Fervor de Sara esta siendo casteado en ti",
 	-- WarnEmpowerSoon					= "Machtvolle Schatten bald",
 	SpecWarnMaladyNear				= "Mal de la mente en %s cerca de ti",
+	specWarnMaladyCast				= "Mal de la mente esta siendo casteado en ti",
 	-- SpecWarnDeafeningRoar			= "Ohrenbetäubendes Gebrüll",
 	specWarnBrainPortalSoon			= "Portal cerebral pronto"
 }
@@ -611,6 +612,7 @@ L:SetOptionLocalization{
 	ShowSaraHealth					= "Mostrar barra de vida de Sara en Fase 1 (Sara tiene que ser el objetivo o el foco de al menos un personaje de la banda)",
 	-- WarnEmpowerSoon					= "Zeige Vorwarnung für Machtvolle Schatten",
 	SpecWarnMaladyNear				= "Mostrar aviso especial para $spell:63881 cerca de ti",
+	specWarnMaladyCast				= "Mostrar aviso especial cuando $spell:63881 esté siendo casteado en ti (Sara tiene que ser el objetivo o el foco de al menos un personaje de la banda)",
 	-- SpecWarnDeafeningRoar			= "Zeige Spezialwarnung wenn Ohrenbetäubendes Gebrüll gezaubert wird (Stille und für Vala'nyr)",				
 	-- SetIconOnBrainLinkTarget		= "Poner iconos en los objetivos de $spell:63802", -- default EN handles this
 	MaladyArrow						= "Mostrar flecha cuando $spell:63881 está cerca de ti",
