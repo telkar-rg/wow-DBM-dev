@@ -47,28 +47,31 @@ mod:AddBoolOption("WarningSqueeze", true, "announce")
 local enrageTimer					= mod:NewBerserkTimer(900)
 local timerFervor					= mod:NewTargetTimer(15, 63138)
 local brainportal					= mod:NewTimer(20, "NextPortal")
+local timerMadness 					= mod:NewCastTimer(60, 64059)
 local timerLunaticGaze				= mod:NewCastTimer(4, 64163)
 local timerNextLunaticGaze			= mod:NewCDTimer(12, 64163)
 local timerEmpower					= mod:NewCDTimer(45, 64465)
 local timerEmpowerDuration			= mod:NewBuffActiveTimer(10, 64465)
-local timerMadness 					= mod:NewCastTimer(60, 64059)
 local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
 local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189)
 local timerAchieve					= mod:NewAchievementTimer(420, 3012, "TimerSpeedKill")
 
+mod:AddBoolOption("ShowSaraHealth", true)
+mod:AddBoolOption("SetIconOnFervorTarget")
+
+mod:AddBoolOption("SetIconOnBrainLinkTarget",true)
+mod:AddBoolOption("SetIconOnFearTarget",true)
+
+mod:AddBoolOption("MaladyArrow")
+mod:AddBoolOption("RangeFramePortal25", true)
+
+
 local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1-blip.mp3", "ttsLunaticGazeCountdown", true)
--- local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1.mp3", "TTS Lunatic Gaze Countdown", true)
 local tts3to1Offset = 4
+-- local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1.mp3", "TTS Lunatic Gaze Countdown", true)
 -- local tts3to1Offset = 3.7
 -- ttsLunaticGazeCountdown:Schedule(12-tts3to1Offset)
 
-mod:AddBoolOption("ShowSaraHealth", true)
-mod:AddBoolOption("SetIconOnFearTarget")
-mod:AddBoolOption("SetIconOnFervorTarget")
-mod:AddBoolOption("SetIconOnBrainLinkTarget")
-mod:AddBoolOption("MaladyArrow")
-
-mod:AddBoolOption("RangeFramePortal25", true)
 
 local phase							= 1
 local targetWarningsShown			= {}
@@ -131,8 +134,12 @@ end
 
 function mod:warnBrainLink()
 	warnBrainLink:Show(table.concat(brainLinkTargets, "<, >"))
+	-- table.wipe(brainLinkTargets)
+	brainLinkIcon = 7 	-- rt7 = Red X / Cross
+end
+
+function mod:wipeBrainLinkTable()
 	table.wipe(brainLinkTargets)
-	brainLinkIcon = 7
 end
 
 function mod:SPELL_CAST_START(args)
@@ -176,6 +183,8 @@ end
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(63802) then		-- Brain Link
 		self:UnscheduleMethod("warnBrainLink")
+		self:UnscheduleMethod("wipeBrainLinkTable")
+		
 		brainLinkTargets[#brainLinkTargets + 1] = args.destName
 		if self.Options.SetIconOnBrainLinkTarget then
 			self:SetIcon(args.destName, brainLinkIcon, 30)
@@ -184,10 +193,13 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			specWarnBrainLink:Show()
 		end
+		
 		mod:ScheduleMethod(0.2, "warnBrainLink")
+		mod:ScheduleMethod(30.5, "wipeBrainLinkTable")	-- safety wipe if SPELL_AURA_REMOVED is not seen after 30s
+		
 	elseif args:IsSpellID(63830, 63881) then   -- Malady of the Mind (Death Coil) 
 		if self.Options.SetIconOnFearTarget then
-			self:SetIcon(args.destName, 8, 30) 
+			self:SetIcon(args.destName, 8, 4.5) 	-- malady lasts only for 4s !
 		end
 		local uId = DBM:GetRaidUnitId(args.destName) 
 		if uId then 
@@ -251,6 +263,18 @@ function mod:SPELL_AURA_REMOVED(args)
 		end
 	-- elseif args:IsSpellID(64167, 64163) then	-- Lunatic Gaze
 		-- timerNextLunaticGaze:Start()
+		
+	elseif args:IsSpellID(63802) then		-- Brain Link REMOVED
+		-- if removed early before scheduled wipe
+		self:UnscheduleMethod("wipeBrainLinkTable")
+		
+		if self.Options.SetIconOnBrainLinkTarget then
+			if brainLinkTargets and #brainLinkTargets > 0 then
+				if brainLinkTargets[1] then self:RemoveIcon(brainLinkTargets[1]) end
+				if brainLinkTargets[2] then self:RemoveIcon(brainLinkTargets[2]) end
+			end
+		end
+		self:wipeBrainLinkTable()
 	end
 end
 
