@@ -602,7 +602,8 @@ L:SetOptionLocalization{
 	-- SpecWarnFervor					= "Zeige Spezialwarnung wenn du von Saras Eifer betroffen bist",
 	SpecWarnFervorCast				= "Mostrar aviso especial cuando $spell:63138 esté siendo casteado en ti/n(Tiene que ser el objetivo o el foco de al menos un personaje de la banda)",
 	specWarnBrainPortalSoon			= "Mostrar aviso especial para siguiente Portal cerebral",
-	WarningSqueeze					= "Gritar si te afecta Exprimir",
+	-- WarningSqueeze					= "Gritar si te afecta Exprimir",
+	WarningSqueeze					= "Grita si te atrapa Tentáculo constrictor", 	-- deepl.com (npc name from trinity locales: 33983)
 	NextPortal						= "Mostrar tiempo para siguiente Portal cerebral",
 	SetIconOnFervorTarget			= "Poner iconos en los objetivos de $spell:63138",
 	-- SetIconOnMCTarget				= "Setze Zeichen auf Spieler mit Gedanken beherrschen",

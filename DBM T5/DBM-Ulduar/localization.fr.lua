@@ -608,7 +608,8 @@ L:SetOptionLocalization{
 	SpecWarnFervor					= "Montre une alerte spéciale pour la ferveur de Sara",
 	SpecWarnFervorCast				= "Montre une alerte spéciale quand la Ferveur de Sara commence a cast sur vous (Il faut avoir Sara en Target/Focus)",
 	specWarnBrainPortalSoon			= "Annonce l'arrivée d'un portail",
-	WarningSqueeze					= "Annonce la cible d'Ecrasement",
+	-- WarningSqueeze					= "Annonce la cible d'Ecrasement",
+	WarningSqueeze					= "Crier si attrapé par Tentacule constricteur.", 	-- deepl.com (npc name from trinity locales: 33983)
 	NextPortal						= "Montre un timer avant le prochain portail",
 	WhisperBrainLink				= "Envoie un whisp aux Cerveaux liés",
 	SetIconOnFervorTarget			= "Met une icône sur les cible de la ferveur de Sara",

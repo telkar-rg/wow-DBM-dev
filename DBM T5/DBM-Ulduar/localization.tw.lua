@@ -540,7 +540,8 @@ L:SetOptionLocalization{
 	SpecWarnFervor			= "當你中了薩拉的熱誠時顯示特別警告",
 	SpecWarnFervorCast		= "當薩拉的熱誠正在對你施放時顯示特別警告 (必須有最少一名團隊成員設置目標或專注目標)",
 	specWarnBrainPortalSoon		= "為下一次 腦部傳送門顯示特別警告",
-	WarningSqueeze			= "當你中了壓榨 (觸手綁人)時大喊",
+	-- WarningSqueeze			= "當你中了壓榨 (觸手綁人)時大喊",
+	WarningSqueeze			= "受到以下影響時尖叫：巨蟒觸手", 	-- deepl.com (npc name from trinity locales: 33983)
 	NextPortal			= "為下一次 傳送門顯示計時器",
 	SetIconOnFervorTarget		= "為薩拉的熱誠的目標設置標記 (三角)",
 	SetIconOnMCTarget		= "為支配心靈的目標設置標記 (三角)",
