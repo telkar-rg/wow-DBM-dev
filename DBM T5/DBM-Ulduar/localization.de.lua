@@ -608,7 +608,7 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow				= "Zeige Spezialwarnung wenn Wächter (P1) fast tot ist (für DDs)",
 	WarnBrainPortalSoon				= "Zeige Vorwarnung für Gehirnportale",
 	SpecWarnMadnessOutNow			= "Zeige Spezialwarnung kurz vor Ende von Wahnsinn hervorrufen",
-	SetIconOnFearTarget				= "Setze Zeichen auf Ziele von Geisteskrankheit",
+	SetIconOnMaladyTarget			= "Setze Zeichen auf Ziele von Geisteskrankheit",
 	SpecWarnFervor					= "Zeige Spezialwarnung wenn du von Saras Eifer betroffen bist",
 	SpecWarnFervorCast				= "Zeige Spezialwarnung wenn Saras Eifer auf dich gezaubert wird (muss anvisiert oder im Fokus eines Schlachtzugsmitglieds sein)",
 	specWarnBrainPortalSoon			= "Zeige Spezialwarnung für nächste Gehirnportale",

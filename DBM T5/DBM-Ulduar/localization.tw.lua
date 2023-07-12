@@ -536,7 +536,7 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow		= "當守護者(第1階段)血量過低時顯示特別警告 (DD用)",
 	WarnBrainPortalSoon		= "為腦部傳送門顯示預先警告",
 	SpecWarnMadnessOutNow		= "為瘋狂誘陷結束前顯示特別警告",
-	SetIconOnFearTarget		= "為心靈缺陷的目標設置標記 (頭顱)",
+	SetIconOnMaladyTarget		= "為心靈缺陷的目標設置標記 (頭顱)",
 	SpecWarnFervor			= "當你中了薩拉的熱誠時顯示特別警告",
 	SpecWarnFervorCast		= "當薩拉的熱誠正在對你施放時顯示特別警告 (必須有最少一名團隊成員設置目標或專注目標)",
 	specWarnBrainPortalSoon		= "為下一次 腦部傳送門顯示特別警告",

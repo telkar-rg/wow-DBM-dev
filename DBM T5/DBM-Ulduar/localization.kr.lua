@@ -610,7 +610,7 @@ L:SetOptionLocalization{
 	SpecWarnMadnessOutNow			= "광기 유발이 끝나기 전 특수 경고 알리기",
 	-- WarningSqueeze					= "압착의 촉수의 대상이 됏을 경우 외치기",
 	WarningSqueeze					= "다음의 영향을 받을 때 비명: 쥐어짜는 촉수", 	-- deepl.com (npc name from trinity locales: 33983)
-	SetIconOnFearTarget				= "병든 정신 타겟 아이콘 설정하기",
+	SetIconOnMaladyTarget				= "병든 정신 타겟 아이콘 설정하기",
 	SetIconOnFervorTarget			= "사라의 열정 타겟 아이콘 설정하기",
 	SetIconOnMCTarget				= "정신 지배에 걸린 플레이어 타겟 아이콘 설정하기",	
 	ShowSaraHealth					= "사라 체력 보기(공대원 중 사라 대상/주시 일 경우)",

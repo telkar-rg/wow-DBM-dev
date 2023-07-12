@@ -46,7 +46,7 @@ mod:AddBoolOption("WarningSqueeze", true, "announce")
 
 local enrageTimer					= mod:NewBerserkTimer(900)
 local timerFervor					= mod:NewTargetTimer(15, 63138)
-local brainportal					= mod:NewTimer(20, "NextPortal")
+local timerBrainportal					= mod:NewTimer(20, "NextPortal", 57687)
 local timerMadness 					= mod:NewCastTimer(60, 64059)
 local timerLunaticGaze				= mod:NewCastTimer(4, 64163)
 local timerNextLunaticGaze			= mod:NewCDTimer(12, 64163)
@@ -60,7 +60,7 @@ mod:AddBoolOption("ShowSaraHealth", true)
 mod:AddBoolOption("SetIconOnFervorTarget")
 
 mod:AddBoolOption("SetIconOnBrainLinkTarget",true)
-mod:AddBoolOption("SetIconOnFearTarget",true)
+mod:AddBoolOption("SetIconOnMaladyTarget",true)
 
 mod:AddBoolOption("MaladyArrow")
 mod:AddBoolOption("RangeFramePortal25", true)
@@ -146,7 +146,7 @@ function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(64059) then	-- Induce Madness (start of brain phase)
 		warnMadness:Show()
 		timerMadness:Start()
-		brainportal:Schedule(60)	-- 
+		timerBrainportal:Schedule(60)	-- 
 		warnBrainPortalSoon:Schedule(78)
 		specWarnBrainPortalSoon:Schedule(78)
 		specWarnMadnessOutNow:Schedule(55)
@@ -197,8 +197,8 @@ function mod:SPELL_AURA_APPLIED(args)
 		mod:ScheduleMethod(0.2, "warnBrainLink")
 		mod:ScheduleMethod(30.5, "wipeBrainLinkTable")	-- safety wipe if SPELL_AURA_REMOVED is not seen after 30s
 		
-	elseif args:IsSpellID(63830, 63881) then   -- Malady of the Mind (Death Coil) 
-		if self.Options.SetIconOnFearTarget then
+	elseif args:IsSpellID(63830, 63881) then   -- "Fear" / Malady of the Mind (Death Coil) 
+		if self.Options.SetIconOnMaladyTarget then
 			self:SetIcon(args.destName, 8, 4.5) 	-- malady lasts only for 4s !
 		end
 		local uId = DBM:GetRaidUnitId(args.destName) 
@@ -233,7 +233,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(63894) then	-- Shadowy Barrier of Yogg-Saron (this is happens when p2 starts)
 		mod:gotoP2()
 		-- phase = 2
-		-- brainportal:Start(60)
+		-- timerBrainportal:Start(60)
 		-- warnBrainPortalSoon:Schedule(57)
 		-- specWarnBrainPortalSoon:Schedule(57)
 		-- warnP2:Show()
@@ -327,7 +327,7 @@ function mod:gotoP2()
 		
 		timerFervor:Stop()
 		
-		brainportal:Start(60)
+		timerBrainportal:Start(60)
 		warnBrainPortalSoon:Schedule(57)
 		specWarnBrainPortalSoon:Schedule(57)
 		warnP2:Show()
@@ -354,7 +354,7 @@ function mod:gotoP3()
 		warnDeafeningRoarSoon:Schedule(25)
 		
 		timerMadness:Stop()
-		brainportal:Stop()
+		timerBrainportal:Stop()
 		specWarnBrainPortalSoon:Cancel()
 		warnBrainPortalSoon:Cancel()
 		specWarnMadnessOutNow:Cancel()

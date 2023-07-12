@@ -553,7 +553,7 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow		= "当尤格萨隆的卫士(第1阶段)血量过低时显示特别警报 (输出职业用)",
 	WarnBrainPortalSoon		= "为脑部传送门显示提前警报",
 	SpecWarnMadnessOutNow		= "为疯狂诱导结束前显示特别警报",
-	SetIconOnFearTarget		= "为心灵疾病的目标设置标记 (骷髅)",
+	SetIconOnMaladyTarget		= "为心灵疾病的目标设置标记 (骷髅)",
 	SpecWarnFervorCast		= "当萨拉的热情正在对你施放时显示特别警报 (必须至少有一名团队成员设置首领为焦点目标)",
 	specWarnBrainPortalSoon		= "为下一次脑部传送门显示特别警报",
 	-- WarningSqueeze			= "当你中了挤压(触须绑人)时大喊",

@@ -604,7 +604,7 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow				= "Montre une alerte spéciale quand les gardiens (P1) n'a plus beaucoup de vie",
 	WarnBrainPortalSoon				= "Annonce les Portails",
 	SpecWarnMadnessOutNow			= "Montre une alerte spéciale avant la fin du cast de Susciter la folie",
-	SetIconOnFearTarget				= "Met une icône sur la cible du fear",
+	SetIconOnMaladyTarget				= "Met une icône sur la cible du fear",
 	SpecWarnFervor					= "Montre une alerte spéciale pour la ferveur de Sara",
 	SpecWarnFervorCast				= "Montre une alerte spéciale quand la Ferveur de Sara commence a cast sur vous (Il faut avoir Sara en Target/Focus)",
 	specWarnBrainPortalSoon			= "Annonce l'arrivée d'un portail",

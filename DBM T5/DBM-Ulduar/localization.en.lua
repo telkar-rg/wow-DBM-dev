@@ -545,7 +545,7 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow				= "Show special warning when Guardian (Phase 1) is low (for DDs)",
 	WarnBrainPortalSoon				= "Show pre-warning for Brain Portal",
 	SpecWarnMadnessOutNow			= "Show special warning shortly before $spell:64059 ends",
-	SetIconOnFearTarget				= "Set icons on $spell:63881 targets",
+	SetIconOnMaladyTarget			= "Set icons on $spell:63881 targets",
 	SpecWarnFervorCast				= "Show special warning when $spell:63138 is being cast on you (must be targeted or focused by at least one raid member)",
 	specWarnBrainPortalSoon			= "Show special warning for next Brain Portal",
 	-- WarningSqueeze					= "Yell on Squeeze",

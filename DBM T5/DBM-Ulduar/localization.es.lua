@@ -598,7 +598,7 @@ L:SetOptionLocalization{
 	SpecWarnGuardianLow				= "Mostrar aviso especial cuando el Guardián esté a punto de morir (Fase 1)",
 	WarnBrainPortalSoon				= "Mostrar pre-aviso para Portal cerebral",
 	SpecWarnMadnessOutNow			= "Mostrar aviso especial poco antes de que $spell:64059 termine",
-	SetIconOnFearTarget				= "Poner iconos en los objetivos de $spell:63881",
+	SetIconOnMaladyTarget				= "Poner iconos en los objetivos de $spell:63881",
 	-- SpecWarnFervor					= "Zeige Spezialwarnung wenn du von Saras Eifer betroffen bist",
 	SpecWarnFervorCast				= "Mostrar aviso especial cuando $spell:63138 esté siendo casteado en ti/n(Tiene que ser el objetivo o el foco de al menos un personaje de la banda)",
 	specWarnBrainPortalSoon			= "Mostrar aviso especial para siguiente Portal cerebral",
