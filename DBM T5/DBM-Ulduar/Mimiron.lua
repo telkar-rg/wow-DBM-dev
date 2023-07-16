@@ -21,8 +21,8 @@ mod:RegisterEvents(
 )
 
 local c_timerFirstFlames = 6.5
-local c_timerNextFlames = 27.5
-local c_timerNextFlamesP4 = 18
+local c_timerNextFlames = 28
+local c_timerNextFlamesP4 = 28 	-- 18 -- it was measures to be 28s on 2023 07 13
 local c_timerFlameSuppressantP1 = 83.5	-- spell=64570 -- from yell
 local c_timerFirstShockblastP1 = 43.5	-- spell=63631 -- from yell
 local c_timerPlasmaBlastP1 = 37		-- spell=64529 -- from yell
