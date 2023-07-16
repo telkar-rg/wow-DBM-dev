@@ -1,4 +1,6 @@
+.gitignore
 *.patch
+/_Releases
 
 # Compiled Lua sources
 luac.out
