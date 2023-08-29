@@ -97,7 +97,7 @@ DBM_KAEL_YELL_CAPERNIAN_DOWN			= "This is not over!";--translate
 DBM_KAEL_YELL_PHASE2					= 'Como veis, dispongo de un amplio arsenal...'; 	-- 19053
 DBM_KAEL_YELL_PHASE3					= 'Quizás os subestimé. Sería injusto que os enfrentarais a los cuatro consejeros al mismo tiempo, pero... nunca se le ha brindado un trato justo a mi gente. Así que os devuelvo el favor.'; 	-- 19060
 DBM_KAEL_YELL_PHASE4					= 'Desafortunadamente hay veces en las que tienes que hacer las cosas con tus propias manos. ¡Balamore shanal!'; 	-- 19195
-DBM_KAEL_YELL_PHASE5					= "I have not come this far to be stopped! The future I have planned will not be jeopardized! Now you will taste true power!!";--translate
+DBM_KAEL_YELL_PHASE5					= '¡No he llegado hasta aquí para que me detengáis! ¡El futuro que he planeado no se pondrá en peligro! ¡Vais a probar el verdadero poder!'; 	-- 20208
 
 DBM_KAEL_WEAPONS = {
 	["Bastón de desintegración"] = 1,
