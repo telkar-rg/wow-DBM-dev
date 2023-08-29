@@ -104,7 +104,7 @@
 	DBM_KAEL_EMOTE_THALADRED_TARGET			= "behält ([^%s]+) im Blickfeld!";
 	DBM_KAEL_YELL_PHASE1_SANGUINAR			= 'Ihr habt gegen einige meiner besten Berater bestanden... aber niemand kommt gegen die Macht des Bluthammers an. Erzittert vor Lord Sanguinar!';	-- 19003
 	DBM_KAEL_YELL_PHASE1_CAPERNIAN			= "Capernian wird dafür sorgen, dass Euer Aufenthalt hier nicht lange währt.";
-	DBM_KAEL_YELL_PHASE1_TELONICUS			= "Gut gemacht. Ihr habt Euch würdig erwiesen, gegen meinen Meisteringenieur, Telonicus, anzutreten.";
+	DBM_KAEL_YELL_PHASE1_TELONICUS			= 'Gut gemacht. Ihr habt Euch würdig erwiesen, gegen meinen Meisteringenieur Telonicus anzutreten.'; 	-- 19005
 	-- DBM_KAEL_CAST_FEAR						= "Fürst Blutdurst beginnt Dröhnendes Gebrüll zu wirken.";
 	-- DBM_KAEL_DEBUFF_FEAR1					= "betroffen von Dröhnendes Gebrüll";
 	-- DBM_KAEL_DEBUFF_FEAR2					= "Blutdurst.*Dröhnendes Gebrüll";

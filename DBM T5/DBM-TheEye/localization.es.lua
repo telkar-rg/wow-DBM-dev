@@ -90,7 +90,7 @@ DBM_KAEL_YELL_PHASE1					= "Energía. Poder. Mi gente es adicta a ellos… una d
 DBM_KAEL_EMOTE_THALADRED_TARGET			= "mira a ([^%s]+)!";
 DBM_KAEL_YELL_PHASE1_SANGUINAR			= 'Habéis sobrevivido a algunos de mis mejores consejeros... pero nadie puede resistir el poder del Martillo de Sangre. ¡He aquí Lord Sanguinar!'; 	-- 19003
 DBM_KAEL_YELL_PHASE1_CAPERNIAN			= 'Capernian se encargará de que vuestra visita sea breve.'; 	-- 19004
-DBM_KAEL_YELL_PHASE1_TELONICUS			= "Well done, you have proven worthy to test your skills against my master engineer, Telonicus.";--translate
+DBM_KAEL_YELL_PHASE1_TELONICUS			= 'Bien hecho. Parecéis dignos de probar vuestras habilidades con mi maestro ingeniero Telonicus.'; 	-- 19005
 DBM_KAEL_YELL_THALA_DOWN				= "Forgive me, my prince! I have... failed.";--translate
 DBM_KAEL_YELL_CAPERNIAN_DOWN			= '¡Aún no se ha acabado!'; 	-- 20848
 
