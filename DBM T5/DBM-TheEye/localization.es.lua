@@ -139,8 +139,8 @@ DBM_KAEL_INFOFRAME_ADDS_TITLE			= "Consejeros";
 DBM_KAEL_CAST_PHOENIX_REBIRTH			= "Phoenix begins to cast Rebirth.";--translate
 DBM_KAEL_EMOTE_PYROBLAST				= "begins to cast Pyroblast";--translate
 DBM_KAEL_EGG							= "Huevo de fénix";
-DBM_KAEL_YELL_GRAVITY_LAPSE				= "Having trouble staying grounded?";--translate
-DBM_KAEL_YELL_GRAVITY_LAPSE2			= "Let us see how you fare when your world is turned upside down.";--translate
+DBM_KAEL_YELL_GRAVITY_LAPSE				= 'Hay que andar con pies de plomo.'; 	-- 20199
+DBM_KAEL_YELL_GRAVITY_LAPSE2			= 'Veamos cómo os sienta tener el mundo al revés.'; 	-- 20198
 
 
 DBM_KAEL_SPECWARN_THALADRED_TARGET		= "¡Corre!";

@@ -166,8 +166,8 @@ DBM_KAEL_INFOFRAME_ADDS_TITLE			= "Советники";
 DBM_KAEL_CAST_PHOENIX_REBIRTH			= "Феникс начинает читать заклинание Возрождение.";
 DBM_KAEL_EMOTE_PYROBLAST				= "начинает читать заклинание Огненная глыба";
 DBM_KAEL_EGG							= "Яйцо феникса";
-DBM_KAEL_YELL_GRAVITY_LAPSE				= "Having trouble staying grounded?";
-DBM_KAEL_YELL_GRAVITY_LAPSE2			= "Let us see how you fare when your world is turned upside down.";
+DBM_KAEL_YELL_GRAVITY_LAPSE				= 'Что, земля из-под ног уходит?'; 	-- 20199
+DBM_KAEL_YELL_GRAVITY_LAPSE2			= 'Посмотрим, что будет, если перевернуть ваш мир вверх дном.'; 	-- 20198
 
 
 DBM_KAEL_SPECWARN_THALADRED_TARGET		= "Бегите!";
