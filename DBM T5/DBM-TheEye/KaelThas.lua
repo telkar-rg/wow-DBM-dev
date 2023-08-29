@@ -38,6 +38,17 @@ local lastEgg		= 0;
 local gravityLapse	= false;
 local phase = 1
 
+local timer_P1_Thaladred = 30
+local timer_P1_Sanguinar = 12.5
+local timer_P1_Capernian = 8.5
+local timer_P1_Telonicus = 8.4
+
+local timer_P2_to_P3 = 2*60
+local timer_P3_to_P4 = 3*60
+local timer_P4_delayed_show = 10
+
+
+
 Kael:RegisterEvents(
 	"CHAT_MSG_MONSTER_EMOTE",
 	"CHAT_MSG_MONSTER_YELL",
@@ -96,7 +107,7 @@ function Kael:OnCombatStart(delay)
 	if self.Options.WarnPhase then
 		self:Announce(DBM_KAEL_WARN_PHASE1, 1);
 	end
-	self:StartStatusBarTimer(32 - delay, "Thaladred", "Interface\\Icons\\Spell_Nature_WispSplode");
+	self:StartStatusBarTimer(timer_P1_Thaladred - delay, "Thaladred", "Interface\\Icons\\Spell_Nature_WispSplode");
 	MCTargets = {};
 	MCIcons = {
 		[1]	= false,
@@ -161,10 +172,10 @@ function Kael:OnEvent(event, arg1)
 			end
 		elseif arg1 == DBM_KAEL_YELL_PHASE1_SANGUINAR then
 			self:Announce(DBM_KAEL_WARN_INC:format(DBM_KAEL_SANGUINAR), 1);
-			self:StartStatusBarTimer(12.5, "Lord Sanguinar", "Interface\\Icons\\Spell_Nature_WispSplode");
+			self:StartStatusBarTimer(timer_P1_Sanguinar, "Lord Sanguinar", "Interface\\Icons\\Spell_Nature_WispSplode");
 		elseif arg1 == DBM_KAEL_YELL_PHASE1_CAPERNIAN then
 			self:Announce(DBM_KAEL_WARN_INC:format(DBM_KAEL_CAPERNIAN), 1);
-			self:StartStatusBarTimer(7, "Capernian", "Interface\\Icons\\Spell_Nature_WispSplode");
+			self:StartStatusBarTimer(timer_P1_Capernian, "Capernian", "Interface\\Icons\\Spell_Nature_WispSplode");
 			self:EndStatusBarTimer("Next Fear");
 			self:UnScheduleSelf("FearSoon");
 			if self.Options.RangeCheck then
@@ -172,7 +183,7 @@ function Kael:OnEvent(event, arg1)
 			end
 		elseif arg1 == DBM_KAEL_YELL_PHASE1_TELONICUS then
 			self:Announce(DBM_KAEL_WARN_INC:format(DBM_KAEL_TELONICUS), 1);
-			self:StartStatusBarTimer(8.4, "Telonicus", "Interface\\Icons\\Spell_Nature_WispSplode");
+			self:StartStatusBarTimer(timer_P1_Telonicus, "Telonicus", "Interface\\Icons\\Spell_Nature_WispSplode");
 			if self.Options.RangeCheck then
 				DBM_Gui_DistanceFrame_Hide();
 			end
@@ -220,7 +231,7 @@ function Kael:OnEvent(event, arg1)
 			self:Announce(DBM_KAEL_WARN_PHASE3, 1);
 		end
 	elseif event == "Phase3" then
-		self:StartStatusBarTimer(173, "Phase 4", "Interface\\Icons\\Spell_Shadow_BloodBoil");
+		self:StartStatusBarTimer(timer_P3_to_P4 - timer_P4_delayed_show, "Phase 4", "Interface\\Icons\\Spell_Shadow_BloodBoil");
 		if self.Options.RangeCheck then
 			DBM_Gui_DistanceFrame_Show();
 		end
@@ -295,8 +306,8 @@ function Kael:OnSync(msg)
 		if self.Options.WarnPhase then
 			self:Announce(DBM_KAEL_WARN_PHASE2, 1);
 		end
-		self:StartStatusBarTimer(105, "Phase 3", "Interface\\Icons\\Spell_Shadow_AnimateDead");
-		self:ScheduleSelf(105, "WarnPhase3");
+		self:StartStatusBarTimer(timer_P2_to_P3, "Phase 3", "Interface\\Icons\\Spell_Shadow_AnimateDead");
+		self:ScheduleSelf(timer_P2_to_P3, "WarnPhase3");
 		if self.Options.ShowFrame and DBMGui and DBMGui.CreateInfoFrame then
 			if weaponFrame then
 				weaponHealth = {
@@ -323,7 +334,7 @@ function Kael:OnSync(msg)
 		end
 	elseif msg == "Phase3" then
 		phase = 3
-		self:ScheduleSelf(10, "Phase3");
+		self:ScheduleSelf(timer_P4_delayed_show, "Phase3");
 		if self.Options.ShowAddFrame and DBMGui and DBMGui.CreateInfoFrame then
 			if addFrame then
 				addHealth = {
