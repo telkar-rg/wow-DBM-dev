@@ -115,7 +115,7 @@
 
 	DBM_KAEL_YELL_PHASE2					= "Wie Ihr seht, habe ich viele Waffen in meinem Arsenal...";
 	DBM_KAEL_YELL_PHASE3					= "Vielleicht habe ich Euch unterschätzt. Es wäre unfair, Euch gegen meine vier Berater gleichzeitig kämpfen zu lassen, aber... mein Volk wurde auch nie fair behandelt. Ich vergelte nur Gleiches mit Gleichem.";
-	DBM_KAEL_YELL_PHASE4					= "Ach, manchmal muss man die Sache selbst in die Hand nehmen. Balamore shanal!";
+	DBM_KAEL_YELL_PHASE4					= "Ach, manchmal muss man die Dinge selbst in die Hand nehmen. Balamore shanal!"; 	-- 19195
 	DBM_KAEL_YELL_PHASE5					= "Ich bin nicht so weit gekommen, um jetzt noch aufgehalten zu werden! Die Zukunft, die ich geplant habe, wird nicht gefährdet werden. Jetzt bekommt Ihr wahre Macht zu spüren!";
 
 	DBM_KAEL_WEAPONS = {
