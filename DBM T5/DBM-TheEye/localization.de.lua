@@ -105,11 +105,11 @@
 	DBM_KAEL_YELL_PHASE1_SANGUINAR			= "Ihr habt gegen einige meiner besten Berater bestanden... aber niemand kommt gegen die Macht des Bluthammers an. Zittert vor Fürst Blutdurst!";
 	DBM_KAEL_YELL_PHASE1_CAPERNIAN			= "Capernian wird dafür sorgen, dass Euer Aufenthalt hier nicht lange währt.";
 	DBM_KAEL_YELL_PHASE1_TELONICUS			= "Gut gemacht. Ihr habt Euch würdig erwiesen, gegen meinen Meisteringenieur, Telonicus, anzutreten.";
-	DBM_KAEL_CAST_FEAR						= "Fürst Blutdurst beginnt Dröhnendes Gebrüll zu wirken.";
-	DBM_KAEL_DEBUFF_FEAR1					= "betroffen von Dröhnendes Gebrüll";
-	DBM_KAEL_DEBUFF_FEAR2					= "Blutdurst.*Dröhnendes Gebrüll";
-	DBM_KAEL_DEBUFF_CONFLAGRATION			= "([^%s]+) (%w+) von Großbrand betroffen%.";
-	DBM_KAEL_DEBUFF_REMOTETOY				= "([^%s]+) (%w+) von Ferngesteuertes Spielzeug betroffen%.";
+	-- DBM_KAEL_CAST_FEAR						= "Fürst Blutdurst beginnt Dröhnendes Gebrüll zu wirken.";
+	-- DBM_KAEL_DEBUFF_FEAR1					= "betroffen von Dröhnendes Gebrüll";
+	-- DBM_KAEL_DEBUFF_FEAR2					= "Blutdurst.*Dröhnendes Gebrüll";
+	-- DBM_KAEL_DEBUFF_CONFLAGRATION			= "([^%s]+) (%w+) von Großbrand betroffen%.";
+	-- DBM_KAEL_DEBUFF_REMOTETOY				= "([^%s]+) (%w+) von Ferngesteuertes Spielzeug betroffen%.";
 	DBM_KAEL_YELL_THALA_DOWN				= "Vergebt mir, mein Prinz! Ich habe... versagt.";
 	DBM_KAEL_YELL_CAPERNIAN_DOWN			= "Es ist noch nicht vorbei!";
 
@@ -155,13 +155,13 @@
 	DBM_KAEL_INFOFRAME_TITLE				= "Waffen";
 	DBM_KAEL_INFOFRAME_ADDS_TITLE			= "Berater";
 
-	DBM_KAEL_CAST_PYROBLAST					= "Kael'thas Sonnenwanderer beginnt Pyroschlag zu wirken.";
-	DBM_KAEL_GAIN_SHOCK_BARRIER				= "Kael'thas Sonnenwanderer bekommt 'Schockbarriere'.";
-	DBM_KAEL_FADE_SHOCK_BARRIER				= "Schockbarriere schwindet von Kael'thas Sonnenwanderer.";
-	DBM_KAEL_CAST_PHOENIX					= "Kael'thas Sonnenwanderer wirkt Phönix.";
-	DBM_KAEL_DEBUFF_MINDCONTROL				= "([^%s]+) (%w+) von Gedankenkontrolle betroffen%.";
-	DBM_KAEL_FADE_MINDCONTROL				= "([^%s]+)%s?'s 'Gedankenkontrolle' wurde durch";
-	DBM_KAEL_FADE_MINDCONTROL_YOU			= "Eure '?Gedankenkontrolle'? wurde durch"; --?
+	-- DBM_KAEL_CAST_PYROBLAST					= "Kael'thas Sonnenwanderer beginnt Pyroschlag zu wirken.";
+	-- DBM_KAEL_GAIN_SHOCK_BARRIER				= "Kael'thas Sonnenwanderer bekommt 'Schockbarriere'.";
+	-- DBM_KAEL_FADE_SHOCK_BARRIER				= "Schockbarriere schwindet von Kael'thas Sonnenwanderer.";
+	-- DBM_KAEL_CAST_PHOENIX					= "Kael'thas Sonnenwanderer wirkt Phönix.";
+	-- DBM_KAEL_DEBUFF_MINDCONTROL				= "([^%s]+) (%w+) von Gedankenkontrolle betroffen%.";
+	-- DBM_KAEL_FADE_MINDCONTROL				= "([^%s]+)%s?'s 'Gedankenkontrolle' wurde durch";
+	-- DBM_KAEL_FADE_MINDCONTROL_YOU			= "Eure '?Gedankenkontrolle'? wurde durch"; --?
 	DBM_KAEL_EGG							= "Phönixei";
 	DBM_KAEL_YELL_GRAVITY_LAPSE				= "Habt Ihr Probleme mit der Bodenhaftung?";
 	DBM_KAEL_YELL_GRAVITY_LAPSE2			= "Mal sehen, wie Ihr klarkommt, wenn Eure Welt auf den Kopf gestellt wird.";
