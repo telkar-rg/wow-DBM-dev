@@ -108,7 +108,7 @@ DBM_KAEL_OPTION_WARNMC					= "Объявить Контроль над разу�
 DBM_KAEL_OPTION_ICONMC					= "Устанавить метку на цель Контроль над разумом";
 DBM_KAEL_OPTION_GRAVITY					= "Объявить Искажение гравитации";
 
-DBM_KAEL_YELL_PHASE1					= "Energy. Power. My people are addicted to it... a dependence made manifest after the Sunwell was destroyed. Welcome... to the future. A pity you are too late to stop it. No one can stop me now! Selama ashal'anore!";
+DBM_KAEL_YELL_PHASE1					= 'Энергия. Сила. Мои люди без них не могут... Эта зависимость возникла после уничтожения Солнечного Колодца. Добро пожаловать... в будущее. Мне очень жаль, но вы не сможете ничего изменить. Теперь меня никто не остановит! Селама ашаль-аноре!'; 	-- 20195
 DBM_KAEL_EMOTE_THALADRED_TARGET			= "sets eyes on ([^%s]+)!";
 DBM_KAEL_YELL_PHASE1_SANGUINAR			= 'Вы справились с моими лучшими советниками... Но перед мощью Кровавого Молота не устоит никто. Узрите лорда Сангвинара!'; 	-- 19003
 DBM_KAEL_YELL_PHASE1_CAPERNIAN			= "Capernian will see to it that your stay here is a short one.";
