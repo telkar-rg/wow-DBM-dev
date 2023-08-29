@@ -121,7 +121,7 @@ DBM_KAEL_DEBUFF_REMOTETOY				= "([^%s]+) (%w+) под воздействием �
 DBM_KAEL_YELL_THALA_DOWN				= "Forgive me, my prince! I have... failed.";
 DBM_KAEL_YELL_CAPERNIAN_DOWN			= "This is not over!";
 
-DBM_KAEL_YELL_PHASE2					= "As you see, I have many weapons in my arsenal....";
+DBM_KAEL_YELL_PHASE2					= 'Как видите, оружия у меня предостаточно...'; 	-- 19053
 DBM_KAEL_YELL_PHASE3					= "Perhaps I underestimated you. It would be unfair to make you fight all four advisors at once, but... fair treatment was never shown to my people. I'm just returning the favor.";
 DBM_KAEL_YELL_PHASE4					= "Alas, sometimes one must take matters into one's own hands. Balamore shanal!";
 DBM_KAEL_YELL_PHASE5					= "I have not come this far to be stopped! The future I have planned will not be jeopardized! Now you will taste true power!!";

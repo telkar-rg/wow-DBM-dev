@@ -94,7 +94,7 @@ DBM_KAEL_YELL_PHASE1_TELONICUS			= "Well done, you have proven worthy to test yo
 DBM_KAEL_YELL_THALA_DOWN				= "Forgive me, my prince! I have... failed.";--translate
 DBM_KAEL_YELL_CAPERNIAN_DOWN			= "This is not over!";--translate
 
-DBM_KAEL_YELL_PHASE2					= "As you see, I have many weapons in my arsenal....";--translate
+DBM_KAEL_YELL_PHASE2					= 'Como veis, dispongo de un amplio arsenal...'; 	-- 19053
 DBM_KAEL_YELL_PHASE3					= "Perhaps I underestimated you. It would be unfair to make you fight all four advisors at once, but... fair treatment was never shown to my people. I'm just returning the favor.";--translate
 DBM_KAEL_YELL_PHASE4					= "Alas, sometimes one must take matters into one's own hands. Balamore shanal!";--translate
 DBM_KAEL_YELL_PHASE5					= "I have not come this far to be stopped! The future I have planned will not be jeopardized! Now you will taste true power!!";--translate

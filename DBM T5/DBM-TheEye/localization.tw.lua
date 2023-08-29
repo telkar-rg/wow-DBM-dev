@@ -122,7 +122,7 @@ DBM_KAEL_DEBUFF_REMOTETOY			= "(.+)受到(.*)遙控玩具效果的影響。";
 DBM_KAEL_YELL_THALA_DOWN			= "原諒我，我的王子!我...失敗了。";
 DBM_KAEL_YELL_CAPERNIAN_DOWN			= "事情還沒結束!";
 
-DBM_KAEL_YELL_PHASE2				= "你們看，我的個人收藏中有許多武器……";
+DBM_KAEL_YELL_PHASE2				= '你們看，我的個人收藏中有許多武器...'; 	-- 19053
 DBM_KAEL_YELL_PHASE3				= "也許我低估了你。要你一次對付四位諫言者也許對你來說是不太公平，但是……我的人民從未得到公平的對待。我只是以牙還牙而已。";
 DBM_KAEL_YELL_PHASE4				= "唉，有些時候，有些事情，必須得親自解決才行。(薩拉斯語)受死吧!";
 DBM_KAEL_YELL_PHASE5				= "我的心血是不會被你們輕易浪費的!我精心謀劃的未來是不會被你們輕易破壞的!感受我真正的力量吧!";
