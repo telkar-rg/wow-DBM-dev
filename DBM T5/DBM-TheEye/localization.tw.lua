@@ -111,7 +111,7 @@ DBM_KAEL_OPTION_GRAVITY				= "提示重力流逝";
 
 DBM_KAEL_YELL_PHASE1				= "能量。力量。我的人民陷入其中不能自拔……自從太陽之井被摧毀之後就顯得更加明顯。歡迎來到未來。真遺憾，你們無法阻止什麼。沒有人可以阻止我了﹗(薩拉斯語)為了人民的正義!";
 DBM_KAEL_EMOTE_THALADRED_TARGET			= "凝視著(.+)!";
-DBM_KAEL_YELL_PHASE1_SANGUINAR			= "你已經努力的打敗了我的幾位最忠誠的諫言者…但是沒有人可以抵抗血錘的力量。等著看桑古納爾的力量吧!";
+DBM_KAEL_YELL_PHASE1_SANGUINAR			= '你已經努力的打敗了我的幾位最忠誠的諫言者...但是沒有人可以抵抗血錘的力量。等著看桑古納爾領主的力量吧!'; 	-- 19003
 DBM_KAEL_YELL_PHASE1_CAPERNIAN			= "卡普尼恩將保證你們不會在這裡停留太久。";
 DBM_KAEL_YELL_PHASE1_TELONICUS			= "做得好，你已經證明你的實力足以挑戰我的工程大師泰隆尼卡斯。";
 DBM_KAEL_CAST_FEAR				= "桑古納爾領主開始施放低沉咆哮。";

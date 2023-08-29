@@ -135,7 +135,7 @@ if (GetLocale() == "zhCN") then
 
 	DBM_KAEL_YELL_PHASE1					= "魔法，能量，我的人民陷入其中不能自拔……自从太阳之井被摧毁之后就是如此。欢迎来到未来。真遗憾，你们无法阻止什么。没有人可以阻止我了！Selama ashal’anore！！";
 --[[
-	DBM_KAEL_YELL_PHASE1_SANGUINAR			= "你们击败了我最强大的顾问……但是没有人能战胜鲜血之锤。出来吧，萨古纳尔男爵！";
+	DBM_KAEL_YELL_PHASE1_SANGUINAR			= '你们击败了我最强大的顾问……但是没有人能战胜鲜血之锤。出来吧，萨古纳尔男爵！'; 	-- 19003
 	DBM_KAEL_YELL_PHASE1_CAPERNIAN			= "卡波妮娅会很快解决你们的。";
 	DBM_KAEL_YELL_PHASE1_TELONICUS			= "干得不错。看来你们有能力挑战我的首席技师，塔隆尼库斯。";
 	DBM_KAEL_YELL_THALA_DOWN				= "原谅我，王子殿下！我……失败了。";

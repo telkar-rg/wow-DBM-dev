@@ -102,7 +102,7 @@
 
 	DBM_KAEL_YELL_PHASE1					= "Energie. Kraft. Mein Volk ist süchtig danach... Eine Abhängigkeit, die entstand, nachdem der Sonnenbrunnen zerstört wurde. Willkommen in der Zukunft. Ein Jammer, dass Ihr zu spät seid, um sie zu verhindern. Niemand kann mich jetzt noch aufhalten! Selama ashal'anore!";
 	DBM_KAEL_EMOTE_THALADRED_TARGET			= "behält ([^%s]+) im Blickfeld!";
-	DBM_KAEL_YELL_PHASE1_SANGUINAR			= "Ihr habt gegen einige meiner besten Berater bestanden... aber niemand kommt gegen die Macht des Bluthammers an. Zittert vor Fürst Blutdurst!";
+	DBM_KAEL_YELL_PHASE1_SANGUINAR			= 'Ihr habt gegen einige meiner besten Berater bestanden... aber niemand kommt gegen die Macht des Bluthammers an. Erzittert vor Lord Sanguinar!';	-- 19003
 	DBM_KAEL_YELL_PHASE1_CAPERNIAN			= "Capernian wird dafür sorgen, dass Euer Aufenthalt hier nicht lange währt.";
 	DBM_KAEL_YELL_PHASE1_TELONICUS			= "Gut gemacht. Ihr habt Euch würdig erwiesen, gegen meinen Meisteringenieur, Telonicus, anzutreten.";
 	-- DBM_KAEL_CAST_FEAR						= "Fürst Blutdurst beginnt Dröhnendes Gebrüll zu wirken.";

@@ -88,7 +88,7 @@ DBM_KAEL_OPTION_GRAVITY					= "Anunciar Gravedad cero";
 
 DBM_KAEL_YELL_PHASE1					= "Energía. Poder. Mi gente es adicta a ellos… una dependencia que se puso de manifiesto cuando La Fuente del Sol fue destruida. Bienvenidos… al futuro. Es una pena que sea demasiado tarde para que os interpongáis. ¡Ya nadie me puede parar! ¡Selama ashal’anore!";
 DBM_KAEL_EMOTE_THALADRED_TARGET			= "mira a ([^%s]+)!";
-DBM_KAEL_YELL_PHASE1_SANGUINAR			= "You have persevered against some of my best advisors... but none can withstand the might of the Blood Hammer. Behold, Lord Sanguinar!";--translate
+DBM_KAEL_YELL_PHASE1_SANGUINAR			= 'Habéis sobrevivido a algunos de mis mejores consejeros... pero nadie puede resistir el poder del Martillo de Sangre. ¡He aquí Lord Sanguinar!'; 	-- 19003
 DBM_KAEL_YELL_PHASE1_CAPERNIAN			= "Capernian will see to it that your stay here is a short one.";--translate
 DBM_KAEL_YELL_PHASE1_TELONICUS			= "Well done, you have proven worthy to test your skills against my master engineer, Telonicus.";--translate
 DBM_KAEL_YELL_THALA_DOWN				= "Forgive me, my prince! I have... failed.";--translate
