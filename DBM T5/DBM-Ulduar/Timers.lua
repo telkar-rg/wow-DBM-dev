@@ -3,7 +3,7 @@ local _, TableShared = ...
 local Timers = {}
 
 Timers["FlameLeviathan"] = {
-    ["Pursued"]        = 30, -- 35
+    ["Pursued"]        = 35,
 }
 
 
