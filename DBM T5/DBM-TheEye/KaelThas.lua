@@ -180,17 +180,17 @@ function Kael:OnEvent(event, arg1)
 			self:SendSync("GravityLapse");
 		end
 	elseif event == "SPELL_CAST_START" and arg1 then
-		if arg1.spellId == 39427 then -- ?
+		if (arg1.spellId == 22686) or (arg1.spellId == 36922) or (arg1.spellId == 39427) or (arg1.spellId == 40636) or (arg1.spellId == 44863) then -- Lord Sanguinar: "Bellowing Roar"
 			self:SendSync("CastFear")
 		elseif arg1.spellId == 36819 then
 			self:SendSync("Pyroblast")
 		end
-	elseif event == "SPELL_MISSED" then
-		if arg1.spellId == 39427 then -- ?
+	-- elseif event == "SPELL_MISSED" then
+		if (arg1.spellId == 22686) or (arg1.spellId == 36922) or (arg1.spellId == 39427) or (arg1.spellId == 40636) or (arg1.spellId == 44863) then -- Lord Sanguinar: "Bellowing Roar"
 			self:SendSync("Fear")
-		end
+		-- end
 	elseif event == "SPELL_AURA_APPLIED" then
-		if arg1.spellId == 39427 then -- ?
+		if (arg1.spellId == 22686) or (arg1.spellId == 36922) or (arg1.spellId == 39427) or (arg1.spellId == 40636) or (arg1.spellId == 44863) then -- Lord Sanguinar: "Bellowing Roar"
 			self:SendSync("Fear");
 		elseif arg1.spellId == 37018 then -- ?
 			self:SendSync("Conflag"..tostring(arg1.destName))
