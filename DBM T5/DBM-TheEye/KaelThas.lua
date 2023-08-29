@@ -192,7 +192,7 @@ function Kael:OnEvent(event, arg1)
 	elseif event == "SPELL_AURA_APPLIED" then
 		if (arg1.spellId == 22686) or (arg1.spellId == 36922) or (arg1.spellId == 39427) or (arg1.spellId == 40636) or (arg1.spellId == 44863) then -- Lord Sanguinar: "Bellowing Roar"
 			self:SendSync("Fear");
-		elseif arg1.spellId == 37018 then -- ?
+		elseif arg1.spellId == 37018 then -- Capernian: "Conflagration"
 			self:SendSync("Conflag"..tostring(arg1.destName))
 		elseif arg1.spellId == 36797 then
 			self:SendSync("MC"..tostring(arg1.destName))
