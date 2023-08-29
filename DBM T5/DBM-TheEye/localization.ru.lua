@@ -119,7 +119,7 @@ DBM_KAEL_DEBUFF_FEAR2					= "Lord Sanguinar%s?'s Bellowing Roar";
 DBM_KAEL_DEBUFF_CONFLAGRATION			= "([^%s]+) (%w+) под воздействием эффекта Воспламенение%.";
 DBM_KAEL_DEBUFF_REMOTETOY				= "([^%s]+) (%w+) под воздействием эффекта Игрушка с дистанционным управлением%.";
 DBM_KAEL_YELL_THALA_DOWN				= "Forgive me, my prince! I have... failed.";
-DBM_KAEL_YELL_CAPERNIAN_DOWN			= "This is not over!";
+DBM_KAEL_YELL_CAPERNIAN_DOWN			= 'Это еще не конец!'; 	-- 20848
 
 DBM_KAEL_YELL_PHASE2					= 'Как видите, оружия у меня предостаточно...'; 	-- 19053
 DBM_KAEL_YELL_PHASE3					= 'Возможно, я недооценил вас. Было бы несправедливо заставлять вас драться с четырьмя советниками сразу, но... Мои люди тоже никогда не знали справедливости. Я лишь возвращаю долг.'; 	-- 19060

@@ -92,7 +92,7 @@ DBM_KAEL_YELL_PHASE1_SANGUINAR			= 'Habéis sobrevivido a algunos de mis mejores
 DBM_KAEL_YELL_PHASE1_CAPERNIAN			= "Capernian will see to it that your stay here is a short one.";--translate
 DBM_KAEL_YELL_PHASE1_TELONICUS			= "Well done, you have proven worthy to test your skills against my master engineer, Telonicus.";--translate
 DBM_KAEL_YELL_THALA_DOWN				= "Forgive me, my prince! I have... failed.";--translate
-DBM_KAEL_YELL_CAPERNIAN_DOWN			= "This is not over!";--translate
+DBM_KAEL_YELL_CAPERNIAN_DOWN			= '¡Aún no se ha acabado!'; 	-- 20848
 
 DBM_KAEL_YELL_PHASE2					= 'Como veis, dispongo de un amplio arsenal...'; 	-- 19053
 DBM_KAEL_YELL_PHASE3					= 'Quizás os subestimé. Sería injusto que os enfrentarais a los cuatro consejeros al mismo tiempo, pero... nunca se le ha brindado un trato justo a mi gente. Así que os devuelvo el favor.'; 	-- 19060
