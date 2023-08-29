@@ -140,14 +140,14 @@
 
 	DBM_KAEL_ADVISORS = {
 		["Thaladred der Verfinsterer"] = 1,
-		["Fürst Blutdurst"] = 2,
+		["Lord Sanguinar"] = 2,
 		["Großastromant Capernian"] = 3,
 		["Meisteringenieur Telonicus"] = 4,
 	};
 
 	DBM_KAEL_ADVISORS_NAMES = {
 		"Thaladred",
-		"Blutdurst",
+		"Sanguinar",
 		"Capernian",
 		"Telonicus"
 	};
@@ -196,7 +196,7 @@
 	DBM_KAEL_GRAVITY_SOON					= "*** Gravitationsverlust bald ***";
 	DBM_KAEL_GRAVITY_END_SOON				= "*** Gravitationsverlust hört in 5 Sek auf ***";
 
-	DBM_SBT["Lord Sanguinar"]				= "Fürst Blutdurst";
+	DBM_SBT["Lord Sanguinar"]				= "Lord Sanguinar";
 	DBM_SBT["Next Fear"]					= "Nächster Fear";
 	DBM_SBT["Pyroblast"]					= "Pyroschlag";
 	DBM_SBT["Shock Barrier"]				= "Schockbarriere";
