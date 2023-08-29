@@ -2,6 +2,13 @@
 DBM: modified development for WotLK
 
 ### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
+- DBM T5.007 alpha
+  - Ulduar / FlameLeviathan
+    - fixed "Pursued" timer of FlameLeviathan (35s)
+  - Tempest Keep / Kael'thas Sunstrider
+    - fixed deDE NPC name of "Lord Sanguinar" (was "Fürst Blutdurst") and various YELL locales
+	- fixed detection of "Bellowing Roar" spell (cast by "Lord Sanguinar")
+	- fixed some Phase transition timers
 - DBM T5.006 alpha
   - Yogg-Saron Rework
     - added TTS countdown to Lunatic Gaze cast
