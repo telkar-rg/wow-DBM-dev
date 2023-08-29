@@ -171,7 +171,7 @@
 	DBM_KAEL_WARN_THALADRED_TARGET			= "*** Thaladred behält >%s< im Blickfeld ***";
 	DBM_KAEL_WHISPER_THALADRED_TARGET		= "Thaladred ist auf dir! Lauf weg!";
 	DBM_KAEL_WARN_INC						= "*** %s kommt ***";
-	DBM_KAEL_SANGUINAR						= "Fürst Blutdurst";
+	DBM_KAEL_SANGUINAR						= "Lord Sanguinar"; 	-- 20060
 	DBM_KAEL_CAPERNIAN						= "Capernian";
 	DBM_KAEL_TELONICUS						= "Telonicus";
 	DBM_KAEL_WARN_FEAR						= "*** Fear in 1.5 Sek ***";

@@ -213,7 +213,7 @@ if (GetLocale() == "zhCN") then
 	DBM_KAEL_WARN_THALADRED_TARGET			= "*** 萨拉德雷注视着>%s< ***";
 	DBM_KAEL_WHISPER_THALADRED_TARGET		= "萨拉德雷注视着你！快跑！";
 	DBM_KAEL_WARN_INC						= "*** %s - 即将触发 ***";
-	DBM_KAEL_SANGUINAR						= "萨古纳尔";
+	DBM_KAEL_SANGUINAR						= '萨古纳尔男爵'; 	-- 20060
 	DBM_KAEL_CAPERNIAN						= "卡波妮娅";
 	DBM_KAEL_TELONICUS						= "塔隆尼库斯";
 	DBM_KAEL_WARN_FEAR						= "*** 恐惧 - 1.5秒后施放 ***";
