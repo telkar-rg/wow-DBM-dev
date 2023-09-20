@@ -2,6 +2,8 @@
 DBM: modified development for WotLK
 
 ### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
+- LATEST
+  - Ulduar / Mimiron: Added timer for start of Phase 1
 - DBM T5.007 alpha
   - Ulduar / FlameLeviathan
     - fixed "Pursued" timer of FlameLeviathan (35s)
