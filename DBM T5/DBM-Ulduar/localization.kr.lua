@@ -460,6 +460,7 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	TimerHardmode			= "하드 모드 - 자폭장치 가동",
+	TimeToPhase1			= "1 페이즈",
 	TimeToPhase2			= "2 페이즈",
 	TimeToPhase3			= "3 페이즈",
 	TimeToPhase4			= "4 페이즈"
@@ -467,6 +468,7 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	DarkGlare 				= "레이저 탄막 특수 경고 알리기",
+	TimeToPhase1			= "페이즈 1 시작 알리기",
 	TimeToPhase2			= "페이즈 2 시작 알리기",
 	TimeToPhase3			= "페이즈 3 시작 알리기",
 	TimeToPhase4			= "페이즈 4 시작 알리기",
