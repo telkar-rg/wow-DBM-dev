@@ -56,9 +56,9 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnJetsCast		= "Activer l'avertissement spécial pour les Flots de flammes (contresort)",
-	WarningSlagPot			= "Annoncer la cible de la Marmite de scories",
-	SlagPotIcon				= "Mettre une icône sur la cible de la Marmite de scories"
+	-- SpecWarnJetsCast		= "Activer l'avertissement spécial pour les Flots de flammes (contresort)", 	-- en handles this
+	-- WarningSlagPot			= "Annoncer la cible de la Marmite de scories", 	-- en handles this
+	-- SlagPotIcon				= "Mettre une icône sur la cible de la Marmite de scories" 	-- en handles this
 }
 
 ------------------
@@ -132,8 +132,8 @@ L:SetOptionLocalization{
 	SpecialWarningLightBomb		= "Activer l'avertissement spécial quand vous êtes affecté par la bombe de lumière",
 	SpecialWarningGravityBomb	= "Activer l'avertissement spécial quand vous êtes affecté par la bombe à gravité",
 	specWarnConsumption			= "Montre une alerte spéciale quand vous subissez des dégats venant des Zone de Vide ( Hard-mode )",
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	-- SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121), 	-- en handles this
+	-- SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234) 	-- en handles this
 }
 
 -------------------
@@ -160,8 +160,8 @@ L:SetOptionLocalization{
 	LightningTendrils			= "Activer l'avertissement spécial pour les Vrilles d'éclair",
 	PlaySoundLightningTendrils	= "Jouer un son pour les Vrilles d'éclair",
 	RuneofDeath					= "Activer l'avertissement spécial pour les runes de mort",
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
+	-- SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888), 	-- en handles this
+	-- SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912), 	-- en handles this
 	Overload					= "Montre une alerte spéciale pour la Surcharge",
 	AlwaysWarnOnOverload		= "Toujours alerter pour la surcharge (sinon seulement quand ciblé)",
 	PlaySoundOnOverload			= "Joue un son à la surcharge",
@@ -257,7 +257,7 @@ L:SetMiscLocalization{
 	Health_Body				= "Torse de Kologarn",
 	Health_Right_Arm		= "Bras droit",
 	Health_Left_Arm			= "Bras gauche",
-	FocusedEyebeam			= "%s concentre son regard sur vous !"
+	FocusedEyebeam			= "concentre son regard sur vous"
 }
 
 ---------------
@@ -287,7 +287,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast 		= "Activer l'avertissement spécial pour les Déflagration du factionnaire",
+	SpecWarnBlast 		= "Activer l'avertissement spécial pour les $spell:64389",
 	SpecWarnVoid		= "Montre une alerte spéciale quand vous êtes dans une Zone de Vide",
 	WarnFearSoon 		= "Activer l'avertissement pour le Hurlement terrifiant imminent",
 	WarnCatDied 		= "Activer l'avertissement quand un défenseur farouche meurt",
@@ -314,10 +314,13 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningFlashFreeze		= "Activer l'avertissement pour le gel instantané",
-	PlaySoundOnFlashFreeze	= "Jouer un son lors de l'incantation du gel instantané",
-	YellOnStormCloud		= "Crie quand la tempête de glace est active",
-	SetIconOnStormCloud		= "Met une icône sur la cible de la tempête de glace",
-	specWarnBitingCold		= "Montre une alerte spéciale quand vous êtes affecter par Froid mordant"
+	-- PlaySoundOnFlashFreeze	= "Jouer un son lors de l'incantation du gel instantané",
+	-- PlaySoundOnFlashFreeze	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(61968), 	-- en handles this
+	YellOnStormCloud		= "Crie quand $spell:65133 sur vous",
+	-- SetIconOnStormCloud		= "Met une icône sur la cible de la tempête de glace",
+	-- SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)", 	-- en handles this
+	-- SetIconOnFreeze			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62469) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)" 	-- en handles this
+	-- specWarnBitingCold		= "Montre une alerte spéciale quand vous êtes affecter par Froid mordant"
 }
 
 L:SetMiscLocalization{
@@ -465,7 +468,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	DarkGlare				= "Montre une alerte spéciale pour le Barrage laser",
 	TimeToPhase1			= "Montre le timer pour la Phase 1",
 	TimeToPhase2			= "Montre le timer pour la Phase 2",
 	TimeToPhase3			= "Montre le timer pour la Phase 3",
@@ -475,10 +477,10 @@ L:SetOptionLocalization{
 	AutoChangeLootToFFA		= "Met le butin en accès libre durant la phase 3",
 	WarnBombSpawn			= "Annonce les Robots Bombes",
 	TimerHardmode			= "Montre le timer pour le Hard Mode",
-	PlaySoundOnShockBlast	= "Joue un son lors des Horions explosifs",
-	PlaySoundOnDarkGlare	= "Joue un son au Barrage laser",
-	ShockBlastWarningInP1	= "Montre une alerte spéciale pour les Horions explosifs durant la Phase 1",
-	ShockBlastWarningInP4	= "Montre une alerte spéciale pour les Horions explosifs durant la Phase 4",
+	-- PlaySoundOnShockBlast	= "Joue un son lors des Horions explosifs",
+	-- PlaySoundOnDarkGlare	= "Joue un son au Barrage laser",
+	ShockBlastWarningInP1	= "Montre une alerte spéciale pour les $spell:63631 durant la Phase 1",
+	ShockBlastWarningInP4	= "Montre une alerte spéciale pour les $spell:63631 durant la Phase 4",
 	RangeFrame				= "Affiche la fenêtre de portée pour la phase 1"
 }
 
@@ -535,8 +537,8 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	WarningShadowCrash				= "Montre une alerte spéciale pour les Déferlante d'ombre",
-	SetIconOnShadowCrash			= "met une icône sur la cible des Déferlante d'ombre ( Tête de mort )",
-	SetIconOnLifeLeach				= "Met une icône sur la cible de la Marque du Sans-visage ( Croix )",
+	-- SetIconOnShadowCrash			= "met une icône sur la cible des Déferlante d'ombre ( Tête de mort )",
+	-- SetIconOnLifeLeach				= "Met une icône sur la cible de la Marque du Sans-visage ( Croix )",
 	SpecialWarningSurgeDarkness		= "Montre une alerte spéciale pour les Vague de ténèbres",
 	SpecialWarningShadowCrash		= "Montre une alerte spéciale pour les Déferlante d'ombre",
 	SpecialWarningShadowCrashNear	= "Montre une alerte spéciale quand la Déferlante d'ombre tombe à côté de vous",

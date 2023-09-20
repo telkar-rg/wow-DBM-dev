@@ -49,7 +49,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
+	-- SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477) 	-- en handles this
 }
 
 ------------------
@@ -115,8 +115,8 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	-- SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121), 	-- en handles this
+	-- SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234) 	-- en handles this
 }
 
 --------------------
@@ -136,8 +136,8 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	PlaySoundLightningTendrils	= "Звуковой сигнал при $spell:63486",
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
+	-- SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888), 	-- en handles this
+	-- SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912), 	-- en handles this
 	AlwaysWarnOnOverload		= "Всегда предупреждать при $spell:63481 (иначе, только когда босс в цели)",
 	PlaySoundOnOverload			= "Звуковой сигнал при $spell:63481",
 	PlaySoundDeathRune			= "Звуковой сигнал при $spell:63490"
@@ -212,8 +212,8 @@ L:SetOptionLocalization{
 	timerRightArm			= "Отсчет времени до Возрождения правой руки",
 	-- achievementDisarmed		= "Отсчет времени для достижения Обезоружен",
 	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
+	-- SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292), 	-- en handles this
+	-- SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346), 	-- en handles this
 	PlaySoundOnEyebeam		= "Звуковой сигнал при $spell:63346",
 	YellOnBeam				= "Кричать, когда на вас $spell:63346",
 }
@@ -224,7 +224,7 @@ L:SetMiscLocalization{
 	Health_Body				= "Кологарн",
 	Health_Right_Arm		= "Правая рука",
 	Health_Left_Arm			= "Левая рука",
-	FocusedEyebeam			= "%s устремляет на вас свой взгляд!",
+	FocusedEyebeam			= "Кологарн устремляет на вас свой взгляд",
 	YellBeam				= "Сосредоточенный взгляд на мне!"
 }
 
@@ -253,7 +253,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast	= "Спец-предупреждение об Ударе часового (для прерывания)",
+	SpecWarnBlast	= "Спец-предупреждение об $spell:64389 (для прерывания)",
 	WarnCatDied		= "Предупреждение, когда Дикий защитник погибает",
 	WarnCatDiedOne	= "Предупреждение, когда у Дикого защитника остается 1 жизнь",
 	timerDefender	= "Отсчет времени до возрождения Дикого защитника"
@@ -275,9 +275,12 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	PlaySoundOnFlashFreeze	= "Звуковой сигнал при применении $spell:61968",
+	-- PlaySoundOnFlashFreeze	= "Звуковой сигнал при применении $spell:61968",
+	-- PlaySoundOnFlashFreeze	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(61968), 	-- en handles this
 	YellOnStormCloud		= "Кричать, когда на вас $spell:65133",
-	SetIconOnStormCloud		= "Устанавливать метки на цели заклинания $spell:65133",
+	-- SetIconOnStormCloud		= "Устанавливать метки на цели заклинания $spell:65133",
+	-- SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)", 	-- en handles this
+	-- SetIconOnFreeze			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62469) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)" 	-- en handles this
 }
 
 L:SetMiscLocalization{
@@ -431,13 +434,13 @@ L:SetOptionLocalization{
 	AutoChangeLootToFFA		= "Смена режима добычи на Каждый за себя в фазе 3",
 	WarnBombSpawn			= "Предупреждение о Бомботах",
 	TimerHardmode			= "Отсчет времени для сложного режима",
-	PlaySoundOnShockBlast	= "Звуковой сигнал при $spell:63631",
-	PlaySoundOnDarkGlare	= "Звуковой сигнал при $spell:63414",
+	-- PlaySoundOnShockBlast	= "Звуковой сигнал при $spell:63631",
+	-- PlaySoundOnDarkGlare	= "Звуковой сигнал при $spell:63414",
 	ShockBlastWarningInP1	= "Спец-предупреждение для $spell:63631 в фазе 1",
 	ShockBlastWarningInP4	= "Спец-предупреждение для $spell:63631 в фазе 4",
 	RangeFrame				= "Показывать окно проверки дистанции в фазе 1 (6 м)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	-- SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
+	-- SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
 }
 
 L:SetMiscLocalization{
@@ -487,8 +490,8 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnShadowCrash			= "Устанавливать метки на цели заклинания $spell:62660 (череп)",
-	SetIconOnLifeLeach				= "Устанавливать метки на цели заклинания $spell:63276 (крест)",
+	-- SetIconOnShadowCrash			= "Устанавливать метки на цели заклинания $spell:62660 (череп)",
+	-- SetIconOnLifeLeach				= "Устанавливать метки на цели заклинания $spell:63276 (крест)",
 	SpecialWarningShadowCrash		= "Спец-предупреждение для $spell:62660 (должен быть в цели или фокусе хотя бы у одного члена рейда)",
 	SpecialWarningShadowCrashNear	= "Спец-предупреждение о $spell:62660 около вас",
 	SpecialWarningLLNear			= "Спец-предупреждение о $spell:63276 около вас",

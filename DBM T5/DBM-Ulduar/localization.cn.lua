@@ -56,7 +56,7 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
+	-- SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477) 	-- en handles this
 }
 
 ------------------
@@ -124,8 +124,8 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	-- SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121), 	-- en handles this
+	-- SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234) 	-- en handles this
 }
 
 --------------------
@@ -146,8 +146,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
 	PlaySoundLightningTendrils	= "为$spell:63486播放音效",
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
+	-- SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888), 	-- en handles this
+	-- SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912), 	-- en handles this
 	AlwaysWarnOnOverload		= "总是对$spell:63481显示警报(否则只有当目标是唤雷者的时候显示)",
 	PlaySoundOnOverload		= "当$spell:63481施放时播放音效",
 	PlaySoundDeathRune		= "当$spell:63490施放时播放音效"
@@ -224,9 +224,9 @@ L:SetOptionLocalization{
 	timerRightArm			= "为右臂重生显示计时条",
 	-- achievementDisarmed		= "为成就：断其臂膀显示计时条",
 	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
-	PlaySoundOnEyebeam		= "为$spell:63346播放音效",
+	-- SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292), 	-- en handles this
+	-- SetIconOnEyebeamTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346), 	-- en handles this
+	-- PlaySoundOnEyebeam		= "为$spell:63346播放音效", 	-- en handles this
 	YellOnBeam			= "当你中了$spell:63346时大喊"
 }
 
@@ -236,7 +236,8 @@ L:SetMiscLocalization{
 	Health_Body			= "科隆加恩身体",
 	Health_Right_Arm		= "右臂",
 	Health_Left_Arm			= "左臂",
-	FocusedEyebeam			= "在注视着你",
+	-- FocusedEyebeam			= "在注视着你",
+	FocusedEyebeam			= "科隆加恩在注视着你",
 	YellBeam			= "科隆加恩正在注视我！"
 }
 
@@ -289,9 +290,12 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
-	PlaySoundOnFlashFreeze		= "当施放$spell:61968时播放音效",
+	-- PlaySoundOnFlashFreeze		= "当施放$spell:61968时播放音效",
+	-- PlaySoundOnFlashFreeze	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(61968), 	-- en handles this
 	YellOnStormCloud		= "当你中了$spell:65133时大喊",
-	SetIconOnStormCloud		= "为$spell:65133的目标设置标记"
+	-- SetIconOnStormCloud		= "为$spell:65133的目标设置标记"
+	-- SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)", 	-- en handles this
+	-- SetIconOnFreeze			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62469) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)" 	-- en handles this
 }
 
 L:SetMiscLocalization{
@@ -435,13 +439,13 @@ L:SetOptionLocalization{
 	AutoChangeLootToFFA		= "第3阶段自动转换拾取方式为自由拾取",
 	WarnBombSpawn			= "为炸弹机器人显示警报",
 	TimerHardmode			= "为困难模式显示计时条",
-	PlaySoundOnShockBlast		= "当$spell:63631施放时播放音效",
-	PlaySoundOnDarkGlare		= "当$spell:63414施放前播放音效",
+	-- PlaySoundOnShockBlast		= "当$spell:63631施放时播放音效",
+	-- PlaySoundOnDarkGlare		= "当$spell:63414施放前播放音效",
 	ShockBlastWarningInP1		= "为第1阶段的$spell:63631显示特别警报",
 	ShockBlastWarningInP4		= "为第4阶段的$spell:63631显示特别警报",
 	RangeFrame			= "在第1阶段显示距离框(6码)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	-- SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
+	-- SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
 }
 
 L:SetMiscLocalization{
@@ -492,8 +496,8 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
-	SetIconOnShadowCrash		= "为$spell:62660的目标设置标记 (骷髅)",
-	SetIconOnLifeLeach		= "为$spell:63276的目标设置标记 (十字)",
+	-- SetIconOnShadowCrash		= "为$spell:62660的目标设置标记 (骷髅)",
+	-- SetIconOnLifeLeach		= "为$spell:63276的目标设置标记 (十字)",
 	SpecialWarningShadowCrash	= "为$spell:62660显示特别警报(必须至少有一名团队成员设置首领为焦点目标)",
 	SpecialWarningShadowCrashNear	= "当你附近的人中了$spell:62660时显示特别警报",
 	SpecialWarningLLNear		= "当你附近的人中了$spell:63276时显示特别警报",
