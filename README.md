@@ -3,7 +3,13 @@ DBM: modified development for WotLK
 
 ### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
 - LATEST
-  - Ulduar / Mimiron: Added timer for start of Phase 1
+  - Ulduar
+    - Mimiron: Added timer for start of Phase 1
+	- Freya: Added option to set Icons on Players (was always performed)
+	- Hodir: Added Icon for the target of "Freeze"
+	- Mimiron: Some timers fixed, Added additional Warning for PlasmaBlastSoon
+    - GUI: Fixed automatic line break in Button texts for usage of Icons
+	- Localization: added icons to options text
 - DBM T5.007 alpha
   - Ulduar / FlameLeviathan
     - fixed "Pursued" timer of FlameLeviathan (35s)
