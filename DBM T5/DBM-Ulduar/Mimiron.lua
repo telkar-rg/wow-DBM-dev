@@ -30,8 +30,9 @@ local c_timerFirstFlames = 6.5
 local c_timerNextFlames = 28
 local c_timerNextFlamesP4 = 28 	-- 18 -- it was measures to be 28s on 2023 07 13
 local c_timerFlameSuppressantP1 = 83.5	-- spell=64570 -- from yell
-local c_timerFirstShockblastP1 = 43.5	-- spell=63631 -- from yell
-local c_timerPlasmaBlastP1 = 37		-- spell=64529 -- from yell
+local c_timerFirstShockblastP1 	= 43.5	-- spell=63631 -- from yell
+local c_timerPlasmaBlastPull 	= 32	-- spell=64529 -- from yell
+local c_timerPlasmaBlastPullHM 	= 36.5
 
 
 local blastWarn					= mod:NewTargetAnnounce(64529, 4)
@@ -39,6 +40,7 @@ local shellWarn					= mod:NewTargetAnnounce(63666, 2)
 local lootannounce				= mod:NewAnnounce("MagneticCore", 1)
 local warnBombSpawn				= mod:NewAnnounce("WarnBombSpawn", 3)
 local warnFrostBomb				= mod:NewSpellAnnounce(64623, 3)
+local warnPlasmaBlastSoon		= mod:NewAnnounce("WarnPlasmaBlastSoon", 3, 64529, mod:IsTank() or mod:IsHealer())
 
 local warnShockBlast			= mod:NewSpecialWarning("WarningShockBlast", nil, false)
 mod:AddBoolOption("ShockBlastWarningInP1", mod:IsMelee(), "announce")
@@ -100,7 +102,7 @@ function mod:OnCombatStart(delay)
 	napalmShellIcon = 7
 	table.wipe(napalmShellTargets)
 	self:NextPhase()
-	timerPlasmaBlastCD:Start(32-delay)
+	timerPlasmaBlastCD:Start(c_timerPlasmaBlastPull - delay)
 	if DBM:GetRaidRank() == 2 then
 		lootmethod, _, masterlooterRaidID = GetLootMethod()
 	end
@@ -172,6 +174,10 @@ function mod:SPELL_CAST_START(args)
 	end
 	if args:IsSpellID(64529, 62997) then -- plasma blast
 		timerPlasmaBlastCD:Start()
+		warnPlasmaBlastSoon:Show()
+		
+		-- 0x8517	34071
+		local targetname = self:GetBossTarget(34071)
 	end
 	-- if args:IsSpellID(64570) then	-- "Flame Suppressant" is only cast ONCE, and not after it has been cast
 		-- timerFlameSuppressant:Start()
@@ -188,8 +194,10 @@ function mod:SPELL_AURA_APPLIED(args)
 		napalmShellTargets[#napalmShellTargets + 1] = args.destName
 		timerShell:Start()
 		if self.Options.SetIconOnNapalm then
-			self:SetIcon(args.destName, napalmShellIcon, 6)
-			napalmShellIcon = napalmShellIcon - 1
+			if napalmShellIcon > 0 then 	-- only when we have raidtargets left
+				self:SetIcon(args.destName, napalmShellIcon, 6)
+				napalmShellIcon = napalmShellIcon - 1
+			end
 		end
 		self:Unschedule(warnNapalmShellTargets)
 		self:Schedule(0.3, warnNapalmShellTargets)
@@ -359,7 +367,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		timerNextShockblast:Stop()
 		timerNextShockblast:Start(c_timerFirstShockblastP1)
 		timerPlasmaBlastCD:Stop()
-		timerPlasmaBlastCD:Start(c_timerPlasmaBlastP1)
+		timerPlasmaBlastCD:Start(c_timerPlasmaBlastPullHM)
 	
 	elseif (msg == L.YellDefeat or msg:find(L.YellDefeat)) then -- register kill
 		enrage:Stop()
