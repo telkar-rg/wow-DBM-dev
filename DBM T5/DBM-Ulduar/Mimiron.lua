@@ -20,6 +20,12 @@ mod:RegisterEvents(
 	"SPELL_SUMMON"
 )
 
+local c_timerPullP1 = 17.2
+local c_timerPullP1HM = 21.5
+local c_timerP1toP2 = 43
+local c_timerP2toP3 = 32
+local c_timerP3toP4 = 25
+
 local c_timerFirstFlames = 6.5
 local c_timerNextFlames = 28
 local c_timerNextFlamesP4 = 28 	-- 18 -- it was measures to be 28s on 2023 07 13
@@ -41,9 +47,10 @@ local warnDarkGlare				= mod:NewSpecialWarningSpell(63293)
 
 local enrage 					= mod:NewBerserkTimer(900)
 local timerHardmode				= mod:NewTimer(610, "TimerHardmode", 64582)
-local timerP1toP2				= mod:NewTimer(43, "TimeToPhase2")
-local timerP2toP3				= mod:NewTimer(32, "TimeToPhase3")
-local timerP3toP4				= mod:NewTimer(25, "TimeToPhase4")
+local timerPullP1				= mod:NewTimer(c_timerPullP1, "TimeToPhase1")
+local timerP1toP2				= mod:NewTimer(c_timerP1toP2, "TimeToPhase2")
+local timerP2toP3				= mod:NewTimer(c_timerP2toP3, "TimeToPhase3")
+local timerP3toP4				= mod:NewTimer(c_timerP3toP4, "TimeToPhase4")
 local timerProximityMines		= mod:NewNextTimer(35, 63027)
 local timerShockBlast			= mod:NewCastTimer(63631)
 local timerSpinUp				= mod:NewCastTimer(4, 63414)
@@ -86,6 +93,8 @@ end
 function mod:OnCombatStart(delay)
     hardmode = false
 	enrage:Start(-delay)
+	timerPullP1:Start(-delay)
+	
 	phase = 0
 	is_spinningUp = false
 	napalmShellIcon = 7
@@ -337,6 +346,9 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		enrage:Stop()
 		hardmode = true
 		timerHardmode:Start()
+		
+		timerPullP1:Stop()
+		timerPullP1:Start(c_timerPullP1HM)
 		
 		timerNextFlames:Start(c_timerFirstFlames)
 		self:ScheduleMethod(c_timerFirstFlames, "Flames")

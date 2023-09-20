@@ -418,6 +418,7 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	TimerHardmode			= "困难模式 - 自毁程序",
+	TimeToPhase1			= "第1阶段开始",
 	TimeToPhase2			= "第2阶段开始",
 	TimeToPhase3			= "第3阶段开始",
 	TimeToPhase4			= "第4阶段开始"
@@ -425,6 +426,7 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	SoundWOP = "为重要技能播放额外的警报语音",
+	TimeToPhase1			= "为第1阶段开始显示计时条",
 	TimeToPhase2			= "为第2阶段开始显示计时条",
 	TimeToPhase3			= "为第3阶段开始显示计时条",
 	TimeToPhase4			= "为第4阶段开始显示计时条",

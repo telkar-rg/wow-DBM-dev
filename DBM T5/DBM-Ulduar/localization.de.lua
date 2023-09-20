@@ -460,13 +460,15 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	TimerHardmode	= "Hard Mode - Selbstzerstörung",
-	TimeToPhase2	= "Phase 2",
-	TimeToPhase3	= "Phase 3",
-	TimeToPhase4	= "Phase 4"
+	TimeToPhase1	= "Phase 1 in",
+	TimeToPhase2	= "Phase 2 in",
+	TimeToPhase3	= "Phase 3 in",
+	TimeToPhase4	= "Phase 4 in"
 }
 
 L:SetOptionLocalization{
 	DarkGlare		= "Zeige Spezialwarnung für Lasersalve",
+	TimeToPhase1		= "Zeige Timer für Beginn der 1. Phase",
 	TimeToPhase2		= "Zeige Timer für Beginn der 2. Phase",
 	TimeToPhase3		= "Zeige Timer für Beginn der 3. Phase",
 	TimeToPhase4		= "Zeige Timer für Beginn der 4. Phase",

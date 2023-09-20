@@ -458,6 +458,7 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	TimerHardmode		= "Hard Mode - Autodestruction",
+	TimeToPhase1		= "Phase 1",
 	TimeToPhase2		= "Phase 2",
 	TimeToPhase3		= "Phase 3",
 	TimeToPhase4		= "Phase 4"
@@ -465,6 +466,7 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	DarkGlare				= "Montre une alerte spéciale pour le Barrage laser",
+	TimeToPhase1			= "Montre le timer pour la Phase 1",
 	TimeToPhase2			= "Montre le timer pour la Phase 2",
 	TimeToPhase3			= "Montre le timer pour la Phase 3",
 	TimeToPhase4			= "Montre le timer pour la Phase 4",
