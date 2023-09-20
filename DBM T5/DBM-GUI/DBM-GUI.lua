@@ -298,9 +298,13 @@ do
 		end
 		
 		local nameClean = name
-		if name:find("\124H") then
-			nameClean = name:gsub("|c%S+|H[^|]+|h([^|]+)|h|r", "%1")
+		if nameClean:find("\124H") then 	-- search for hyperlinks
+			nameClean = nameClean:gsub("%|c%S+%|H[^|]+%|h([^|]+)%|h%|r", "%1")
 		end
+		if nameClean:find("\124T") then 	-- search for Icon/Texture usage
+			nameClean = nameClean:gsub("%|T[^|]+%|t", "  ") 	-- we assume the used texture is always an Icon and replace with "  " for used size
+		end
+		
 		-- we check the text height for shorter text, since too big spaces may occur otherwise
 		nameClean = nameClean:sub(1,-3) 
 		getglobal(button:GetName() .. 'Text'):SetText(nameClean or "unknown")
