@@ -54,9 +54,9 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	-- SpecWarnJetsCast		= "Zeige Spezialwarnung für Flammenstrahlen-Zauber",
-	-- WarningSlagPot			= "Verkünde Schlackentopf-Ziele",
-	SlagPotIcon				= "Mostrar icono a quien agarró"
+	-- SpecWarnJetsCast		= "Zeige Spezialwarnung für Flammenstrahlen-Zauber", 	-- en handles this
+	-- WarningSlagPot			= "Verkünde Schlackentopf-Ziele", 	-- en handles this
+	-- SlagPotIcon				= "Mostrar icono a quien agarró" 	-- en handles this
 }
 
 ------------------
@@ -129,8 +129,8 @@ L:SetOptionLocalization{
 	-- SpecialWarningLightBomb		= "Zeige Spezialwarnung bei Lichtbombe auf dir",
 	-- SpecialWarningGravityBomb	= "Zeige Spezialwarnung bei Graviationsbombe auf dir",
 	-- specWarnConsumption			= "Zeige Spezialwarnung, wenn du von Verzehrung betroffen bist",
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	-- SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121), 	-- en handles this
+	-- SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234) 	-- en handles this
 }
 
 --------------------
@@ -152,8 +152,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	-- WarningSupercharge			= "Zeige Warnung wenn Superladung",
 	PlaySoundLightningTendrils		= "Sonido para Zarcillos de relampagos",
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
+	-- SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888), 	-- en handles this
+	-- SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912), 	-- en handles this
 	AlwaysWarnOnOverload			= "Siempre avisar Sobrecarga",
 	PlaySoundOnOverload			= "Reproducir sonido para Sobrecarga",
 	PlaySoundDeathRune			= "Reproducir sonido para Runa de muerte"
@@ -236,8 +236,8 @@ L:SetOptionLocalization{
 	-- achievementDisarmed		= "Mostrar tiempo para el logro Desarmar",
 	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
 	-- WarnGrip				= "Verkünde Ziele von Steinerner Griff",
-	SetIconOnGripTarget		= "Poner icono a los objetivos de Agarrar",
-	SetIconOnEyebeamTarget	= "Poner iconos en objetivos de Haz ocular (luna)",
+	-- SetIconOnGripTarget		= "Poner icono a los objetivos de Agarrar", 	-- en handles this
+	-- SetIconOnEyebeamTarget	= "Poner iconos en objetivos de Haz ocular (luna)", 	-- en handles this
 	PlaySoundOnEyebeam		= "Reproducir sonido al ser ojetivo de Haz ocular",
 	YellOnBeam				= "Gritar cuando tengas $spell:63346",
 }
@@ -248,7 +248,7 @@ L:SetMiscLocalization{
 	Health_Body				= "Kologarn",
 	Health_Right_Arm		= "Brazo derecho",
 	Health_Left_Arm			= "Brazo izquierdo",
-	FocusedEyebeam			= "sus ojos en ti",
+	FocusedEyebeam			= "fija sus ojos en ti!",
 	YellBeam				= "¡Haz ocular enfocado en mi!"
 }
 
@@ -279,7 +279,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast		= "Mostrar aviso especial para Explosión de centinela",
+	SpecWarnBlast		= "Mostrar aviso especial para $spell:64389",
 	-- SpecWarnVoid		= "Zeige Spezialwarnung wenn von Sickernde wilde Essenz betroffen",
 	-- WarnFearSoon		= "Zeige Vorwarnung für Schreckliches Kreischen",
 	WarnCatDied			= "Mostrar aviso cuando Defensor Feral muere",
@@ -306,9 +306,12 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	-- WarningFlashFreeze	= "Zeige Spezialwarnung für Blitzeis",
-	PlaySoundOnFlashFreeze	= "Reproducir sonido cuando castee Congelación apresurada",
-	YellOnStormCloud		= "Gritar cuando tengas Nube tormentosa",
-	SetIconOnStormCloud		= "Poner iconos en los objetivos de Nube tormentosa" --,
+	-- PlaySoundOnFlashFreeze	= "Reproducir sonido cuando castee Congelación apresurada",
+	-- PlaySoundOnFlashFreeze	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(61968), 	-- en handles this
+	YellOnStormCloud		= "Gritar cuando tengas $spell:65133",
+	-- SetIconOnStormCloud		= "Poner iconos en los objetivos de Nube tormentosa",
+	-- SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)", 	-- en handles this
+	-- SetIconOnFreeze			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62469) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)" 	-- en handles this
 	-- specWarnBitingCold		= "Zeige Spezialwarnung wenn du von Beißende Kälte betroffen bist"
 }
 
@@ -457,7 +460,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	-- DarkGlare		= "Zeige Spezialwarnung für Lasersalve",
 	TimeToPhase1			= "Mostrar tiempo para Fase 1",
 	TimeToPhase2			= "Mostrar tiempo para Fase 2",
 	TimeToPhase3			= "Mostrar tiempo para Fase 3",
@@ -467,13 +469,13 @@ L:SetOptionLocalization{
 	AutoChangeLootToFFA		= "Canviar el loot a Botín Libre en la fase 3",
 	WarnBombSpawn			= "Mostrar aviso para Robot bum",
 	TimerHardmode			= "Mostrar tiempo para Modo Difícil",
-	PlaySoundOnShockBlast	= "Reproducir sonido en Explosión de choque",
-	PlaySoundOnDarkGlare	= "Reproducir sonido en Tromba de láseres",
-	ShockBlastWarningInP1	= "Mostrar aviso especial para Explosión de choque en Fase 1",
-	ShockBlastWarningInP4	= "Mostrar aviso especial para Explosión de choque en Fase 4",
+	-- PlaySoundOnShockBlast	= "Reproducir sonido en Explosión de choque",
+	-- PlaySoundOnDarkGlare	= "Reproducir sonido en Tromba de láseres",
+	ShockBlastWarningInP1	= "Mostrar aviso especial para $spell:63631 en Fase 1",
+	ShockBlastWarningInP4	= "Mostrar aviso especial para $spell:63631 en Fase 4",
 	RangeFrame				= "Mostrar distáncia en Fase 1 (6 yardas)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	-- SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
+	-- SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
 }
 
 L:SetMiscLocalization{
@@ -528,8 +530,8 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	-- WarningShadowCrash		= "Verkünde Ziele von Schattengeschoss",
-	SetIconOnShadowCrash			= "Poner iconos en los objetivos de $spell:62660 (calavera)",
-	SetIconOnLifeLeach				= "Poner iconos en los objetivos de $spell:63276 (cruz)",
+	-- SetIconOnShadowCrash			= "Poner iconos en los objetivos de $spell:62660 (calavera)",
+	-- SetIconOnLifeLeach				= "Poner iconos en los objetivos de $spell:63276 (cruz)",
 	-- SpecialWarningSurgeDarkness	= "Zeige Spezialwarnung für Sog der Dunkelheit",
 	SpecialWarningShadowCrash		= "Mostrar aviso especial para $spell:62660/n(Tiene que ser el objetivo o el foco de al menos un personaje de la banda)",
 	SpecialWarningShadowCrashNear	= "Mostrar aviso especial para $spell:62660 cerca de ti",

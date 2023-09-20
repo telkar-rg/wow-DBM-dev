@@ -3,7 +3,7 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision: 4154 $"):sub(12, -3))
 mod:SetCreatureID(32845)
-mod:SetUsedIcons(8)
+mod:SetUsedIcons(8,7)
 
 mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)
@@ -17,11 +17,12 @@ mod:RegisterEvents(
 )
 
 local warnStormCloud		= mod:NewTargetAnnounce(65123)
+local warnFreeze			= mod:NewTargetAnnounce(62469)
 
 local warnFlashFreeze		= mod:NewSpecialWarningSpell(61968)
 local specWarnBitingCold	= mod:NewSpecialWarningMove(62188, false)
 
-mod:AddBoolOption("PlaySoundOnFlashFreeze", true, "announce")
+mod:AddBoolOption("PlaySoundOnFlashFreeze", true)	--, "announce")
 mod:AddBoolOption("YellOnStormCloud", true, "announce")
 
 local enrageTimer			= mod:NewBerserkTimer(475)
@@ -31,6 +32,7 @@ local timerFlashFrCD		= mod:NewCDTimer(50, 61968)
 local timerAchieve			= mod:NewAchievementTimer(179, 3182, "TimerSpeedKill")
 
 mod:AddBoolOption("SetIconOnStormCloud")
+mod:AddBoolOption("SetIconOnFreeze")
 
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
@@ -59,6 +61,16 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		if self.Options.SetIconOnStormCloud then 
 			self:SetIcon(args.destName, 8, 6)
+		end
+	end
+end
+
+-- SPELL_CAST_SUCCESS,0xF13000804D000606,"Hodir",0x10a48,0x0000000000705BA0,"Frieddel",0x40514,62469,"Eiskälte",0x10
+function mod:SPELL_CAST_SUCCESS(args)
+	if args:IsSpellID(62469) then
+		warnFreeze:Show(args.destName)
+		if self.Options.SetIconOnFreeze then 
+			self:SetIcon(args.destName, 7, 10)
 		end
 	end
 end

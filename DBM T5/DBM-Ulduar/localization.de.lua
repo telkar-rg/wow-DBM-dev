@@ -61,7 +61,7 @@ L:SetWarningLocalization{
 L:SetOptionLocalization{
 	-- SpecWarnJetsCast		= "Zeige Spezialwarnung für Flammenstrahlen-Zauber", -- not needed, NewSpecialWarningCast(63472)
 	-- WarningSlagPot			= "Verkünde Schlackentopf-Ziele", -- not needed, NewTargetAnnounce(63477, 3)
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
+	-- SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477) 	-- en handles this
 }
 
 ------------------
@@ -137,8 +137,8 @@ L:SetOptionLocalization{
 	-- SpecialWarningLightBomb		= "Zeige Spezialwarnung bei Lichtbombe auf dir",
 	-- SpecialWarningGravityBomb	= "Zeige Spezialwarnung bei Graviationsbombe auf dir",
 	-- specWarnConsumption			= "Zeige Spezialwarnung, wenn du von Verzehrung betroffen bist",
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	-- SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121), 	-- en handles this
+	-- SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234) 	-- en handles this
 }
 
 --------------------
@@ -160,8 +160,8 @@ L:SetTimerLocalization{
 L:SetOptionLocalization{
 	WarningSupercharge			= "Zeige Warnung wenn Superladung",
 	PlaySoundLightningTendrils		= "Spiele Sound bei Blitzranken",
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
+	-- SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888), 	-- en handles this
+	-- SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912), 	-- en handles this
 	AlwaysWarnOnOverload			= "Warne immer bei Überladen (ansonsten nur wenn Boss im Ziel)",
 	PlaySoundOnOverload			= "Spiele Sound bei Überladen",
 	PlaySoundDeathRune			= "Spiele Sound bei Rune des Todes"
@@ -246,9 +246,10 @@ L:SetOptionLocalization{
 			-- spellName = select(2, GetAchievementInfo(spellId))
 	WarnGrip				= "Verkünde Ziele von Steinerner Griff",
 	-- SetIconOnGripTarget		= "Setze Zeichen auf Steinerner-Griff-Ziele",
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget	= "Setze Zeichen auf Ziele von Fokussierter Augenstrahl (Mond)",
-	PlaySoundOnEyebeam		= "Spiele Sound bei Fokussiertem Augenstrahl"
+	-- SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292), 	-- en handles this
+	-- SetIconOnEyebeamTarget	= "Setze Zeichen auf Ziele von Fokussierter Augenstrahl (Mond)", 	-- en handles this
+	-- PlaySoundOnEyebeam		= "Spiele Sound bei Fokussiertem Augenstrahl" 	-- en handles this
+	YellOnBeam				= "Schreie wenn $spell:63346 auf dir"
 }
 
 L:SetMiscLocalization{
@@ -257,7 +258,8 @@ L:SetMiscLocalization{
 	Health_Body			= "Kologarn",
 	Health_Right_Arm		= "Rechter Arm",
 	Health_Left_Arm			= "Linker Arm",
-	FocusedEyebeam			= "%s fokussiert seinen Blick auf Euch!"
+	FocusedEyebeam			= "fokussiert seinen Blick auf Euch",
+	YellBeam				= "Fokussierter Augenstrahl auf mir!"
 }
 
 ---------------
@@ -287,7 +289,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast		= "Zeige Spezialwarnung bei Schildwachenschlag (zum Unterbrechen)",
+	SpecWarnBlast		= "Zeige Spezialwarnung bei $spell:64389 (zum Unterbrechen)",
 	SpecWarnVoid		= "Zeige Spezialwarnung wenn von Sickernde wilde Essenz betroffen",
 	WarnFearSoon		= "Zeige Vorwarnung für Schreckliches Kreischen",
 	WarnCatDied		= "Zeige Warnung wenn ein Wilder Verteidiger stirbt",
@@ -313,11 +315,14 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	WarningFlashFreeze	= "Zeige Spezialwarnung für Blitzeis",
-	PlaySoundOnFlashFreeze	= "Spiele Sound bei Blitzeis-Zauber",
-	YellOnStormCloud	= "Schreie bei Sturmwolke auf dir",
-	SetIconOnStormCloud	= "Setze Zeichen auf Spieler mit Sturmwolke",
-	specWarnBitingCold		= "Zeige Spezialwarnung wenn du von Beißende Kälte betroffen bist"
+	-- WarningFlashFreeze	= "Zeige Spezialwarnung für Blitzeis",
+	-- PlaySoundOnFlashFreeze	= "Spiele Sound bei Blitzeis-Zauber",
+	-- PlaySoundOnFlashFreeze	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(61968), 	-- en handles this
+	YellOnStormCloud	= "Schreie bei $spell:65133 auf dir",
+	-- SetIconOnStormCloud	= "Setze Zeichen auf Spieler mit Sturmwolke",
+	-- SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)", 	-- en handles this
+	-- SetIconOnFreeze			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62469) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)" 	-- en handles this
+	-- specWarnBitingCold		= "Zeige Spezialwarnung wenn du von Beißende Kälte betroffen bist"
 }
 
 L:SetMiscLocalization{
@@ -455,7 +460,8 @@ L:SetWarningLocalization{
 	DarkGlare			= "Lasersalve",
 	MagneticCore		= ">%s< hat Magnetischen Kern",
 	WarningShockBlast	= "Schockschlag - LAUF WEG",
-	WarnBombSpawn		= "neuer Bombenbot"
+	WarnBombSpawn		= "neuer Bombenbot",
+	WarnPlasmaBlastSoon = "! Overheal Tank in 3 Sekunden !"
 }
 
 L:SetTimerLocalization{
@@ -467,7 +473,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	DarkGlare		= "Zeige Spezialwarnung für Lasersalve",
 	TimeToPhase1		= "Zeige Timer für Beginn der 1. Phase",
 	TimeToPhase2		= "Zeige Timer für Beginn der 2. Phase",
 	TimeToPhase3		= "Zeige Timer für Beginn der 3. Phase",
@@ -477,13 +482,14 @@ L:SetOptionLocalization{
 	AutoChangeLootToFFA	= "Automatisch in Phase 3 Plündern auf 'Jeder gegen jeden' einstellen",
 	WarnBombSpawn		= "Zeige Warnung für Bombenbot",
 	TimerHardmode		= "Zeige Timer für Hard Mode",
-	PlaySoundOnShockBlast	= "Spiele Sound bei Schockschlag",
-	PlaySoundOnDarkGlare	= "Spiele Sound bei Lasersalve",
-	ShockBlastWarningInP1	= "Zeige Spezialwarnung für Schockschlag in Phase 1",
-	ShockBlastWarningInP4	= "Zeige Spezialwarnung für Schockschlag in Phase 4",
+	-- PlaySoundOnShockBlast	= "Spiele Sound bei Schockschlag",
+	-- PlaySoundOnDarkGlare	= "Spiele Sound bei Lasersalve",
+	ShockBlastWarningInP1	= "Zeige Spezialwarnung für $spell:63631 in Phase 1",
+	ShockBlastWarningInP4	= "Zeige Spezialwarnung für $spell:63631 in Phase 4",
 	RangeFrame				= "Zeige Abstandsfenster in Phase 1 (6 m)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	-- SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
+	-- SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997),
+	WarnPlasmaBlastSoon		= "Zeige 3-Sekunden Vorwarnung für $spell:64529 (Overheal auf Tank)"
 }
 
 L:SetMiscLocalization{
@@ -537,21 +543,21 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	WarningShadowCrash		= "Verkünde Ziele von Schattengeschoss",
-	SetIconOnShadowCrash		= "Setze Zeichen auf Ziele von Schattengeschoss (Totenkopf)",
-	SetIconOnLifeLeach		= "Setze Zeichen auf Ziele von Mal der Gesichtslosen (Lebensentzug) (Kreuz)",
-	SpecialWarningSurgeDarkness	= "Zeige Spezialwarnung für Sog der Dunkelheit",
-	SpecialWarningShadowCrash	= "Zeige Spezialwarnung für Schattengeschoss (muss anvisiert oder im Fokus eines Schlachtzugsmitglieds sein)",
-	SpecialWarningShadowCrashNear	= "Zeige Spezialwarnung bei Schattengeschoss in deiner Nähe",
-	SpecialWarningLLYou		= "Zeige Spezialwarnung für Mal der Gesichtslosen (Lebensentzug) auf DIR",
-	SpecialWarningLLNear		= "Zeige Spezialwarnung für Mal der Gesichtslosen (Lebensentzug) in deiner Nähe",
-	CrashWhisper			= "Flüstere Spieler an, die das Ziel von Schattengeschoss sind",
-	YellOnLifeLeech			= "Schreie bei Mal der Gesichtslosen (Lebensentzug)",
-	YellOnShadowCrash		= "Schreie bei Schattengeschoss",
-	WarningLeechLife				= "Verkünde Ziele von Mal der Gesichtslosen (Lebensentzug)",
-	hardmodeSpawn					= "Zeige Timer für Spawn des Saronitanimus (Hard Mode)" --,
-	-- CrashArrow						= "Mostrar una flecha cuando $spell:62660 va a caer cerca de ti",
-	-- BypassLatencyCheck				= "No usar la comprobación de sincronización basada en latencia para $spell:62660\n(sólo usar esta opción si tienes problemas de otro modo)"
+	-- WarningShadowCrash			= "Verkünde Ziele von Schattengeschoss",
+	-- SetIconOnShadowCrash		= "Setze Zeichen auf Ziele von Schattengeschoss (Totenkopf)",
+	-- SetIconOnLifeLeach			= "Setze Zeichen auf Ziele von Mal der Gesichtslosen (Lebensentzug) (Kreuz)",
+	-- SpecialWarningSurgeDarkness	= "1 Zeige Spezialwarnung für Sog der Dunkelheit",
+	SpecialWarningShadowCrash	= "Zeige Spezialwarnung für $spell:62660 (muss anvisiert oder im Fokus eines Schlachtzugsmitglieds sein)",
+	SpecialWarningShadowCrashNear	= "Zeige Spezialwarnung bei $spell:62660 in deiner Nähe",
+	-- SpecialWarningLLYou		= "4 Zeige Spezialwarnung für $spell:63276 auf DIR",
+	SpecialWarningLLNear		= "Zeige Spezialwarnung für $spell:63276 in deiner Nähe",
+	-- CrashWhisper				= "Flüstere Spieler an, die das Ziel von Schattengeschoss sind",
+	YellOnLifeLeech				= "Schreie bei $spell:63276",
+	YellOnShadowCrash			= "Schreie bei $spell:62660",
+	-- WarningLeechLife			= "Verkünde Ziele von Mal der Gesichtslosen (Lebensentzug)",
+	hardmodeSpawn				= "Zeige Timer für Spawn des Saronitanimus (Hard Mode)" --,
+	-- CrashArrow					= "Mostrar una flecha cuando $spell:62660 va a caer cerca de ti",
+	-- BypassLatencyCheck			= "No usar la comprobación de sincronización basada en latencia para $spell:62660\n(sólo usar esta opción si tienes problemas de otro modo)"
 }
 
 L:SetMiscLocalization{
@@ -575,7 +581,7 @@ L:SetMiscLocalization{
 	YellPhase2			= "KNIET NIEDER VOR DEM GOTT DES TODES!",	-- trinity 34357
 	YellPhase3 			= "^Erblickt das wahre Antlitz des Todes und wisset",	-- trinity 34360
 	Sara 				= "Sara",
-	WarningYellSqueeze	= "Würgetentakel! Hilfe!"
+	WarningYellSqueeze	= "Würgetentakel! Helft mir!"
 	-- WarningYellSqueeze	= "Quetschen auf mir! Hilfe!"
 }
 

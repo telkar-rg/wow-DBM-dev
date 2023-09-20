@@ -54,9 +54,9 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnJetsCast		= "화염 분출 시전의 특수 경고 보기",
-	WarningSlagPot			= "용암재 단지 대상 알리기",
-	SlagPotIcon				= "용암재 단지 대상 공격대 아이콘 설정"	
+	-- SpecWarnJetsCast		= "화염 분출 시전의 특수 경고 보기", 	-- en handles this
+	-- WarningSlagPot			= "용암재 단지 대상 알리기", 	-- en handles this
+	-- SlagPotIcon				= "용암재 단지 대상 공격대 아이콘 설정"	 	-- en handles this
 }
 
 ------------------
@@ -131,8 +131,8 @@ L:SetOptionLocalization{
 	SpecialWarningLightBomb			= "당신이 타오르는 빛의 영향을 받을 때 특수 경고 보기",
 	SpecialWarningGravityBomb		= "당신이 중력 폭탄의 영향을 받을 때 특수 경고 보기",
 	specWarnConsumption				= "공허의 지대로부터 데미지를 받을 경우 특수 경고 보기",	
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	-- SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121), 	-- en handles this
+	-- SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234) 	-- en handles this
 }
 
 -------------------
@@ -157,8 +157,8 @@ L:SetOptionLocalization{
 	PlaySoundOnOverload				= "과부화 일 때 소리 재생",	
 	PlaySoundLightningTendrils		= "번개 덩굴일 때 소리 재생",
 	PlaySoundDeathRune				= "죽음의 룬일 때 소리 재생",
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912)
+	-- SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888), 	-- en handles this
+	-- SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912) 	-- en handles this
 }
 
 L:SetMiscLocalization{
@@ -245,10 +245,10 @@ L:SetOptionLocalization{
 	timerLeftArm			= "왼쪽 팔 재생성 타이머 보기",
 	timerRightArm			= "오른쪽 팔 재생성 타이머 보기",	
 	WarnGrip				= "바위 손아귀 대상 알리기",
-	SetIconOnGripTarget		= "바위 손아귀 대상 아이콘 설정",
+	-- SetIconOnGripTarget		= "바위 손아귀 대상 아이콘 설정", 	-- en handles this
 	-- achievementDisarmed		= "무장해제 타이머 보기",
 	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
-	SetIconOnEyebeamTarget	= "안광 집중 대상 공격대 아이콘 설정(달)",
+	-- SetIconOnEyebeamTarget	= "안광 집중 대상 공격대 아이콘 설정(달)", 	-- en handles this
 	PlaySoundOnEyebeam		= "안광 집중 특수 소리 재생"	
 }
 
@@ -259,7 +259,8 @@ L:SetMiscLocalization{
 	Health_Right_Arm		= "오른쪽 팔",
 	Health_Left_Arm			= "왼쪽 팔",
 --	FocusedEyebeam			= "%s이 당신에게 안광을 집중합니다!"
-	FocusedEyebeam			= "당신에게 안광을 집중합니다!"
+	-- FocusedEyebeam			= "당신에게 안광을 집중합니다!"
+	FocusedEyebeam			= "콜로간이 당신에게 안광을 집중합니다"
 }
 
 --------------
@@ -316,10 +317,14 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	WarningFlashFreeze		= "순간 빙결 경고 보기",
- 	PlaySoundOnFlashFreeze	= "순간 빙결 경고 소리 듣기",	
-	YellOnStormCloud		= "폭풍 구름을 얻을 경우 외치기",
-	SetIconOnStormCloud		= "폭풍 구름 대상 아이콘 설정 하기",
-	specWarnBitingCold		= "매서운 추위의 영향을 받을 경우 특수 경고 보기"	
+ 	-- PlaySoundOnFlashFreeze	= "순간 빙결 경고 소리 듣기",	
+	-- PlaySoundOnFlashFreeze	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(61968), 	-- en handles this
+	-- YellOnStormCloud		= "폭풍 구름을 얻을 경우 외치기",
+	YellOnStormCloud		= "$spell:65133 얻을 경우 외치기",
+	-- SetIconOnStormCloud		= "폭풍 구름 대상 아이콘 설정 하기",
+	-- SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)", 	-- en handles this
+	-- SetIconOnFreeze			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62469) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)" 	-- en handles this
+	-- specWarnBitingCold		= "매서운 추위의 영향을 받을 경우 특수 경고 보기"	
 }
 
 L:SetMiscLocalization{
@@ -467,7 +472,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	DarkGlare 				= "레이저 탄막 특수 경고 알리기",
 	TimeToPhase1			= "페이즈 1 시작 알리기",
 	TimeToPhase2			= "페이즈 2 시작 알리기",
 	TimeToPhase3			= "페이즈 3 시작 알리기",
@@ -477,8 +481,8 @@ L:SetOptionLocalization{
 	AutoChangeLootToFFA		= "3 페이즈에서 루팅 옵션 자동 변경하기",	
 	WarnBombSpawn			= "폭탄 로봇 생성 알리기",
 	TimerHardmode			= "하드 모드를 위한 타이머 보기",
-	PlaySoundOnShockBlast 	= "충격파 특수 사운드 경고 재생",
-	PlaySoundOnDarkGlare 	= "레이저 탄막 대상 특수 사운드 경고 재생",
+	-- PlaySoundOnShockBlast 	= "충격파 특수 사운드 경고 재생",
+	-- PlaySoundOnDarkGlare 	= "레이저 탄막 대상 특수 사운드 경고 재생",
 	ShockBlastWarningInP1	= "1 페이즈 충격파의 특수 경고 보기(근접 딜러)",
 	ShockBlastWarningInP4	= "4 페이즈 충격파의 특수 경고 보기(근접 딜러)",
 	RangeFrame				= "1 페이즈에서 거리 프레임 보기(6 미터)"
@@ -536,8 +540,8 @@ L:SetWarningLocalization{
 
 L:SetOptionLocalization{
 	WarningShadowCrash				= "어둠의 붕괴 대상 알리기",
-	SetIconOnShadowCrash			= "어둠 붕괴 대상 공격대 아이콘 설정하기(해골)",
-	SetIconOnLifeLeach				= "얼굴 없는 자의 징표 대상 공격대 아이콘 설정하기(엑스)",
+	-- SetIconOnShadowCrash			= "어둠 붕괴 대상 공격대 아이콘 설정하기(해골)",
+	-- SetIconOnLifeLeach				= "얼굴 없는 자의 징표 대상 공격대 아이콘 설정하기(엑스)",
 	SpecialWarningSurgeDarkness		= "어둠 쇄도 특수 경고 보기",
 	SpecialWarningShadowCrash		= "어둠 붕괴 특수 경고 보기(공대원 중 베작스 대상/주시 일 경우)",
 	SpecialWarningShadowCrashNear	= "주변에 어둠 붕괴일 때 특수 경고 보기",	

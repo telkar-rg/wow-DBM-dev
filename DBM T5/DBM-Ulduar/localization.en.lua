@@ -47,7 +47,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
+	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)"
 }
 
 ------------------
@@ -113,8 +113,8 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)",
+	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)"
 }
 
 --------------------
@@ -134,8 +134,8 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	PlaySoundLightningTendrils	= "Play sound on $spell:63486",
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
+	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
+	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_1:16|t - |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)",
 	AlwaysWarnOnOverload		= "Always warn on $spell:63481 (otherwise, only when targeted)",
 	PlaySoundOnOverload			= "Play sound on $spell:63481",
 	PlaySoundDeathRune			= "Play sound on $spell:63490"
@@ -210,10 +210,10 @@ L:SetOptionLocalization{
 	timerRightArm			= "Show timer for Right Arm respawn",
 	-- achievementDisarmed		= "Show timer for Disarm achievement",
 	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
-	PlaySoundOnEyebeam		= "Play sound on $spell:63346",
-	YellOnBeam				= "Yell on $spell:63346",
+	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_6:16|t)",
+	SetIconOnEyebeamTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_5:16|t)",
+	PlaySoundOnEyebeam		= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(63346),
+	YellOnBeam				= "Yell on $spell:63346"
 }
 
 L:SetMiscLocalization{
@@ -251,7 +251,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SpecWarnBlast	= "Show special warning for Sentinel Blast (to interrupt)",
+	SpecWarnBlast	= "Show special warning for $spell:64389 (to interrupt)",
 	WarnCatDied		= "Show warning when Feral Defender dies",
 	WarnCatDiedOne	= "Show warning when Feral Defender has 1 life remaining",
 	timerDefender	= "Show timer for when Feral Defender is activated"
@@ -273,9 +273,11 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	PlaySoundOnFlashFreeze	= "Play sound on $spell:61968 cast",
-	YellOnStormCloud		= "Yell on $spell:65133",
-	SetIconOnStormCloud		= "Set icons on $spell:65133 targets"
+	PlaySoundOnFlashFreeze	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(61968),
+	YellOnStormCloud		= "Yell when $spell:65133 on you",
+	-- SetIconOnStormCloud		= "Set icons on $spell:65133 targets"
+	SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
+	SetIconOnFreeze			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62469) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)"
 }
 
 L:SetMiscLocalization{
@@ -364,7 +366,9 @@ L:SetOptionLocalization{
 	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62859),
 	TimerSimulKill		= "Show timer for mob resurrection",
 	UnstableEnergy		= "Show special warning for $spell:62451",
-	SpecWarnEonarsGift  = "Alert when Freya spawns a Eonar's Gift."
+	SpecWarnEonarsGift  = "Alert when Freya spawns a Eonar's Gift.",
+	SetIconOnNaturesFury = DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63571) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)",
+	SetIconOnIronRoots	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62861) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_5:16|t |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_4:16|t |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_3:16|t)",
 }
 
 ----------------------
@@ -408,7 +412,8 @@ L:SetGeneralLocalization{
 L:SetWarningLocalization{
 	MagneticCore		= ">%s< has Magnetic Core",
 	WarningShockBlast	= "Shock Blast - Run away",
-	WarnBombSpawn		= "Bomb Bot spawned"
+	WarnBombSpawn		= "Bomb Bot spawned",
+	WarnPlasmaBlastSoon = "! Overheal Tank in 3 seconds !"
 }
 
 L:SetTimerLocalization{
@@ -429,13 +434,14 @@ L:SetOptionLocalization{
 	AutoChangeLootToFFA		= "Switch loot mode to Free for All in Phase 3",
 	WarnBombSpawn			= "Show warning for Bomb Bots",
 	TimerHardmode			= "Show timer for hard mode",
-	PlaySoundOnShockBlast	= "Play sound on $spell:63631",
-	PlaySoundOnDarkGlare	= "Play sound on $spell:63414",
+	PlaySoundOnShockBlast	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(63631),--"Play sound on $spell:63631",
+	PlaySoundOnDarkGlare	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(63414),--"Play sound on $spell:63414",
 	ShockBlastWarningInP1	= "Show special warning for $spell:63631 in Phase 1",
 	ShockBlastWarningInP4	= "Show special warning for $spell:63631 in Phase 4",
 	RangeFrame				= "Show range frame in Phase 1 (6 yards)",
-	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026),
-	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997)
+	SetIconOnNapalm			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65026) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t - |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_1:16|t)",
+	SetIconOnPlasmaBlast	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62997) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
+	WarnPlasmaBlastSoon		= "Show 3 second pre-warning for $spell:64529 (overheal the tank)"
 }
 
 L:SetMiscLocalization{
@@ -485,16 +491,18 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnShadowCrash			= "Set icons on $spell:62660 targets (skull)",
-	SetIconOnLifeLeach				= "Set icons on $spell:63276 targets (cross)",
-	SpecialWarningShadowCrash		= "Show special warning for $spell:62660\n(must be targeted or focused by at least one raid member)",
+	-- SetIconOnShadowCrash			= "Set icons on $spell:62660 targets (skull)",
+	SetIconOnShadowCrash			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62660) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
+	-- SetIconOnLifeLeach				= "Set icons on $spell:63276 targets (cross)",
+	SetIconOnLifeLeach				= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63276) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)",
+	SpecialWarningShadowCrash		= "Show special warning for $spell:62660 (must be targeted or focused by at least one raid member)",
 	SpecialWarningShadowCrashNear	= "Show special warning for $spell:62660 near you",
 	SpecialWarningLLNear			= "Show special warning for $spell:63276 near you",
 	YellOnLifeLeech					= "Yell on $spell:63276",
 	YellOnShadowCrash				= "Yell on $spell:62660",
 	hardmodeSpawn					= "Show timer for Saronite Animus spawn (hard mode)",
 	CrashArrow						= "Show DBM arrow when $spell:62660 is near you",
-	BypassLatencyCheck				= "Don't use latency based sync check for $spell:62660\n(only use this if you're having problems otherwise)"
+	BypassLatencyCheck				= "Don't use latency based sync check for $spell:62660 (only use this if you're having problems otherwise)"
 }
 
 L:SetMiscLocalization{
@@ -549,19 +557,22 @@ L:SetOptionLocalization{
 	WarnBrainPortalSoon				= "Show pre-warning for Brain Portal",
 	SpecWarnMadnessOutNow			= "Show special warning shortly before $spell:64059 ends",
 	-- SetIconOnMaladyTarget			= "Set icons on $spell:63881 targets",
-	SetIconOnMaladyTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63830),
+	SetIconOnMaladyTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63830) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
+	
 	SpecWarnFervorCast				= "Show special warning when $spell:63138 is being cast on you (Sara must be target or focus of a raid member)",
 	specWarnBrainPortalSoon			= "Show special warning for next Brain Portal",
 	-- WarningSqueeze					= "Yell on Squeeze",
 	WarningSqueeze					= "Yell when caught by Constrictor Tentacle ($spell:64125)",
 	NextPortal						= "Show timer for next Brain Portal",
 	-- SetIconOnFervorTarget			= "Set icons on $spell:63138 targets",
-	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138),
+	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)",
+	
 	ShowSaraHealth					= "Show health frame for Sara in Phase 1 (Sara must be target or focus of a raid member)",
 	SpecWarnMaladyNear				= "Show special warning for $spell:63881 near you",
 	specWarnMaladyCast				= "Show special warning when $spell:63830 is being cast on you (Sara must be target or focus of a raid member)",
 	-- SetIconOnBrainLinkTarget		= "Set icons on $spell:63802 targets",
-	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802),
+	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_6:16|t)",
+	
 	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you",
 	RangeFramePortal25				= "Show range frame for portal position (25 players)",
 	-- ttsLunaticGazeCountdown			= "Play countdown sound for $spell:64163"

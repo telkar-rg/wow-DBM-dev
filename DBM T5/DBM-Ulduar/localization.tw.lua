@@ -49,7 +49,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477)
+	-- SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477) 	-- en handles this
 }
 
 ------------------
@@ -110,8 +110,8 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121),
-	SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234)
+	-- SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121), 	-- en handles this
+	-- SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234) 	-- en handles this
 }
 
 --------------------
@@ -131,8 +131,8 @@ L:SetTimerLocalization{
 
 L:SetOptionLocalization{
 	PlaySoundLightningTendrils	= "為$spell:63486播放音效",
-	SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888),
-	SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912),
+	-- SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888), 	-- en handles this
+	-- SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912), 	-- en handles this
 	AlwaysWarnOnOverload		= "總是對$spell:63481顯示警告(否則只有當目標是風暴召喚者的時候顯示)",
 	PlaySoundOnOverload		= "當$spell:63481施放時播放音效",
 	PlaySoundDeathRune		= "當$spell:63490施放時播放音效"
@@ -206,8 +206,8 @@ L:SetOptionLocalization{
 	timerRightArm			= "為右臂重生顯示計時器",
 	-- achievementDisarmed		= "為成就:卸除手臂顯示計時器",
 	achievementDisarmed		= DBM_CORE_AUTO_TIMER_OPTIONS["achievement"]:format(GetAchievementLink(2953):gsub("%[(.+)%]", "%1")),
-	SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292),
-	SetIconOnEyebeamTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346),
+	-- SetIconOnGripTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64292), 	-- en handles this
+	-- SetIconOnEyebeamTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63346), 	-- en handles this
 	PlaySoundOnEyebeam		= "為$spell:63346播放音效",
 	YellOnBeam			= "當你中了$spell:63346時大喊"
 }
@@ -218,7 +218,8 @@ L:SetMiscLocalization{
 	Health_Body			= "柯洛剛恩身體",
 	Health_Right_Arm		= "右臂",
 	Health_Left_Arm			= "左臂",
-	FocusedEyebeam			= "正在注視著你",
+	-- FocusedEyebeam			= "正在注視著你",
+	FocusedEyebeam			= "柯洛剛恩正在注視著你",
 	YellBeam			= "柯洛剛恩正在注視我!"
 }
 
@@ -269,9 +270,12 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	PlaySoundOnFlashFreeze		= "當施放$spell:61968時播放音效",
+	-- PlaySoundOnFlashFreeze		= "當施放$spell:61968時播放音效",
+	-- PlaySoundOnFlashFreeze	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(61968), 	-- en handles this
 	YellOnStormCloud		= "當你中了$spell:65133時大喊",
-	SetIconOnStormCloud		= "為$spell:65133的目標設置標記",
+	-- SetIconOnStormCloud		= "為$spell:65133的目標設置標記",
+	-- SetIconOnStormCloud		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65133) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)", 	-- en handles this
+	-- SetIconOnFreeze			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(62469) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)" 	-- en handles this
 }
 
 L:SetMiscLocalization{
@@ -422,8 +426,8 @@ L:SetOptionLocalization{
 	AutoChangeLootToFFA		= "第3階段自動轉換拾取方式為自由拾取",
 	WarnBombSpawn			= "為炸彈機器人顯示警告",
 	TimerHardmode			= "為困難模式顯示計時器",
-	PlaySoundOnShockBlast		= "當$spell:63631施放時播放音效",
-	PlaySoundOnDarkGlare		= "當$spell:63414施放前播放音效",
+	-- PlaySoundOnShockBlast		= "當$spell:63631施放時播放音效",
+	-- PlaySoundOnDarkGlare		= "當$spell:63414施放前播放音效",
 	ShockBlastWarningInP1		= "為第1階段的$spell:63631顯示特別警告",
 	ShockBlastWarningInP4		= "為第4階段的$spell:63631顯示特別警告",
 	RangeFrame			= "在第1階段顯示距離框"
@@ -476,8 +480,8 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SetIconOnShadowCrash		= "為$spell:62660的目標設置標記 (頭顱)",
-	SetIconOnLifeLeach		= "為$spell:63276的目標設置標記 (十字)",
+	-- SetIconOnShadowCrash		= "為$spell:62660的目標設置標記 (頭顱)",
+	-- SetIconOnLifeLeach		= "為$spell:63276的目標設置標記 (十字)",
 	SpecialWarningShadowCrash	= "為$spell:62660顯示特別警告(必須有最少一名團隊成員設置目標或專注目標)",
 	SpecialWarningShadowCrashNear	= "當你附近的人中了$spell:62660時顯示特別警告",
 	SpecialWarningLLNear		= "當你附近的人中了$spell:63276時顯示特別警告",
