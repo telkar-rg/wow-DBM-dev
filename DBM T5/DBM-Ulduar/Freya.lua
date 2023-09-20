@@ -6,7 +6,7 @@ mod:SetRevision(("$Revision: 4133 $"):sub(12, -3))
 mod:SetCreatureID(32906)
 mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)
-mod:SetUsedIcons(6, 7, 8)
+mod:SetUsedIcons(3, 4, 5, 7, 8)
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
@@ -47,6 +47,9 @@ mod:AddBoolOption("HealthFrame", true)
 mod:AddBoolOption("PlaySoundOnFury", true)
 mod:AddBoolOption("PlaySoundOnGroundTremor", true)
 
+mod:AddBoolOption("SetIconOnNaturesFury", true)
+mod:AddBoolOption("SetIconOnIronRoots", true)
+
 local adds		= {}
 local rootedPlayers 	= {}
 local altIcon 		= true
@@ -72,6 +75,7 @@ end
 local function showRootWarning()
 	warnRoots:Show(table.concat(rootedPlayers, "< >"))
 	table.wipe(rootedPlayers)
+	iconId = 6
 end
 
 function mod:SPELL_CAST_START(args)
@@ -88,8 +92,10 @@ function mod:SPELL_CAST_SUCCESS(args)
 	if args:IsSpellID(62678, 62873) then -- Summon Allies of Nature
 		timerAlliesOfNature:Start()
 	elseif args:IsSpellID(63571, 62589) then -- Nature's Fury
-		altIcon = not altIcon	--Alternates between Skull and X
-		self:SetIcon(args.destName, altIcon and 7 or 8, 10)
+		if self.Options.SetIconOnNaturesFury then
+			altIcon = not altIcon	--Alternates between Skull and X
+			self:SetIcon(args.destName, altIcon and 7 or 8, 10)
+		end
 		warnFury:Show(args.destName)
 		if args:IsPlayer() then -- only cast on players; no need to check destFlags
 			if self.Options.PlaySoundOnFury then
@@ -104,8 +110,10 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(62861, 62438) then
-		iconId = iconId - 1
-		self:SetIcon(args.destName, iconId, 15)
+		if self.Options.SetIconOnIronRoots then
+			iconId = iconId - 1
+			self:SetIcon(args.destName, iconId, 15)
+		end
 		table.insert(rootedPlayers, args.destName)
 		self:Unschedule(showRootWarning)
 		if #rootedPlayers >= 3 then
@@ -124,7 +132,7 @@ function mod:SPELL_AURA_REMOVED(args)
 		warnPhase2:Show()
 	elseif args:IsSpellID(62861, 62438) then
 		self:RemoveIcon(args.destName)
-		iconId = iconId + 1
+		-- iconId = iconId + 1
 	end
 end
 
