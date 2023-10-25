@@ -22,7 +22,10 @@ mod:RegisterEvents(
 	"SPELL_AURA_APPLIED_DOSE",
 	"CHAT_MSG_RAID_BOSS_EMOTE",
 	"CHAT_MSG_MONSTER_YELL",
-	"UNIT_HEALTH"
+	"UNIT_HEALTH",
+	"CHAT_MSG_TARGETICONS",
+	"UPDATE_MOUSEOVER_UNIT",
+	"PLAYER_TARGET_CHANGED"
 )
 
 local announceBigBang			= mod:NewSpellAnnounce(64584, 4)
@@ -48,12 +51,18 @@ local timerCastCosmicSmash		= mod:NewCastTimer(4.5, 62311)
 local timerPhasePunch			= mod:NewBuffActiveTimer(45, 64412)
 local timerNextPhasePunch		= mod:NewNextTimer(16, 64412)
 
+mod:AddBoolOption("SetIconOnCollapsingStar", true)
+
 local warned_preP2 = false
 local warned_star = false
+
+local table_icon = {8,7,6,5,4,3,2,1}
 
 function mod:OnCombatStart(delay)
 	warned_preP2 = false
 	warned_star = false
+	table_icon = {8,7,6,5,4,3,2,1}
+	
 	local text = select(3, GetWorldStateUIInfo(1)) 
 	local _, _, time = string.find(text, L.PullCheck)
 	if not time then 
@@ -65,7 +74,7 @@ function mod:OnCombatStart(delay)
 		self:ScheduleMethod(26.5-delay, "startTimers")	-- 26 seconds roleplaying
 	else 
 		timerCombatStart:Start(-delay)
-		self:ScheduleMethod(8-delay, "startTimers")	-- 8 seconds roleplaying
+		self:ScheduleMethod(7-delay, "startTimers")	-- 7 seconds roleplaying
 	end 
 end
 
@@ -134,4 +143,60 @@ function mod:UNIT_HEALTH(uId)
 		warned_star = true
 		specwarnStarLow:Show()
 	end
+end
+
+
+function mod:CHAT_MSG_TARGETICONS(msg)
+	local _,_, rt = strfind(msg, "RaidTargetingIcon_(%d)")
+	if not rt then return end
+	rt = tonumber(rt)
+	if not rt then return end
+	
+	mod:iconPush(rt)
+	-- for k,v in pairs(table_icon) do
+		-- if v==rt then
+			-- table.remove(table_icon, k)
+			-- break
+		-- end
+	-- end
+	-- table.insert(table_icon, rt)
+end
+
+
+function mod:setIconStar(uId)
+	if DBM.Options.DontSetIcons or DBM:GetRaidRank() == 0 or not(self.Options.SetIconOnCollapsingStar) then return end
+	
+	if self:GetUnitCreatureId(uId) == 32955 then
+		local rt = GetRaidTargetIndex(uId)
+		if rt and (rt>0 and rt<9) then 
+			return 
+		else
+			rt = table_icon[1]
+			SetRaidTarget(uId, rt)
+			-- mod:iconPush(rt)
+		end
+	end
+end
+
+
+function mod:PLAYER_TARGET_CHANGED()
+	mod:setIconStar("target")
+end
+
+
+function mod:UPDATE_MOUSEOVER_UNIT()
+	mod:setIconStar("mouseover")
+end
+
+
+function mod:iconPush(rt)
+	if not rt then return end
+	
+	for k,v in pairs(table_icon) do
+		if v==rt then
+			table.remove(table_icon, k)
+			break
+		end
+	end
+	table.insert(table_icon, rt)
 end
