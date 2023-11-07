@@ -199,7 +199,7 @@ function Kael:OnEvent(event, arg1)
 	-- elseif event == "SPELL_MISSED" then
 		if (arg1.spellId == 22686) or (arg1.spellId == 36922) or (arg1.spellId == 39427) or (arg1.spellId == 40636) or (arg1.spellId == 44863) then -- Lord Sanguinar: "Bellowing Roar"
 			self:SendSync("Fear")
-		-- end
+		end
 	elseif event == "SPELL_AURA_APPLIED" then
 		if (arg1.spellId == 22686) or (arg1.spellId == 36922) or (arg1.spellId == 39427) or (arg1.spellId == 40636) or (arg1.spellId == 44863) then -- Lord Sanguinar: "Bellowing Roar"
 			self:SendSync("Fear");
