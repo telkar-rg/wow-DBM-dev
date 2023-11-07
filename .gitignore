@@ -1,6 +1,7 @@
 .gitignore
 *.patch
 /_Releases
+Git wow-DBM-dev.lnk
 
 # Compiled Lua sources
 luac.out
