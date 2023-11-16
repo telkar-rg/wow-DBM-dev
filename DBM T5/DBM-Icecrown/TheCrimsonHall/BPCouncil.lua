@@ -54,7 +54,7 @@ local soundEmpoweredFlames		= mod:NewSound(72040)
 
 local ttsVortexNear = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\vortexNear.mp3", "TTS Near Vortex call", true)
 
-mod:AddBoolOption("ShadowPrisonMetronom", true)
+-- mod:AddBoolOption("ShadowPrisonMetronom", true)
 mod:AddBoolOption("EmpoweredFlameIcon", true)
 mod:AddBoolOption("ActivePrinceIcon", false)
 mod:AddBoolOption("RangeFrame", true)
@@ -71,9 +71,9 @@ local function warnGlitteringSparksTargets()
 end
 
 function mod:OnCombatStart(delay)
-	if self.Options.ShadowPrisonMetronom then
-		DEFAULT_CHAT_FRAME:AddMessage("<DBM edit> The beeping sound you are hearing is the shadow prison metronom. It helps you to avoid any stacks by stutter stepping in tact. You can turn it off in the BPC boss options under ShadowPrisonMetronom", 1.0, 0.75, 0.0);
-	end
+	-- if self.Options.ShadowPrisonMetronom then
+		-- DEFAULT_CHAT_FRAME:AddMessage("<DBM edit> The beeping sound you are hearing is the shadow prison metronom. It helps you to avoid any stacks by stutter stepping in tact. You can turn it off in the BPC boss options under ShadowPrisonMetronom", 1.0, 0.75, 0.0);
+	-- end
 	berserkTimer:Start(-delay)
 	warnTargetSwitchSoon:Schedule(42-delay)
 	timerTargetSwitch:Start(-delay)
@@ -88,7 +88,8 @@ function mod:OnCombatEnd()
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Hide()
 	end
-	SPMFrame:SetScript("OnUpdate", nil)
+	
+	-- if SPMFrame then SPMFrame:SetScript("OnUpdate", nil); end
 end
 
 function mod:ShockVortexTarget()
@@ -191,9 +192,9 @@ function mod:SPELL_AURA_APPLIED(args)
 			self:ScheduleMethod(4.5, "HideRange")--delay hiding range frame for a few seconds after change incase valanaar got a last second vortex cast off
 		end
 	elseif args:IsSpellID(72999) then	--Shadow Prison (hard mode)
-		if self.Options.ShadowPrisonMetronom then
-			SPMFrame:SetScript("OnUpdate", SPMF_do_metronom)
-		end
+		-- if self.Options.ShadowPrisonMetronom then
+			-- SPMFrame:SetScript("OnUpdate", SPMF_do_metronom)
+		-- end
 		if args:IsPlayer() then
 			timerShadowPrison:Start()
 			if (args.amount or 1) >= 6 then	--Placeholder right now, might use a different value
