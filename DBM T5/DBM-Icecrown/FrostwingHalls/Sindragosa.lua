@@ -50,6 +50,7 @@ local timerNextMysticBuffet		= mod:NewNextTimer(6, 70128)
 local timerMysticAchieve		= mod:NewAchievementTimer(30, 4620, "AchievementMystic")
 
 local berserkTimer				= mod:NewBerserkTimer(600)
+local timerCombatStart			= mod:NewTimer(14.6, "TimerCombatStart", 2457)
 
 local soundBlisteringCold = mod:NewSound(70123)
 mod:AddBoolOption("SetIconOnFrostBeacon", true)
@@ -280,5 +281,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		timerNextGroundphase:Cancel()
 		warnGroundphaseSoon:Cancel()
 		timerNextBlisteringCold:Start(60)
+	elseif msg:find(L.YellPull, 1, true) then
+		timerCombatStart:Start()
 	end
 end
