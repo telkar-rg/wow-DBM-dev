@@ -23,6 +23,8 @@ mod:SetBossHealthInfo(
 
 -- local warnSupercharge			= mod:NewSpellAnnounce(61920, 3) -- not needed
 mod:AddBoolOption("TempFormating", true, "announce")
+local warnPhase2				= mod:NewPhaseAnnounce(2, 3)
+local warnPhase3				= mod:NewPhaseAnnounce(3, 3)
 
 local enrageTimer				= mod:NewBerserkTimer(900)
 
@@ -89,11 +91,13 @@ mod:RemoveOption("TempFormating")
 
 local disruptTargets = {}
 local disruptIcon = 7
+local phase = 0
 
 function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
 	table.wipe(disruptTargets)
 	disruptIcon = 7
+	phase = 1
 end
 
 function mod:RuneTarget()
@@ -195,5 +199,25 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		self:Unschedule(warnStaticDisruptionTargets)
 		self:Schedule(0.3, warnStaticDisruptionTargets)
+		
+	elseif args:IsSpellID(61920) then	-- Supercharge (Phase 2!)
+		mod:gotoPhase(2)
+		if args:GetDestCreatureID() == 32927 then	-- Runemaster Molgeim
+			timerRuneofDeath:Start(20)	-- first RuneofDeath comes 20s after Phase 2 begins
+		end
 	end
 end
+
+
+function mod:gotoPhase(num)
+	if phase ~= num then
+		phase = num
+		
+		if phase == 2 then
+			warnPhase2:Show()
+		elseif phase == 3 then
+			warnPhase3:Show()
+		end
+	end
+end
+
