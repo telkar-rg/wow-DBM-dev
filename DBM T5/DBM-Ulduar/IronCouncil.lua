@@ -59,9 +59,9 @@ local warnRuneofSummoning		= mod:NewSpellAnnounce(62273, 3)
 local specwarnRuneofDeath		= mod:NewSpecialWarningMove(63490)
 -- Runemaster Molgeim
 local timerShieldofRunes		= mod:NewBuffActiveTimer(15, 63967)
-local timerRuneofDeathDura		= mod:NewNextTimer(30, 63490)
+-- local timerRuneofDeathDura		= mod:NewNextTimer(30, 63490)
 local timerRuneofPower			= mod:NewCDTimer(30, 61974)
-local timerRuneofDeath			= mod:NewCDTimer(30, 63490)
+local timerRuneofDeath			= mod:NewCDTimer(25, 63490)
 -- Runemaster Molgeim
 -- mod:AddBoolOption("PlaySoundDeathRune", true)
 local soundDeathRune = mod:NewSound(63490, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(63490), true)
@@ -128,7 +128,8 @@ end
 function mod:SPELL_CAST_SUCCESS(args)
 	if args:IsSpellID(63490, 62269) then		-- Rune of Death
 		warnRuneofDeath:Show()
-		timerRuneofDeathDura:Start()
+		-- timerRuneofDeathDura:Start()
+		timerRuneofDeath:Start()
 	elseif args:IsSpellID(64320, 61974) then	-- Rune of Power
 		self:ScheduleMethod(0.1, "RuneTarget")
 		timerRuneofPower:Start()
