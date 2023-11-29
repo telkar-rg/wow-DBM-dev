@@ -10,6 +10,7 @@ mod:RegisterCombat("combat", 32867, 32927, 32857)
 mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_AURA_APPLIED",
+	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_CAST_SUCCESS"
 )
 
@@ -64,6 +65,7 @@ local timerShieldofRunes		= mod:NewBuffActiveTimer(15, 63967)
 -- local timerRuneofDeathDura		= mod:NewNextTimer(30, 63490)
 local timerRuneofPower			= mod:NewCDTimer(30, 61974)
 local timerRuneofDeath			= mod:NewCDTimer(25, 63490)
+local timerRuneofSummoning		= mod:NewCDTimer(35, 62273)
 -- Runemaster Molgeim
 -- mod:AddBoolOption("PlaySoundDeathRune", true)
 local soundDeathRune = mod:NewSound(63490, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(63490), true)
@@ -126,6 +128,8 @@ function mod:SPELL_CAST_START(args)
 		warnShieldofRunes:Show()
 	elseif args:IsSpellID(62273) then				-- Rune of Summoning
 		warnRuneofSummoning:Show()
+		timerRuneofSummoning:Stop()
+		timerRuneofSummoning:Start()
 	end
 end
 
@@ -203,7 +207,20 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(61920) then	-- Supercharge (Phase 2!)
 		mod:gotoPhase(2)
 		if args:GetDestCreatureID() == 32927 then	-- Runemaster Molgeim
-			timerRuneofDeath:Start(20)	-- first RuneofDeath comes 20s after Phase 2 begins
+			timerRuneofDeath:Start(20)	-- first RuneofDeath comes 20-30sec after Phase 2 begins
+		end
+	end
+end
+
+function mod:SPELL_AURA_APPLIED_DOSE(args)
+	if args:IsSpellID(61920) then	-- Supercharge (Phase 3!)
+		mod:gotoPhase(3)
+		
+		if args:GetDestCreatureID() == 32927 then	-- Runemaster Molgeim
+			timerRuneofSummoning:Start(20)	-- first Rune of Summoning comes 20-30sec after Phase 3 begins
+		else	-- stop all other timers of Runemaster Molgeim
+			timerRuneofPower:Stop()
+			timerRuneofDeath:Stop()
 		end
 	end
 end
