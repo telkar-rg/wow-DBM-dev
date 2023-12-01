@@ -452,6 +452,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
+	TimerCombatStart		= "전투 시작",
 	TimerNextAirphase		= "다음 공중 단계",
 	TimerNextGroundphase	= "다음 지상 단계",
 	AchievementMystic		= "신비한 아픔 업적 타이머"	
@@ -467,6 +468,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
+	TimerCombatStart			= "전투 시작 타이머 보기",
 	WarnAirphase				= "공중 단계 알리기",
 	WarnGroundphaseSoon			= "지상 단계 사전 경고 보기",
 	WarnPhase2soon				= "2 단계 사전 경고 보기(38% 이하)",	

@@ -444,6 +444,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
+	TimerCombatStart		= "Kampf beginnt",
 	TimerNextAirphase		= "Nächste Luftphase",
 	TimerNextGroundphase	= "Nächste Bodenphase",
 	AchievementMystic		= "Ablaufzeit für Mystischer Puffer"
@@ -459,6 +460,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
+	TimerCombatStart		= "Zeige Zeit bis Kampfbeginn",
 	WarnAirphase			= "Kündige Luftphase an",
 	WarnGroundphaseSoon		= "Zeige Vorwarnung für Bodenphase",
 	WarnPhase2soon			= "Zeige Vorwarnung für Phase 2 (bei ~38%)",

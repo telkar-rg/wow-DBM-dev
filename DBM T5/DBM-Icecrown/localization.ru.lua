@@ -448,6 +448,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
+	TimerCombatStart		= "Начало боя",
 	TimerNextAirphase		= "След. воздушная фаза",
 	TimerNextGroundphase	= "След. наземная фаза",
 	AchievementMystic		= "Время для устранения Таинственной энергии"
@@ -463,6 +464,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
+	TimerCombatStart		= "Отсчет времени до начала боя",
 	WarnAirphase			= "Объявлять воздушную фазу",
 	WarnGroundphaseSoon		= "Предупреждать заранее о наземной фазе",
 	WarnPhase2soon			= "Предупреждать заранее о фазе 2 (на ~38%)",

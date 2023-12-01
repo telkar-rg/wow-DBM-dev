@@ -451,6 +451,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
+	TimerCombatStart		= "戰鬥開始",
 	TimerNextAirphase		= "下一次 空中階段",
 	TimerNextGroundphase		= "下一次 地上階段",
 	AchievementMystic		= "清除秘能連擊疊加"
@@ -466,6 +467,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
+	TimerCombatStart		= "為戰鬥開始顯示計時器",
 	WarnAirphase			= "提示空中階段",
 	WarnGroundphaseSoon		= "為地上階段顯示預先警告",
 	WarnPhase2soon			= "為第2階段顯示預先警告 (大約38%)",

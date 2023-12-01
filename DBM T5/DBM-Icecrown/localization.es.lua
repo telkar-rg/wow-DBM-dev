@@ -457,6 +457,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
+	TimerCombatStart		= "Empieza el combate",
 	TimerNextAirphase		= "Siguiente fase aerea",
 	TimerNextGroundphase	= "Siguiente fase en el suelo",
 	AchievementMystic		= "Tiempo para limpiar Sacudida Mística"
@@ -472,6 +473,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
+	TimerCombatStart		= "Mostrar tiempo para el inicio del combate",
 	WarnAirphase			= "Anunciar fase aerea",
 	WarnGroundphaseSoon		= "Mostrar pre-aviso para fase en el suelo",
 	WarnPhase2soon			= "Mostrar pre-aviso para Fase 2 (al ~33%)",

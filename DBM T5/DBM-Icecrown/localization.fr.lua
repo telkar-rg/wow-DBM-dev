@@ -398,6 +398,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetTimerLocalization{
+	TimerCombatStart		= "Le combat débute",
 	TimerNextAirphase		= "Prochaine phase dans les airs",
 	TimerNextGroundphase	= "Prochaine phase sur le sol",
 	AchievementMystic		= "Time to clear Mystic stacks"
@@ -413,6 +414,7 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
+	TimerCombatStart			= "Montre le timer pour le début du combat",
 	WarnAirphase				= "Annonce la phase dans les airs",
 	WarnGroundphaseSoon			= "Montre une pré-alerte pour la phase au sol",
 	TimerNextAirphase			= "Montre un timer pour la prochaine phase dans les airs",
