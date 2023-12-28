@@ -2,7 +2,7 @@
 DBM: modified development for WotLK
 
 ### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
-- LATEST
+- DBM T5.008 alpha
   - GUI: Fixed automatic line break in Button texts for usage of Icons
   - Icecrown Citadel
     - Putricide: Tear Gas timer fixed (20s)
