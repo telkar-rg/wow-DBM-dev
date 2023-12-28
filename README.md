@@ -3,20 +3,27 @@ DBM: modified development for WotLK
 
 ### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
 - LATEST
+  - GUI: Fixed automatic line break in Button texts for usage of Icons
+  - Icecrown Citadel
+    - Putricide: Tear Gas timer fixed (20s)
+    - Blood Prince Council: incomplete implementation of "SPMFrame" removed
+    - Sindragosa: added Combat Start timer
   - Ulduar
     - Mimiron: Added timer for start of Phase 1
-	- Freya: Added option to set Icons on Players (was always performed)
-	- Hodir: Added Icon for the target of "Freeze"
-	- Mimiron: Some timers fixed, Added additional Warning for PlasmaBlastSoon
-    - GUI: Fixed automatic line break in Button texts for usage of Icons
-	- Localization: added icons to options text
+    - Freya: Added option to set Icons on Players (was always performed)
+    - Hodir: Added Icon for the target of "Freeze"
+    - Mimiron: Some timers fixed, Added additional Warning for PlasmaBlastSoon
+    - Algalon: Automatic setting of icons on mouseover on Collapsing Stars
+    - Iron Council: fixed CD of Rune of Death
+    - Localization: added icons to options text
+  - Tempest Keep: fixed syntax error
 - DBM T5.007 alpha
   - Ulduar / FlameLeviathan
     - fixed "Pursued" timer of FlameLeviathan (35s)
   - Tempest Keep / Kael'thas Sunstrider
     - fixed deDE NPC name of "Lord Sanguinar" (was "Fürst Blutdurst") and various YELL locales
-	- fixed detection of "Bellowing Roar" spell (cast by "Lord Sanguinar")
-	- fixed some Phase transition timers
+    - fixed detection of "Bellowing Roar" spell (cast by "Lord Sanguinar")
+    - fixed some Phase transition timers
 - DBM T5.006 alpha
   - Yogg-Saron Rework
     - added TTS countdown to Lunatic Gaze cast
