@@ -93,7 +93,7 @@ local function spiritDetection(self, event, arg)
 	local isTanking = UnitDetailedThreatSituation("player", "target")
 	if UnitThreatSituation("player") == 3 and not isTanking then
 		arg = arg or "nil"
-		print("DEBUG: event="..event.."; arg="..arg)
+		-- print("DEBUG: event="..event.."; arg="..arg)
 		-- specWarnVengefulShade:Show()
 		-- SendChatMessage("Spirit on me!", "SAY")
 		-- ttsOnYouRun:Play()

@@ -12,7 +12,7 @@ mod:RegisterCombat("yell", L.YellExtinguish)
 mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_DAMAGE",
-	"UNIT_TARGET",
+	-- "UNIT_TARGET",
 	"CHAT_MSG_MONSTER_YELL",
 	"CHAT_MSG_RAID_BOSS_EMOTE"
 )
@@ -100,7 +100,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(emote)
 end
 
 function mod:CHAT_MSG_MONSTER_YELL(msg, mob)
-	print("-- --","CHAT_MSG_MONSTER_YELL", GetTime()-t_aggroYell, "\n"..msg)
+	-- print("-- --","CHAT_MSG_MONSTER_YELL", GetTime()-t_aggroYell, "\n"..msg)
 	
 	
 	
@@ -147,17 +147,17 @@ function mod:SPELL_CAST_START(args)
 	end
 end
 
-function mod:UNIT_TARGET(unit)	-- I think this is useless, why would anyone in the raid target razorflame right after the flame stuff?
-	if castFlames and GetTime() - castFlames <= 1 and self:GetUnitCreatureId(unit.."target") == self.creatureId then
-		local target = UnitName(unit.."targettarget")
-		if target then
-			self:CastFlame(target)
-		else
-			self:CastFlame(L.FlamecastUnknown)
-		end
-		castFlames = false
-	end
-end 
+-- function mod:UNIT_TARGET(unit)	-- I think this is useless, why would anyone in the raid target razorflame right after the flame stuff?
+	-- if castFlames and GetTime() - castFlames <= 1 and self:GetUnitCreatureId(unit.."target") == self.creatureId then
+		-- local target = UnitName(unit.."targettarget")
+		-- if target then
+			-- self:CastFlame(target)
+		-- else
+			-- self:CastFlame(L.FlamecastUnknown)
+		-- end
+		-- castFlames = false
+	-- end
+-- end 
 
 function mod:CastFlame(target)
 	warnDevouringFlameCast:Show(target)
