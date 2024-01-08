@@ -2,6 +2,8 @@
 DBM: modified development for WotLK
 
 ### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
+- DBM T5.010 alpha
+  - Reduced amplitude of TTS sound file warning for Yogg-Sarons "Lunatic Gaze"
 - DBM T5.009 alpha
   - Removed Debug Messages
 - DBM T5.008 alpha
