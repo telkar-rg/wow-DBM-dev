@@ -1,6 +1,7 @@
 .gitignore
 *.patch
 /_Releases
+/Sound Backup
 Git wow-DBM-dev.lnk
 
 # Compiled Lua sources
