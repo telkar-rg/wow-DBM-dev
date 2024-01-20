@@ -593,6 +593,38 @@
 					</OnClick>
 				</Scripts>
 			</Button>
+			
+			<EditBox name="$parentWebsite" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="250" y="12"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentAuthors" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						self:SetAutoFocus( false );
+						self:SetText("|cFFFFFF22https://github.com/telkar-rg/wow-DBM-dev|r")
+					</OnLoad>
+					<OnTextChanged>
+						self:SetText("|cFFFFFF22https://github.com/telkar-rg/wow-DBM-dev|r")
+						if self:HasFocus() then
+							self:HighlightText(0);
+						end
+					</OnTextChanged>
+					<OnCursorChanged>
+						if self:HasFocus() then
+							self:HighlightText(0);
+						end
+					</OnCursorChanged>
+				</Scripts>
+				<FontString inherits="GameFontDisableSmall"/>
+			</EditBox>
+			
 		</Frames>
 		<Scripts>
 			<OnLoad>
@@ -648,7 +680,8 @@
 					self:CreateButtons( getglobal(self:GetName().."DBMOptions") )
 					self:UpdateMenuFrame( getglobal(self:GetName().."BossMods") )
 				end
-				getglobal(self:GetName().."Authors"):SetText("DBM T5 edited by Telkar@RG - visit https://github.com/telkar-rg/wow-DBM-dev")
+				getglobal(self:GetName().."Authors"):SetText("|cFF20FFFFDBM T5|cFFFFFFFF edited by |cFF20FFFFTelkar@RG|cFFFFFFFF - Updates:|r")
+				<!-- getglobal(self:GetName().."Website"):SetText("https://github.com/telkar-rg/wow-DBM-dev") -->
 			</OnShow>
 			<OnDragStart>
 				self:StartMoving()
