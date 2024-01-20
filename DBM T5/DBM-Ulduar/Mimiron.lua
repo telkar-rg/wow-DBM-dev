@@ -26,7 +26,7 @@ local c_timerP1toP2 = 43
 local c_timerP2toP3 = 32
 local c_timerP3toP4 = 25
 
-local c_timerFirstFlames = 6.5
+local c_timerFirstFlames = 6.0
 local c_timerNextFlames = 28
 local c_timerNextFlamesP4 = 28 	-- 18 -- it was measures to be 28s on 2023 07 13
 local c_timerFlameSuppressantP1 = 83.5	-- spell=64570 -- from yell
