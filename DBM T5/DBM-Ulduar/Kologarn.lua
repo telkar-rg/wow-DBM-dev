@@ -12,6 +12,8 @@ mod:RegisterEvents(
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
 	"SPELL_DAMAGE",
+	"SPELL_MISSED",
+	"SPELL_CAST_SUCCESS",
 	"CHAT_MSG_RAID_BOSS_WHISPER",
 	"UNIT_DIED"
 )
@@ -31,8 +33,9 @@ local specWarnEyebeam			= mod:NewSpecialWarningYou(63346)
 
 local timerCrunch10             = mod:NewTargetTimer(6, 63355)
 local timerNextShockwave		= mod:NewCDTimer(18, 63982)
-local timerRespawnLeftArm		= mod:NewTimer(48, "timerLeftArm")
-local timerRespawnRightArm		= mod:NewTimer(48, "timerRightArm")
+local timerNextOverheadSmash	= mod:NewCDTimer(14.5, 64715) 	-- Overhead Smash Tremor: Silence Cooldown
+local timerRespawnLeftArm		= mod:NewTimer(40, "timerLeftArm")
+local timerRespawnRightArm		= mod:NewTimer(40, "timerRightArm")
 local timerTimeForDisarmed		= mod:NewTimer(10, "achievementDisarmed")	-- 10 HC / 12 nonHC
 
 -- 5/23 00:33:48.648  SPELL_AURA_APPLIED,0x0000000000000000,nil,0x80000000,0x0480000001860FAC,"Hâzzad",0x4000512,63355,"Crunch Armor",0x1,DEBUFF
@@ -67,6 +70,24 @@ function mod:SPELL_DAMAGE(args)
 		timerNextShockwave:Start()
 	elseif args:IsSpellID(63346, 63976) and args:IsPlayer() then
 		specWarnEyebeam:Show()
+	elseif args:IsSpellID(63356, 64003) then 	-- OverheadSmash
+		timerNextOverheadSmash:Start()
+	end
+end
+
+function mod:SPELL_MISSED(args) 	-- (Mirror of SPELL_DAMAGE for Disc Bubbles!)
+	if args:IsSpellID(63783, 63982) and args:IsPlayer() then	-- Shockwave
+		timerNextShockwave:Start()
+	elseif args:IsSpellID(63346, 63976) and args:IsPlayer() then
+		specWarnEyebeam:Show()
+	elseif args:IsSpellID(63356, 64003) then 	-- OverheadSmash
+		timerNextOverheadSmash:Start()
+	end
+end
+
+function mod:SPELL_CAST_SUCCESS(args)
+	if args:IsSpellID(64006, 63573) then 	-- One-Armed Overhead Smash (One arm is dead)
+		timerNextOverheadSmash:Start()
 	end
 end
 

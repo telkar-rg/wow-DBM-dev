@@ -1,0 +1,35 @@
+		"<12.17 20:22:18> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [59]
+		"<16.99 20:22:23> [CLEU] SPELL_DAMAGE#0xF1500080A2000938#Kologarn#0x0000000000716CE5#Corbone#63356#Überkopfkracher", -- [209]
+
+		"<3.44 20:12:35> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [64]
+		"<8.26 20:12:40> [CLEU] SPELL_DAMAGE#0xF1500080A2000A44#Kologarn#0x00000000006CCD61#Biigkeazy#64003#Überkopfkracher", -- [355]
+
+		"<11.09 21:39:49> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [30]
+		"<15.84 21:39:53> [CLEU] SPELL_MISSED#0xF1500080A20005DF#Kologarn#0x0000000000705BA0#Frieddel#63356#Überkopfkracher", -- [170]
+
+		"<5.90 20:16:09> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [34]
+		"<10.69 20:16:14> [CLEU] SPELL_DAMAGE#0xF1500080A200096A#Kologarn#0x00000000007062F6#Serâphina#64003#Überkopfkracher", -- [445]
+
+		"<15.57 20:37:37> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [11]
+		"<20.42 20:37:41> [CLEU] SPELL_MISSED#0xF1500080A200077E#Kologarn#0x0000000000716CE5#Corbone#63356#Überkopfkracher", -- [142]
+
+		"<71.20 20:05:03> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [298]
+		"<76.13 20:05:07> [CLEU] SPELL_DAMAGE#0xF1500080A2000AB8#Kologarn#0x0000000000225BDC#Armado#64003#Überkopfkracher", -- [524]
+
+		"<3.06 20:24:36> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [40]
+		"<7.87 20:24:41> [CLEU] SPELL_DAMAGE#0xF1500080A2000AE1#Kologarn#0x00000000007062F6#Serâphina#64003#Überkopfkracher", -- [357]
+
+		"<12.99 20:03:36> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [195]
+		"<17.74 20:03:41> [CLEU] SPELL_DAMAGE#0xF1500080A2000A8A#Kologarn#0x00000000004D3168#Ðesert#64003#Überkopfkracher", -- [548]
+
+		"<17.62 19:32:14> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [50]
+		"<22.44 19:32:19> [CLEU] SPELL_DAMAGE#0xF1500080A200084C#Kologarn#0x0000000000277A4C#Brazco#63356#Überkopfkracher", -- [296]
+
+		"<8.45 20:25:29> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [47]
+		"<13.29 20:25:33> [CLEU] SPELL_DAMAGE#0xF1500080A20009D5#Kologarn#0x00000000006FB62F#Elpete#64003#Überkopfkracher", -- [427]
+
+		"<11.37 20:19:06> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [217]
+		"<16.26 20:19:11> [CLEU] SPELL_DAMAGE#0xF1500080A2000AEB#Kologarn#0x0000000000394A05#Farodín#64003#Überkopfkracher", -- [668]
+
+		"<7.36 20:00:16> [PLAYER_REGEN_DISABLED] +Entering combat!", -- [8]
+		"<12.10 20:00:21> [CLEU] SPELL_DAMAGE#0xF1500080A2000957#Kologarn#0x00000000006E225C#Tammagami#63356#Überkopfkracher", -- [76]
