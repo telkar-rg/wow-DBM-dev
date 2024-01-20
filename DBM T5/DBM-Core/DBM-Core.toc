@@ -1,5 +1,5 @@
 ﻿## Interface: 30300
-## Title:|cffffd200Deadly Boss Mods|r |cff69ccf0Core|r (T5.010 by Telkar@RG)
+## Title:|cffffd200Deadly Boss Mods|r |cff69ccf0Core|r (T5.011 by Telkar@RG)
 ## Notes: Deadly Boss Mods
 ## SavedVariablesPerCharacter: DBM_SavedOptions, DBT_SavedOptions
 ## LoadOnDemand: 0
