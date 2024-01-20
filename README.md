@@ -1,8 +1,12 @@
 # DBM T5
 DBM: modified development for WotLK
 
-### [Releases](https://github.com/telkar-rg/wow-DBM-dev/releases)
-- DBM T5.010 alpha
+## [Downloads](https://github.com/telkar-rg/wow-DBM-dev/releases)
+- DBM T5.011
+  - Ulduar
+    - Kologarn: Added CD-Timer for "Overhead Smash" (Silence Ability)
+    - Mimiron: Reduced timer for first Flames in HM by 0.5s
+- DBM T5.010
   - Reduced amplitude of TTS sound file warning for Yogg-Sarons "Lunatic Gaze"
 - DBM T5.009 alpha
   - Removed Debug Messages
