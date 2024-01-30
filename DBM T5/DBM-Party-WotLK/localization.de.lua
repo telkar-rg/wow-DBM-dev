@@ -1163,16 +1163,25 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	warnExplode			= "Ghul explodiert - Lauf"
+	warnExplode				= "Ghul explodiert - Lauf"
 })
 
+L:SetTimerLocalization{
+	TimerCombatStart		= "Kampf beginnt"
+}
+
 L:SetOptionLocalization({
+	TimerCombatStart		= "Zeige Timer für Kampfbeginn",
 	warnExplode				= "Zeige Warnung wenn Ghuldiener kurz vor dem Explodieren ist",
+	AchievementCheck		= format("Verkünde '%s' Erfolgs-Fehlschlag zu Gruppe", GetAchievementLink(3804):gsub("%[(.+)%]", "%1")),
 	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd	= "Meine Glückwünsche, Champions. In Prüfungen sowohl geplant als auch unerwartet habt Ihr triumphiert."
+	Pull					= "Gut gemacht. Ihr habt Euch heute bewiesen...", 	-- 35544
+	AchievementFailed		= ">> ERFOLG FEHLGESCHLAGEN: %s wurde von Ghulexplosion getroffen <<",
+	YellCombatEnd			= "Nein! Ich darf nicht... wieder... versagen..." 	-- 35770
+	-- YellCombatEnd			= "Meine Glückwünsche, Champions. In Prüfungen sowohl geplant als auch unerwartet habt Ihr triumphiert." 	-- 35796
 })
 
 -----------------------
@@ -1187,11 +1196,19 @@ L:SetGeneralLocalization({
 L:SetWarningLocalization({
 })
 
+L:SetTimerLocalization{
+	TimerCombatStart	= "Kampf beginnt"
+}
+
 L:SetOptionLocalization({
+	TimerCombatStart	= "Zeige Timer für Kampfbeginn"
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd	= "Gut gekämpft! Eure nächste Herausforderung kommt aus den eigenen Reihen des Kreuzzugs. Ihr werdet Euch gegen ihre eindrucksvolle Tapferkeit beweisen müssen."
+	YellPullAlliance	= "Der Silberbund schätzt sich glücklich, seine Kämpfer für dieses Ereignis präsentieren zu dürfen, Hochlord.", 	-- 35259
+	YellPullHorde		= "Die Sonnenhäscher präsentieren voller Stolz ihre Vertreter in diesem kämpferischen Auswahlverfahren.", 	-- 35260
+	YellPullShort		= "Willkommen, Champions. Heute werdet Ihr Euch unter den Augen Eurer Anführer und Angehöriger Eures Volks als würdige Kämpfer beweisen können.", 	-- 35321
+	YellCombatEnd		= "Gut gekämpft! Eure nächste Herausforderung kommt aus den eigenen Reihen des Kreuzzugs. Ihr werdet Euch gegen ihre eindrucksvolle Tapferkeit beweisen müssen." 	-- 35541
 })
 
 ----------------------------------

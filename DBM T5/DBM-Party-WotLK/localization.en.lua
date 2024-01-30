@@ -1156,24 +1156,25 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	warnExplode			= "Ghoul Explode - Run away"
+	warnExplode				= "Ghoul Explode - Run away"
 })
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Combat starts"
+	TimerCombatStart		= "Combat starts"
 }
 
 L:SetOptionLocalization({
 	TimerCombatStart		= "Show timer for start of combat",
 	warnExplode				= "Show warning when Ghoul Minion is about to explode",
-	AchievementCheck		= "Announce 'I've Had Worse' achievement failure to party",
+	AchievementCheck		= format("Announce '%s' achievement failure to party", GetAchievementLink(3804):gsub("%[(.+)%]", "%1")),
 	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
 })
 
 L:SetMiscLocalization({
-	Pull				= "Well done. You have proven yourself today-",
-	AchievementFailed	= ">> ACHIEVEMENT FAILED: %s was hit by Ghoul Explode <<",
-	YellCombatEnd		= "My congratulations, champions. Through trials both planned and unexpected, you have triumphed."	-- can also be "No! I must not fail... again ..."
+	Pull					= "Well done. You have proven yourself today-", 	-- 35544
+	AchievementFailed		= ">> ACHIEVEMENT FAILED: %s was hit by Ghoul Explode <<",
+	YellCombatEnd			= "No! I must not fail... again..." 	-- 35770
+	-- YellCombatEnd		= "My congratulations, champions. Through trials both planned and unexpected, you have triumphed." 	-- 35796
 })
 
 -----------------------
@@ -1188,11 +1189,19 @@ L:SetGeneralLocalization({
 L:SetWarningLocalization({
 })
 
+L:SetTimerLocalization{
+	TimerCombatStart	= "Combat starts"
+}
+
 L:SetOptionLocalization({
+	TimerCombatStart	= "Show timer for start of combat"
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd	= "Well fought! Your next challenge comes from the Crusade's own ranks. You will be tested against their considerable prowess."
+	YellPullAlliance	= "The Silver Covenant is pleased to present their contenders for this event, Highlord.", 	-- 35259
+	YellPullHorde		= "The Sunreavers are proud to present their representatives in this trial by combat.", 	-- 35260
+	YellPullShort		= "Welcome, champions. Today, before the eyes of your leaders and peers, you will prove yourselves worthy combatants.", 	-- 35321
+	YellCombatEnd		= "Well fought! Your next challenge comes from the Crusade's own ranks. You will be tested against their considerable prowess." 	-- 35541
 })
 
 ----------------------------------

@@ -12,7 +12,8 @@ mod:RegisterKill("yell", L.YellCombatEnd)
 mod:RegisterEvents(
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
-	"SPELL_AURA_APPLIED"
+	"SPELL_AURA_APPLIED",
+	"CHAT_MSG_MONSTER_YELL"
 )
 
 local isDispeller = select(2, UnitClass("player")) == "MAGE"
@@ -23,8 +24,14 @@ local warnHealingWave		= mod:NewSpellAnnounce(68318, 2)
 local warnHaste				= mod:NewTargetAnnounce(66045, 2)
 local warnPolymorph			= mod:NewTargetAnnounce(66043, 1)
 local warnHexOfMending		= mod:NewTargetAnnounce(67534, 1)
+
 local specWarnPoison		= mod:NewSpecialWarningMove(68316)
 local specWarnHaste			= mod:NewSpecialWarningDispel(66045, isDispeller)
+
+local combatStart_1 		= 87
+local combatStart_2 		= 27
+local timerCombatStart		= mod:NewTimer(combatStart_1, "TimerCombatStart", 2457)
+local combatActive
 
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(68318, 67528) then								-- Healing Wave
@@ -46,6 +53,21 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnHexOfMending:Show(args.destName)
 	elseif args:IsSpellID(67594, 68316) and args:IsPlayer() then		-- Standing in Poison Bottle.
 		specWarnPoison:Show()
+	end
+end
+
+function mod:CHAT_MSG_MONSTER_YELL(msg)
+	if msg == L.YellPullAlliance or msg:find(L.YellPullAlliance) then 	-- Alliance intro timing
+		timerCombatStart:Start()
+		combatActive = true
+	elseif msg == L.YellPullHorde or msg:find(L.YellPullHorde) then 	-- Horde intro timing
+		timerCombatStart:Start()
+		combatActive = true
+	elseif msg == L.YellPullShort or msg:find(L.YellPullShort) then 	-- Short intro timing
+		if not combatActive then
+			timerCombatStart:Start(combatStart_2)
+		end
+		combatActive = false
 	end
 end
 

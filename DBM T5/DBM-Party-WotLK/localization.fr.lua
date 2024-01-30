@@ -1129,18 +1129,25 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	specWarnDesecration		= "Violation ! Bougez !",
 	warnExplode				= "Séide goule incante explosion ! Bougez !"
 })
 
+L:SetTimerLocalization{
+	TimerCombatStart		= "Début du combat"
+}
+
 L:SetOptionLocalization({
-	specWarnDesecration		= "Montre une alerte spéciale quand vous prenez des dégâts venant de la Violation",
+	TimerCombatStart		= "Montre le timer pour le début du combat",
 	warnExplode				= "Montre une alerte quand une Séide goule incante explosion sur elle-même",
-	SetIconOnMarkedTarget	= "Met une icône sur la cible de la mort"
+	AchievementCheck		= format("Annoncer l'échec de la réalisation '%s' au groupe", GetAchievementLink(3804):gsub("%[(.+)%]", "%1")),
+	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd			= "Non ! Pas encore... un échec..."
+	Pull					= "Bien joué. Aujourd'hui, vous avez fait la preuv-", 	-- 35544
+	AchievementFailed		= ">> ÉCHEC DE RÉALISATION : %s a été touché par Explosion de goule <<",
+	YellCombatEnd			= "Non.! Pas encore… un échec…" 	-- 35770
+	-- YellCombatEnd			= "Mes félicitations, champions. Dans l'épreuve prévue comme dans l'imprévue, vous avez triomphé." 	-- 35796
 })
 
 -------------------
@@ -1153,17 +1160,21 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	specWarnHaste		= "Hâte sur >%s< ! Dispell Maintenant !",
-	specWarnPoison		= "Poison ! Bougez !"
 })
 
+L:SetTimerLocalization{
+	TimerCombatStart	= "Début du combat"
+}
+
 L:SetOptionLocalization({
-	specWarnHaste		= "Montre une alerte spéciale quand le mage gagne la hâte (pour Dispell/Voler)",
-	specWarnPoison		= "Montre une alerte spéciale quand vous subissez des dégâts provenant de la Bouteille de poison"
+	TimerCombatStart	= "Montre le timer pour le début du combat"
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd		= "Joli combat ! Votre prochain défi vient directement des rangs de la Croisade. L'épreuve sera de vous mesurer à l'incroyable vituosité de ses cavaliers."
+	YellPullAlliance	= "Le Concordat argenté est heureux de vous présenter ses compétiteurs pour l'évènement, généralissime.", 	-- 35259
+	YellPullHorde		= "Les Saccage-soleil sont fiers d'annoncer leurs représentants pour ce jugement par l'épée.", 	-- 35260
+	YellPullShort		= "Bienvenue, champions. Aujourd'hui, devant vos rois et pairs, vous allez faire montre de votre valeur.", 	-- 35321
+	YellCombatEnd		= "Joli combat.! Votre prochain défi vient directement des rangs de la Croisade. L'épreuve sera de vous mesurer à l'incroyable vituosité de ses cavaliers." 	-- 35541
 })
 
 -------------------

@@ -1155,24 +1155,25 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	warnExplode			= "食屍鬼爆炸 - 快跑開"
+	warnExplode				= "食屍鬼爆炸 - 快跑開"
 })
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "戰鬥開始"
+	TimerCombatStart		= "戰鬥開始"
 }
 
 L:SetOptionLocalization({
 	TimerCombatStart		= "為戰鬥開始顯示計時器",
 	warnExplode				= "當食屍鬼爪牙即將自我爆炸時警告",
-	AchievementCheck		= "提示 '糟糕透頂' 成就到隊伍頻道",
+	AchievementCheck		= format("提示 '%s' 成就到隊伍頻道", GetAchievementLink(3804):gsub("%[(.+)%]", "%1")),
 	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
 })
 
 L:SetMiscLocalization({
-	Pull				= "幹得好。今天，你已證明了你自己-",
-	AchievementFailed	= ">> 成就失敗: %s 被食屍鬼爆炸炸到了 <<",
-	YellCombatEnd		= "恭喜你，勇士們。儘管試煉隱藏著許多不安的變數，但你們仍然通過了考驗。"	-- can also be "No! I must not fail... again ..."
+	Pull					= "幹得好。今天，你已證明了你自己-", 	-- 35544
+	AchievementFailed		= ">> 成就失敗: %s 被食屍鬼爆炸炸到了 <<",
+	YellCombatEnd			= "不!我不能再次...失敗..." 	-- 35770
+	-- YellCombatEnd			= "恭喜你，勇士們。儘管試煉隱藏著許多不安的變數，但你們仍然通過了考驗。" 	-- 35796
 })
 
 -----------------------
@@ -1187,11 +1188,19 @@ L:SetGeneralLocalization({
 L:SetWarningLocalization({
 })
 
+L:SetTimerLocalization{
+	TimerCombatStart	= "戰鬥開始"
+}
+
 L:SetOptionLocalization({
+	TimerCombatStart	= "為戰鬥開始顯示計時器"
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd	= "精采的戰鬥!你的下一個挑戰者是從十字軍中挑選出來的英勇鬥士。你將會親身面對他們超卓實力的考驗。"
+	YellPullAlliance	= "白銀誓盟很榮幸地介紹他們這次事件的參與者，大領主。", 	-- 35259
+	YellPullHorde		= "奪日者很驕傲地介紹他們這次試煉之戰的代表。", 	-- 35260
+	YellPullShort		= "歡迎，勇士。今天，在你的領袖與同袍眼前，你將會證明你自己是個有價值的戰士。", 	-- 35321
+	YellCombatEnd		= "精采的戰鬥!你的下一個挑戰者是從十字軍中挑選出來的英勇鬥士。你將會親身面對他們超卓實力的考驗。" 	-- 35541
 })
 
 ----------------------------------

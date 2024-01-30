@@ -1210,24 +1210,25 @@ L:SetGeneralLocalization({
 })
 
 L:SetWarningLocalization({
-	warnExplode		= "Explosión de necrófago. Alejate!"
+	warnExplode				= "Explosión de necrófago. Alejate!"
 })
 
 L:SetTimerLocalization{
-	TimerCombatStart	= "Empieza el combate"
+	TimerCombatStart		= "Empieza el combate"
 }
 
 L:SetOptionLocalization({
 	TimerCombatStart		= "Mostrar tiempo para el inicio del combate",
-	warnExplode		= "Avisar cuando un Necrofago vaya a explotar.",
-	AchievementCheck		= "Anunciar fallo del logro 'Podría ser peor' al grupo",
+	warnExplode				= "Avisar cuando un Necrofago vaya a explotar.",
+	AchievementCheck		= format("Anunciar fallo del logro '%s' al grupo", GetAchievementLink(3804):gsub("%[(.+)%]", "%1")),
 	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
 })
 
 L:SetMiscLocalization({
-	Pull			= "Bien hecho. Hoy has demostrado algo...",
-	AchievementFailed	= ">> LOGRO FALLADO: %s ha sido alcanzado por Explosión de necrófago <<",
-	YellCombatEnd	= "¡No! No debo fallar... otra vez..."
+	Pull					= "Bien hecho. Hoy has demostrado algo...",
+	AchievementFailed		= ">> LOGRO FALLADO: %s ha sido alcanzado por Explosión de necrófago <<",
+	YellCombatEnd			= "Mi enhorabuena, campeones. Habéis triunfado a los largo de estas pruebas, tanto planeadas como inesperadas."
+	-- YellCombatEnd			= "¡No! No debo fallar... otra vez..."
 })
 
 
@@ -1243,11 +1244,19 @@ L:SetGeneralLocalization({
 L:SetWarningLocalization({
 })
 
+L:SetTimerLocalization{
+	TimerCombatStart	= "Empieza el combate"
+}
+
 L:SetOptionLocalization({
+	TimerCombatStart	= "Mostrar tiempo para el inicio del combate"
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd	= "¡Bien luchado! Vuestro próximo reto llega de entre las filas de la propia Cruzada. Se os pondrá a prueba contra su considerable destreza."
+	YellPullAlliance	= "El Pacto de Plata está encantado de presentar a sus luchadores para este evento, Alto Señor.", 	-- 35259
+	YellPullHorde		= "Los Atracasol están orgullosos de presentar a sus representantes en estas pruebas de combate.", 	-- 35260
+	YellPullShort		= "Bienvenidos, campeones. Hoy, ante los ojos de vuestros líderes y coetáneos, demostraréis ser dignos luchadores.", 	-- 35321
+	YellCombatEnd		= "¡Bien luchado! Vuestro próximo reto llega de entre las filas de la propia Cruzada. Se os pondrá a prueba contra su considerable destreza." 	-- 35541
 })
 
 

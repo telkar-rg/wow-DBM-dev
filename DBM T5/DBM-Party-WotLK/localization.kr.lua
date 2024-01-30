@@ -1169,12 +1169,15 @@ L:SetTimerLocalization{
 L:SetOptionLocalization({
 	TimerCombatStart		= "전투 시작 타이머 보기",
 	warnExplode				= "구울 폭발을 시전할 경우 경고 알리기",
+	AchievementCheck		= format("'%s' 달성 실패를 그룹에 알립니다.", GetAchievementLink(3804):gsub("%[(.+)%]", "%1")),
 	SetIconOnMarkedTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(67823)
 })
 
 L:SetMiscLocalization({
-	Pull					= "Well done. You have proven yourself today-",
-	YellCombatEnd			= "축하하네, 용사들이여. 예정된 시험이든 뜻밖의 시험이든, 그대들은 모두 이겨냈군."	-- can also be "No! I must not fail... again ..."
+	Pull					= "잘했네. 오늘 자네의 가치를 잘 보여주었...", 	-- 35544
+	AchievementFailed		= ">> 달성 실패: %s이 구울 폭발에 타격을 받았습니다. <<",
+	YellCombatEnd			= "안 돼! 또 무릎 꿇을 수는... 없는데..." 	-- 35770
+	-- YellCombatEnd			= "축하하네, 용사들이여. 예정된 시험이든 뜻밖의 시험이든, 그대들은 모두 이겨냈군." 	-- 35796
 })
 
 -------------------
@@ -1189,11 +1192,19 @@ L:SetGeneralLocalization({
 L:SetWarningLocalization({
 })
 
+L:SetTimerLocalization{
+	TimerCombatStart	= "전투 시작"
+}
+
 L:SetOptionLocalization({
+	TimerCombatStart	= "전투 시작 타이머 보기"
 })
 
 L:SetMiscLocalization({
-	YellCombatEnd		= "잘 싸웠네! 다음 상대는 은빛십자군의 일원이라네. 그들을 상대로 자신의 무용을 증명해 보게."
+	YellPullAlliance	= "대영주님, 은빛 서약단에서는 이번 행사에 참가자를 출전시킬 수 있어 기쁘게 생각합니다.", 	-- 35259
+	YellPullHorde		= "선리버에서는 이 시험에서 싸울 대표단을 출전시킬 수 있어 자랑스럽습니다.", 	-- 35260
+	YellPullShort		= "어서 오게, 용사여. 오늘, 여러 지도자와 동료 앞에서 자신이 얼마나 가치 있는 투사인지 증명할 수 있을 걸세.", 	-- 35321
+	YellCombatEnd		= "잘 싸웠네! 다음 상대는 은빛십자군의 일원이라네. 그들을 상대로 자신의 무용을 증명해 보게." 	-- 35541
 })
 
 --------------------------------

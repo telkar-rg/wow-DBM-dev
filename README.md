@@ -2,6 +2,9 @@
 DBM: modified development for WotLK
 
 ## [Downloads](https://github.com/telkar-rg/wow-DBM-dev/releases)
+- (DBM T5.012 alpha)
+  - Trial of the Champions
+    - added Combat Start Timer to the Champions and the Black Knight
 - DBM T5.011 alpha
   - Ulduar
     - Kologarn: Added CD-Timer for "Overhead Smash" (Silence Ability)
