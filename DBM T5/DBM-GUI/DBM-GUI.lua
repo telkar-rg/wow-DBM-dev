@@ -2122,7 +2122,7 @@ do
 					lastButton = button
 					button = catpanel:CreateCheckButton(mod.localization.options[v], true)
 					if addSpacer then
-						button:SetPoint("TOPLEFT", lastButton, "BOTTOMLEFT", 0, -6)
+						button:SetPoint("TOPLEFT", lastButton, "BOTTOMLEFT", 0, -20)
 						addSpacer = false
 					end
 					button:SetScript("OnShow",  function(self) 
