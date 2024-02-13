@@ -41,7 +41,7 @@
 --    * Vargoth @ Rising-Gods
 --    * Telkar @ Rising-Gods
 
-local revision =("$Revision: 5005 $"):sub(12, -3) 
+local revision =("$Revision: 5006 $"):sub(12, -3)
 local FrameTitle = "DBM_GUI_Option_"	-- all GUI frames get automatically a name FrameTitle..ID
 
 local PanelPrototype = {}
@@ -363,6 +363,46 @@ do
 				button:ClearAllPoints()
 				button:SetPoint('TOPLEFT', 10, -12)
 			end
+		end
+
+		self:SetLastObj(button)
+		return button
+	end
+	
+	-- PanelPrototype:CreateText(text, width, autoplaced, style, justify)
+	-- PanelPrototype:CreateCheckButton(name, autoplace, textleft, dbmvar, dbtvar)
+	function PanelPrototype:CreateSpacer( )
+		local name = "--SPACER---"
+		
+		local button = CreateFrame('CheckButton', FrameTitle..self:GetNewID(), self.frame, 'OptionsCheckButtonTemplate')
+		-- print("-- debug", button:GetName())
+		
+		local buttonText = getglobal(button:GetName() .. 'Text')
+		button:Disable()
+		button:SetAlpha(0)
+		
+		button.myheight = 25 -- <= text height + 12
+		button.mytype = "checkbutton"
+		
+		buttonText:SetText(name or "unknown")
+		buttonText:SetWidth( self.frame:GetWidth() - 50 )
+		
+		local textHeight = buttonText:GetHeight() -- get newly formated text height
+		button.myheight = textHeight+12
+		
+		buttonText:SetText(name or "unknown")
+		buttonText:SetHeight(button.myheight)
+		
+		buttonText:SetJustifyH("LEFT")
+		
+
+		local x = self:GetLastObj()
+		if x.mytype == "checkbutton" then
+			button:ClearAllPoints()
+			button:SetPoint('TOPLEFT', self:GetLastObj(), "BOTTOMLEFT", 0, 2 - (button.myheight-25 + x.myheight-25)/2)
+		else
+			button:ClearAllPoints()
+			button:SetPoint('TOPLEFT', 10, -12)
 		end
 
 		self:SetLastObj(button)
@@ -2117,14 +2157,16 @@ do
 			local button, lastButton, addSpacer
 			for _,v in ipairs(category) do
 				if v == DBM_OPTION_SPACER then
-					addSpacer = true
+					-- addSpacer = true
+					lastButton = button
+					button = catpanel:CreateSpacer()
 				elseif type(mod.Options[v]) == "boolean" then
 					lastButton = button
 					button = catpanel:CreateCheckButton(mod.localization.options[v], true)
-					if addSpacer then
-						button:SetPoint("TOPLEFT", lastButton, "BOTTOMLEFT", 0, -20)
-						addSpacer = false
-					end
+					-- if addSpacer then
+						-- button:SetPoint("TOPLEFT", lastButton, "BOTTOMLEFT", 0, -20)
+						-- addSpacer = false
+					-- end
 					button:SetScript("OnShow",  function(self) 
 						self:SetChecked(mod.Options[v]) 
 					end)
