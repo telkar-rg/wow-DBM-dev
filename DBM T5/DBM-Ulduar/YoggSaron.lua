@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod("YoggSaron", "DBM-Ulduar")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4338 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 5001 $"):sub(12, -3))
 mod:SetCreatureID(33288)
 
 mod:RegisterCombat("yell", L.YellPull)
@@ -18,45 +18,56 @@ mod:RegisterEvents(
 
 mod:SetUsedIcons(6, 7, 8)
 
-local warnMadness 					= mod:NewCastAnnounce(64059, 2)
-local warnFervorCast 				= mod:NewCastAnnounce(63138, 3)
-local warnMaladyCast 				= mod:NewCastAnnounce(63830, 3)
-local warnSqueeze					= mod:NewTargetAnnounce(64125, 3)
-local warnFervor					= mod:NewTargetAnnounce(63138, 4)
-local warnDeafeningRoarSoon			= mod:NewPreWarnAnnounce(64189, 5, 3)
-local warnGuardianSpawned 			= mod:NewAnnounce("WarningGuardianSpawned", 3, 62979)
-local warnCrusherTentacleSpawned	= mod:NewAnnounce("WarningCrusherTentacleSpawned", 2)
-local warnP2 						= mod:NewPhaseAnnounce(2, 2)
-local warnP3 						= mod:NewPhaseAnnounce(3, 2)
 local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050)
-local warnBrainLink 				= mod:NewTargetAnnounce(63802, 3)
-local warnBrainPortalSoon			= mod:NewAnnounce("WarnBrainPortalSoon", 2)
-local warnEmpowerSoon				= mod:NewSoonAnnounce(64486, 4)
-
-local specWarnGuardianLow 			= mod:NewSpecialWarning("SpecWarnGuardianLow", false)
-local specWarnBrainLink 			= mod:NewSpecialWarningYou(63802)
 local specWarnSanity 				= mod:NewSpecialWarning("SpecWarnSanity")
-local specWarnMadnessOutNow			= mod:NewSpecialWarning("SpecWarnMadnessOutNow")
-local specWarnBrainPortalSoon		= mod:NewSpecialWarning("specWarnBrainPortalSoon", false)
-local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189)
+
+-- p1
+mod:AddAnnounceSpacer()
+local warnGuardianSpawned 			= mod:NewAnnounce("WarningGuardianSpawned", 3, 62979)
+local specWarnGuardianLow 			= mod:NewSpecialWarning("SpecWarnGuardianLow", false)
+local warnFervorCast 				= mod:NewCastAnnounce(63138, 3)
+local warnFervor					= mod:NewTargetAnnounce(63138, 4)
 local specWarnFervor				= mod:NewSpecialWarningYou(63138)
 local specWarnFervorCast			= mod:NewSpecialWarning("SpecWarnFervorCast", mod:IsMelee())
+local warnP2 						= mod:NewPhaseAnnounce(2, 2)
+-- p2
+mod:AddAnnounceSpacer()
+local warnBrainPortalSoon			= mod:NewAnnounce("WarnBrainPortalSoon", 2)
+local specWarnBrainPortalSoon		= mod:NewSpecialWarning("specWarnBrainPortalSoon", false)
+local warnMadness 					= mod:NewCastAnnounce(64059, 2)
+local specWarnMadnessOutNow			= mod:NewSpecialWarning("SpecWarnMadnessOutNow")
+local warnBrainLink 				= mod:NewTargetAnnounce(63802, 3)
+local specWarnBrainLink 			= mod:NewSpecialWarningYou(63802)
+local warnMaladyCast 				= mod:NewCastAnnounce(63830, 3)
 local specWarnMaladyNear			= mod:NewSpecialWarning("SpecWarnMaladyNear", true)
 local specWarnMaladyCast			= mod:NewSpecialWarning("specWarnMaladyCast", true)
-
+local warnCrusherTentacleSpawned	= mod:NewAnnounce("WarningCrusherTentacleSpawned", 2)
+local warnSqueeze					= mod:NewTargetAnnounce(64125, 3, nil, nil, "warnSqueezeTarget")
 mod:AddBoolOption("WarningSqueeze", true, "announce")
+local warnP3 						= mod:NewPhaseAnnounce(3, 2)
+-- p3
+mod:AddAnnounceSpacer()
+local warnDeafeningRoarSoon			= mod:NewPreWarnAnnounce(64189, 5, 3)
+local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189)
+local warnEmpowerSoon				= mod:NewSoonAnnounce(64486, 4)
+
+
 
 local enrageTimer					= mod:NewBerserkTimer(900)
-local timerFervor					= mod:NewTargetTimer(15, 63138)
-local timerBrainportal					= mod:NewTimer(20, "NextPortal", 57687)
+local timerAchieve					= mod:NewAchievementTimer(420, 3012, "TimerSpeedKill")
+-- p2
+mod:AddTimerSpacer()
+local timerBrainportal				= mod:NewTimer(20, "NextPortal", 57687)
 local timerMadness 					= mod:NewCastTimer(60, 64059)
+local timerFervor					= mod:NewTargetTimer(15, 63138)
+-- p2
+mod:AddTimerSpacer()
 local timerLunaticGaze				= mod:NewCastTimer(4, 64163)
 local timerNextLunaticGaze			= mod:NewCDTimer(12, 64163)
-local timerEmpower					= mod:NewCDTimer(45, 64465)
 local timerEmpowerDuration			= mod:NewBuffActiveTimer(10, 64465)
+local timerEmpower					= mod:NewCDTimer(45, 64465)
 local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
 local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189)
-local timerAchieve					= mod:NewAchievementTimer(420, 3012, "TimerSpeedKill")
 
 mod:AddBoolOption("ShowSaraHealth", true)
 mod:AddBoolOption("SetIconOnFervorTarget")
