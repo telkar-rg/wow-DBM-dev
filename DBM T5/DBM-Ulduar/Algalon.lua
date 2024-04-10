@@ -8,8 +8,9 @@ local L		= mod:GetLocalizedStrings()
 --]]
 
 
-mod:SetRevision(("$Revision: 3804 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 5001 $"):sub(12, -3))
 mod:SetCreatureID(32871)
+mod:SetUsedIcons(5, 6, 7, 8)
 
 mod:RegisterCombat("yell", L.YellPull)
 mod:RegisterKill("yell", L.YellKill)
@@ -34,12 +35,12 @@ local warnPhase2Soon			= mod:NewAnnounce("WarnPhase2Soon", 2)
 local announcePreBigBang		= mod:NewPreWarnAnnounce(64584, 10, 3)
 local announceBlackHole			= mod:NewSpellAnnounce(65108, 2)
 local announceCosmicSmash		= mod:NewAnnounce("WarningCosmicSmash", 3, 62311)
-local announcePhasePunch		= mod:NewAnnounce("WarningPhasePunch", 4, 65108, mod:IsHealer() or mod:IsTank())
+local announcePhasePunch		= mod:NewAnnounce("WarningPhasePunch", 4, 64412, mod:IsHealer() or mod:IsTank())
 
 local specwarnStarLow			= mod:NewSpecialWarning("warnStarLow", mod:IsHealer() or mod:IsTank())
 local specWarnPhasePunch		= mod:NewSpecialWarningStack(64412, nil, 4)
 local specWarnBigBang			= mod:NewSpecialWarningSpell(64584)
-local specWarnCosmicSmash		= mod:NewSpecialWarningSpell(64598)
+local specWarnCosmicSmash		= mod:NewSpecialWarningSpell(62311)
 
 local timerCombatStart		    = mod:NewTimer(7, "TimerCombatStart", 2457)
 local enrageTimer				= mod:NewBerserkTimer(360)
@@ -56,12 +57,12 @@ mod:AddBoolOption("SetIconOnCollapsingStar", true)
 local warned_preP2 = false
 local warned_star = false
 
-local table_icon = {8,7,6,5,4,3,2,1}
+local table_icon = {8,7,6,5}
 
 function mod:OnCombatStart(delay)
 	warned_preP2 = false
 	warned_star = false
-	table_icon = {8,7,6,5,4,3,2,1}
+	table_icon = {8,7,6,5}
 	
 	local text = select(3, GetWorldStateUIInfo(1)) 
 	local _, _, time = string.find(text, L.PullCheck)
@@ -100,7 +101,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 	if args:IsSpellID(65108, 64122) then 	-- Black Hole Explosion
 		announceBlackHole:Show()
 		warned_star = false
-	elseif args:IsSpellID(64598, 62301) then	-- Cosmic Smash
+	elseif args:IsSpellID(64598, 62301) then	-- Cosmic Smash (those are the actual spells cast by Alga)
 		timerCastCosmicSmash:Start()
 		timerCDCosmicSmash:Start()
 		announceCosmicSmash:Show()
