@@ -170,13 +170,17 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	WarningPhasePunch		= "Announce Phase Punch targets",
+	SetIconOnCollapsingStar	= format("Set icons on |cFF%s%s|r (|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:16|t -  |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:16|t)", "ff8040", "Collapsing Star", 8, 5),
+	WarningPhasePunch		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.target:format(64412, GetSpellInfo(64412) or "Phase Punch"),
+	-- WarningPhasePunch		= "Announce Phase Punch targets",
 	NextCollapsingStar		= "Show timer for next Collapsing Star",
-	WarningCosmicSmash 		= "Show warning for Cosmic Smash",
-	PossibleNextCosmicSmash	= "Show timer for next possible Cosmic Smash",
+	WarningCosmicSmash 		= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(62311, GetSpellInfo(62311) or "Cosmic Smash"),
+	-- WarningCosmicSmash 		= "Show warning for Cosmic Smash",
+	PossibleNextCosmicSmash	= "Show timer for next possible $spell:62311",
 	TimerCombatStart		= "Show timer for start of combat",
 	WarnPhase2Soon			= "Show pre-warning for Phase 2 (at ~23%)",
-	warnStarLow				= "Show special warning when Collapsing Star is low (at ~25%)"
+	warnStarLow				= format("Show special warning when |cFF%s%s|r is low (at ~25%%)", "ff8040", "Collapsing Star")
+	-- warnStarLow				= "Show special warning when Collapsing Star is low (at ~25%)"
 }
 
 L:SetMiscLocalization{
@@ -549,32 +553,33 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	WarningGuardianSpawned			= "Show warning for Guardian spawns",
-	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145, "Crusher Tentacle spawns"),
+	WarningGuardianSpawned			= format("Show warning for new |c%s%s|r", "ffff8040", "Guardian of Yogg-Saron"),
+	WarningCrusherTentacleSpawned	= format("Show warning when next |c%s%s|r spawns", "ffff8040", "Crusher Tentacle"),
 	WarningSanity					= "Show warning when $spell:63050 is low",
 	SpecWarnSanity					= "Show special warning when $spell:63050 is very low",
-	SpecWarnGuardianLow				= "Show special warning when Guardian (Phase 1) is low (for DDs)",
-	WarnBrainPortalSoon				= "Show pre-warning for Brain Portal",
+	SpecWarnGuardianLow				= format("Show special warning when |c%s%s|r is low (for DDs)", "ffff8040", "Guardian of Yogg-Saron"),
+	WarnBrainPortalSoon				= format("Show pre-warning for |c%s%s|r", "ff40ff80", "Brain Portals"),
 	SpecWarnMadnessOutNow			= "Show special warning shortly before $spell:64059 ends",
 	-- SetIconOnMaladyTarget			= "Set icons on $spell:63881 targets",
 	SetIconOnMaladyTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63830) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
 	
-	SpecWarnFervorCast				= "Show special warning when $spell:63138 is being cast on you (Sara must be target or focus of a raid member)",
-	specWarnBrainPortalSoon			= "Show special warning for next Brain Portal",
+	SpecWarnFervorCast				= format("Show special warning when $spell:63138 is being cast on you (|c%s%s|r must be target/focus of a raid member)", "ffff8040", "Sara"),
+	specWarnBrainPortalSoon			= format("Show special warning for next |c%s%s|r", "ff40ff80", "Brain Portals"),
 	-- WarningSqueeze					= "Yell on Squeeze",
-	WarningSqueeze					= "Yell when caught by Constrictor Tentacle ($spell:64125)",
-	NextPortal						= "Show timer for next Brain Portal",
+	WarningSqueeze					= format("Yell when you get caught by |c%s%s|r", "ffff8040", "Constrictor Tentacle"),
+	warnSqueezeTarget				= format("Announce targets of |c%s%s|r ($spell:64125)", "ffff8040", "Constrictor Tentacle"),
+	NextPortal						= format("Show timer for next |c%s%s|r", "ff40ff80", "Brain Portals"),
 	-- SetIconOnFervorTarget			= "Set icons on $spell:63138 targets",
 	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)",
 	
-	ShowSaraHealth					= "Show health frame for Sara in Phase 1 (Sara must be target or focus of a raid member)",
+	ShowSaraHealth					= format("Show health frame for |c%s%s|r in Phase 1 (|c%s%s|r must be target/focus of a raid member)", "ffff8040", "Sara", "ffff8040", "Sara"),
 	SpecWarnMaladyNear				= "Show special warning for $spell:63881 near you",
-	specWarnMaladyCast				= "Show special warning when $spell:63830 is being cast on you (Sara must be target or focus of a raid member)",
+	specWarnMaladyCast				= format("Show special warning when $spell:63830 is being cast on you (|c%s%s|r must be target/focus of a raid member)", "ffff8040", "Sara"),
 	-- SetIconOnBrainLinkTarget		= "Set icons on $spell:63802 targets",
 	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_6:16|t)",
 	
 	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you",
-	RangeFramePortal25				= "Show range frame for portal position (25 players)",
+	RangeFramePortal25				= format("Show range frame for |c%s%s|r (25 players)", "ff40ff80", "portal positions"),
 	-- ttsLunaticGazeCountdown			= "Play countdown sound for $spell:64163"
 	ttsLunaticGazeCountdown			= DBM_CORE_AUTO_SOUND_OPTION_TEXT3:format(64163)
 }

@@ -32,7 +32,6 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	SpecialPursueWarnYou		= "当你被追踪时显示特别警报",
 	PursueWarn			= "提示追踪的目标",
 	warnNextPursueSoon		= "为下一次追踪显示提前警报",
@@ -55,7 +54,6 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	-- SlagPotIcon			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63477) 	-- en handles this
 }
 
@@ -84,7 +82,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	PlaySoundOnDevouringFlame		= "当你中了$spell:64733时播放音效",
 	warnTurretsReadySoon		= "为炮塔显示提前警报",
 	warnTurretsReady		= "为炮塔显示警报",
@@ -123,7 +120,6 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	-- SetIconOnLightBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(65121), 	-- en handles this
 	-- SetIconOnGravityBombTarget	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(64234) 	-- en handles this
 }
@@ -144,7 +140,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	PlaySoundLightningTendrils	= "为$spell:63486播放音效",
 	-- SetIconOnOverwhelmingPower	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61888), 	-- en handles this
 	-- SetIconOnStaticDisruption	= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(61912), 	-- en handles this
@@ -165,12 +160,12 @@ L:SetMiscLocalization{
 L = DBM:GetModLocalization("Algalon")
 
 L:SetGeneralLocalization{
-	name 				= "观察者奥尔加隆"
+	name = "观察者奥尔加隆"
 }
 
 L:SetTimerLocalization{
-	NextCollapsingStar		= "下一次 坍缩星",
-	PossibleNextCosmicSmash		= "下一次 宇宙重击",
+	NextCollapsingStar		= "下一次 坍缩之星",
+	PossibleNextCosmicSmash	= "下一次 宇宙重击",
 	TimerCombatStart		= "战斗开始"
 }
 
@@ -178,26 +173,28 @@ L:SetWarningLocalization{
 	WarningPhasePunch		= "相位冲压 -> >%s< - 第%d层",
 	WarningCosmicSmash 		= "宇宙重击 - 约4秒后爆炸",
 	WarnPhase2Soon			= "第2阶段 即将到来",
-	warnStarLow			= "坍缩星血量低"
+	warnStarLow				= "坍缩之星血量低"
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
-	WarningPhasePunch		= "提示相位冲压的目标",
-	NextCollapsingStar		= "为下一次坍缩星显示计时条",
-	WarningCosmicSmash 		= "为宇宙重击显示警报",
-	PossibleNextCosmicSmash		= "为下一次宇宙重击显示计时条",
+	SetIconOnCollapsingStar	= format("在|c%s%s|r上设定图标 (|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:16|t -  |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:16|t)", "ffff8040", "坍缩之星", 8, 5),
+	-- WarningPhasePunch		= "提示相位冲压的目标",
+	NextCollapsingStar		= format("为下一次|c%s%s|r显示计时条", "ffff8040", "坍缩之星"),
+	-- NextCollapsingStar		= "为下一次坍缩星显示计时条",
+	-- WarningCosmicSmash 		= "为宇宙重击显示警报",
+	PossibleNextCosmicSmash	= "为下一次宇宙重击显示计时条",
 	TimerCombatStart		= "为战斗开始显示计时条",
 	WarnPhase2Soon			= "为第2阶段显示提前警报 (大约23%)",
-	warnStarLow			= "当坍缩星血量低(大约25%)时显示特别警报"
+	warnStarLow				= format("当|c%s%s|r血量低(约25%%)时显示特别警报", "ffff8040", "坍缩之星")
+	-- warnStarLow				= "当坍缩星血量低(大约25%)时显示特别警报"
 }
 
 L:SetMiscLocalization{
-	YellPull			= "你们的行动不合逻辑。这场战斗所有可能产生的结果都已被计算在内。无论结果如何，万神殿都会收到观察者发出的信息。",
-	YellKill			= "我曾经看过尘世沉浸在造物者的烈焰之中，众生连一声悲泣都无法呼出，就此凋零。整个星系在弹指之间历经了毁灭与重生。然而在这段历程之中，我的心却无法感受到丝毫的…恻隐之念。我‧感‧受‧不‧到。成千上万的生命就这么消逝。他们是否拥有与你同样坚韧的生命?他们是否与你同样热爱生命?",
-	Emote_CollapsingStar		= "%s开始召唤坍缩星！",
-	Phase2				= "瞧瞧泰坦造物的能耐吧!",
-	PullCheck			= "奥尔加隆发送危险信号的倒计时 = (%d+)分钟。"
+	YellPull				= "你们的行动不合逻辑。这场战斗所有可能产生的结果都已被计算在内。无论结果如何，万神殿都会收到观察者发出的信息。", 	-- 33995,'zhCN'
+	YellKill				= "我曾见证过无数个世界被造物者的烈焰吞噬，那些世界中的人们甚至来不及发出一声悲鸣就永远消逝了。整个星球从诞生到毁灭，不过是弹指一挥间。但是从始至终，我都没有为之动容……我，毫无，感觉。千亿的生命被毁灭。他们是否都像你们一样坚强？他们是否都像你们一样热爱生命？", 	-- 34000,'zhCN'
+	Emote_CollapsingStar	= "%s开始召唤坍缩之星！", 	-- 33244,'zhCN'
+	Phase2					= "看吧，这创世的神器！", 	-- 33994,'zhCN'
+	PullCheck				= "奥尔加隆发送危险信号的倒计时 = (%d+)分钟。"
 }
 
 ----------------
@@ -219,7 +216,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	timerLeftArm			= "为左臂重生显示计时条",
 	timerRightArm			= "为右臂重生显示计时条",
 	-- achievementDisarmed		= "为成就：断其臂膀显示计时条",
@@ -266,7 +262,6 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	SpecWarnBlast			= "为警戒冲击显示特别警报(打断用)",
 	WarnCatDied			= "当野性防御者死亡时显示警报",
 	WarnCatDiedOne			= "当野性防御者剩下最后一只时显示警报",
@@ -289,7 +284,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	-- PlaySoundOnFlashFreeze		= "当施放$spell:61968时播放音效",
 	-- PlaySoundOnFlashFreeze	= DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(61968), 	-- en handles this
 	YellOnStormCloud		= "当你中了$spell:65133时大喊",
@@ -320,7 +314,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	TimerHardmode			= "为困难模式显示计时条",
 	RangeFrame			= "显示距离框",
 	AnnounceFails			= "公布中了闪电充能的玩家到团队频道\n(需要团长或助理权限)"
@@ -375,7 +368,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	WarningTree   		= "当首领召唤艾欧娜尔的礼物时显示特别警告",
 	WarnSimulKill			= "提示第一只元素死亡",
 	PlaySoundOnFury			= "当你中了$spell:63571时播放音效",
@@ -400,7 +392,6 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	PlaySoundOnFistOfStone		= "为岩石之拳播放音效",
 	TrashRespawnTimer		= "为弗蕾亚的小怪重生显示计时条"
 }
@@ -429,7 +420,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	TimeToPhase1			= "为第1阶段开始显示计时条",
 	TimeToPhase2			= "为第2阶段开始显示计时条",
 	TimeToPhase3			= "为第3阶段开始显示计时条",
@@ -495,7 +485,6 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	SoundWOP = "为重要技能播放额外的警报语音",
 	-- SetIconOnShadowCrash		= "为$spell:62660的目标设置标记 (骷髅)",
 	-- SetIconOnLifeLeach		= "为$spell:63276的目标设置标记 (十字)",
 	SpecialWarningShadowCrash	= "为$spell:62660显示特别警报(必须至少有一名团队成员设置首领为焦点目标)",
@@ -551,7 +540,6 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	-- SoundWOP = "为重要技能播放额外的警报语音",
 	WarningGuardianSpawned		= "为尤格萨隆的卫士出现显示警报",
 	-- WarningCrusherTentacleSpawned	= "为重压触须出现显示警报",
 	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145,"重压触须出现"),

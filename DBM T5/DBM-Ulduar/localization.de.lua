@@ -196,13 +196,16 @@ L:SetWarningLocalization{
 }
 
 L:SetOptionLocalization{
-	WarningPhasePunch		= "Zeige Warnung bei Phasenschlag",
-	NextCollapsingStar		= "Zeige Timer für kollabierende Sterne",
-	WarningCosmicSmash 		= "Zeige Warnung bei Kosmischem Schlag",
-	PossibleNextCosmicSmash	= "Zeige Timer für nächsten möglichen Kosmischen Schlag",
+	SetIconOnCollapsingStar	= format("Setze Zeichen auf |c%s%s|r (|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:16|t -  |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:16|t)", "ffff8040", "Kollabierender Stern", 8, 5),
+	-- WarningPhasePunch		= "Zeige Warnung bei Phasenschlag",
+	NextCollapsingStar		= format("Zeige Timer für neue |c%s%s|r", "ffff8040", "Kollabierender Stern"),
+	-- NextCollapsingStar		= "Zeige Timer für neue kollabierende Sterne",
+	-- WarningCosmicSmash 		= "Zeige Warnung bei Kosmischem Schlag",
+	PossibleNextCosmicSmash	= "Zeige Timer für nächsten möglichen $spell:62311",
 	TimerCombatStart		= "Zeige Timer für Kampfbeginn",
 	WarnPhase2Soon			= "Zeige Vorwarnung für Phase 2 (bei ~23%)",
-	warnStarLow				= "Zeige Spezialwarnung wenn Kollabierender Stern bald stirbt (bei ~25%)"
+	warnStarLow				= format("Zeige Spezialwarnung wenn |c%s%s|r bald stirbt (bei ~25%%)", "ffff8040", "Kollabierender Stern")
+	-- warnStarLow				= "Zeige Spezialwarnung wenn Kollabierender Stern bald stirbt (bei ~25%)"
 }
 
 L:SetMiscLocalization{
@@ -210,7 +213,7 @@ L:SetMiscLocalization{
 	YellKill				= "Ich sah Welten umhüllt von den Flammen der Schöpfer, sah ohne einen Hauch von Trauer ihre Bewohner vergehen. Ganze Planetensysteme geboren und vernichtet, während Eure sterblichen Herzen nur einmal schlagen. Doch immer war mein Herz kalt... ohne Mitgefühl. Ich - habe - nichts - gefühlt. Millionen, Milliarden Leben verschwendet. Trugen sie alle dieselbe Beharrlichkeit in sich, wie Ihr? Liebten sie alle das Leben so sehr, wie Ihr es tut?",
 	Emote_CollapsingStar	= "%s beginnt damit, kollabierende Sterne zu beschwören!!",
 	Phase2					= "Erblicket die Instrumente der Schöpfung!",
-	PullCheck		= "Zeit, bis Algalon mit dem Uplink beginnt= (%d+) min."
+	PullCheck				= "Zeit, bis Algalon mit dem Uplink beginnt= (%d+) min."
 }
 
 ----------------
@@ -547,7 +550,7 @@ L:SetOptionLocalization{
 	-- SetIconOnShadowCrash		= "Setze Zeichen auf Ziele von Schattengeschoss (Totenkopf)",
 	-- SetIconOnLifeLeach			= "Setze Zeichen auf Ziele von Mal der Gesichtslosen (Lebensentzug) (Kreuz)",
 	-- SpecialWarningSurgeDarkness	= "1 Zeige Spezialwarnung für Sog der Dunkelheit",
-	SpecialWarningShadowCrash	= "Zeige Spezialwarnung für $spell:62660 (muss anvisiert oder im Fokus eines Schlachtzugsmitglieds sein)",
+	SpecialWarningShadowCrash	= "Zeige Spezialwarnung für $spell:62660 (muss anvisiert oder im Fokus eines Schlachtzugmitglieds sein)",
 	SpecialWarningShadowCrashNear	= "Zeige Spezialwarnung bei $spell:62660 in deiner Nähe",
 	-- SpecialWarningLLYou		= "4 Zeige Spezialwarnung für $spell:63276 auf DIR",
 	SpecialWarningLLNear		= "Zeige Spezialwarnung für $spell:63276 in deiner Nähe",
@@ -608,32 +611,34 @@ L:SetTimerLocalization{
 }
 
 L:SetOptionLocalization{
-	WarningGuardianSpawned			= "Zeige Warnung für neue Wächter",
+	WarningGuardianSpawned			= format("Zeige Warnung für neue |c%s%s|r", "ffff8040", "Wächter des Yogg-Saron"),
 	-- WarningCrusherTentacleSpawned	= "Zeige Warnung für neue Schmettertentakel",
-	WarningCrusherTentacleSpawned	= DBM_CORE_AUTO_ANNOUNCE_OPTIONS.spell:format(64145, "neue Schmettertentakel"),
-	-- WarningBrainLink				= "Verkünde Ziele von Gehirnverbindung",
+	WarningCrusherTentacleSpawned	= format("Zeige Warnung für neue |c%s%s|r", "ffff8040", "Schmettertentakel"),
+	-- WarningBrainLink					= "Verkünde Ziele von Gehirnverbindung",
 	-- SpecWarnBrainLink				= "Zeige Spezialwarnung wenn von Gehirnverbindung betroffen",
 	WarningSanity					= "Zeige Warnung wenn $spell:63050 niedrig ist",
 	SpecWarnSanity					= "Zeige Spezialwarnung wenn $spell:63050 sehr niedrig ist",
-	SpecWarnGuardianLow				= "Zeige Spezialwarnung wenn Wächter (P1) fast tot ist (für DDs)",
-	WarnBrainPortalSoon				= "Zeige Vorwarnung für Gehirnportale",
+	SpecWarnGuardianLow				= format("Zeige Spezialwarnung wenn |c%s%s|r fast tot ist (für DDs)", "ffff8040", "Wächter des Yogg-Saron"),
+	-- SpecWarnGuardianLow				= "Zeige Spezialwarnung wenn Wächter fast tot ist (für DDs)",
+	WarnBrainPortalSoon				= format("Zeige Vorwarnung für |c%s%s|r", "ff40ff80", "Gehirnportale"),
 	SpecWarnMadnessOutNow			= "Zeige Spezialwarnung kurz vor Ende von $spell:64059",
 	-- SetIconOnMaladyTarget			= "Setze Zeichen auf Ziele von Geisteskrankheit", -- default EN handles this
 	-- SpecWarnFervor					= "Zeige Spezialwarnung wenn du von $spell:63138 betroffen bist",
-	SpecWarnFervorCast				= "Zeige Spezialwarnung wenn $spell:63138 auf dich gezaubert wird (Sara muss Ziel/Fokus eines Schlachtzugsmitglieds sein)",
-	specWarnBrainPortalSoon			= "Zeige Spezialwarnung für nächste Gehirnportale",
+	SpecWarnFervorCast				= format("Zeige Spezialwarnung wenn $spell:63138 auf dich gezaubert wird (|c%s%s|r muss Ziel/Fokus eines Schlachtzugmitglieds sein)", "ffff8040", "Sara"),
+	specWarnBrainPortalSoon			= format("Zeige Spezialwarnung für nächste |c%s%s|r", "ff40ff80", "Gehirnportale"),
 	-- WarningSqueeze					= "Schreie bei Quetschen",
-	WarningSqueeze					= "Schreie wenn von Würgetentakel gefasst ($spell:64125)",
-	NextPortal						= "Zeige Timer für nächste Gehirnportale",
+	WarningSqueeze					= format("Schreie wenn du von |c%s%s|r gefasst wirst", "ffff8040", "Würgetentakel"),
+	warnSqueezeTarget				= format("Ziele von |c%s%s|r ($spell:64125) ansagen", "ffff8040", "Würgetentakel"),
+	NextPortal						= format("Zeige Timer für nächste |c%s%s|r", "ff40ff80", "Gehirnportale"),
 	-- SetIconOnFervorTarget			= "Setze Zeichen auf Spieler mit Saras Eifer", -- default EN handles this
 	-- SetIconOnMCTarget				= "Setze Zeichen auf Spieler mit Gedanken beherrschen",
-	ShowSaraHealth					= "Zeige Lebensanzeige für Sara in Phase 1 (Sara muss Ziel/Fokus eines Schlachtzugsmitglieds sein)",
+	ShowSaraHealth					= format("Zeige Lebensanzeige für |c%s%s|r in Phase 1 (|c%s%s|r muss Ziel/Fokus eines Schlachtzugmitglieds sein)", "ffff8040", "Sara", "ffff8040", "Sara"),
 	-- WarnEmpowerSoon					= "Zeige Vorwarnung für Machtvolle Schatten",
 	SpecWarnMaladyNear				= "Zeige Spezialwarnung für $spell:63881 in deiner Nähe",
-	specWarnMaladyCast				= "Zeige Spezialwarnung wenn $spell:63830 auf dich gezaubert wird (Sara muss Ziel/Fokus eines Schlachtzugsmitglieds sein)",
+	specWarnMaladyCast				= format("Zeige Spezialwarnung wenn $spell:63830 auf dich gezaubert wird (|c%s%s|r muss Ziel/Fokus eines Schlachtzugmitglieds sein)", "ffff8040", "Sara"),
 	-- SpecWarnDeafeningRoar			= "Zeige Spezialwarnung wenn Ohrenbetäubendes Gebrüll gezaubert wird (Stille und für Vala'nyr)",
-	-- SetIconOnBrainLinkTarget		= "Setze Zeichen auf Ziele von Gehirnverbindung", -- default EN handles this
+	-- SetIconOnBrainLinkTarget			= "Setze Zeichen auf Ziele von Gehirnverbindung", -- default EN handles this
 	MaladyArrow						= "Zeige DBM Pfeil wenn $spell:63881 in deiner Nähe ist",
-	RangeFramePortal25				= "Zeige Abstandsfenster für Portal Positionen (25 Spieler)"
+	RangeFramePortal25				= format("Zeige Abstandsfenster für |c%s%s|r (25 Spieler)", "ff40ff80", "Portal Positionen")
 }
 
