@@ -639,6 +639,9 @@ L:SetOptionLocalization{
 	-- SpecWarnDeafeningRoar			= "Zeige Spezialwarnung wenn Ohrenbetäubendes Gebrüll gezaubert wird (Stille und für Vala'nyr)",
 	-- SetIconOnBrainLinkTarget			= "Setze Zeichen auf Ziele von Gehirnverbindung", -- default EN handles this
 	MaladyArrow						= "Zeige DBM Pfeil wenn $spell:63881 in deiner Nähe ist",
-	RangeFramePortal25				= format("Zeige Abstandsfenster für |c%s%s|r (25 Spieler)", "ff40ff80", "Portal Positionen")
+	RangeFramePortal25				= format("Zeige Abstandsfenster für |c%s%s|r (25 Spieler)", "ff40ff80", "Portal Positionen"),
+	
+	ttsSpawnCrusher					= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Schmettertentakel"),
+	ttsSpawnConstrictor				= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Würgetentakel"),
 }
 

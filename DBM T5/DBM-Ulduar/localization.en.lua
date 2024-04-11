@@ -581,6 +581,9 @@ L:SetOptionLocalization{
 	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you",
 	RangeFramePortal25				= format("Show range frame for |c%s%s|r (25 players)", "ff40ff80", "portal positions"),
 	-- ttsLunaticGazeCountdown			= "Play countdown sound for $spell:64163"
-	ttsLunaticGazeCountdown			= DBM_CORE_AUTO_SOUND_OPTION_TEXT3:format(64163)
+	ttsLunaticGazeCountdown			= DBM_CORE_AUTO_SOUND_OPTION_TEXT3:format(64163),
+	
+	ttsSpawnCrusher					= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Crusher Tentacle"),
+	ttsSpawnConstrictor				= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Constrictor Tentacle")
 }
 
