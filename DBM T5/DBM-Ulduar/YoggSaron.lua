@@ -48,7 +48,12 @@ local warnP3 						= mod:NewPhaseAnnounce(3, 2)
 -- p3
 mod:AddAnnounceSpacer()
 local warnDeafeningRoarSoon			= mod:NewPreWarnAnnounce(64189, 5, 3)
-local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189)
+local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189, true, nil, false, DBM.Options.SpecialWarningSound2)
+									--	bossModPrototype:NewSpecialWarningSpell(text, optionDefault, ...)
+									--	newSpecialWarning(self, "spell", text, nil, optionDefault, ...)
+									--	newSpecialWarning(self, "spell", 64189, nil, true, nil, false, DBM.Options.SpecialWarningSound2)
+									--	newSpecialWarning(self, announceType, spellId, stacks, optionDefault, optionName, noSound, runSound, color)
+									--	newSpecialWarning(self, spell, 64189, nil, true, nil, noSound, runSound, color)
 local warnEmpowerSoon				= mod:NewSoonAnnounce(64486, 4)
 
 
@@ -69,17 +74,22 @@ local timerEmpower					= mod:NewCDTimer(45, 64465)
 local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
 local timerNextDeafeningRoar		= mod:NewNextTimer(30, 64189)
 
+mod:AddOptionSpacer() 	-- P1
 mod:AddBoolOption("ShowSaraHealth", true)
 mod:AddBoolOption("SetIconOnFervorTarget")
 
+mod:AddOptionSpacer() 	-- P2
 mod:AddBoolOption("SetIconOnBrainLinkTarget",true)
 mod:AddBoolOption("SetIconOnMaladyTarget",true)
-
-mod:AddBoolOption("MaladyArrow")
+local ttsSpawnCrusher 				= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_crusher_spawned.mp3", "ttsSpawnCrusher", true)
+local ttsSpawnConstrictor 			= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_constrictor_spawned.mp3", "ttsSpawnConstrictor", true)
+-- mod:AddBoolOption("MaladyArrow")
 mod:AddBoolOption("RangeFramePortal25", true)
 
-
+mod:AddOptionSpacer() 	-- P3
 local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1-blip.mp3", "ttsLunaticGazeCountdown", true)
+
+
 local tts3to1Offset = 4
 -- local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1.mp3", "TTS Lunatic Gaze Countdown", true)
 -- local tts3to1Offset = 3.7
@@ -182,11 +192,12 @@ function mod:SPELL_CAST_START(args)
 	elseif args:IsSpellID(63138) then		--Sara's Fervor
 		self:ScheduleMethod(0.1, "FervorTarget")
 		warnFervorCast:Show()
-	elseif args:IsSpellID(64145) then		-- Crusher Tentacle: "Diminish Power"
+	elseif args:IsSpellID(64145) then		-- DETECTION - Crusher Tentacle: Casts "Diminish Power"
 		-- 11/24 22:12:38.932  SPELL_CAST_START,0xF1300084AE0012A4,"Schmettertentakel",0xa48,0x0000000000000000,nil,0x80000000,64145,"Kraft schwächen",0x20
 		if not crusherDetected[args.sourceGUID] then 	-- have we not seen this unique GUID before?
 			crusherDetected[args.sourceGUID] = true
-			warnCrusherTentacleSpawned:Show()
+			-- warnCrusherTentacleSpawned:Show()
+			mod:AnnounceSpawnCrusher()
 		end
 	end
 end
@@ -253,8 +264,11 @@ function mod:SPELL_AURA_APPLIED(args)
 		
 	elseif args:IsSpellID(64126, 64125) then	-- Squeeze		
 		warnSqueeze:Show(args.destName)
+		mod:AnnounceSpawnConstrictor()
+		
 		if args:IsPlayer() and self.Options.WarningSqueeze then			
-			SendChatMessage(L.WarningYellSqueeze, "SAY")			
+			SendChatMessage(L.WarningYellSqueeze, "SAY")
+			SendChatMessage("{rt4} "..L.WarningYellSqueeze.." {rt4}", "RAID")
 		end	
 	elseif args:IsSpellID(63894) then	-- Shadowy Barrier of Yogg-Saron (this is happens when p2 starts)
 		mod:gotoP2()
@@ -277,6 +291,18 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerEmpower:Start()
 		timerEmpowerDuration:Start()
 		warnEmpowerSoon:Schedule(40)
+	elseif args.sourceGUID:sub(9, 12) == "84AE" then 	-- DETECTION - Crusher Tentacle: if src is Crusher
+		if not crusherDetected[args.sourceGUID] then
+			crusherDetected[args.sourceGUID] = true
+			-- warnCrusherTentacleSpawned:Show()
+			mod:AnnounceSpawnCrusher()
+		end
+	elseif args.destGUID:sub(9, 12) == "84AE" then 	-- DETECTION - Crusher Tentacle: if dst is Crusher
+		if not crusherDetected[args.destGUID] then
+			crusherDetected[args.destGUID] = true
+			-- warnCrusherTentacleSpawned:Show()
+			mod:AnnounceSpawnCrusher()
+		end
 	end
 end
 
@@ -391,4 +417,19 @@ function mod:gotoP3()
 	end
 end
 
--- msg:find(L["phase3_trigger"])
+function mod:AnnounceSpawnCrusher()
+	warnCrusherTentacleSpawned:Show()
+	
+	SetMapToCurrentZone()
+	if GetCurrentMapDungeonLevel() == 4 then
+		ttsSpawnCrusher:Play()
+	end
+end
+
+function mod:AnnounceSpawnConstrictor()
+	
+	SetMapToCurrentZone()
+	if GetCurrentMapDungeonLevel() == 4 then
+		ttsSpawnConstrictor:Play()
+	end
+end
