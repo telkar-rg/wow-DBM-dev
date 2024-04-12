@@ -4,9 +4,12 @@ local L		= mod:GetLocalizedStrings()
 mod:SetRevision(("$Revision: 5001 $"):sub(12, -3))
 mod:SetCreatureID(33288)
 
+mod:SetMinCombatTime(30)
+mod:RegisterCombat("combat")
 mod:RegisterCombat("yell", L.YellPull)
 
 mod:RegisterEvents(
+	"CHAT_MSG_MONSTER_YELL",
 	"SPELL_CAST_START",
 	"SPELL_CAST_SUCCESS",
 	"SPELL_SUMMON",
@@ -44,6 +47,7 @@ local specWarnMaladyCast			= mod:NewSpecialWarning("specWarnMaladyCast", true)
 local warnCrusherTentacleSpawned	= mod:NewAnnounce("WarningCrusherTentacleSpawned", 2)
 local warnSqueeze					= mod:NewTargetAnnounce(64125, 3, nil, nil, "warnSqueezeTarget")
 mod:AddBoolOption("WarningSqueeze", true, "announce")
+mod:AddBoolOption("PingConstrictorSelf", true, "announce")
 local warnP3 						= mod:NewPhaseAnnounce(3, 2)
 -- p3
 mod:AddAnnounceSpacer()
@@ -82,12 +86,15 @@ mod:AddOptionSpacer() 	-- P2
 mod:AddBoolOption("SetIconOnBrainLinkTarget",true)
 mod:AddBoolOption("SetIconOnMaladyTarget",true)
 local ttsSpawnCrusher 				= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_crusher_spawned.mp3", "ttsSpawnCrusher", true)
-local ttsSpawnConstrictor 			= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_constrictor_spawned.mp3", "ttsSpawnConstrictor", true)
+-- local ttsSpawnConstrictor 			= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_constrictor_spawned.mp3", "ttsSpawnConstrictor", true)
+
 -- mod:AddBoolOption("MaladyArrow")
 mod:AddBoolOption("RangeFramePortal25", true)
 
 mod:AddOptionSpacer() 	-- P3
 local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1-blip.mp3", "ttsLunaticGazeCountdown", true)
+
+
 
 
 local tts3to1Offset = 4
@@ -263,12 +270,18 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		
 	elseif args:IsSpellID(64126, 64125) then	-- Squeeze		
-		warnSqueeze:Show(args.destName)
-		mod:AnnounceSpawnConstrictor()
+		
+		mod:AnnounceSpawnConstrictor(args.destName)
 		
 		if args:IsPlayer() and self.Options.WarningSqueeze then			
 			SendChatMessage(L.WarningYellSqueeze, "SAY")
-			SendChatMessage("{rt4} "..L.WarningYellSqueeze.." {rt4}", "RAID")
+			
+			local m = format("{rt%d}", random(1,8) ) 
+			SendChatMessage( format("%s %s %s", m, L.WarningYellSqueeze, m), "RAID")
+			
+			if self.Options.PingConstrictorSelf then
+				Minimap:PingLocation()
+			end
 		end	
 	elseif args:IsSpellID(63894) then	-- Shadowy Barrier of Yogg-Saron (this is happens when p2 starts)
 		mod:gotoP2()
@@ -426,10 +439,11 @@ function mod:AnnounceSpawnCrusher()
 	end
 end
 
-function mod:AnnounceSpawnConstrictor()
+function mod:AnnounceSpawnConstrictor(playerName)
+	warnSqueeze:Show(playerName)
 	
-	SetMapToCurrentZone()
-	if GetCurrentMapDungeonLevel() == 4 then
-		ttsSpawnConstrictor:Play()
-	end
+	-- SetMapToCurrentZone() 	-- this is distracting
+	-- if GetCurrentMapDungeonLevel() == 4 then
+		-- ttsSpawnConstrictor:Play()
+	-- end
 end

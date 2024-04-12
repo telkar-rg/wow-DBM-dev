@@ -584,6 +584,6 @@ L:SetOptionLocalization{
 	ttsLunaticGazeCountdown			= DBM_CORE_AUTO_SOUND_OPTION_TEXT3:format(64163),
 	
 	ttsSpawnCrusher					= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Crusher Tentacle"),
-	ttsSpawnConstrictor				= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Constrictor Tentacle")
+	-- ttsSpawnConstrictor				= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Constrictor Tentacle")
+	PingConstrictorSelf 			= format("Ping the minimap when |c%s%s|r grabs you", "ffff8040", "Constrictor Tentacle")
 }
-

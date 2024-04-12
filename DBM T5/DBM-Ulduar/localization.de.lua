@@ -642,6 +642,8 @@ L:SetOptionLocalization{
 	RangeFramePortal25				= format("Zeige Abstandsfenster für |c%s%s|r (25 Spieler)", "ff40ff80", "Portal Positionen"),
 	
 	ttsSpawnCrusher					= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Schmettertentakel"),
-	ttsSpawnConstrictor				= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Würgetentakel"),
+	-- ttsSpawnConstrictor				= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Würgetentakel"),
+	
+	PingConstrictorSelf 			= format("Ping die Minimap wenn |c%s%s|r dich ergreift", "ffff8040", "Würgetentakel")
 }
 
