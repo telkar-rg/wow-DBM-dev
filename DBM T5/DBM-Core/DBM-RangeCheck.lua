@@ -575,7 +575,7 @@ function createRadarFrame()
 		numeral:SetTexture( string.format("Interface\\AddOns\\DBM-Core\\textures\\Numerals\\numeral_%d.tga", i) )
 		numeral:SetWidth(16)
 		numeral:SetHeight(16)
-		numeral:SetVertexColor(unpack(NUMERAL_COLORS[i % 5]))
+		numeral:SetVertexColor(unpack(NUMERAL_COLORS[(i-1) % 5]))
 		numeral.x = 0
 		numeral.y = 0
 		numeral:Hide()
