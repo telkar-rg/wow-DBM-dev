@@ -48,7 +48,7 @@ mod:AddBoolOption("ShockBlastWarningInP4", mod:IsMelee(), "announce")
 local warnDarkGlare				= mod:NewSpecialWarningSpell(63293)
 
 local enrage 					= mod:NewBerserkTimer(900)
-local timerHardmode				= mod:NewTimer(610, "TimerHardmode", 64582)
+local timerHardmode				= mod:NewTimer(603, "TimerHardmode", 64582)
 local timerPullP1				= mod:NewTimer(c_timerPullP1, "TimeToPhase1")
 local timerP1toP2				= mod:NewTimer(c_timerP1toP2, "TimeToPhase2")
 local timerP2toP3				= mod:NewTimer(c_timerP2toP3, "TimeToPhase3")
