@@ -573,7 +573,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 			= "^짐승의 대장을 칠 때가 곧 다가올 거예요",	-- trinity 34346
+	YellPull 			= "짐승의 대장을 칠 때가 곧 다가올 거예요! 놈의 졸개들에게 노여움과 미움을 쏟아부으세요!",	-- trinity 34346
 	YellPhase2 			= "죽음의 신 앞에 무릎을 꿇어라!",	-- trinity 34357
 	YellPhase3	 		= "^죽음의 진정한 얼굴을 보아라",	-- trinity 34360
 	Sara 				= "사라",

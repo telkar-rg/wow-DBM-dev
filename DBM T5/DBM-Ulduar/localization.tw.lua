@@ -511,7 +511,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 			= "^我們即將有機會打擊怪物的首腦", 	-- trinity 34346
+	YellPull 			= "我們即將有機會打擊怪物的首腦!現在將你的憤怒與仇恨貫注在他的爪牙上!", 	-- trinity 34346
 	YellPhase2 			= "^向死亡之神屈膝跪伏", 	-- trinity 34357
 	YellPhase3	 		= "^看看死亡的真實面貌", 	-- trinity 34360
 	Sara 				= "薩拉",

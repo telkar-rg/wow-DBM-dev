@@ -525,7 +525,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 			= "^The time to strike at the head of the beast will soon be upon us",	-- trinity 34346
+	YellPull 			= "The time to strike at the head of the beast will soon be upon us! Focus your anger and hatred on his minions!",	-- trinity 34346
 	YellPhase2 			= "BOW DOWN BEFORE THE GOD OF DEATH!",	-- trinity 34357
 	YellPhase3	 		= "^Look upon the true face of death, and know that your end comes soon",	-- trinity 34360
 	Sara 				= "Sara",

@@ -6,7 +6,7 @@ mod:SetCreatureID(33288)
 
 -- mod:SetMinCombatTime(30)
 -- mod:RegisterCombat("combat")
-mod:RegisterCombat("yell", L.YellPull)
+mod:RegisterCombat("yell", L.YellPull) 	-- must be EXACT match
 
 mod:RegisterEvents(
 	"CHAT_MSG_MONSTER_YELL",

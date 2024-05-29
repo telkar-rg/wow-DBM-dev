@@ -513,7 +513,7 @@ L:SetGeneralLocalization{
 }
 
 L:SetMiscLocalization{
-	YellPull 			= "^攻击这头野兽要害的时刻即将来临", 	-- trinity 34346
+	YellPull 			= "攻击这头野兽要害的时刻即将来临！将你们的愤怒和仇恨倾泻到它的爪牙身上！", 	-- trinity 34346
 	YellPhase2 			= "^在死亡之神的面前屈服吧", 	-- trinity 34357
 	YellPhase3	 		= "^凝视死亡的真正面孔吧", 	-- trinity 34360
 	Sara 				= "萨拉",
