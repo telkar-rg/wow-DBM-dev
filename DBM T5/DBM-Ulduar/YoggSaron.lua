@@ -110,6 +110,8 @@ local brainLinkIcon = 7
 local Guardians = 0
 local crusherDetected = {}
 
+local buffsKeeper = -1
+
 local numeral_table = { -- DBM 1.4a
 	["mapName"] = "Ulduar",
 	["mapLevel"] = 4, -- only in "descent into madness"
@@ -124,6 +126,7 @@ local numeral_table = { -- DBM 1.4a
 	[9] = {0.658119, 0.379381},
 	[10] = {0.666857, 0.362903},
 }
+
 function mod:OnCombatStart(delay)
 	Guardians = 0
 	phase = 1
@@ -135,11 +138,17 @@ function mod:OnCombatStart(delay)
 	if self.Options.ShowSaraHealth then
 		DBM.BossHealth:AddBoss(33134, L.Sara)
 	end
-	if self.Options.RangeFramePortal25 then -- DBM 1.4a
-		if (mod:IsDifficulty("normal25") or mod:IsDifficulty("heroic25")) then	-- 25 player mode only
+	
+	buffsKeeper = -1 	-- deactivate if not in 25 player
+	-- 25 player mode only
+	if (mod:IsDifficulty("normal25") or mod:IsDifficulty("heroic25")) then
+		if self.Options.RangeFramePortal25 then -- DBM 1.4a
 			DBM.RangeCheck:Show("range", 12, "filter", GetRaidTargetIndex, "numeral", numeral_table)
 		end
-	end
+		
+		-- check for Keeper Buffs after 1 sec after combat start
+		self:ScheduleMethod(1, "delayedKeeperBuffCheck")
+	end -- 25 player mode only
 	
 	table.wipe(targetWarningsShown)
 	table.wipe(brainLinkTargets)
@@ -378,11 +387,13 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 end
 
 
-function mod:OnSync(msg)
+function mod:OnSync(msg, arg)
 	if msg == "Phase2" then
 		mod:gotoP2()
 	elseif msg == "Phase3" then
 		mod:gotoP3()
+	elseif msg == "SaraHP" and arg then
+		
 	end
 end
 
@@ -415,11 +426,18 @@ function mod:gotoP3()
 		
 		timerEmpower:Start()
 		warnEmpowerSoon:Schedule(40)
-		timerNextDeafeningRoar:Start(30)
-		warnDeafeningRoarSoon:Schedule(25)
 		
-		timerMadness:Stop()
-		timerBrainportal:Stop()
+		-- 25 players and less than 4 Keeper Buffs
+		if buffsKeeper > 0 and buffsKeeper < 4 then
+			timerNextDeafeningRoar:Start(30)
+			warnDeafeningRoarSoon:Schedule(25)
+		end
+		
+		-- timerMadness:Stop()
+		-- timerBrainportal:Stop()
+		timerMadness:Cancel()
+		timerBrainportal:Cancel()
+		
 		specWarnBrainPortalSoon:Cancel()
 		warnBrainPortalSoon:Cancel()
 		specWarnMadnessOutNow:Cancel()
@@ -447,3 +465,16 @@ function mod:AnnounceSpawnConstrictor(playerName)
 		-- ttsSpawnConstrictor:Play()
 	-- end
 end
+
+function mod:delayedKeeperBuffCheck()
+	buffsKeeper = 0
+	for i=1,40 do
+		local _, _, _, _, _, _, _, _, _, _, spellId = UnitAura("player", i)
+		if spellId then
+			if spellId == 62650 or spellId == 62670 or spellId == 62670 or spellId == 62670 then
+				buffsKeeper = buffsKeeper + 1
+			end
+		end
+	end
+end
+
