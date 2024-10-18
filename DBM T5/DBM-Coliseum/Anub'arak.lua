@@ -74,8 +74,8 @@ local timerPCold			= mod:NewBuffActiveTimer(15, 68509)
 local timerFreezingSlash	= mod:NewCDTimer(20, 66012, nil, mod:IsHealer() or mod:IsTank())
 -- Shadow Strike
 local timerShadowStrike		= mod:NewNextTimer(30.5, 66134)
--- Shadow Strik stuns
-local stunTimer = mod:NewTimer(30, "Stun Adds!")
+-- Shadow Strike stuns
+-- local stunTimer = mod:NewTimer(30, "Stun Adds!") 	-- stunTimer REMOVAL
 
 
 -- [[ MISC ]] --
@@ -94,8 +94,8 @@ mod:AddBoolOption("AnnouncePColdIconsRemoved", false)
 -- Freezing Slash
 mod:AddBoolOption("yellFreezingSlash", true)
 -- Stunning Adds
-local TTSstun = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\stunIn3.mp3", "TTS stun countdown", true)
-mod:AddBoolOption("BroadcastStunTimer", true)
+-- local TTSstun = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\stunIn3.mp3", "TTS stun countdown", true) 	-- stunTimer REMOVAL
+-- mod:AddBoolOption("BroadcastStunTimer", true) 	-- stunTimer REMOVAL
 -- Remove Stamina Buffs in P3
 mod:AddBoolOption("RemoveHealthBuffsInP3", false)
 
@@ -117,22 +117,22 @@ function mod:OnCombatStart(delay)
 		-- timerShadowStrike:Start()
 		-- preWarnShadowStrike:Schedule(25.5-delay)
 		-- self:ScheduleMethod(30.5-delay, "ShadowStrike")
-		self:nextStunTimer()
+		-- self:nextStunTimer() 	-- stunTimer REMOVAL
 	end
 end
 
-function mod:nextStunTimer(duration)
-	local duration = duration or 30
-	self:UnscheduleMethod("nextStunTimer")
-	stunTimer:Cancel()
-	TTSstun:Cancel()
-	if self.Options.BroadcastStunTimer then
-		DBM:CreatePizzaTimer(duration, "Stun Adds!", true)
-	end
-	stunTimer:Start(duration)
-	TTSstun:Schedule(duration-stunTTSOffset)
-	self:ScheduleMethod(duration, "nextStunTimer")
-end
+-- function mod:nextStunTimer(duration) 	-- stunTimer REMOVAL
+	-- local duration = duration or 30
+	-- self:UnscheduleMethod("nextStunTimer")
+	-- stunTimer:Cancel()
+	-- TTSstun:Cancel()
+	-- if self.Options.BroadcastStunTimer then
+		-- DBM:CreatePizzaTimer(duration, "Stun Adds!", true)
+	-- end
+	-- stunTimer:Start(duration)
+	-- TTSstun:Schedule(duration-stunTTSOffset)
+	-- self:ScheduleMethod(duration, "nextStunTimer")
+-- end
 
 --[[ old implementation
 -- set/reset on combatstart/combatend
@@ -169,9 +169,9 @@ end
 --]]
 
 function mod:OnCombatEnd()
-	self:UnscheduleMethod("nextStunTimer")
-	stunTimer:Stop()
-	TTSstun:Cancel()
+	-- self:UnscheduleMethod("nextStunTimer") 	-- stunTimer REMOVAL
+	-- stunTimer:Stop() 	-- stunTimer REMOVAL
+	-- TTSstun:Cancel() 	-- stunTimer REMOVAL
 end
 
 function mod:Adds()
@@ -290,7 +290,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg)
 		warnEmergeSoon:Schedule(55)
 		timerEmerge:Start()
 		timerFreezingSlash:Stop()
-		self:nextStunTimer(95)
+		-- self:nextStunTimer(95)
 
 		timerAdds:Start(75)
 		warnAdds:Schedule(75)
