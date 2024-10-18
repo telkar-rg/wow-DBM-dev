@@ -1,7 +1,7 @@
 ﻿local mod	= DBM:NewMod("Anub'arak_Coliseum", "DBM-Coliseum")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 4435 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 5011 $"):sub(12, -3))
 mod:SetCreatureID(34564)
 
 mod:RegisterCombat("yell", L.YellPull)
@@ -16,58 +16,92 @@ mod:RegisterEvents(
 
 mod:SetUsedIcons(3, 4, 5, 6, 7, 8)
 
-
-mod:AddBoolOption("RemoveHealthBuffsInP3", false)
-
+-- [[ ANNOUNCE ]] --
+-- [ P1 ]
 -- Adds
 local warnAdds				= mod:NewAnnounce("warnAdds", 3, 45419)
-local timerAdds				= mod:NewTimer(45, "timerAdds", 45419)
 
+-- [ P2 ]
+mod:AddAnnounceSpacer()
 -- Pursue
 local warnPursue			= mod:NewTargetAnnounce(67574, 4)
 local specWarnPursue		= mod:NewSpecialWarning("SpecWarnPursue")
 local warnHoP				= mod:NewTargetAnnounce(10278, 2, nil, false)--Heroic strat revolves around kiting pursue and using Hand of Protection.
-local timerHoP				= mod:NewBuffActiveTimer(10, 10278, nil, false)--So we will track bops to make this easier.
-mod:AddBoolOption("PlaySoundOnPursue")
-mod:AddBoolOption("PursueIcon")
-
 -- Emerge
 local warnEmerge			= mod:NewAnnounce("WarnEmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
 local warnEmergeSoon		= mod:NewAnnounce("WarnEmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
-local timerEmerge			= mod:NewTimer(65, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
-
 -- Submerge
 local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 local specWarnSubmergeSoon	= mod:NewSpecialWarning("specWarnSubmergeSoon", mod:IsTank())
-local timerSubmerge			= mod:NewTimer(75, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 
--- Phases
+-- [ P3 ]
+mod:AddAnnounceSpacer()
+-- Pursue
 local warnPhase3			= mod:NewPhaseAnnounce(3)
-local enrageTimer			= mod:NewBerserkTimer(570)	-- 9:30 ? hmpf (no enrage while submerged... this sucks)
-
--- Penetrating Cold
 local specWarnPCold			= mod:NewSpecialWarningYou(68510, false)
-local timerPCold			= mod:NewBuffActiveTimer(15, 68509)
-mod:AddBoolOption("SetIconsOnPCold", true)
-mod:AddBoolOption("AnnouncePColdIcons", false)
-mod:AddBoolOption("AnnouncePColdIconsRemoved", false)
-
 -- Freezing Slash
 local warnFreezingSlash		= mod:NewTargetAnnounce(66012, 2, nil, mod:IsHealer() or mod:IsTank())
-local timerFreezingSlash	= mod:NewCDTimer(20, 66012, nil, mod:IsHealer() or mod:IsTank())
-
+local specWarnShadowStrike	= mod:NewSpecialWarning("SpecWarnShadowStrike", mod:IsTank())
 -- Shadow Strike
-local timerShadowStrike		= mod:NewNextTimer(30.5, 66134)
 local preWarnShadowStrike	= mod:NewSoonAnnounce(66134, 3)
 local warnShadowStrike		= mod:NewSpellAnnounce(66134, 4)
-local specWarnShadowStrike	= mod:NewSpecialWarning("SpecWarnShadowStrike", mod:IsTank())
 
-local TTSstun = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\stunIn3.mp3", "TTS stun countdown", true)
-local stunTTSOffset = 4.87
-mod:AddBoolOption("BroadcastStunTimer", true)
+
+-- [[ TIMER ]] --
+-- Phases
+local enrageTimer			= mod:NewBerserkTimer(570)  -- 9:30 ? hmpf (no enrage while submerged... this sucks)
+
+-- [ P1 ]
+mod:AddTimerSpacer()
+-- Adds
+local timerAdds				= mod:NewTimer(45, "timerAdds", 45419)
+
+-- [ P2 ]
+mod:AddTimerSpacer()
+-- Pursue
+local timerHoP				= mod:NewBuffActiveTimer(10, 10278, nil, false)  --So we will track bops to make this easier.
+-- Emerge
+local timerEmerge			= mod:NewTimer(65, "TimerEmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
+-- Submerge
+local timerSubmerge			= mod:NewTimer(75, "TimerSubmerge", "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
+
+-- [ P3 ]
+mod:AddTimerSpacer()
+-- Penetrating Cold
+local timerPCold			= mod:NewBuffActiveTimer(15, 68509)
+-- Freezing Slash
+local timerFreezingSlash	= mod:NewCDTimer(20, 66012, nil, mod:IsHealer() or mod:IsTank())
+-- Shadow Strike
+local timerShadowStrike		= mod:NewNextTimer(30.5, 66134)
 -- Shadow Strik stuns
 local stunTimer = mod:NewTimer(30, "Stun Adds!")
+
+
+-- [[ MISC ]] --
+-- [ P2 ]
+mod:AddOptionSpacer()
+-- Pursue
+mod:AddBoolOption("PursueIcon")
+mod:AddBoolOption("PlaySoundOnPursue")
+
+-- [ P3 ]
+mod:AddOptionSpacer()
+-- Penetrating Cold
+mod:AddBoolOption("SetIconsOnPCold", true)
+mod:AddBoolOption("AnnouncePColdIcons", mod:IsHealer())
+mod:AddBoolOption("AnnouncePColdIconsRemoved", false)
+-- Freezing Slash
+mod:AddBoolOption("yellFreezingSlash", true)
+-- Stunning Adds
+local TTSstun = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\stunIn3.mp3", "TTS stun countdown", true)
+mod:AddBoolOption("BroadcastStunTimer", true)
+-- Remove Stamina Buffs in P3
+mod:AddBoolOption("RemoveHealthBuffsInP3", false)
+
+
+
+local stunTTSOffset = 4.87
 
 function mod:OnCombatStart(delay)
 	timerAdds:Start(10-delay)
