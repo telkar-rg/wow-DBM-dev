@@ -78,7 +78,6 @@ mod:AddBoolOption("RangeFrame")
 local hardmode = false
 local phase						= 0 
 local lootmethod, masterlooterRaidID
-local instanceSize = 10
 
 local spinningUp				= GetSpellInfo(63414)
 local lastSpinUp				= 0
@@ -109,9 +108,6 @@ function mod:OnCombatStart(delay)
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(6)
 	end
-	
-	-- local _, _, _, _, maxPlayers = GetInstanceInfo()
-	-- instanceSize = maxPlayers
 end
 
 function mod:OnCombatEnd()
@@ -311,28 +307,10 @@ function mod:NextPhase()
 	end
 end
 
-do 
-	local count = 0
-	local last = 0
-	local lastPhaseChange = 0
-	function mod:SPELL_AURA_REMOVED(args)
-		-- local cid = self:GetCIDFromGUID(args.destGUID)
-		-- if GetTime() - lastPhaseChange > 30 and (cid == 33432 or cid == 33651 or cid == 33670) then
-			-- if args.timestamp == last then	-- all events in the same tick to detect the phases earlier (than the yell) and localization-independent
-				-- count = count + 1
-				-- if (instanceSize==10 and count > 4) or (instanceSize > 10 and count > 9) then
-					-- lastPhaseChange = GetTime()
-					-- self:NextPhase()
-				-- end
-			-- else
-				-- count = 1
-			-- end
-			-- last = args.timestamp
-		-- elseif
-		if args:IsSpellID(63666, 65026) then -- Napalm Shell
-			if self.Options.SetIconOnNapalm then
-				self:SetIcon(args.destName, 0)
-			end
+function mod:SPELL_AURA_REMOVED(args)
+	if args:IsSpellID(63666, 65026) then -- Napalm Shell
+		if self.Options.SetIconOnNapalm then
+			self:SetIcon(args.destName, 0)
 		end
 	end
 end
