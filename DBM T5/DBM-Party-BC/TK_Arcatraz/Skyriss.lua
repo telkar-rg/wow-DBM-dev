@@ -22,7 +22,11 @@ local timerMindRend     = mod:NewTargetTimer(6, 39017)
 local warnedSplit1		= false
 local warnedSplit2		= false
 
+local isHeroic5
+
 function mod:OnCombatStart()
+	isHeroic5 = mod:IsDifficulty("heroic5")
+	
 	warnedSplit1 = false
 	warnedSplit2 = false
 end
@@ -47,7 +51,7 @@ function mod:UNIT_HEALTH(uId)
 	if not warnedSplit1 and self:GetUnitCreatureId(uId) == 20912 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.70 then
 		warnedSplit1 = true
 		warnSplitSoon:Show()
-	elseif not warnedSplit2 and mod:IsDifficulty("heroic5") and self:GetUnitCreatureId(uId) == 20912 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.37 then
+	elseif not warnedSplit2 and (isHeroic5) and self:GetUnitCreatureId(uId) == 20912 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.37 then
 		warnedSplit2 = true
 		warnSplitSoon:Show()
 	end
