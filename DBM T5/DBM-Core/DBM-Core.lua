@@ -2467,40 +2467,43 @@ function bossModPrototype:Stop(cid)
 	self:Unschedule()
 end
 
--- hard coded party-mod support, yay :)
--- returns heroic for old instances that do not have a heroic mode (Naxx, Ulduar...)
+-- -- hard coded party-mod support, yay :)
+-- -- returns heroic for old instances that do not have a heroic mode (Naxx, Ulduar...)
+-- fixed difficulty detection (2024 10 25)
 function bossModPrototype:GetDifficulty()
-	local _, instanceType, difficulty, _, _, playerDifficulty, isDynamicInstance = GetInstanceInfo()
-	if instanceType == "raid" and isDynamicInstance then -- "new" instance (ICC)
-		if difficulty == 1 then -- 10 men
-			return playerDifficulty == 0 and "normal10" or playerDifficulty == 1 and "heroic10" or "unknown"
-		elseif difficulty == 2 then -- 25 men
-			return playerDifficulty == 0 and "normal25" or playerDifficulty == 1 and "heroic25" or "unknown"
+	local _, instanceType, difficultyIndex, _, _, dynamicDifficulty, isDynamicInstance = GetInstanceInfo()
+	
+	if instanceType == "party" then
+		if difficultyIndex == 1 then
+			return "normal5"
+		else
+			return "heroic5"
 		end
+		-- this is not entirely correct for classic instances, but these also don't require a "difficulty-check"
+	end
+	
+	if instanceType == "raid" then
+		if isDynamicInstance then -- instance difficulty can be changed while zoned in (ICC, Ruby)
+			if difficultyIndex == 1 then -- 10 men
+				return dynamicDifficulty == 0 and "normal10" or "heroic10"
+			elseif difficultyIndex == 2 then -- 25 men
+				return dynamicDifficulty == 0 and "normal25" or "heroic25"
+			end
 
-		-- if instanceType == "raid" and isDynamicInstance then -- "new" instance (ICC)
-		-- 	if difficulty == 1 then -- 10 men
-		-- 		return playerDifficulty == 0 and "normal10" or "unknown"
-		-- 	elseif difficulty == 2 then -- 25 men
-		-- 	return playerDifficulty == 0 and "normal25" or "unknown"
-		-- elseif difficulty == 3 then -- 10 men hc
-		-- 	return playerDifficulty == 1 and "heroic10" or "unknown"
-		-- elseif difficulty == 4 then -- 25 men hc
-		-- 	return playerDifficulty == 1 and "heroic25" or "unknown"
-		-- end
-	else -- support for "old" instances
-		if GetInstanceDifficulty() == 1 then
-			return (self.modId == "DBM-Party-WotLK" or self.modId == "DBM-Party-BC") and "normal5" or
-			self.hasHeroic and "normal10" or "heroic10"
-		elseif GetInstanceDifficulty() == 2 then
-			return (self.modId == "DBM-Party-WotLK" or self.modId == "DBM-Party-BC") and "heroic5" or
-			self.hasHeroic and "normal25" or "heroic25"
-		elseif GetInstanceDifficulty() == 3 then
-			return "heroic10"
-		elseif GetInstanceDifficulty() == 4 then
-			return "heroic25"
+		else -- support for "old" raids
+			if difficultyIndex == 1 then 	-- 10 players normal (also 40 player raids)
+				return "normal10"
+			elseif difficultyIndex == 2 then -- 25 players normal
+				return "normal25"
+			elseif difficultyIndex == 3 then -- 10 players heroic
+				return "heroic10"
+			elseif difficultyIndex == 4 then -- 25 players heroic
+				return "heroic25"
+			end
 		end
 	end
+	
+	return "unknown" -- default value if none apply
 end
 
 function bossModPrototype:IsDifficulty(...)
@@ -2511,6 +2514,34 @@ function bossModPrototype:IsDifficulty(...)
 		end
 	end
 	return false
+end
+
+function bossModPrototype:GetModeSize()
+	local _, instanceType, difficultyIndex, _, maxPlayers, dynamicDifficulty, isDynamicInstance = GetInstanceInfo()
+	local mode = "normal"
+	
+	if instanceType == "party" then
+		if difficultyIndex == 2 then
+			mode = "heroic"
+		end
+		return mode, maxPlayers
+	end
+	
+	if instanceType == "raid" then
+		if isDynamicInstance then -- instance difficulty can be changed while zoned in (ICC, Ruby)
+			if dynamicDifficulty == 1 then
+				mode = "heroic"
+			end
+
+		else -- support for "old" raids
+			if difficultyIndex > 2 then
+				mode = "heroic"
+			end
+		end
+		return mode, maxPlayers
+	end
+	
+	return "unknown", 0 -- default value if none apply
 end
 
 function bossModPrototype:SetUsedIcons(...)
