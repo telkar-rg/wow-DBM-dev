@@ -61,6 +61,8 @@ mod:AddBoolOption("YellOnFrenzy", false, "announce")
 local pactTargets = {}
 local pactIcons = 6
 
+local instanceMode, instanceSize = "normal", 10
+
 local function warnPactTargets()
 	warnPactDarkfallen:Show(table.concat(pactTargets, "<, >"))
 	table.wipe(pactTargets)
@@ -69,6 +71,8 @@ local function warnPactTargets()
 end
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	berserkTimer:Start(-delay)
 	timerFirstBite:Start(-delay)
 	timerNextPactDarkfallen:Start(15-delay)
@@ -79,7 +83,7 @@ function mod:OnCombatStart(delay)
 	if self.Options.RangeFrame then
 		DBM.RangeCheck:Show(8)
 	end
-	if mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10") then
+	if (instanceSize == 10) then
 		timerNextInciteTerror:Start(124-delay)
 	else
 		timerNextInciteTerror:Start(135-delay)
@@ -122,7 +126,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			if self.Options.YellOnFrenzy then
 				SendChatMessage(L.YellFrenzy, "SAY")
 			end
-			if mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10") then
+			if (instanceSize == 10) then
 				timerBloodThirst:Start(15)--15 seconds on 10 man
 			else
 				timerBloodThirst:Start()--10 seconds on 25 man
@@ -132,7 +136,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnEssenceoftheBloodQueen:Show(args.destName)
 		if args:IsPlayer() then
 			specWarnEssenceoftheBloodQueen:Show()
-			if mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10") then
+			if (instanceSize == 10) then
 				timerEssenceoftheBloodQueen:Start(75)--75 seconds on 10 man
 				warnBloodthirstSoon:Schedule(70)
 			else
@@ -173,7 +177,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		ttsSwarmingShadowsCD:Cancel()
 		ttsSwarmingShadowsCD:Schedule(30.5-ttsSwarmingShadowsCDOffset)
 		timerNextPactDarkfallen:Start(25)--and the Pact timer also reset -5 seconds
-		if mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10") then
+		if (instanceSize == 10) then
 			timerNextInciteTerror:Start(120)--120 seconds in between first and second on 10 man
 		else
 			timerNextInciteTerror:Start()--100 seconds in between first and second on 25 man

@@ -64,6 +64,8 @@ local lastflame = 0
 local lastshroud = 0
 local phases = {}
 
+local instanceMode, instanceSize = "normal", 10
+
 function mod:LocationChecker()
 	if GetTime() - lastshroud < 6 then
 		DBM.BossHealth:RemoveBoss(39863)--you took damage from twilight realm recently so remove the physical boss from health frame.
@@ -101,6 +103,8 @@ function mod:OnCombatStart(delay)--These may still need retuning too, log i had 
 	timerFieryConsumptionCD:Start(15-delay)
 	timerFieryBreathCD:Start(10-delay)
 	updateHealthFrame(1)
+	
+	instanceMode, instanceSize = self:GetModeSize()
 end
 
 function mod:OnCombatEnd()
@@ -120,7 +124,7 @@ end
 
 function mod:SPELL_CAST_SUCCESS(args)--We use spell cast success for debuff timers in case it gets resisted by a player we still get CD timer for next one
 	if args:IsSpellID(74792) then
-		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+		if (instanceMode == "heroic") then
 			timerShadowConsumptionCD:Start(20)
 		else
 			timerShadowConsumptionCD:Start()
@@ -129,7 +133,7 @@ function mod:SPELL_CAST_SUCCESS(args)--We use spell cast success for debuff time
 			self:SendSync("ShadowCD")
 		end
 	elseif args:IsSpellID(74562) then
-		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+		if (instanceMode == "heroic") then
 			timerFieryConsumptionCD:Start(25)
 		else
 			timerFieryConsumptionCD:Start()
@@ -297,7 +301,7 @@ function mod:OnSync(msg, target)
 		end
 	elseif msg == "ShadowCD" then
 		if self.Options.AnnounceAlternatePhase then
-			if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+			if (instanceMode == "heroic") then
 				timerShadowConsumptionCD:Start(25)
 			else
 				timerShadowConsumptionCD:Start()
@@ -305,7 +309,7 @@ function mod:OnSync(msg, target)
 		end
 	elseif msg == "FieryCD" then
 		if self.Options.AnnounceAlternatePhase then
-			if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+			if (instanceMode == "heroic") then
 				timerFieryConsumptionCD:Start(25)
 			else
 				timerFieryConsumptionCD:Start()

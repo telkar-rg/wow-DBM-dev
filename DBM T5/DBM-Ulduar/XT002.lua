@@ -36,10 +36,17 @@ mod:AddBoolOption("SetIconOnGravityBombTarget", true)
 local soundLightBomb   = mod:NewSound(65121, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(65121), false)
 local soundGravityBomb = mod:NewSound(64234, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(64234), true)
 
+
+local instanceMode, instanceSize = "normal", 10
+
+
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	enrageTimer:Start(-delay)
 	timerAchieve:Start()
-	if mod:IsDifficulty("heroic10") then
+	
+	if (instanceSize == 10) then
 		timerTympanicTantrumCD:Start(35-delay)
 	else
 		timerTympanicTantrumCD:Start(50-delay)

@@ -40,6 +40,8 @@ local timerAdds				= mod:NewTimer(60, "TimerAdds", AddsIcon)
 
 mod:RemoveOption("HealthFrame")
 
+local instanceMode, instanceSize = "normal", 10
+
 function mod:Adds()
 	timerAdds:Start()
 	warnAddsSoon:Cancel()
@@ -49,6 +51,8 @@ function mod:Adds()
 end
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	DBM.BossHealth:Clear()
 	timerCombatStart:Show(-delay)
 	if UnitFactionGroup("player") == "Alliance" then
@@ -57,7 +61,7 @@ function mod:OnCombatStart(delay)
 		self:ScheduleMethod(62, "Adds")
 		timerBelowZeroCD:Start(75-delay)--This doesn't make sense. Need more logs to verify
 	else
-		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+		if (instanceMode == "heroic") then
 			timerAdds:Start(63-delay)
 			warnAddsSoon:Schedule(58)
 			self:ScheduleMethod(63, "Adds")

@@ -36,12 +36,18 @@ local impaleTargets = {}
 local impaleIcon	= 8
 local lastColdflame = 0
 
+local instanceMode, instanceSize = "normal", 10
+local instanceDifficulty = "normal10"
+
 local function showImpaleWarning()
 	warnImpale:Show(table.concat(impaleTargets, "<, >"))
 	table.wipe(impaleTargets)
 end
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	instanceDifficulty = self:GetDifficulty()
+	
 	preWarnWhirlwind:Schedule(40-delay)
 	timerWhirlwindCD:Start(45-delay)
 	timerBoneSpike:Start(15-delay)
@@ -54,7 +60,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		specWarnWhirlwind:Show()
 		timerWhirlwindCD:Start()
 		preWarnWhirlwind:Schedule(85)
-		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+		if (instanceMode == "heroic") then
 			timerWhirlwind:Show(30)						-- Approx 30seconds on heroic
 		else
 			timerWhirlwind:Show()						-- Approx 20seconds on normal.
@@ -70,7 +76,7 @@ function mod:SPELL_AURA_REMOVED(args)
 			self:SetIcon(args.destName, 0)
 		end
 	elseif args:IsSpellID(69076) then
-		if mod:IsDifficulty("normal10") or mod:IsDifficulty("normal25") then
+		if (instanceMode == "normal") then
 			timerBoneSpike:Start(15)			-- He will do Bone Spike Graveyard 15 seconds after whirlwind ends on normal
 		end
 	end
@@ -102,7 +108,7 @@ function mod:SPELL_SUMMON(args)
 			impaleIcon = impaleIcon - 1
 		end
 		self:Unschedule(showImpaleWarning)
-		if mod:IsDifficulty("normal10") or (mod:IsDifficulty("normal25") and #impaleTargets >= 3) then
+		if (instanceDifficulty == "normal10") or (instanceDifficulty == "normal25" and #impaleTargets >= 3) then
 			showImpaleWarning()
 		else
 			self:Schedule(0.3, showImpaleWarning)

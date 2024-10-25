@@ -112,6 +112,8 @@ local crusherDetected = {}
 
 local buffsKeeper = -1
 
+local instanceMode, instanceSize = "normal", 10
+
 local numeral_table = { -- DBM 1.4a
 	["mapName"] = "Ulduar",
 	["mapLevel"] = 4, -- only in "descent into madness"
@@ -128,6 +130,8 @@ local numeral_table = { -- DBM 1.4a
 }
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	Guardians = 0
 	phase = 1
 	enrageTimer:Start()
@@ -141,7 +145,7 @@ function mod:OnCombatStart(delay)
 	
 	buffsKeeper = -1 	-- deactivate if not in 25 player
 	-- 25 player mode only
-	if (mod:IsDifficulty("normal25") or mod:IsDifficulty("heroic25")) then
+	if (instanceSize == 25) then
 		if self.Options.RangeFramePortal25 then -- DBM 1.4a
 			DBM.RangeCheck:Show("range", 12, "filter", GetRaidTargetIndex, "numeral", numeral_table)
 		end

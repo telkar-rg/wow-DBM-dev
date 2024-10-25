@@ -69,6 +69,9 @@ local phase = 0
 local unchainedIcons = 7
 local activeBeacons	= false
 
+local instanceMode, instanceSize = "normal", 10
+local instanceDifficulty = "normal10"
+
 do
 	local function sort_by_group(v1, v2)
 		return DBM:GetRaidSubgroup(UnitName(v1)) < DBM:GetRaidSubgroup(UnitName(v2))
@@ -102,6 +105,9 @@ local function warnUnchainedTargets()
 end
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	instanceDifficulty = self:GetDifficulty()
+	
 	berserkTimer:Start(-delay)
 	timerNextAirphase:Start(50-delay)
 	timerNextBlisteringCold:Start(24-delay)
@@ -114,7 +120,7 @@ function mod:OnCombatStart(delay)
 	phase = 1
 	activeBeacons = false
 	if self.Options.RangeFrame then
-		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+		if (instanceMode == "heroic") then
 			DBM.RangeCheck:Show(20, GetRaidTargetIndex)
 		else
 			DBM.RangeCheck:Show(10, GetRaidTargetIndex)
@@ -143,7 +149,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		if phase == 1 and self.Options.SetIconOnFrostBeacon then
 			table.insert(beaconIconTargets, DBM:GetRaidUnitId(args.destName))
-			if (mod:IsDifficulty("normal25") and #beaconIconTargets >= 5) or (mod:IsDifficulty("heroic25") and #beaconIconTargets >= 6) or ((mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10")) and #beaconIconTargets >= 2) then
+			if ((instanceDifficulty == "normal25") and #beaconIconTargets >= 5) or ((instanceDifficulty == "heroic25") and #beaconIconTargets >= 6) or ((instanceSize == 10) and #beaconIconTargets >= 2) then
 				self:SetBeaconIcons()--Sort and fire as early as possible once we have all targets.
 			end
 		end
@@ -157,7 +163,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			end
 		end
 		self:Unschedule(warnBeaconTargets)
-		if phase == 2 or (mod:IsDifficulty("normal25") and #beaconTargets >= 5) or (mod:IsDifficulty("heroic25") and #beaconTargets >= 6) or ((mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10")) and #beaconTargets >= 2) then
+		if phase == 2 or ((instanceDifficulty == "normal25") and #beaconTargets >= 5) or ((instanceDifficulty == "heroic25") and #beaconTargets >= 6) or ((instanceSize == 10) and #beaconTargets >= 2) then
 			warnBeaconTargets()
 		else
 			self:Schedule(0.3, warnBeaconTargets)

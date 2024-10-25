@@ -51,6 +51,8 @@ local boilingBloodTargets = {}
 local boilingBloodIcon 	= 8
 local spamBloodBeast = 0
 
+local instanceMode, instanceSize = "normal", 10
+
 local pull_timer_horde = 82 	-- old timer
 pull_timer_horde = 98.96 		-- fixed timer @RG
 
@@ -61,12 +63,14 @@ local function warnBoilingBloodTargets()
 end
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	if self.Options.RunePowerFrame then
 		DBM.BossHealth:Show(L.name)
 		DBM.BossHealth:AddBoss(37813, L.name)
 		self:ScheduleMethod(0.5, "CreateBossRPFrame")
 	end
-	if mod:IsDifficulty("normal10") or mod:IsDifficulty("normal25") then
+	if (instanceMode == "normal") then
 		enrageTimer:Start(-delay)
 	else
 		enrageTimer:Start(360-delay)
@@ -159,7 +163,7 @@ do
 	end
 
 	mod:RegisterOnUpdateHandler(function(self)
-		if self.Options.BeastIcons and (DBM:GetRaidRank() > 0 and not (iconsSet == 5 and self:IsDifficulty("normal25", "heroic25") or iconsSet == 2 and self:IsDifficulty("normal10", "heroic10"))) then
+		if self.Options.BeastIcons and (DBM:GetRaidRank() > 0 and not (iconsSet == 5 and (instanceSize == 25) or iconsSet == 2 and (instanceSize == 10))) then
 			for i = 1, GetNumRaidMembers() do
 				local uId = "raid"..i.."target"
 				local guid = UnitGUID(uId)
@@ -196,7 +200,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			boilingBloodIcon = boilingBloodIcon - 1
 		end
 		self:Unschedule(warnBoilingBloodTargets)
-		if (mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10")) or ((mod:IsDifficulty("normal25") or mod:IsDifficulty("heroic25")) and #boilingBloodTargets >= 3) then	-- Boiling Blood
+		if (instanceSize == 10) or (((instanceSize == 25)) and #boilingBloodTargets >= 3) then	-- Boiling Blood
 			warnBoilingBloodTargets()
 		else
 			self:Schedule(0.3, warnBoilingBloodTargets)

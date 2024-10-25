@@ -55,6 +55,8 @@ mod:AddBoolOption("TankArrow")
 local RFVileGasTargets	= {}
 local spamOoze = 0
 
+local instanceMode, instanceSize = "normal", 10
+
 local function warnRFVileGasTargets()
 	warnVileGas:Show(table.concat(RFVileGasTargets, "<, >"))
 	table.wipe(RFVileGasTargets)
@@ -62,6 +64,8 @@ local function warnRFVileGasTargets()
 end
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	timerWallSlime:Start(30-delay) -- Adjust from 25 to 9 to have a correct timer from the start
 	ttsSlimePipesIn:Schedule(30-delay-ttsSlimePipesInOffset)
 	timerSlimeSpray:Start(15-delay) -- Custom add for the first Slime Spray
@@ -69,7 +73,7 @@ function mod:OnCombatStart(delay)
 	self:ScheduleMethod(25-delay, "WallSlime")
 	InfectionIcon = 8
 	spamOoze = 0
-	if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+	if (instanceMode == "heroic") then
 		if self.Options.RangeFrame then
 			DBM.RangeCheck:Show(10)
 		end

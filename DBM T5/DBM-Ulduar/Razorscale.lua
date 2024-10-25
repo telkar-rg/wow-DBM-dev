@@ -49,7 +49,12 @@ local timerGrounded                 = mod:NewTimer(45, "timerGrounded")
 local soundDevouringFlame = mod:NewSound(64733, DBM_CORE_AUTO_SOUND_OPTION_TEXT_YOU:format(64733))
 
 
+local instanceMode, instanceSize = "normal", 10
+
+
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	local t_OnCombatStart = GetTime() - t_aggroYell
 	local t_diff = c_firstRound - delay - t_OnCombatStart
 	
@@ -59,7 +64,7 @@ function mod:OnCombatStart(delay)
 	enrageTimer:Start(-delay)
 	
 	-- turret timers in first round are longer then in the following rounds
-	if mod:IsDifficulty("heroic10") then
+	if (instanceSize == 10) then
 		timerTurret1:Start(c_timerTurret1 + t_diff)
 		timerTurret2:Start(c_timerTurret2 + t_diff)
 		
@@ -109,7 +114,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg, mob)
 			-- skip on aggro (first time harpunes are handled differently)
 			razorStart = false
 		else
-			if mod:IsDifficulty("heroic10") then -- not sure?
+			if (instanceSize == 10) then -- not sure?
 				timerTurret1:Start()
 				timerTurret2:Start()
 				warnTurretsReadySoon:Schedule(c_timerTurret1)

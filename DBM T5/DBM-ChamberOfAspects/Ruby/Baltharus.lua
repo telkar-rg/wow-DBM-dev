@@ -34,12 +34,16 @@ local warnedSplit3	= false
 local brandTargets = {}
 local brandIcon	= 8
 
+local instanceMode, instanceSize = "normal", 10
+
 local function showBrandWarning()
 	warningWarnBrand:Show(table.concat(brandTargets, "<, >"))
 	table.wipe(brandTargets)
 end
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	warnedSplit1 = false
 	warnedSplit2 = false
 	warnedSplit3 = false
@@ -87,7 +91,7 @@ function mod:SPELL_AURA_APPLIED(args)
 end
 
 function mod:UNIT_HEALTH(uId)
-	if (mod:IsDifficulty("normal25") or mod:IsDifficulty("heroic25")) then
+	if (instanceSize == 25) then
 		if not warnedSplit1 and self:GetUnitCreatureId(uId) == 39751 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.70 then
 			warnedSplit1 = true
 			warningSplitSoon:Show()

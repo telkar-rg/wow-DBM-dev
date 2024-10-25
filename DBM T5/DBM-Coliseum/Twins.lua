@@ -45,11 +45,15 @@ mod:AddBoolOption("HealthFrame", true)
 local debuffTargets					= {}
 local debuffIcon					= 8
 
+local instanceMode, instanceSize = "normal", 10
+
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	timerSpecial:Start(-delay)
 	warnSpecial:Schedule(40-delay)
 	timerAchieve:Start(-delay)
-	if self:IsDifficulty("heroic10", "heroic25") then
+	if (instanceMode == "heroic") then
 		enrageTimer:Start(360-delay)
 	else
 		enrageTimer:Start(480-delay)

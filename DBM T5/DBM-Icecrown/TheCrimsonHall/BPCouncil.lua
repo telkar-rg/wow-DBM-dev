@@ -64,6 +64,8 @@ mod:AddBoolOption("BypassLatencyCheck", false)--Use old scan method without sync
 local activePrince
 local glitteringSparksTargets	= {}
 
+local instanceMode, instanceSize = "normal", 10
+
 local function warnGlitteringSparksTargets()
 	warnGliteringSparks:Show(table.concat(glitteringSparksTargets, "<, >"))
 	table.wipe(glitteringSparksTargets)
@@ -71,6 +73,8 @@ local function warnGlitteringSparksTargets()
 end
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	-- if self.Options.ShadowPrisonMetronom then
 		-- DEFAULT_CHAT_FRAME:AddMessage("<DBM edit> The beeping sound you are hearing is the shadow prison metronom. It helps you to avoid any stacks by stutter stepping in tact. You can turn it off in the BPC boss options under ShadowPrisonMetronom", 1.0, 0.75, 0.0);
 	-- end
@@ -245,7 +249,7 @@ end
 function mod:OnSync(msg, target)
 	if msg == "KineticBomb" then
 		warnKineticBomb:Show()
-		if mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10") then
+		if (instanceSize == 10) then
 			timerKineticBombCD:Start(27)
 		else
 			timerKineticBombCD:Start()

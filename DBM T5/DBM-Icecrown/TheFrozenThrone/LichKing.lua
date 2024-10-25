@@ -125,7 +125,11 @@ local warned_preP3 = false
 local warnedValkyrGUIDs = {}
 local LKTank
 
+local instanceMode, instanceSize = "normal", 10
+
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	phase = 0
 	lastPlagueCast = 0
 	warned_preP2 = false
@@ -531,7 +535,7 @@ do
 	end
 	
 	mod:RegisterOnUpdateHandler(function(self)
-		if self.Options.ValkyrIcon and (DBM:GetRaidRank() > 0 and not (iconsSet == 3 and self:IsDifficulty("normal25", "heroic25") or iconsSet == 1 and self:IsDifficulty("normal10", "heroic10"))) then
+		if self.Options.ValkyrIcon and (DBM:GetRaidRank() > 0 and not (iconsSet == 3 and (instanceSize == 25) or iconsSet == 1 and (instanceSize == 10))) then
 			for i = 1, GetNumRaidMembers() do
 				local uId = "raid"..i.."target"
 				local guid = UnitGUID(uId)
@@ -556,7 +560,7 @@ do
 end
 
 function mod:UNIT_HEALTH(uId)
-	if (mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25")) and uId == "target" and self:GetUnitCreatureId(uId) == 36609 and UnitHealth(uId) / UnitHealthMax(uId) <= 0.55 and not warnedValkyrGUIDs[UnitGUID(uId)] then
+	if (instanceMode == "heroic") and uId == "target" and self:GetUnitCreatureId(uId) == 36609 and not warnedValkyrGUIDs[UnitGUID(uId)] and UnitHealth(uId) / UnitHealthMax(uId) <= 0.55 then
 		warnedValkyrGUIDs[UnitGUID(uId)] = true
 		specWarnValkyrLow:Show()
 	end
@@ -579,7 +583,7 @@ function mod:NextPhase()
 		-- timerNecroticPlagueCD:Start(27)
 		timerNecroticPlagueCD:Start(31)
 		ttsNecroticCountdown:Schedule(31-ttsNecroticCountdownOffset)
-		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+		if (instanceMode == "heroic") then
 			timerTrapCD:Start()
 		end
 	elseif phase == 2 then

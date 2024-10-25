@@ -66,6 +66,8 @@ local wavesHeroic = {
 local waves = wavesNormal
 local wave = 0
 
+local instanceMode, instanceSize = "normal", 10
+
 local function getWaveString(wave)
 	local waveInfo = waves[wave]
 	if #waveInfo == 2 then
@@ -78,7 +80,9 @@ local function getWaveString(wave)
 end
 
 function mod:OnCombatStart(delay)
-	if mod:IsDifficulty("heroic25") then
+	instanceMode, instanceSize = self:GetModeSize()
+	
+	if (instanceSize == 25) then
 		waves = wavesHeroic
 	else
 		waves = wavesNormal

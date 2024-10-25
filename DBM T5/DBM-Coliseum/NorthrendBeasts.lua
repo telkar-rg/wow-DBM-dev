@@ -77,6 +77,8 @@ local DreadscaleActive		= true  	-- Is dreadscale moving?
 local DreadscaleDead	= false
 local AcidmawDead	= false
 
+local instanceMode, instanceSize = "normal", 10
+
 local function updateHealthFrame(phase)
 	if phases[phase] then
 		return
@@ -94,6 +96,8 @@ local function updateHealthFrame(phase)
 end
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	table.wipe(bileTargets)
 	table.wipe(toxinTargets)
 	table.wipe(phases)
@@ -102,7 +106,7 @@ function mod:OnCombatStart(delay)
 	DreadscaleDead = false
 	AcidmawDead = false
 	specWarnSilence:Schedule(37-delay)
-	if self:IsDifficulty("heroic10", "heroic25") then
+	if (instanceMode == "heroic") then
 		timerNextBoss:Start(175 - delay)
 		timerNextBoss:Schedule(170)
 	end
@@ -207,7 +211,7 @@ function mod:SPELL_AURA_APPLIED_DOSE(args)
 	if args:IsSpellID(67477, 66331, 67478, 67479) then		-- Impale
 		timerNextImpale:Start()
 		warnImpaleOn:Show(args.destName)
-		if (args.amount >= 3 and not self:IsDifficulty("heroic10", "heroic25") ) or ( args.amount >= 2 and self:IsDifficulty("heroic10", "heroic25") ) then 
+		if (args.amount >= 3 and (instanceMode == "normal") ) or ( args.amount >= 2 and (instanceMode == "heroic") ) then 
 			if args:IsPlayer() then
 				specWarnImpale3:Show(args.amount)
 			end
@@ -313,7 +317,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		end
 	elseif msg == L.Phase3 or msg:find(L.Phase3) then
 		updateHealthFrame(3)
-		if self:IsDifficulty("heroic10", "heroic25") then
+		if (instanceMode == "heroic") then
 			enrageTimer:Start()
 		end
 		self:UnscheduleMethod("WormsSubmerge")

@@ -30,9 +30,13 @@ mod:AddBoolOption("SporeDamageAlert", false)
 local doomCounter	= 0
 local sporeTimer	= 36
 
+local instanceMode, instanceSize = "normal", 10
+
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	doomCounter = 0
-	if mod:IsDifficulty("heroic25") then
+	if (instanceSize == 25) then
 		sporeTimer = 18
 	else
 		sporeTimer = 36

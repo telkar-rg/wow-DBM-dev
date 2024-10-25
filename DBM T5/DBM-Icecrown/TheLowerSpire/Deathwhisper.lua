@@ -74,6 +74,9 @@ local dominateMindIcon 	= 6
 local deformedFanatic
 local empoweredAdherent
 
+local instanceMode, instanceSize = "normal", 10
+local instanceDifficulty = "normal10"
+
 -- TODO: Try to use https://wowwiki.fandom.com/wiki/API_UnitDetailedThreatSituation to check for spirits (and exclude lady and adds)
 -- alternative TODO: Just exclude tanks by mod:IsTank() or check if your targettarget is yourself
 -- alternative TODO: Just enable it in phase 2 for mdps/healer/rdps
@@ -103,6 +106,9 @@ spiritDetectionFrame:RegisterEvent("UNIT_THREAT_SITUATION_UPDATE")
 spiritDetectionFrame:RegisterEvent("UNIT_THREAT_LIST_UPDATE")
 
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	instanceDifficulty = self:GetDifficulty()
+	
 	spiritDetectionFrame.enabled = self.Options.SpiritTargetDebug
 	spiritDetectionFrame:SetScript("OnEvent", spiritDetection)
 	if self.Options.ShieldHealthFrame then
@@ -114,11 +120,12 @@ function mod:OnCombatStart(delay)
 	timerAdds:Start(7)
 	warnAddsSoon:Schedule(4)			-- 3sec pre-warning on start
 	self:ScheduleMethod(7, "addsTimer")
-	if not mod:IsDifficulty("normal10") then
+	
+	if not(instanceDifficulty == "normal10") then
 		timerDominateMindCD:Start(30)		-- Sometimes 1 fails at the start, then the next will be applied 70 secs after start ?? :S
 		ttsDominateMindCD:Schedule(30-ttsDominateMindCDOffset)
 		-- if mod:IsDifficulty("heroic25") and self.Options.EnableOldAutoWeaponUnequipOnMC then -- TODO
-		if (mod:IsDifficulty("heroic25") or mod:IsDifficulty("heroic10")) and self.Options.EnableOldAutoWeaponUnequipOnMC then
+		if (instanceMode == "heroic") and self.Options.EnableOldAutoWeaponUnequipOnMC then
 			-- print("DEBUG:schedule unequip")
 			self:ScheduleMethod(26.5, "unequip")
 		end
@@ -162,7 +169,7 @@ end
 function mod:addsTimer()
 	timerAdds:Cancel()
 	warnAddsSoon:Cancel()
-	if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+	if (instanceMode == "heroic") then
 		warnAddsSoon:Schedule(40)	-- 5 secs prewarning
 		self:ScheduleMethod(44, "addsTimer")
 		timerAdds:Start(48)
@@ -195,7 +202,7 @@ function mod:showDominateMindWarning()
 	warnDominateMind:Show(table.concat(dominateMindTargets, "<, >"))
 	timerDominateMind:Start()
 	timerDominateMindCD:Start()
-	if (mod:IsDifficulty("heroic25") or mod:IsDifficulty("heroic10")) and self.Options.EnableOldAutoWeaponUnequipOnMC then
+	if (instanceMode == "heroic") and self.Options.EnableOldAutoWeaponUnequipOnMC then
 		-- print("DEBUG:schedule unequip")
 		self:UnscheduleMethod("unequip")
 		self:ScheduleMethod(41, "unequip")
@@ -213,7 +220,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			dominateMindIcon = dominateMindIcon - 1
 		end
 		self:UnscheduleMethod("showDominateMindWarning")
-		if mod:IsDifficulty("heroic10") or mod:IsDifficulty("normal25") or (mod:IsDifficulty("heroic25") and #dominateMindTargets >= 3) then
+		if (instanceDifficulty == "heroic10") or (instanceDifficulty == "normal25") or ((instanceDifficulty =="heroic25") and #dominateMindTargets >= 3) then
 			-- if mod:IsDifficulty("heroic25") -- TODO: somehow detect resisted mind controls
 			-- 	and self.Options.EnableOldAutoWeaponUnequipOnMC
 			-- 	and dominateMindTargets[1] ~= UnitName("player")
@@ -221,7 +228,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			-- 	and dominateMindTargets[3] ~= UnitName("player") then
 			-- 	self:equip()
 			-- end
-			if (mod:IsDifficulty("heroic25") or mod:IsDifficulty("heroic10")) and self.Options.EnableOldAutoWeaponUnequipOnMC then
+			if (instanceMode == "heroic") and self.Options.EnableOldAutoWeaponUnequipOnMC then
 				self:equip()
 			end
 			self:showDominateMindWarning()
@@ -243,9 +250,9 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(71204) then
 		warnTouchInsignificance:Show(args.spellName, args.destName, args.amount or 1)
 		timerTouchInsignificance:Start(args.destName)
-		if args:IsPlayer() and (args.amount or 1) >= 3 and (mod:IsDifficulty("normal10") or mod:IsDifficulty("normal25")) then
+		if args:IsPlayer() and (args.amount or 1) >= 3 and (instanceMode == "normal") then
 			specWarnTouchInsignificance:Show(args.amount)
-		elseif args:IsPlayer() and (args.amount or 1) >= 5 and (mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25")) then
+		elseif args:IsPlayer() and (args.amount or 1) >= 5 and (instanceMode == "heroic") then
 			specWarnTouchInsignificance:Show(args.amount)
 		end
 	end
@@ -288,12 +295,12 @@ end
 function mod:SPELL_AURA_REMOVED(args)
 	if args:IsSpellID(70842) then
 		warnPhase2:Show()
-		if mod:IsDifficulty("normal10") or mod:IsDifficulty("normal25") then
+		if (instanceMode == "normal") then
 			timerAdds:Cancel()
 			warnAddsSoon:Cancel()
 			self:UnscheduleMethod("addsTimer")
 		end
-	elseif args:IsSpellID(71289) and (self.Options.EnableOldAutoWeaponUnequipOnMC or self.Options.EnableAutoWeaponUnequipOnMC) and (mod:IsDifficulty("heroic25") or mod:IsDifficulty("heroic10")) then
+	elseif args:IsSpellID(71289) and (self.Options.EnableOldAutoWeaponUnequipOnMC or self.Options.EnableAutoWeaponUnequipOnMC) and (instanceMode == "heroic") then
 		self:equip()
 		-- attempt to reequip every 0.1 sec in case you are still CCd
 		self:ScheduleMethod(0.1, "equip_fallback")

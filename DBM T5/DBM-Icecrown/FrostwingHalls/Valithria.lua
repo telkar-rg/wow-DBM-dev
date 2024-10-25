@@ -58,6 +58,8 @@ local BlazingSkeletonTimer = 60
 local AbomTimer = 60
 local blazingSkeleton = nil
 
+local instanceMode, instanceSize = "normal", 10
+
 local ttsSuppressersSpawned = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\suppressersSpawned.mp3", "TTS Unchained callout", mod:IsMelee() or mod:IsRanged())
 
 local function warnGutSprayTargets()
@@ -85,7 +87,9 @@ function mod:StartAbomTimer()
 end
 
 function mod:OnCombatStart(delay)
-	if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+	instanceMode, instanceSize = self:GetModeSize()
+	
+	if (instanceMode == "heroic") then
 		berserkTimer:Start(-delay)
 	end
 	timerNextPortal:Start()

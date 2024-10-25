@@ -103,7 +103,12 @@ mod:AddBoolOption("RemoveHealthBuffsInP3", false)
 
 local stunTTSOffset = 4.87
 
+local instanceMode, instanceSize = "normal", 10
+
+
 function mod:OnCombatStart(delay)
+	instanceMode, instanceSize = self:GetModeSize()
+	
 	timerAdds:Start(10-delay)
 	warnAdds:Schedule(10-delay)
 	self:ScheduleMethod(10-delay, "Adds")
@@ -112,7 +117,7 @@ function mod:OnCombatStart(delay)
 	timerSubmerge:Start(80-delay)
 	enrageTimer:Start(-delay)
 	timerFreezingSlash:Start(-delay)
-	if mod:IsDifficulty("heroic10") or mod:IsDifficulty("heroic25") then
+	if (instanceMode == "heroic") then
 		-- Does not work on warmane, use "Stun Adds!" timer instead
 		-- timerShadowStrike:Start()
 		-- preWarnShadowStrike:Schedule(25.5-delay)
@@ -231,7 +236,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		if self.Options.SetIconsOnPCold then
 			table.insert(PColdTargets, DBM:GetRaidUnitId(args.destName))
-			if ((mod:IsDifficulty("normal25") or mod:IsDifficulty("heroic25")) and #PColdTargets >= 5) or ((mod:IsDifficulty("normal10") or mod:IsDifficulty("heroic10")) and #PColdTargets >= 2) then
+			if ((instanceSize == 25) and #PColdTargets >= 5) or ((instanceSize == 10) and #PColdTargets >= 2) then
 				self:SetPcoldIcons()--Sort and fire as early as possible once we have all targets.
 			end
 		end
@@ -269,7 +274,7 @@ function mod:SPELL_CAST_START(args)
 		if self.Options.RemoveHealthBuffsInP3 then
 			mod:ScheduleMethod(0.1, "RemoveBuffs")
 		end
-		if mod:IsDifficulty("normal10") or mod:IsDifficulty("normal25") then
+		if (instanceMode == "normal") then
 			timerAdds:Cancel()
 			warnAdds:Cancel()
 			self:UnscheduleMethod("Adds")
