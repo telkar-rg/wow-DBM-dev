@@ -27,9 +27,11 @@ mod:AddAnnounceSpacer()
 local warnPursue			= mod:NewTargetAnnounce(67574, 4)
 local specWarnPursue		= mod:NewSpecialWarning("SpecWarnPursue")
 local warnHoP				= mod:NewTargetAnnounce(10278, 2, nil, false)--Heroic strat revolves around kiting pursue and using Hand of Protection.
+
 -- Emerge
 local warnEmerge			= mod:NewAnnounce("WarnEmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
 local warnEmergeSoon		= mod:NewAnnounce("WarnEmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendUnBurrow.blp")
+
 -- Submerge
 local warnSubmerge			= mod:NewAnnounce("WarnSubmerge", 3, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
 local warnSubmergeSoon		= mod:NewAnnounce("WarnSubmergeSoon", 1, "Interface\\AddOns\\DBM-Core\\textures\\CryptFiendBurrow.blp")
@@ -73,7 +75,7 @@ local timerPCold			= mod:NewBuffActiveTimer(15, 68509)
 -- Freezing Slash
 local timerFreezingSlash	= mod:NewCDTimer(20, 66012, nil, mod:IsHealer() or mod:IsTank())
 -- Shadow Strike
-local timerShadowStrike		= mod:NewNextTimer(30.5, 66134)
+local timerShadowStrike		= mod:NewNextTimer(30, 66134)
 -- Shadow Strike stuns
 -- local stunTimer = mod:NewTimer(30, "Stun Adds!") 	-- stunTimer REMOVAL
 
@@ -99,8 +101,7 @@ mod:AddBoolOption("yellFreezingSlash", true)
 -- Remove Stamina Buffs in P3
 mod:AddBoolOption("RemoveHealthBuffsInP3", false)
 
-
-
+local firstShadowStrike = 1
 local stunTTSOffset = 4.87
 
 local instanceMode, instanceSize = "normal", 10
@@ -111,90 +112,57 @@ function mod:OnCombatStart(delay)
 	
 	timerAdds:Start(10-delay)
 	warnAdds:Schedule(10-delay)
-	self:ScheduleMethod(10-delay, "Adds")
+	self:ScheduleMethod(10-delay, "AddsNext")
+	
 	warnSubmergeSoon:Schedule(70-delay)
 	specWarnSubmergeSoon:Schedule(70-delay)
 	timerSubmerge:Start(80-delay)
+	
 	enrageTimer:Start(-delay)
 	timerFreezingSlash:Start(-delay)
 	if (instanceMode == "heroic") then
-		-- Does not work on warmane, use "Stun Adds!" timer instead
-		-- timerShadowStrike:Start()
-		-- preWarnShadowStrike:Schedule(25.5-delay)
-		-- self:ScheduleMethod(30.5-delay, "ShadowStrike")
+		timerShadowStrike:Start()
+		preWarnShadowStrike:Schedule(25-delay)
+		self:ScheduleMethod(30-delay, "ShadowStrikeNext")
 		-- self:nextStunTimer() 	-- stunTimer REMOVAL
 	end
 end
 
--- function mod:nextStunTimer(duration) 	-- stunTimer REMOVAL
-	-- local duration = duration or 30
-	-- self:UnscheduleMethod("nextStunTimer")
-	-- stunTimer:Cancel()
-	-- TTSstun:Cancel()
-	-- if self.Options.BroadcastStunTimer then
-		-- DBM:CreatePizzaTimer(duration, "Stun Adds!", true)
-	-- end
-	-- stunTimer:Start(duration)
-	-- TTSstun:Schedule(duration-stunTTSOffset)
-	-- self:ScheduleMethod(duration, "nextStunTimer")
--- end
-
---[[ old implementation
--- set/reset on combatstart/combatend
-local stunCount = 0
-local stunTimerValues = {30, 30, 115, 30, 115, 30} -- for 2xburrow kill
-function mod:nextStunTimer()
-	self:UnscheduleMethod("nextStunTimer")
-	-- keep using the last when list exhausted
-	if stunCount < #stunTimerValues then
-		stunCount = stunCount + 1
-	end
-	local duration = stunTimerValues[stunCount]
-	if self.Options.BroadcastStunTimer then
-		DBM:CreatePizzaTimer(duration, "Stun Adds!", true)
-	end
-	stunTimer:Start(duration)
-	TTSstun:Schedule(duration-stunTTSOffset)
-	self:ScheduleMethod(duration, "nextStunTimer")
-end
---]]
-
---[[ older implementation
-function mod:nextStunTimer()
-	self:UnscheduleMethod("nextStunTimer")
-	local duration = stunTimerValues[1+(stunCount % #stunTimerValues)]
-	if self.Options.BroadcastStunTimer then
-		DBM:CreatePizzaTimer(duration, "Stun Adds!", true)
-	end
-	stunTimer:Start(duration)
-	TTSstun:Schedule(duration-stunTTSOffset)
-	self:ScheduleMethod(duration, "nextStunTimer")
-	stunCount = stunCount + 1
-end
---]]
 
 function mod:OnCombatEnd()
-	-- self:UnscheduleMethod("nextStunTimer") 	-- stunTimer REMOVAL
+	mod:ShadowStrikeNextStop()
 	-- stunTimer:Stop() 	-- stunTimer REMOVAL
 	-- TTSstun:Cancel() 	-- stunTimer REMOVAL
 end
 
-function mod:Adds()
-	if self:IsInCombat() then
-		timerAdds:Start()
-		warnAdds:Schedule(45)
-		self:ScheduleMethod(45, "Adds")
-	end
+function mod:AddsNext()
+	mod:AddsNextStop()
+	
+	timerAdds:Start()
+	warnAdds:Schedule(45)
+	self:ScheduleMethod(45, "AddsNext")
 end
 
-function mod:ShadowStrike()
-	if self:IsInCombat() then
-		timerShadowStrike:Start()
-		preWarnShadowStrike:Cancel()
-		preWarnShadowStrike:Schedule(25.5)
-		self:UnscheduleMethod("ShadowStrike")
-		self:ScheduleMethod(30.5, "ShadowStrike")
-	end
+function mod:AddsNextStop()
+	timerAdds:Cancel()
+	warnAdds:Cancel()
+	self:UnscheduleMethod("AddsNext")
+end
+
+function mod:ShadowStrikeNext()
+	-- preWarnShadowStrike:Cancel()
+	-- self:UnscheduleMethod("ShadowStrike")
+	mod:ShadowStrikeNextStop()
+	
+	timerShadowStrike:Start()
+	preWarnShadowStrike:Schedule(25)
+	self:ScheduleMethod(30, "ShadowStrikeNext")
+end
+
+function mod:ShadowStrikeNextStop()
+	timerShadowStrike:Cancel()
+	preWarnShadowStrike:Cancel()
+	self:UnscheduleMethod("ShadowStrikeNext")
 end
 
 local PColdTargets = {}
@@ -266,44 +234,51 @@ end
 function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(66118, 67630, 68646, 68647) then			-- Swarm (start p3)
 		warnPhase3:Show()
+		
 		warnEmergeSoon:Cancel()
 		warnSubmergeSoon:Cancel()
 		specWarnSubmergeSoon:Cancel()
 		timerEmerge:Stop()
 		timerSubmerge:Stop()
+		
 		if self.Options.RemoveHealthBuffsInP3 then
 			mod:ScheduleMethod(0.1, "RemoveBuffs")
 		end
+		
+		-- No adds in P3 in normal mode
 		if (instanceMode == "normal") then
-			timerAdds:Cancel()
-			warnAdds:Cancel()
-			self:UnscheduleMethod("Adds")
+			mod:AddsNextStop()
 		end
-	--elseif args:IsSpellID(66134) then							-- Shadow Strike
-		-- Does not work on warmane, use "Stun Adds!" timer instead
-		-- self:ShadowStrike()
-		-- specWarnShadowStrike:Show()
-		-- warnShadowStrike:Show()
+		
+	elseif args:IsSpellID(66134) then							-- Shadow Strike
+		self:ShadowStrikeNext() 	-- sets up timer/warning for Shadow Strike
+		specWarnShadowStrike:Show()
+		warnShadowStrike:Show()
 	end
 end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg)
-	if msg and msg:find(L.Burrow) then
-		timerAdds:Cancel()
-		warnAdds:Cancel()
-		warnSubmerge:Show()
-		warnEmergeSoon:Schedule(55)
-		timerEmerge:Start()
-		timerFreezingSlash:Stop()
-		-- self:nextStunTimer(95)
-
-		timerAdds:Start(75)
-		warnAdds:Schedule(75)
-		self:UnscheduleMethod("Adds")
-		self:ScheduleMethod(75, "Adds")
-		warnSubmergeSoon:Schedule(130)
-		specWarnSubmergeSoon:Schedule(55)
-		timerSubmerge:Schedule(65)
+	if msg then
+		if msg:find(L.Burrow) then
+			mod:AddsNextStop()
+			mod:ScheduleMethod(70-45, "AddsNext") -- next adds in 70s (timer is 45s)
+			
+			timerFreezingSlash:Stop()
+			
+			warnSubmerge:Show()
+			warnEmergeSoon:Schedule(65-10)
+			timerEmerge:Start() -- next Emerge in 65s
+			-- self:nextStunTimer(95)
+			
+		elseif msg:find(L.Emerge) then
+			warnEmerge:Show()
+			warnSubmergeSoon:Schedule(75-10)
+			specWarnSubmergeSoon:Schedule(75-10)
+			timerSubmerge:Start() -- next Submerge in 75s
+			
+			-- Immediately after Emerge starts the timer for Shadow Strike (30s)
+			self:ShadowStrikeNext()
+		end
 	end
 end
 
