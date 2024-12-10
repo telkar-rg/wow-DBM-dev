@@ -578,12 +578,20 @@ L:SetOptionLocalization{
 	-- SetIconOnBrainLinkTarget		= "Set icons on $spell:63802 targets",
 	SetIconOnBrainLinkTarget		= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63802) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_6:16|t)",
 	
+	SetIconOnConstrictorTarget		= format("Set icons on targets of |c%s%s|r", "ffff8040", "Constrictor Tentacle") .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_5:16|t)",
+	
 	MaladyArrow						= "Show DBM arrow when $spell:63881 is near you",
 	RangeFramePortal25				= format("Show range frame for |c%s%s|r (25 players)", "ff40ff80", "portal positions"),
 	-- ttsLunaticGazeCountdown			= "Play countdown sound for $spell:64163"
 	ttsLunaticGazeCountdown			= DBM_CORE_AUTO_SOUND_OPTION_TEXT3:format(64163),
 	
-	ttsSpawnCrusher					= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Crusher Tentacle"),
+	PlaySoundOnCrusher					= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Crusher Tentacle"),
 	-- ttsSpawnConstrictor				= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Constrictor Tentacle")
-	PingConstrictorSelf 			= format("Ping the minimap when |c%s%s|r grabs you", "ffff8040", "Constrictor Tentacle")
+	PlaySoundOnConstrictor			= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Constrictor Tentacle"),
+	
+	ttsPortalIn10					= format("Play sound as %s pre-warning for |c%s%s|r", SecondsToTime(10), "ff40ff80", "Brain Portal"),
+	ttsPortalCountdown				= format("5-second audio countdown to |c%s%s|r", "ff40ff80", "Brain Portal"),
+	-- "5-second audio countdown to $spell:%d"
+	
+	PingConstrictorSelf 			= format("|cffffffffPing|r the minimap when |c%s%s|r grabs you", "ffff8040", "Constrictor Tentacle")
 }

@@ -638,12 +638,20 @@ L:SetOptionLocalization{
 	specWarnMaladyCast				= format("Zeige Spezialwarnung wenn $spell:63830 auf dich gezaubert wird (|c%s%s|r muss Ziel/Fokus eines Schlachtzugmitglieds sein)", "ffff8040", "Sara"),
 	-- SpecWarnDeafeningRoar			= "Zeige Spezialwarnung wenn Ohrenbetäubendes Gebrüll gezaubert wird (Stille und für Vala'nyr)",
 	-- SetIconOnBrainLinkTarget			= "Setze Zeichen auf Ziele von Gehirnverbindung", -- default EN handles this
+	
+	SetIconOnConstrictorTarget		= format("Setze Zeichen auf Ziele von |c%s%s|r", "ffff8040", "Würgetentakel") .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_5:16|t)",
+	
 	MaladyArrow						= "Zeige DBM Pfeil wenn $spell:63881 in deiner Nähe ist",
 	RangeFramePortal25				= format("Zeige Abstandsfenster für |c%s%s|r (25 Spieler)", "ff40ff80", "Portal Positionen"),
 	
-	ttsSpawnCrusher					= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Schmettertentakel"),
+	PlaySoundOnCrusher					= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Schmettertentakel"),
 	-- ttsSpawnConstrictor				= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Würgetentakel"),
+	PlaySoundOnConstrictor			= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Würgetentakel"),
 	
-	PingConstrictorSelf 			= format("Ping die Minimap wenn |c%s%s|r dich ergreift", "ffff8040", "Würgetentakel")
+	ttsPortalIn10					= format("Spiele Sound als %s Vorwarnung für |c%s%s|r", SecondsToTime(10), "ff40ff80", "Gehirnportale"),
+	ttsPortalCountdown				= format("5-Sekunden-Audio-Countdown bis |c%s%s|r", "ff40ff80", "Gehirnportale"),
+	-- "5-second audio countdown to $spell:%d"
+	
+	PingConstrictorSelf 			= format("|cffffffffPing|r die Minimap wenn |c%s%s|r dich ergreift", "ffff8040", "Würgetentakel")
 }
 
