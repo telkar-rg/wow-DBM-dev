@@ -432,7 +432,7 @@ function mod:gotoP3()
 		warnEmpowerSoon:Schedule(40)
 		
 		-- 25 players and less than 4 Keeper Buffs
-		if buffsKeeper > 0 and buffsKeeper < 4 then
+		if buffsKeeper == 0 then
 			timerNextDeafeningRoar:Start(30)
 			warnDeafeningRoarSoon:Schedule(25)
 		end
@@ -480,5 +480,6 @@ function mod:delayedKeeperBuffCheck()
 			end
 		end
 	end
+	print("-- DEBUG YoggSaron.lua","Buff=",buffsKeeper) 	-- DEBUG PRINT
 end
 
