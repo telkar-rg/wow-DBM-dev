@@ -16,10 +16,13 @@ mod:RegisterEvents(
 	"SPELL_AURA_APPLIED",
 	"SPELL_AURA_REMOVED",
 	"SPELL_AURA_REMOVED_DOSE",
+	-- "UPDATE_MOUSEOVER_UNIT",
 	"UNIT_HEALTH"
 )
 
-mod:SetUsedIcons(6, 7, 8)
+mod:SetUsedIcons(5, 6, 7, 8)
+local pathSoundFileBell_1 = "Interface\\AddOns\\DBM-Core\\sounds\\C_Drum_Bells_2.ogg"
+local pathSoundFileBell_2 = "Sound\\Doodad\\Belltollalliance.wav"
 
 local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050)
 local specWarnSanity 				= mod:NewSpecialWarning("SpecWarnSanity")
@@ -46,8 +49,7 @@ local specWarnMaladyNear			= mod:NewSpecialWarning("SpecWarnMaladyNear", true)
 local specWarnMaladyCast			= mod:NewSpecialWarning("specWarnMaladyCast", true)
 local warnCrusherTentacleSpawned	= mod:NewAnnounce("WarningCrusherTentacleSpawned", 2)
 local warnSqueeze					= mod:NewTargetAnnounce(64125, 3, nil, nil, "warnSqueezeTarget")
-mod:AddBoolOption("WarningSqueeze", true, "announce")
-mod:AddBoolOption("PingConstrictorSelf", true, "announce")
+
 local warnP3 						= mod:NewPhaseAnnounce(3, 2)
 -- p3
 mod:AddAnnounceSpacer()
@@ -83,24 +85,29 @@ mod:AddBoolOption("ShowSaraHealth", true)
 mod:AddBoolOption("SetIconOnFervorTarget")
 
 mod:AddOptionSpacer() 	-- P2
+mod:AddBoolOption("SetIconOnConstrictorTarget",true)
 mod:AddBoolOption("SetIconOnBrainLinkTarget",true)
 mod:AddBoolOption("SetIconOnMaladyTarget",true)
-local ttsSpawnCrusher 				= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_crusher_spawned.mp3", "ttsSpawnCrusher", true)
--- local ttsSpawnConstrictor 			= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_constrictor_spawned.mp3", "ttsSpawnConstrictor", true)
+local PlaySoundOnCrusher = mod:NewSoundFile(pathSoundFileBell_1, "PlaySoundOnCrusher", true)
+-- local ttsSpawnConstrictor = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_constrictor_spawned.mp3", "ttsSpawnConstrictor", true)
+mod:AddBoolOption("PlaySoundOnConstrictor", true)
 
 -- mod:AddBoolOption("MaladyArrow")
+
+mod:AddBoolOption("WarningSqueeze", true)
+mod:AddBoolOption("PingConstrictorSelf", true)
+
+local ttsPortalIn10 				= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\TTS_Portal_in_10.mp3", "ttsPortalIn10", true)
+local ttsPortalCountdown			= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\5to1.mp3", "ttsPortalCountdown", true)
 mod:AddBoolOption("RangeFramePortal25", true)
 
 mod:AddOptionSpacer() 	-- P3
-local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1-blip.mp3", "ttsLunaticGazeCountdown", true)
+local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\2to1.mp3", "ttsLunaticGazeCountdown", true)
+local tts2to1Offset = 2.2
+-- local tts3to1Offset = 3.2
+local tts5to1Offset = 5.2
 
 
-
-
-local tts3to1Offset = 4
--- local ttsLunaticGazeCountdown 		= mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\3to1.mp3", "TTS Lunatic Gaze Countdown", true)
--- local tts3to1Offset = 3.7
--- ttsLunaticGazeCountdown:Schedule(12-tts3to1Offset)
 
 
 local phase							= 1
@@ -128,6 +135,114 @@ local numeral_table = { -- DBM 1.4a
 	[9] = {0.658119, 0.379381},
 	[10] = {0.666857, 0.362903},
 }
+
+local pathSoundFileHelp = {
+	["BloodElf"] = {
+		[3] = {
+			"Sound\\Character\\Bloodelf\\Bloodelffemalehelp01.Wav",
+			"Sound\\Character\\Bloodelf\\Bloodelffemalehelp02.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Bloodelf\\Bloodelfmalehelp01.Wav",
+			"Sound\\Character\\Bloodelf\\Bloodelfmalehelp02.Wav",
+		},
+	},
+	["Draenei"] = {
+		[3] = {
+			"Sound\\Character\\Draenei\\Draeneifemalehelp01.Wav",
+			"Sound\\Character\\Draenei\\Draeneifemalehelp02.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Draenei\\Draeneimalehelp01.Wav",
+			"Sound\\Character\\Draenei\\Draeneimalehelp02.Wav",
+		},
+	},
+	["Dwarf"] = {
+		[3] = {
+			"Sound\\Character\\Dwarf\\Dwarfvocalfemale\\Dwarffemalehelp01.Wav",
+			"Sound\\Character\\Dwarf\\Dwarfvocalfemale\\Dwarffemalehelp02.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Dwarf\\Dwarfvocalmale\\Dwarfmalehelp01.Wav",
+			"Sound\\Character\\Dwarf\\Dwarfvocalmale\\Dwarfmalehelp02.Wav",
+		},
+	},
+	["Gnome"] = {
+		[3] = {
+			"Sound\\Character\\Gnome\\Gnomevocalfemale\\Gnomefemalehelp01.Wav",
+			"Sound\\Character\\Gnome\\Gnomevocalfemale\\Gnomefemalehelp02.Wav",
+			"Sound\\Character\\Gnome\\Gnomevocalfemale\\Gnomefemalehelp03.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Gnome\\Gnomevocalmale\\Gnomemalehelp01.Wav",
+			"Sound\\Character\\Gnome\\Gnomevocalmale\\Gnomemalehelp02.Wav",
+		},
+	},
+	["Human"] = {
+		[3] = {
+			"Sound\\Character\\Human\\Humanvocalfemale\\Humanfemalehelp01.Wav",
+			"Sound\\Character\\Human\\Humanvocalfemale\\Humanfemalehelp02.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Human\\Humanvocalmale\\Humanmalehelp01.Wav",
+			"Sound\\Character\\Human\\Humanvocalmale\\Humanmalehelp02.Wav",
+		},
+	},
+	["NightElf"] = {
+		[3] = {
+			"Sound\\Character\\Nightelf\\Nightelfvocalfemale\\Nightelffemalehelp01.Wav",
+			"Sound\\Character\\Nightelf\\Nightelfvocalfemale\\Nightelffemalehelp02.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Nightelf\\Nightelfvocalmale\\Nightelfmalehelp01.Wav",
+			"Sound\\Character\\Nightelf\\Nightelfvocalmale\\Nightelfmalehelp02.Wav",
+			"Sound\\Character\\Nightelf\\Nightelfvocalmale\\Nightelfmalehelp03.Wav",
+		},
+	},
+	["Orc"] = {
+		[3] = {
+			"Sound\\Character\\Orc\\Orcvocalfemale\\Orcfemalehelp01.Wav",
+			"Sound\\Character\\Orc\\Orcvocalfemale\\Orcfemalehelp02.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Orc\\Orcvocalmale\\Orcmalehelp01.Wav",
+			"Sound\\Character\\Orc\\Orcvocalmale\\Orcmalehelp02.Wav",
+		},
+	},
+	["Scourge"] = {
+		[3] = {
+			"Sound\\Character\\Scourge\\Scourgevocalfemale\\Undeadfemalehelp01.Wav",
+			"Sound\\Character\\Scourge\\Scourgevocalfemale\\Undeadfemalehelp02.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Scourge\\Scourgevocalmale\\Undeadmalehelp01.Wav",
+			"Sound\\Character\\Scourge\\Scourgevocalmale\\Undeadmalehelp02.Wav",
+		},
+	},
+	["Tauren"] = {
+		[3] = {
+			"Sound\\Character\\Tauren\\Taurenvocalfemale\\Taurenfemalehelp01.Wav",
+			"Sound\\Character\\Tauren\\Taurenvocalfemale\\Taurenfemalehelp02.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Tauren\\Taurenvocalmale\\Taurenmalehelp01.Wav",
+			"Sound\\Character\\Tauren\\Taurenvocalmale\\Taurenmalehelp02.Wav",
+			"Sound\\Character\\Tauren\\Taurenvocalmale\\Taurenmalehelp03.Wav",
+		},
+	},
+	["Troll"] = {
+		[3] = {
+			"Sound\\Character\\Troll\\Trollvocalfemale\\Trollfemalehelp01.Wav",
+			"Sound\\Character\\Troll\\Trollvocalfemale\\Trollfemalehelp02.Wav",
+		},
+		[2] = {
+			"Sound\\Character\\Troll\\Trollvocalmale\\Trollmalehelp01.Wav",
+			"Sound\\Character\\Troll\\Trollvocalmale\\Trollmalehelp02.Wav",
+		},
+	},
+}
+
+
 
 function mod:OnCombatStart(delay)
 	instanceMode, instanceSize = self:GetModeSize()
@@ -197,10 +312,14 @@ function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(64059) then	-- Induce Madness (start of brain phase)
 		warnMadness:Show()
 		timerMadness:Start()
-		timerBrainportal:Schedule(60)	-- 
-		warnBrainPortalSoon:Schedule(78)
-		specWarnBrainPortalSoon:Schedule(78)
-		specWarnMadnessOutNow:Schedule(55)
+		
+		-- PORTAL BLOCK
+		local timePortal = 80
+		timerBrainportal:Start(timePortal-20)
+		warnBrainPortalSoon:Schedule(timePortal-5)
+		specWarnBrainPortalSoon:Schedule(timePortal-5)
+		ttsPortalIn10:Schedule(timePortal-10)
+		ttsPortalCountdown:Schedule(timePortal-tts5to1Offset)
 	elseif args:IsSpellID(64189) then		--Deafening Roar
 		timerNextDeafeningRoar:Start()
 		warnDeafeningRoarSoon:Schedule(55)
@@ -214,11 +333,7 @@ function mod:SPELL_CAST_START(args)
 		warnFervorCast:Show()
 	elseif args:IsSpellID(64145) then		-- DETECTION - Crusher Tentacle: Casts "Diminish Power"
 		-- 11/24 22:12:38.932  SPELL_CAST_START,0xF1300084AE0012A4,"Schmettertentakel",0xa48,0x0000000000000000,nil,0x80000000,64145,"Kraft schwächen",0x20
-		if not crusherDetected[args.sourceGUID] then 	-- have we not seen this unique GUID before?
-			crusherDetected[args.sourceGUID] = true
-			-- warnCrusherTentacleSpawned:Show()
-			mod:AnnounceSpawnCrusher()
-		end
+		mod:AnnounceSpawnCrusher(args.sourceGUID)
 	end
 end
 
@@ -283,14 +398,17 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		
 	elseif args:IsSpellID(64126, 64125) then	-- Squeeze		
-		
 		mod:AnnounceSpawnConstrictor(args.destName)
 		
-		if args:IsPlayer() and self.Options.WarningSqueeze then			
-			SendChatMessage(L.WarningYellSqueeze, "SAY")
-			
-			local m = format("{rt%d}", random(1,8) ) 
-			SendChatMessage( format("%s %s %s", m, L.WarningYellSqueeze, m), "RAID")
+		if self.Options.SetIconOnConstrictorTarget then
+			self:SetIcon(args.destName, 5)
+		end
+		
+		if args:IsPlayer() then			
+			if self.Options.WarningSqueeze then
+				SendChatMessage(L.WarningYellSqueeze, "SAY")
+				SendChatMessage( format("{rt5} %s {rt5}", L.WarningYellSqueeze), "RAID")
+			end
 			
 			if self.Options.PingConstrictorSelf then
 				Minimap:PingLocation()
@@ -299,6 +417,8 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(63894) then	-- Shadowy Barrier of Yogg-Saron (this is happens when p2 starts)
 		mod:gotoP2()
 		-- phase = 2
+		
+		-- PORTAL BLOCK
 		-- timerBrainportal:Start(60)
 		-- warnBrainPortalSoon:Schedule(57)
 		-- specWarnBrainPortalSoon:Schedule(57)
@@ -312,23 +432,17 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif args:IsSpellID(64163) then	-- Lunatic Gaze (reduces sanity)
 		timerLunaticGaze:Start()
 		timerNextLunaticGaze:Start()
-		ttsLunaticGazeCountdown:Schedule(12-tts3to1Offset)
+		ttsLunaticGazeCountdown:Schedule(12-tts2to1Offset)
 	elseif args:IsSpellID(64465) then	-- Shadow Beacon / Empowering Shadows
 		timerEmpower:Start()
 		timerEmpowerDuration:Start()
 		warnEmpowerSoon:Schedule(40)
+	
+	
 	elseif args.sourceGUID:sub(9, 12) == "84AE" then 	-- DETECTION - Crusher Tentacle: if src is Crusher
-		if not crusherDetected[args.sourceGUID] then
-			crusherDetected[args.sourceGUID] = true
-			-- warnCrusherTentacleSpawned:Show()
-			mod:AnnounceSpawnCrusher()
-		end
+		mod:AnnounceSpawnCrusher(args.sourceGUID)
 	elseif args.destGUID:sub(9, 12) == "84AE" then 	-- DETECTION - Crusher Tentacle: if dst is Crusher
-		if not crusherDetected[args.destGUID] then
-			crusherDetected[args.destGUID] = true
-			-- warnCrusherTentacleSpawned:Show()
-			mod:AnnounceSpawnCrusher()
-		end
+		mod:AnnounceSpawnCrusher(args.destGUID)
 	end
 end
 
@@ -353,6 +467,16 @@ function mod:SPELL_AURA_REMOVED(args)
 			end
 		end
 		self:wipeBrainLinkTable()
+		
+	elseif args:IsSpellID(64126, 64125) then	-- Squeeze
+		if self.Options.SetIconOnConstrictorTarget then
+			-- get current raid icon
+			local curIcon = self:GetIcon(args.destName) or 0
+			-- if we still have constrictor icon, then remove it
+			if curIcon == 5 then
+				self:RemoveIcon(args.destName)
+			end
+		end
 	end
 end
 
@@ -396,21 +520,31 @@ function mod:OnSync(msg, arg)
 		mod:gotoP2()
 	elseif msg == "Phase3" then
 		mod:gotoP3()
-	elseif msg == "SaraHP" and arg then
+	-- elseif msg == "SaraHP" and arg then
 		
+	elseif msg == "CrusherDetect" and arg then
+		if arg:sub(9, 12) == "84AE" then -- check if really crusher
+			mod:AnnounceSpawnCrusher(arg, true)
+		end
 	end
 end
 
 function mod:gotoP2()
 	if phase < 2 then
 		phase = 2
+		warnP2:Show()
 		
 		timerFervor:Stop()
+		timerFervor:Cancel()
 		
-		timerBrainportal:Start(60)
-		warnBrainPortalSoon:Schedule(57)
-		specWarnBrainPortalSoon:Schedule(57)
-		warnP2:Show()
+		-- PORTAL BLOCK
+		local timePortal = 60
+		timerBrainportal:Start(timePortal-20)
+		warnBrainPortalSoon:Schedule(timePortal-5)
+		specWarnBrainPortalSoon:Schedule(timePortal-5)
+		ttsPortalIn10:Schedule(timePortal-10)
+		ttsPortalCountdown:Schedule(timePortal-tts5to1Offset)
+		
 		if self.Options.ShowSaraHealth then
 			DBM.BossHealth:RemoveBoss(33134)
 			if not self.Options.HealthFrame then
@@ -426,7 +560,7 @@ function mod:gotoP3()
 		phase = 3
 		
 		timerNextLunaticGaze:Start()	-- first gaze comes exactly 12s after p3 starts
-		ttsLunaticGazeCountdown:Schedule(12-tts3to1Offset)
+		ttsLunaticGazeCountdown:Schedule(12-tts2to1Offset)
 		
 		timerEmpower:Start()
 		warnEmpowerSoon:Schedule(40)
@@ -437,10 +571,13 @@ function mod:gotoP3()
 			warnDeafeningRoarSoon:Schedule(25)
 		end
 		
-		-- timerMadness:Stop()
-		-- timerBrainportal:Stop()
+		timerMadness:Stop()
+		timerBrainportal:Stop()
 		timerMadness:Cancel()
 		timerBrainportal:Cancel()
+		
+		ttsPortalIn10:Cancel()
+		ttsPortalCountdown:Cancel()
 		
 		specWarnBrainPortalSoon:Cancel()
 		warnBrainPortalSoon:Cancel()
@@ -452,22 +589,50 @@ function mod:gotoP3()
 	end
 end
 
-function mod:AnnounceSpawnCrusher()
-	warnCrusherTentacleSpawned:Show()
+function mod:AnnounceSpawnCrusher(guid, isSync)
+	-- only react to a crusher guid ONCE
+	if crusherDetected[guid] then return end
+	crusherDetected[guid] = true
 	
+	-- send Sync only if *we* detected this guid.
+	if not isSync then
+		self:SendSync("CrusherDetect", guid)
+	end
+	
+	
+	-- only active if we are in the right DungeonLevel to fight Crushers
 	SetMapToCurrentZone()
 	if GetCurrentMapDungeonLevel() == 4 then
-		ttsSpawnCrusher:Play()
+		warnCrusherTentacleSpawned:Show()
+		
+		PlaySoundOnCrusher:Play()
 	end
 end
 
 function mod:AnnounceSpawnConstrictor(playerName)
-	warnSqueeze:Show(playerName)
-	
-	-- SetMapToCurrentZone() 	-- this is distracting
-	-- if GetCurrentMapDungeonLevel() == 4 then
-		-- ttsSpawnConstrictor:Play()
-	-- end
+	-- only active if we are in the right DungeonLevel
+	SetMapToCurrentZone()
+	if GetCurrentMapDungeonLevel() == 4 then
+		warnSqueeze:Show(playerName)
+		
+		if self.Options.PlaySoundOnConstrictor then
+			PlaySoundFile(pathSoundFileBell_2)
+			
+			local _, pRace = UnitRace(playerName)
+			local pSex = UnitSex(playerName)
+			
+			local path = pathSoundFileHelp[pRace or "BloodElf"]
+			if path then
+				path = path[pSex or 2]
+				if path then
+					path = path[random(1,#path)]
+					if path then
+						self:ScheduleMethod(1.5, PlaySoundFile, path)
+					end
+				end
+			end
+		end
+	end
 end
 
 function mod:delayedKeeperBuffCheck()
