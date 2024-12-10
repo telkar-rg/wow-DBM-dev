@@ -82,9 +82,9 @@ function mod:SPELL_CAST_START(args)
 	if args:IsSpellID(62437, 62859) then
 		specWarnTremor:Show()
 		timerTremorCD:Start()
-		-- if self.Options.PlaySoundOnGroundTremor then
-			-- PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
-		-- end
+		if self.Options.PlaySoundOnGroundTremor then
+			PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
+		end
 	end
 end 
 
