@@ -21,8 +21,9 @@ mod:RegisterEvents(
 )
 
 mod:SetUsedIcons(5, 6, 7, 8)
-local pathSoundFileBell_1 = "Interface\\AddOns\\DBM-Core\\sounds\\C_Drum_Bells_2.ogg"
-local pathSoundFileBell_2 = "Sound\\Doodad\\Belltollalliance.wav"
+local pathSoundFile_critical = "Interface\\AddOns\\DBM-Core\\sounds\\UI_RaidBossWhisperWarning.mp3"
+local pathSoundFile_medium = "Sound\\Doodad\\Belltollalliance.wav"
+
 
 local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050)
 local specWarnSanity 				= mod:NewSpecialWarning("SpecWarnSanity")
@@ -88,7 +89,7 @@ mod:AddOptionSpacer() 	-- P2
 mod:AddBoolOption("SetIconOnConstrictorTarget",true)
 mod:AddBoolOption("SetIconOnBrainLinkTarget",true)
 mod:AddBoolOption("SetIconOnMaladyTarget",true)
-local PlaySoundOnCrusher = mod:NewSoundFile(pathSoundFileBell_1, "PlaySoundOnCrusher", true)
+local PlaySoundOnCrusher = mod:NewSoundFile(pathSoundFile_critical, "PlaySoundOnCrusher", true)
 -- local ttsSpawnConstrictor = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_constrictor_spawned.mp3", "ttsSpawnConstrictor", true)
 mod:AddBoolOption("PlaySoundOnConstrictor", true)
 
@@ -616,7 +617,7 @@ function mod:AnnounceSpawnConstrictor(playerName)
 		warnSqueeze:Show(playerName)
 		
 		if self.Options.PlaySoundOnConstrictor then
-			PlaySoundFile(pathSoundFileBell_2)
+			PlaySoundFile(pathSoundFile_medium)
 			
 			local _, pRace = UnitRace(playerName)
 			local pSex = UnitSex(playerName)
@@ -627,7 +628,7 @@ function mod:AnnounceSpawnConstrictor(playerName)
 				if path then
 					path = path[random(1,#path)]
 					if path then
-						self:ScheduleMethod(1.5, PlaySoundFile, path)
+						self:ScheduleMethod(1.5, function() PlaySoundFile(path) end )
 					end
 				end
 			end
