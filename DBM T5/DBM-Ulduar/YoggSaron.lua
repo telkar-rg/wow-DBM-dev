@@ -626,7 +626,7 @@ function mod:AnnounceSpawnConstrictor(playerName)
 				if path then
 					path = path[random(1,#path)]
 					if path then
-						self:ScheduleMethod(1.5, function() PlaySoundFile(path) end )
+						self:schedule(1.5, function() PlaySoundFile(path) end )
 					end
 				end
 			end
