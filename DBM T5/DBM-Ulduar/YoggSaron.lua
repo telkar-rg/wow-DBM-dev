@@ -316,7 +316,7 @@ function mod:SPELL_CAST_START(args)
 		
 		-- PORTAL BLOCK
 		local timePortal = 80
-		timerBrainportal:Start(timePortal-20)
+		timerBrainportal:Schedule(timePortal-20)
 		warnBrainPortalSoon:Schedule(timePortal-5)
 		specWarnBrainPortalSoon:Schedule(timePortal-5)
 		ttsPortalIn10:Schedule(timePortal-10)
@@ -540,7 +540,7 @@ function mod:gotoP2()
 		
 		-- PORTAL BLOCK
 		local timePortal = 60
-		timerBrainportal:Start(timePortal-20)
+		timerBrainportal:Schedule(timePortal-20)
 		warnBrainPortalSoon:Schedule(timePortal-5)
 		specWarnBrainPortalSoon:Schedule(timePortal-5)
 		ttsPortalIn10:Schedule(timePortal-10)
@@ -572,8 +572,6 @@ function mod:gotoP3()
 			warnDeafeningRoarSoon:Schedule(25)
 		end
 		
-		timerMadness:Stop()
-		timerBrainportal:Stop()
 		timerMadness:Cancel()
 		timerBrainportal:Cancel()
 		
