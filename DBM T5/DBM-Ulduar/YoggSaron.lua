@@ -55,7 +55,7 @@ local warnP3 						= mod:NewPhaseAnnounce(3, 2)
 -- p3
 mod:AddAnnounceSpacer()
 local warnDeafeningRoarSoon			= mod:NewPreWarnAnnounce(64189, 5, 3)
-local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189, true, nil, false, DBM.Options.SpecialWarningSound2)
+local specWarnDeafeningRoar			= mod:NewSpecialWarningSpell(64189, true, nil, false, pathSoundFile_critical)
 									--	bossModPrototype:NewSpecialWarningSpell(text, optionDefault, ...)
 									--	newSpecialWarning(self, "spell", text, nil, optionDefault, ...)
 									--	newSpecialWarning(self, "spell", 64189, nil, true, nil, false, DBM.Options.SpecialWarningSound2)
