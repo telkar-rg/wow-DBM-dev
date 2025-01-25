@@ -118,7 +118,6 @@ local brainLinkIcon = 7
 local Guardians = 0
 local crusherDetected = {}
 
-local buffsKeeper
 local keeperFreya = 0
 local keeperHodir = 0
 local keeperMimiron = 0
@@ -270,15 +269,11 @@ function mod:OnCombatStart(delay)
 		DBM.BossHealth:AddBoss(33134, L.Sara)
 	end
 	
-	-- buffsKeeper = -1 	-- deactivate if not in 25 player
 	-- 25 player mode only
 	if (instanceSize == 25) then
 		if self.Options.RangeFramePortal25 then -- DBM 1.4a
 			DBM.RangeCheck:Show("range", 12, "filter", GetRaidTargetIndex, "numeral", numeral_table)
 		end
-		
-		-- -- check for Keeper Buffs after 1 sec after combat start
-		-- self:ScheduleMethod(1, "delayedKeeperBuffCheck")
 	end -- 25 player mode only
 	
 	table.wipe(targetWarningsShown)
@@ -588,7 +583,7 @@ function mod:gotoP3()
 		warnEmpowerSoon:Schedule(40)
 		
 		-- 25 players and less than 4 Keeper Buffs
-		if buffsKeeper == 0 then
+		if (instanceSize == 25) and not(keeperFreya or keeperHodir or keeperMimiron or keeperThorim) then
 			timerNextDeafeningRoar:Start(30)
 			warnDeafeningRoarSoon:Schedule(25)
 		end
@@ -657,16 +652,4 @@ function mod:AnnounceSpawnConstrictor(playerName)
 	end
 end
 
--- function mod:delayedKeeperBuffCheck()
-	-- buffsKeeper = 0
-	-- for i=1,40 do
-		-- local _, _, _, _, _, _, _, _, _, _, spellId = UnitAura("player", i)
-		-- if spellId then
-			-- if spellId == 62650 or spellId == 62670 or spellId == 62670 or spellId == 62670 then
-				-- buffsKeeper = buffsKeeper + 1
-			-- end
-		-- end
-	-- end
-	-- print("-- DEBUG YoggSaron.lua","Buff=",buffsKeeper) 	-- DEBUG PRINT
--- end
 
