@@ -637,9 +637,9 @@ function mod:AnnounceSpawnConstrictor(playerName)
 				if path then
 					path = path[random(1,#path)]
 					if path then
-						self:schedule(1.5, function() PlaySoundFile(path) end )
+						self:Schedule(1, function() PlaySoundFile(path) end )
 						-- txt:match("\\([^\\]+.Wav)")
-						print("--", playerName, "!!", tostring(path:match("\\([^\\]+.Wav)")) )
+						-- print("--", playerName, "!!", tostring(path:match("\\([^\\]+.Wav)")) )
 					end
 				end
 			end
