@@ -118,7 +118,12 @@ local brainLinkIcon = 7
 local Guardians = 0
 local crusherDetected = {}
 
-local buffsKeeper = -1
+local buffsKeeper
+local keeperFreya = 0
+local keeperHodir = 0
+local keeperMimiron = 0
+local keeperThorim = 0
+
 
 local instanceMode, instanceSize = "normal", 10
 
@@ -250,6 +255,12 @@ function mod:OnCombatStart(delay)
 	
 	Guardians = 0
 	phase = 1
+	
+	keeperFreya = 0
+	keeperHodir = 0
+	keeperMimiron = 0
+	keeperThorim = 0
+	
 	enrageTimer:Start()
 	timerAchieve:Start()
 	if self.Options.ShowSaraHealth and not self.Options.HealthFrame then
@@ -259,15 +270,15 @@ function mod:OnCombatStart(delay)
 		DBM.BossHealth:AddBoss(33134, L.Sara)
 	end
 	
-	buffsKeeper = -1 	-- deactivate if not in 25 player
+	-- buffsKeeper = -1 	-- deactivate if not in 25 player
 	-- 25 player mode only
 	if (instanceSize == 25) then
 		if self.Options.RangeFramePortal25 then -- DBM 1.4a
 			DBM.RangeCheck:Show("range", 12, "filter", GetRaidTargetIndex, "numeral", numeral_table)
 		end
 		
-		-- check for Keeper Buffs after 1 sec after combat start
-		self:ScheduleMethod(1, "delayedKeeperBuffCheck")
+		-- -- check for Keeper Buffs after 1 sec after combat start
+		-- self:ScheduleMethod(1, "delayedKeeperBuffCheck")
 	end -- 25 player mode only
 	
 	table.wipe(targetWarningsShown)
@@ -636,16 +647,16 @@ function mod:AnnounceSpawnConstrictor(playerName)
 	end
 end
 
-function mod:delayedKeeperBuffCheck()
-	buffsKeeper = 0
-	for i=1,40 do
-		local _, _, _, _, _, _, _, _, _, _, spellId = UnitAura("player", i)
-		if spellId then
-			if spellId == 62650 or spellId == 62670 or spellId == 62670 or spellId == 62670 then
-				buffsKeeper = buffsKeeper + 1
-			end
-		end
-	end
-	print("-- DEBUG YoggSaron.lua","Buff=",buffsKeeper) 	-- DEBUG PRINT
-end
+-- function mod:delayedKeeperBuffCheck()
+	-- buffsKeeper = 0
+	-- for i=1,40 do
+		-- local _, _, _, _, _, _, _, _, _, _, spellId = UnitAura("player", i)
+		-- if spellId then
+			-- if spellId == 62650 or spellId == 62670 or spellId == 62670 or spellId == 62670 then
+				-- buffsKeeper = buffsKeeper + 1
+			-- end
+		-- end
+	-- end
+	-- print("-- DEBUG YoggSaron.lua","Buff=",buffsKeeper) 	-- DEBUG PRINT
+-- end
 
