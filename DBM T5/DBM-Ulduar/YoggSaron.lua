@@ -455,6 +455,16 @@ function mod:SPELL_AURA_APPLIED(args)
 		mod:AnnounceSpawnCrusher(args.sourceGUID)
 	elseif args.destGUID:sub(9, 12) == "84AE" then 	-- DETECTION - Crusher Tentacle: if dst is Crusher
 		mod:AnnounceSpawnCrusher(args.destGUID)
+		
+	elseif not keeperFreya   and args:IsSpellID(62670) then	-- Resilience of Nature BUFF
+		keeperFreya = 1
+	elseif not keeperHodir   and args:IsSpellID(62650) then	-- Fortitude of Frost BUFF
+		keeperHodir = 1
+	elseif not keeperMimiron and args:IsSpellID(62671) then	-- Speed of Invention BUFF
+		keeperMimiron = 1
+	elseif not keeperThorim  and args:IsSpellID(62702) then	-- Fury of the Storm BUFF
+		keeperThorim = 1
+		
 	end
 end
 
