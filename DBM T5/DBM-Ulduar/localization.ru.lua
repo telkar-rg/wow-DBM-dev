@@ -546,6 +546,8 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	NextPortal	= "Провал Безумия"
+	timerCastDeafeningRoar	= "Рык"
+	timerNextDeafeningRoar	= format(DBM_CORE_AUTO_TIMER_TEXTS.next, "Рык")
 }
 
 L:SetOptionLocalization{

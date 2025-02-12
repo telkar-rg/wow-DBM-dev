@@ -83,8 +83,8 @@ local timerLunaticGaze				= mod:NewCastTimer(4, 64163)
 local timerNextLunaticGaze			= mod:NewCDTimer(12, 64163)
 local timerEmpowerDuration			= mod:NewBuffActiveTimer(10, 64465)
 local timerEmpower					= mod:NewCDTimer(45, 64465)
-local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189)
-local timerNextDeafeningRoar		= mod:NewNextTimer(60, 64189)
+local timerCastDeafeningRoar		= mod:NewCastTimer(2.3, 64189, "timerCastDeafeningRoar")
+local timerNextDeafeningRoar		= mod:NewNextTimer(60, 64189, "timerNextDeafeningRoar")
 
 mod:AddOptionSpacer() 	-- P1
 mod:AddBoolOption("ShowSaraHealth", true)

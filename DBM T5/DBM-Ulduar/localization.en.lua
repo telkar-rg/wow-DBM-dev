@@ -550,6 +550,8 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	NextPortal	= "Brain Portal"
+	timerCastDeafeningRoar	= "Roar"
+	timerNextDeafeningRoar	= format(DBM_CORE_AUTO_TIMER_TEXTS.next, "Roar")
 }
 
 L:SetOptionLocalization{
@@ -571,7 +573,7 @@ L:SetOptionLocalization{
 	NextPortal						= format("Show timer for next |c%s%s|r", "ff40ff80", "Brain Portals"),
 	-- SetIconOnFervorTarget			= "Set icons on $spell:63138 targets",
 	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)",
-	SetIconOnEldestGuardian			= format("Set icons on eldest alive |c%s%s|r", "ffff8040", "Guardian of Yogg-Saron") .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
+	SetIconOnEldestGuardian			= format("Set icons on eldest |c%s%s|r (must be target of raid members)", "ffff8040", "Guardian of Yogg-Saron") .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
 	
 	ShowSaraHealth					= format("Show health frame for |c%s%s|r in Phase 1 (|c%s%s|r must be target/focus of a raid member)", "ffff8040", "Sara", "ffff8040", "Sara"),
 	SpecWarnMaladyNear				= "Show special warning for $spell:63881 near you",

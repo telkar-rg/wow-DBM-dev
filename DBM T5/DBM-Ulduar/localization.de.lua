@@ -608,6 +608,8 @@ L:SetWarningLocalization{
 
 L:SetTimerLocalization{
 	NextPortal	= "Gehirnportale"
+	timerCastDeafeningRoar	= "Gebrüll"
+	timerNextDeafeningRoar	= "Nächstes Gebrüll"
 }
 
 L:SetOptionLocalization{
@@ -631,7 +633,7 @@ L:SetOptionLocalization{
 	warnSqueezeTarget				= format("Ziele von |c%s%s|r ($spell:64125) ansagen", "ffff8040", "Würgetentakel"),
 	NextPortal						= format("Zeige Timer für nächste |c%s%s|r", "ff40ff80", "Gehirnportale"),
 	-- SetIconOnFervorTarget			= "Setze Zeichen auf Spieler mit Saras Eifer", -- default EN handles this
-	SetIconOnEldestGuardian			= format("Setze Zeichen auf ältesten |c%s%s|r", "ffff8040", "Wächter des Yogg-Saron") .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
+	SetIconOnEldestGuardian			= format("Setze Zeichen auf ältesten |c%s%s|r (muss Ziel von Schlachtzugmitgliedern sein)", "ffff8040", "Wächter des Yogg-Saron") .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
 	
 	-- SetIconOnMCTarget				= "Setze Zeichen auf Spieler mit Gedanken beherrschen",
 	ShowSaraHealth					= format("Zeige Lebensanzeige für |c%s%s|r in Phase 1 (|c%s%s|r muss Ziel/Fokus eines Schlachtzugmitglieds sein)", "ffff8040", "Sara", "ffff8040", "Sara"),
