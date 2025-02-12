@@ -20,6 +20,11 @@ mod:RegisterEvents(
 	"UNIT_HEALTH"
 )
 
+local orig_print = print
+local function print(...)
+	orig_print("|cFFFFFF00".."DBM-Yogg:".."|r",...)
+end
+
 mod:SetUsedIcons(5, 6, 7, 8)
 local pathSoundFile_critical = "Interface\\AddOns\\DBM-Core\\sounds\\UI_RaidBossWhisperWarning.mp3"
 local pathSoundFile_medium = "Sound\\Doodad\\Belltollalliance.wav"
@@ -84,6 +89,7 @@ local timerNextDeafeningRoar		= mod:NewNextTimer(60, 64189)
 mod:AddOptionSpacer() 	-- P1
 mod:AddBoolOption("ShowSaraHealth", true)
 mod:AddBoolOption("SetIconOnFervorTarget")
+mod:AddBoolOption("SetIconOnEldestGuardian")
 
 mod:AddOptionSpacer() 	-- P2
 mod:AddBoolOption("SetIconOnConstrictorTarget",true)
@@ -92,6 +98,7 @@ mod:AddBoolOption("SetIconOnMaladyTarget",true)
 local PlaySoundOnCrusher = mod:NewSoundFile(pathSoundFile_critical, "PlaySoundOnCrusher", true)
 -- local ttsSpawnConstrictor = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_constrictor_spawned.mp3", "ttsSpawnConstrictor", true)
 mod:AddBoolOption("PlaySoundOnConstrictor", true)
+mod:AddBoolOption("PlaySoundOnConstrictorHelp", false)
 
 -- mod:AddBoolOption("MaladyArrow")
 
@@ -325,7 +332,7 @@ function mod:SPELL_CAST_START(args)
 		timerBrainportal:Schedule(timePortal-20)
 		warnBrainPortalSoon:Schedule(timePortal-5)
 		specWarnBrainPortalSoon:Schedule(timePortal-5)
-		ttsPortalIn10:Schedule(timePortal-10)
+		ttsPortalIn10:Schedule(timePortal-12)
 		ttsPortalCountdown:Schedule(timePortal-tts5to1Offset)
 	elseif args:IsSpellID(64189) then		--Deafening Roar
 		timerNextDeafeningRoar:Start()
@@ -350,12 +357,46 @@ function mod:SPELL_CAST_SUCCESS(args)
 	-- end
 end
 
-function mod:SPELL_SUMMON(args)
-	if args:IsSpellID(62979) then
-		Guardians = Guardians + 1
-		warnGuardianSpawned:Show(Guardians)
+do
+	aliveGuardians = {}
+	sortedGuardians = {}
+	function mod:SPELL_SUMMON(args)
+		if args:IsSpellID(62979) then
+			Guardians = Guardians + 1
+			warnGuardianSpawned:Show(Guardians)
+			
+			if self.Options.SetIconOnEldestGuardian and DBM:GetRaidRank() > 0 then
+				wipe(aliveGuardians)
+				local uId, guid
+				for i = 1, GetNumRaidMembers() do
+					uId = "raid"..i.."target"
+					guid = UnitGUID(uId)
+					if self:GetCIDFromGUID(guid) == 33136 then
+						table.insert(aliveGuardians, guid) -- store all known targeted guardians
+						aliveGuardians[guid] = 1
+					end
+				end
+				wipe(sortedGuardians)
+				for guid,_ in pairs(aliveGuardians) do
+					table.insert(sortedGuardians, guid)
+				end
+				
+				sort(sortedGuardians) -- sort, so that eldest(lowest guid) is at index 1
+				if #sortedGuardians > 0 then -- if at least 1 guardian alive
+					for i = 1, GetNumRaidMembers() do
+						uId = "raid"..i.."target"
+						guid = UnitGUID(uId)
+						if UnitGUID(uId) == sortedGuardians[1] then -- search for the eldest alive guardian
+							SetRaidTarget(uId, 8) -- set rt8
+							break
+						end
+					end
+				end
+			end
+		end
 	end
 end
+
 
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(63802) then		-- Brain Link
@@ -453,12 +494,16 @@ function mod:SPELL_AURA_APPLIED(args)
 		
 	elseif not keeperFreya   and args:IsSpellID(62670) then	-- Resilience of Nature BUFF
 		keeperFreya = 1
+		print("Detected keeperFreya")
 	elseif not keeperHodir   and args:IsSpellID(62650) then	-- Fortitude of Frost BUFF
 		keeperHodir = 1
+		print("Detected keeperHodir")
 	elseif not keeperMimiron and args:IsSpellID(62671) then	-- Speed of Invention BUFF
 		keeperMimiron = 1
+		print("Detected keeperMimiron")
 	elseif not keeperThorim  and args:IsSpellID(62702) then	-- Fury of the Storm BUFF
 		keeperThorim = 1
+		print("Detected keeperThorim")
 		
 	end
 end
@@ -556,7 +601,7 @@ function mod:gotoP2()
 		
 		-- PORTAL BLOCK
 		local timePortal = 60
-		timerBrainportal:Schedule(timePortal-20)
+		timerBrainportal:Start(timePortal)
 		warnBrainPortalSoon:Schedule(timePortal-5)
 		specWarnBrainPortalSoon:Schedule(timePortal-5)
 		ttsPortalIn10:Schedule(timePortal-10)
@@ -633,18 +678,20 @@ function mod:AnnounceSpawnConstrictor(playerName)
 		if self.Options.PlaySoundOnConstrictor then
 			PlaySoundFile(pathSoundFile_medium)
 			
-			local _, pRace = UnitRace(playerName)
-			local pSex = UnitSex(playerName)
-			
-			local path = pathSoundFileHelp[pRace or "BloodElf"]
-			if path then
-				path = path[pSex or 2]
+			if self.Options.PlaySoundOnConstrictorHelp then
+				local _, pRace = UnitRace(playerName)
+				local pSex = UnitSex(playerName)
+				
+				local path = pathSoundFileHelp[pRace or "BloodElf"]
 				if path then
-					path = path[random(1,#path)]
+					path = path[pSex or 2]
 					if path then
-						self:Schedule(1, function() PlaySoundFile(path) end )
-						-- txt:match("\\([^\\]+.Wav)")
-						-- print("--", playerName, "!!", tostring(path:match("\\([^\\]+.Wav)")) )
+						path = path[random(1,#path)]
+						if path then
+							self:Schedule(1, function() PlaySoundFile(path) end )
+							-- txt:match("\\([^\\]+.Wav)")
+							-- print("--", playerName, "!!", tostring(path:match("\\([^\\]+.Wav)")) )
+						end
 					end
 				end
 			end

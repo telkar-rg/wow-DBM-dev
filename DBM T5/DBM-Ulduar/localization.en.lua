@@ -571,6 +571,7 @@ L:SetOptionLocalization{
 	NextPortal						= format("Show timer for next |c%s%s|r", "ff40ff80", "Brain Portals"),
 	-- SetIconOnFervorTarget			= "Set icons on $spell:63138 targets",
 	SetIconOnFervorTarget			= DBM_CORE_AUTO_ICONS_OPTION_TEXT:format(63138) .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_7:16|t)",
+	SetIconOnEldestGuardian			= format("Set icons on eldest alive |c%s%s|r", "ffff8040", "Guardian of Yogg-Saron") .. " ( |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_8:16|t)",
 	
 	ShowSaraHealth					= format("Show health frame for |c%s%s|r in Phase 1 (|c%s%s|r must be target/focus of a raid member)", "ffff8040", "Sara", "ffff8040", "Sara"),
 	SpecWarnMaladyNear				= "Show special warning for $spell:63881 near you",
@@ -588,6 +589,7 @@ L:SetOptionLocalization{
 	PlaySoundOnCrusher					= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Crusher Tentacle"),
 	-- ttsSpawnConstrictor				= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Constrictor Tentacle")
 	PlaySoundOnConstrictor			= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Constrictor Tentacle"),
+	PlaySoundOnConstrictorHelp		= format("Also play |c%s%s|r sound when next |c%s%s|r spawns", "ffffffff", EMOTE156_CMD1, "ffff8040", "Constrictor Tentacle"),
 	
 	ttsPortalIn10					= format("Play sound as %s pre-warning for |c%s%s|r", SecondsToTime(10), "ff40ff80", "Brain Portal"),
 	ttsPortalCountdown				= format("5-second audio countdown to |c%s%s|r", "ff40ff80", "Brain Portal"),
