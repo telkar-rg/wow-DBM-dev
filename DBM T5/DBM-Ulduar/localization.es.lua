@@ -590,8 +590,8 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	NextPortal	= "Portal cerebral"
-	timerCastDeafeningRoar	= "Rugido"
+	NextPortal	= "Portal cerebral",
+	timerCastDeafeningRoar	= "Rugido",
 	timerNextDeafeningRoar	= format(DBM_CORE_AUTO_TIMER_TEXTS.next, "Rugido")
 }
 

@@ -599,8 +599,8 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	NextPortal			= "내부 차원문"
-	timerCastDeafeningRoar	= "포효"
+	NextPortal			= "내부 차원문",
+	timerCastDeafeningRoar	= "포효",
 	timerNextDeafeningRoar	= format(DBM_CORE_AUTO_TIMER_TEXTS.next, "포효")
 }
 

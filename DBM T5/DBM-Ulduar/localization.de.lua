@@ -607,8 +607,8 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	NextPortal	= "Gehirnportale"
-	timerCastDeafeningRoar	= "Gebrüll"
+	NextPortal	= "Gehirnportale",
+	timerCastDeafeningRoar	= "Gebrüll",
 	timerNextDeafeningRoar	= "Nächstes Gebrüll"
 }
 

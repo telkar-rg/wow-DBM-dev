@@ -536,8 +536,8 @@ L:SetWarningLocalization{
 }
 
 L:SetTimerLocalization{
-	NextPortal			= "下一次 脑部传送门"
-	timerCastDeafeningRoar	= "咆哮"
+	NextPortal			= "下一次 脑部传送门",
+	timerCastDeafeningRoar	= "咆哮",
 	timerNextDeafeningRoar	= format(DBM_CORE_AUTO_TIMER_TEXTS.next, "咆哮")
 }
 
