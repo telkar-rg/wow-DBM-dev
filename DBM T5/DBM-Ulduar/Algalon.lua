@@ -10,7 +10,7 @@ local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision(("$Revision: 5001 $"):sub(12, -3))
 mod:SetCreatureID(32871)
-mod:SetUsedIcons(5, 6, 7, 8)
+mod:SetUsedIcons(3, 4, 5, 6, 7, 8)
 
 mod:RegisterCombat("yell", L.YellPull)
 mod:RegisterKill("yell", L.YellKill)
@@ -57,12 +57,12 @@ mod:AddBoolOption("SetIconOnCollapsingStar", true)
 local warned_preP2 = false
 local warned_star = false
 
-local table_icon = {8,7,6,5}
+local table_icon = {8,7,6,5,4,3}
 
 function mod:OnCombatStart(delay)
 	warned_preP2 = false
 	warned_star = false
-	table_icon = {8,7,6,5}
+	table_icon = {8,7,6,5,4,3}
 	
 	local text = select(3, GetWorldStateUIInfo(1)) 
 	local _, _, time = string.find(text, L.PullCheck)
