@@ -494,16 +494,16 @@ function mod:SPELL_AURA_APPLIED(args)
 		
 	elseif not keeperFreya   and args:IsSpellID(62670) then	-- Resilience of Nature BUFF
 		keeperFreya = 1
-		print("Detected keeperFreya")
+		-- print("Detected keeperFreya")
 	elseif not keeperHodir   and args:IsSpellID(62650) then	-- Fortitude of Frost BUFF
 		keeperHodir = 1
-		print("Detected keeperHodir")
+		-- print("Detected keeperHodir")
 	elseif not keeperMimiron and args:IsSpellID(62671) then	-- Speed of Invention BUFF
 		keeperMimiron = 1
-		print("Detected keeperMimiron")
+		-- print("Detected keeperMimiron")
 	elseif not keeperThorim  and args:IsSpellID(62702) then	-- Fury of the Storm BUFF
 		keeperThorim = 1
-		print("Detected keeperThorim")
+		-- print("Detected keeperThorim")
 		
 	end
 end
@@ -628,7 +628,8 @@ function mod:gotoP3()
 		warnEmpowerSoon:Schedule(40)
 		
 		-- 25 players and less than 4 Keeper Buffs
-		if (instanceSize == 25) and not(keeperFreya or keeperHodir or keeperMimiron or keeperThorim) then
+		-- if (instanceSize == 25) and not(keeperFreya or keeperHodir or keeperMimiron or keeperThorim) then
+		if (instanceSize == 25) then
 			timerNextDeafeningRoar:Start(30)
 			warnDeafeningRoarSoon:Schedule(25)
 		end
