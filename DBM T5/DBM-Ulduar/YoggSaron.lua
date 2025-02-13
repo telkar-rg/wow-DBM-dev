@@ -657,7 +657,7 @@ function mod:AnnounceSpawnCrusher(guid, isSync)
 	
 	-- send Sync only if *we* detected this guid.
 	if not isSync then
-		self:SendSync("CrusherDetect", guid)
+		-- self:SendSync("CrusherDetect", guid)
 	end
 	
 	
