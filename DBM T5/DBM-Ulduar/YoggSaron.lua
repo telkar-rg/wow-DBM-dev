@@ -89,7 +89,7 @@ local timerNextDeafeningRoar		= mod:NewNextTimer(60, 64189, "timerNextDeafeningR
 mod:AddOptionSpacer() 	-- P1
 mod:AddBoolOption("ShowSaraHealth", true)
 mod:AddBoolOption("SetIconOnFervorTarget")
-mod:AddBoolOption("SetIconOnEldestGuardian")
+-- mod:AddBoolOption("SetIconOnEldestGuardian")
 
 mod:AddOptionSpacer() 	-- P2
 mod:AddBoolOption("SetIconOnConstrictorTarget",true)
@@ -98,7 +98,6 @@ mod:AddBoolOption("SetIconOnMaladyTarget",true)
 local PlaySoundOnCrusher = mod:NewSoundFile(pathSoundFile_critical, "PlaySoundOnCrusher", true)
 -- local ttsSpawnConstrictor = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_constrictor_spawned.mp3", "ttsSpawnConstrictor", true)
 mod:AddBoolOption("PlaySoundOnConstrictor", true)
-mod:AddBoolOption("PlaySoundOnConstrictorHelp", false)
 
 -- mod:AddBoolOption("MaladyArrow")
 
@@ -124,6 +123,9 @@ local brainLinkTargets = {}
 local brainLinkIcon = 7
 local Guardians = 0
 local crusherDetected = {}
+
+local aliveGuardians = {}
+local sortedGuardians = {}
 
 local keeperFreya = 0
 local keeperHodir = 0
@@ -357,43 +359,39 @@ function mod:SPELL_CAST_SUCCESS(args)
 	-- end
 end
 
-do
-	aliveGuardians = {}
-	sortedGuardians = {}
-	function mod:SPELL_SUMMON(args)
-		if args:IsSpellID(62979) then
-			Guardians = Guardians + 1
-			warnGuardianSpawned:Show(Guardians)
+function mod:SPELL_SUMMON(args)
+	if args:IsSpellID(62979) then
+		Guardians = Guardians + 1
+		warnGuardianSpawned:Show(Guardians)
+		
+		-- if self.Options.SetIconOnEldestGuardian and DBM:GetRaidRank() > 0 then
+			-- wipe(aliveGuardians)
+			-- local uId, guid
+			-- for i = 1, GetNumRaidMembers() do
+				-- uId = "raid"..i.."target"
+				-- guid = UnitGUID(uId)
+				-- if self:GetCIDFromGUID(guid) == 33136 then
+					-- table.insert(aliveGuardians, guid) -- store all known targeted guardians
+					-- aliveGuardians[guid] = 1
+				-- end
+			-- end
+			-- wipe(sortedGuardians)
+			-- for guid,_ in pairs(aliveGuardians) do
+				-- table.insert(sortedGuardians, guid)
+			-- end
 			
-			if self.Options.SetIconOnEldestGuardian and DBM:GetRaidRank() > 0 then
-				wipe(aliveGuardians)
-				local uId, guid
-				for i = 1, GetNumRaidMembers() do
-					uId = "raid"..i.."target"
-					guid = UnitGUID(uId)
-					if self:GetCIDFromGUID(guid) == 33136 then
-						table.insert(aliveGuardians, guid) -- store all known targeted guardians
-						aliveGuardians[guid] = 1
-					end
-				end
-				wipe(sortedGuardians)
-				for guid,_ in pairs(aliveGuardians) do
-					table.insert(sortedGuardians, guid)
-				end
-				
-				sort(sortedGuardians) -- sort, so that eldest(lowest guid) is at index 1
-				if #sortedGuardians > 0 then -- if at least 1 guardian alive
-					for i = 1, GetNumRaidMembers() do
-						uId = "raid"..i.."target"
-						guid = UnitGUID(uId)
-						if UnitGUID(uId) == sortedGuardians[1] then -- search for the eldest alive guardian
-							SetRaidTarget(uId, 8) -- set rt8
-							break
-						end
-					end
-				end
-			end
-		end
+			-- sort(sortedGuardians) -- sort, so that eldest(lowest guid) is at index 1
+			-- if #sortedGuardians > 0 then -- if at least 1 guardian alive
+				-- for i = 1, GetNumRaidMembers() do
+					-- uId = "raid"..i.."target"
+					-- guid = UnitGUID(uId)
+					-- if UnitGUID(uId) == sortedGuardians[1] then -- search for the eldest alive guardian
+						-- SetRaidTarget(uId, 8) -- set rt8
+						-- break
+					-- end
+				-- end
+			-- end
+		-- end
 	end
 end
 
@@ -678,24 +676,6 @@ function mod:AnnounceSpawnConstrictor(playerName)
 		
 		if self.Options.PlaySoundOnConstrictor then
 			PlaySoundFile(pathSoundFile_medium)
-			
-			if self.Options.PlaySoundOnConstrictorHelp then
-				local _, pRace = UnitRace(playerName)
-				local pSex = UnitSex(playerName)
-				
-				local path = pathSoundFileHelp[pRace or "BloodElf"]
-				if path then
-					path = path[pSex or 2]
-					if path then
-						path = path[random(1,#path)]
-						if path then
-							self:Schedule(1, function() PlaySoundFile(path) end )
-							-- txt:match("\\([^\\]+.Wav)")
-							-- print("--", playerName, "!!", tostring(path:match("\\([^\\]+.Wav)")) )
-						end
-					end
-				end
-			end
 		end
 	end
 end

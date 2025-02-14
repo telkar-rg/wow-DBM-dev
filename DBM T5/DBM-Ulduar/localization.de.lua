@@ -651,7 +651,6 @@ L:SetOptionLocalization{
 	PlaySoundOnCrusher					= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Schmettertentakel"),
 	-- ttsSpawnConstrictor				= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Würgetentakel"),
 	PlaySoundOnConstrictor			= format("Spiele Sound für neue |c%s%s|r", "ffff8040", "Würgetentakel"),
-	PlaySoundOnConstrictorHelp		= format("Und spiele |c%s%s|r Sound für neue |c%s%s|r", "ffffffff", EMOTE156_CMD1, "ffff8040", "Würgetentakel"),
 	
 	ttsPortalIn10					= format("Spiele Sound als %s Vorwarnung für |c%s%s|r", SecondsToTime(10), "ff40ff80", "Gehirnportale"),
 	ttsPortalCountdown				= format("5-Sekunden-Audio-Countdown bis |c%s%s|r", "ff40ff80", "Gehirnportale"),

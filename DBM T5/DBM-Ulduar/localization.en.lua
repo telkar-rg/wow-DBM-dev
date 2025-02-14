@@ -591,7 +591,6 @@ L:SetOptionLocalization{
 	PlaySoundOnCrusher					= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Crusher Tentacle"),
 	-- ttsSpawnConstrictor				= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Constrictor Tentacle")
 	PlaySoundOnConstrictor			= format("Play sound when next |c%s%s|r spawns", "ffff8040", "Constrictor Tentacle"),
-	PlaySoundOnConstrictorHelp		= format("Also play |c%s%s|r sound when next |c%s%s|r spawns", "ffffffff", EMOTE156_CMD1, "ffff8040", "Constrictor Tentacle"),
 	
 	ttsPortalIn10					= format("Play sound as %s pre-warning for |c%s%s|r", SecondsToTime(10), "ff40ff80", "Brain Portal"),
 	ttsPortalCountdown				= format("5-second audio countdown to |c%s%s|r", "ff40ff80", "Brain Portal"),
