@@ -1465,11 +1465,13 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	achievementEscape	= "Time to escape"
+	achievementEscape	= "Time to escape",
+	TimerRoleplay		= "Roleplay"
 })
 
 L:SetOptionLocalization({
-	ShowWaves	= "Show warning for incoming waves"
+	ShowWaves		= "Show warning for incoming waves",
+	TimerRoleplay	= "Show timer for roleplay event"
 })
 
 L:SetMiscLocalization({
@@ -1482,5 +1484,9 @@ L:SetMiscLocalization({
 	Wave2			= "Succumb to the chill of the grave.",
 	Wave3			= "Another dead end.",
 	Wave4			= "How long can you fight it?",
-	YellCombatEnd	= "FIRE! FIRE!"
+	YellCombatEnd	= "FIRE! FIRE!",
+	ARpEscapeBegin  = 'Your allies have arrived, Jaina, just as you promised. You will all become powerful agents of the Scourge.', -- 37172
+	HRpEscapeBegin  = 'I will not make the same mistake again, Sylvanas. This time there will be no escape. You will all serve me in death!', -- 37173
+	ARpEscapeComplete = 'It... It\'s a dead end. We have no choice but to fight. Steel yourselves, heroes, for this is our last stand', -- 36992
+	HRpEscapeComplete = 'BLASTED DEAD END! So this is how it ends. Prepare yourselves, heroes, for today we make our final stand!' -- 37170
 })

@@ -1460,5 +1460,8 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	CombatStart		= "Il est trop fort. Il faut vite partir d'ici ! Ma magie ne pourra le retenir qu'un court instant. Venez vite, héros !",
-	YellCombatEnd	= "FEU ! FEU !"
+	YellCombatEnd	= "FEU ! FEU !",
+	ARpEscapeBegin  = 'Vos alliés sont arrivés, Jaina, comme vous l\'aviez promis. Vous ferez tous de puissants agents du Fléau.', -- 37172
+	HRpEscapeBegin  = 'Je ne ferai pas la même erreur une deuxième fois, Sylvanas. Cette fois, tu ne m\'échapperas pas. Vous me servirez tous dans la mort', -- 37173
+	RpEscapeComplete = 'Il y a une ouverture là-bas.' -- 38551
 })
