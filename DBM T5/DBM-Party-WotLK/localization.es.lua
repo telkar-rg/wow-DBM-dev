@@ -1519,13 +1519,11 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	achievementEscape	= "Tiempo para escapar",
-	TimerRoleplay		= "Diálogo"
+	achievementEscape	= "Tiempo para escapar"
 })
 
 L:SetOptionLocalization({
-	ShowWaves		= "Mostrar avisos para las oleadas que vienen",
-	TimerRoleplay	= "Mostrar tiempo para Diálogo",
+	ShowWaves	= "Mostrar avisos para las oleadas que vienen"
 })
 
 L:SetMiscLocalization({
@@ -1538,9 +1536,5 @@ L:SetMiscLocalization({
 	Wave2			= "Sucumbid al frío de la tumba.",
 	Wave3			= "Otro final sin salida.",
 	Wave4			= "¿Cuánto vais a aguantar?",
-	YellCombatEnd	= "¡FUEGO! ¡FUEGO!",
-	ARpEscapeBegin  = 'Han llegado tus aliados, Jaina, como prometiste. Todos seréis poderosos agentes de la Plaga.', -- 37172
-	HRpEscapeBegin  = 'No cometeré el mismo error, Sylvanas. Esta vez no habrá escapatoria. ¡Me serviréis en la muerte!', -- 37173
-	ARpEscapeComplete = 'No... no hay salida. No tenemos más opción que luchar. Armaos de valor, héroes, pues esta es nuestra última batalla.', -- 36992
-	HRpEscapeComplete = '¡MALDICIÓN, NO HAY SALIDA! Así es cómo acaba… ¡Preparaos, héroes, hoy tendrá lugar nuestra última batalla!' -- 37170
+	YellCombatEnd	= "¡FUEGO! ¡FUEGO!"
 })

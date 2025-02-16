@@ -1469,13 +1469,11 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	achievementEscape	= "Zeit zur Flucht",
-	TimerRoleplay		= "Rollenspiel"
+	achievementEscape	= "Zeit zur Flucht"
 })
 
 L:SetOptionLocalization({
-	ShowWaves		= "Zeige Warnung für Monsterwellen",
-	TimerRoleplay	= "Zeige Timer für Rollenspiel"
+	ShowWaves	= "Zeige Warnung für Monsterwellen"
 })
 
 L:SetMiscLocalization({
@@ -1488,9 +1486,5 @@ L:SetMiscLocalization({
 	Wave2			= "Ergebt Euch der Grabeskälte!",
 	Wave3			= "Eine weitere Sackgasse!",
 	Wave4			= "Wie lange könnt Ihr Euch noch wehren?",
-	YellCombatEnd	= "FEUER! FEUER!",
-	ARpEscapeBegin  = 'Eure Verbündeten sind hier, Jaina, wie Ihr verspracht. Ihr werdet alle zu mächtigen Dienern der Geißel.', -- 37172
-	HRpEscapeBegin  = 'Ich begehe denselben Fehler nicht erneut, Sylvanas. Es gibt kein Entkommen. Im Tod werdet Ihr mir alle dienen!', -- 37173
-	ARpEscapeComplete = 'Eine Sackgasse. Wir haben keine Wahl. Stählt Euch, Helden, denn dies ist unser letztes Gefecht', -- 36992
-	HRpEscapeComplete = 'VERDAMMT... EINE SACKGASSE! So endet es also. Seid bereit, Helden - denn heute ist unser letztes Gefecht!' -- 37170
+	YellCombatEnd	= "FEUER! FEUER!"
 })

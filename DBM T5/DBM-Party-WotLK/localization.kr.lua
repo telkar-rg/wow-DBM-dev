@@ -1475,13 +1475,11 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	achievementEscape	= "탈출 시간",
-	TimerRoleplay		= "이벤트"
+	achievementEscape	= "탈출 시간"
 })
 
 L:SetOptionLocalization({
-	ShowWaves		= "웨이브 시작전 경고 보기",
-	TimerRoleplay	= "이벤트 타이머 보기"
+	ShowWaves		= "웨이브 시작전 경고 보기"
 })
 
 L:SetMiscLocalization({
@@ -1494,9 +1492,5 @@ L:SetMiscLocalization({
 	Wave2			= "무덤의 한기에 굴복하라.",
 	Wave3			= "또 막다른 곳이다.",
 	Wave4			= "얼마나 더 싸울 수 있겠느냐?",	
-	YellCombatEnd	= "발사! 발사!",
-	ARpEscapeBegin  = '제이나, 네가 믿었던 대로 동맹이 왔구나. 너희 모두 스컬지의 강력한 하수인이 되리라.', -- 37172
-	HRpEscapeBegin  = '실바나스, 같은 실수를 두 번 하지는 않을 것이다. 이번에는 탈출할 수 없다. 모두 죽음으로 나를 섬기리라!', -- 37173
-	ARpEscapeComplete = '이런... 막다른 곳이군요. 이제 싸울 수밖에 없어요. 영웅들이여, 마음을 단단히 먹어요. 최후의 싸움일 테니까!', -- 36992
-	HRpEscapeComplete = '완전히 막다른 곳이다! 이렇게 끝이 나는구나. 마음을 단단히 먹어라, 영웅들이여. 오늘 최후의 싸움을 하리라!' -- 37170
+	YellCombatEnd	= "발사! 발사!"
 })

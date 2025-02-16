@@ -1465,13 +1465,11 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	achievementEscape	= "逃離計時",
-	TimerRoleplay		= "角色扮演"
+	achievementEscape	= "逃離計時"
 })
 
 L:SetOptionLocalization({
-	ShowWaves		= "為下一波 即將到來顯示警告",
-	TimerRoleplay	= "為角色扮演事件顯示計時器"
+	ShowWaves		= "為下一波 即將到來顯示警告"
 })
 
 L:SetMiscLocalization({
@@ -1484,9 +1482,5 @@ L:SetMiscLocalization({
 	Wave2			= "屈服於墓地的酷寒之下吧!",
 	Wave3			= "又是死路一條!",
 	Wave4			= "你還能支持多久?",
-	YellCombatEnd	= "開火!開火!",
-	ARpEscapeBegin  = '珍娜，如同你所承諾的，你的盟友抵達了。你們全都會成為天譴軍團的強大部屬。', -- 37172
-	HRpEscapeBegin  = '我不會再犯同樣的錯誤，希瓦娜斯。這一次你們將無處可逃。你們全都要在死後服侍我!', -- 37173
-	ARpEscapeComplete = '沒...沒有退路了。我們別無選擇只能奮力一戰。拿起你的武器，英雄們，我們將在此背水一戰!', -- 36992
-	HRpEscapeComplete = '天殺的死路!看來結局就是如此了。做好準備，英雄們，今天我們要在這裡背水一戰!' -- 37170
+	YellCombatEnd	= "開火!開火!"
 })
