@@ -1,5 +1,6 @@
 .gitignore
 *.patch
+*.temp
 /_Releases
 /Sound Backup
 Git wow-DBM-dev.lnk
