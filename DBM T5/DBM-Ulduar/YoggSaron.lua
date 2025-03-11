@@ -26,8 +26,8 @@ local function print(...)
 end
 
 mod:SetUsedIcons(5, 6, 7, 8)
-local pathSoundFile_critical = "Interface\\AddOns\\DBM-Core\\sounds\\UI_RaidBossWhisperWarning.mp3"
-local pathSoundFile_medium = "Sound\\Doodad\\Belltollalliance.wav"
+local pathSoundFile_critical = "Sound\\Doodad\\Belltollalliance.wav"
+local pathSoundFile_medium = "Sound\\Spells\\Shieldbreak.Wav"
 
 
 local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050)
