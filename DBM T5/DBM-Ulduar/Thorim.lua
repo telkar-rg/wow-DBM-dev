@@ -12,7 +12,8 @@ mod:RegisterEvents(
 	"SPELL_AURA_APPLIED",
 	"CHAT_MSG_MONSTER_YELL",
 	"SPELL_CAST_SUCCESS",
-	"SPELL_DAMAGE"
+	"SPELL_DAMAGE",
+	"SPELL_CAST_START"
 )
 
 local warnPhase2				= mod:NewPhaseAnnounce(2, 1)
@@ -26,10 +27,11 @@ local specWarnOrb				= mod:NewSpecialWarningMove(62017)
 mod:AddBoolOption("AnnounceFails", false, "announce")
 
 local enrageTimer				= mod:NewBerserkTimer(369)
-local timerStormhammer			= mod:NewCastTimer(16, 62042)
-local timerLightningCharge	 	= mod:NewCDTimer(16, 62466) 
-local timerUnbalancingStrike	= mod:NewCastTimer(26, 62130)
 local timerHardmode				= mod:NewTimer(175, "TimerHardmode", 62042)
+local timerStormhammer			= mod:NewCastTimer(16, 62042)
+local timerUnbalancingStrike	= mod:NewCastTimer(26, 62130)
+local timerLightningCharge	 	= mod:NewCDTimer(16, 62466)
+local timerChainLightning	 	= mod:NewCDTimer(7.5, 64390)
 
 mod:AddBoolOption("RangeFrame")
 
@@ -68,6 +70,12 @@ function mod:OnCombatEnd()
 end
 
 
+function mod:SPELL_CAST_START(args)
+	if args:IsSpellID(62131, 64390) then 			-- ChainLightning (CD: 7.5s .. 15s)
+		timerChainLightning:Start()
+	end
+end
+
 function mod:SPELL_AURA_APPLIED(args)
 	if args:IsSpellID(62042) then 					-- Storm Hammer
 		warnStormhammer:Show(args.destName)
@@ -86,7 +94,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 		timerStormhammer:Schedule(2)
 	elseif args:IsSpellID(62466) then   	-- Lightning Charge
 		warnLightningCharge:Show()
-		timerLightningCharge:Start()	
+		timerLightningCharge:Start()
 	elseif args:IsSpellID(62130) then	-- Unbalancing Strike
 		timerUnbalancingStrike:Start()
 	end
