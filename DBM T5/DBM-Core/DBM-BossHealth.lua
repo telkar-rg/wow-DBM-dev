@@ -214,6 +214,10 @@ function updateBar(bar, percent, dontShowDead)
 end
 
 do
+	local id_overwrite = {
+		[33890] = 33288, -- Brain of Yogg-Saron => Yogg-Saron
+	}
+	
 	local t = 0
 	local targetCache = {}
 	local function getCIDfromGUID(guid)
@@ -221,7 +225,11 @@ do
 			return -1
 		end
 		local cType = bit.band(guid:sub(0, 5), 0x00F)
-		return (cType == 3 or cType == 5) and tonumber(guid:sub(9, 12), 16) or -1
+		local id = tonumber(guid:sub(9, 12), 16)
+		if id_overwrite[id] then
+			id = id_overwrite[id]
+		end
+		return (cType == 3 or cType == 5) and id or -1
 	end
 	
 --	local function compareBars(b1, b2)
