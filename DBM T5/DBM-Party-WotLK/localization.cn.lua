@@ -1677,10 +1677,14 @@ L = DBM:GetModLocalization("HoRWaveTimer")
  })
  
  L:SetTimerLocalization({
+	TimerCombatStart	= "Combat starts",
+	TimerRoleplay		= "Roleplay",
 	TimerNextWave	= "Next wave"
  })
  
  L:SetOptionLocalization({
+	TimerCombatStart	= "Show timer for start of combat",
+	TimerRoleplay		= "Show timer for roleplay event",
 	WarnNewWave			= "Show warning for boss incoming",
 	WarnNewWaveSoon		= "Show pre-warning for new wave (after wave 5 boss)",
 	ShowAllWaveWarnings	= "Show warnings for all waves",

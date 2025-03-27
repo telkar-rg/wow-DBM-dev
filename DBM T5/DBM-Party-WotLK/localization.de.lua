@@ -1394,10 +1394,14 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerNextWave	= "Neue Welle"
+	TimerCombatStart	= "Kampf beginnt",
+	TimerRoleplay		= "Rollenspiel",
+	TimerNextWave		= "Neue Welle"
 })
 
 L:SetOptionLocalization({
+	TimerCombatStart	= "Zeige Timer für Kampfbeginn",
+	TimerRoleplay		= "Zeige Timer für Rollenspiel",
 	WarnNewWave			= "Zeige Warnung für neuen Boss",
 	WarnNewWaveSoon		= "Zeige Vorwarnung für neue Welle (nach dem Welle-5-Boss)",
 	ShowAllWaveWarnings	= "Zeige Warnungen für alle Wellen",
@@ -1407,7 +1411,10 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Falric		= "Falric",
-	WaveCheck	= "Geisterwelle = (%d+)/10"
+	WaveCheck	= "Geisterwelle = (%d+)/10",
+	ARpIntro	= 'Zurück! Berührt Ihr die Klinge, ist Eure Seele für die Ewigkeit gezeichnet! Ich werde versuchen, mit den Geistern in Frostgram zu kommunizieren. Bitte tretet zurück.', -- 37594
+	HRpIntro	= 'Ich wage nicht, sie zu berühren. Zurück, zurück, ich versuche, Kontakt herzustellen, um Hinweise zu finden.', -- 37570
+	RpIntroEnd	= 'Ihr wollt also mit den Toten sprechen? Euer Wunsch sei Euch gewährt!' -- 37614
 })
 
 --------------
@@ -1482,15 +1489,16 @@ L:SetMiscLocalization({
 	Ghoul			= "Tobender Ghul",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
 	Abom			= "Schwerfällige Monstrosität",--creature id 37069
 	WitchDoctor		= "Auferstandener Hexendoktor",--creature id 36941
-	ACombatStart	= "Seine Macht ist zu groß. Wir müssen diesen Ort sofort verlassen! Meine Magie kann ihn nur kurze Zeit halten. Beeilt Euch, Helden!",
-	HCombatStart	= "Er ist... zu mächtig. Schnell, Helden... kommt! Wir müssen fliehen. Ich werde mein Möglichstes tun, um ihn solange es geht an Ort und Stelle zu halten.",
+	-- ACombatStart	= "Seine Macht ist zu groß. Wir müssen diesen Ort sofort verlassen! Meine Magie kann ihn nur kurze Zeit halten. Beeilt Euch, Helden!",
+	-- HCombatStart	= "Er ist... zu mächtig. Schnell, Helden... kommt! Wir müssen fliehen. Ich werde mein Möglichstes tun, um ihn solange es geht an Ort und Stelle zu halten.",
 	Wave1			= "Es gibt kein Entkommen!",
 	Wave2			= "Ergebt Euch der Grabeskälte!",
 	Wave3			= "Eine weitere Sackgasse!",
 	Wave4			= "Wie lange könnt Ihr Euch noch wehren?",
-	YellCombatEnd	= "FEUER! FEUER!",
+	-- YellCombatEnd	= "FEUER! FEUER!",
 	ARpEscapeBegin  = 'Eure Verbündeten sind hier, Jaina, wie Ihr verspracht. Ihr werdet alle zu mächtigen Dienern der Geißel.', -- 37172
 	HRpEscapeBegin  = 'Ich begehe denselben Fehler nicht erneut, Sylvanas. Es gibt kein Entkommen. Im Tod werdet Ihr mir alle dienen!', -- 37173
-	ARpEscapeComplete = 'Eine Sackgasse. Wir haben keine Wahl. Stählt Euch, Helden, denn dies ist unser letztes Gefecht', -- 36992
-	HRpEscapeComplete = 'VERDAMMT... EINE SACKGASSE! So endet es also. Seid bereit, Helden - denn heute ist unser letztes Gefecht!' -- 37170
+	-- ARpEscapeComplete = 'Eine Sackgasse. Wir haben keine Wahl. Stählt Euch, Helden, denn dies ist unser letztes Gefecht', -- 36992
+	-- HRpEscapeComplete = 'VERDAMMT... EINE SACKGASSE! So endet es also. Seid bereit, Helden - denn heute ist unser letztes Gefecht!', -- 37170
+	RpEscapeComplete = 'Kein Ausweg mehr... Jetzt gehört Ihr mir!' -- 36994
 })

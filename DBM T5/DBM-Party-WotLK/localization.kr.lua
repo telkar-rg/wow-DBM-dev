@@ -1400,20 +1400,27 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
+	TimerCombatStart	= "전투 시작",
+	TimerRoleplay		= "이벤트",
 	TimerNextWave		= "다음 웨이브"
 })
 
 L:SetOptionLocalization({
-	WarnNewWave				= "새로운 보스가 올 때 경고 보기",
-	WarnNewWaveSoon			= "새로운 웨이브 사전 경고 보기(5 웨이브 보스 이후)",
-	ShowAllWaveWarnings		= "모든 웨이브 사전 경고 보기",	--Is this a warning or a pre-warning?
-	TimerNextWave			= "다음 웨이브 타이머 보기(5 웨이브 보스 이후)",
-	ShowAllWaveTimers		= "모든 웨이브의 사전 경고 및 타이머 보기(부정확)"
+	TimerCombatStart	= "전투 시작 타이머 보기",
+	TimerRoleplay		= "이벤트 타이머 보기",
+	WarnNewWave			= "새로운 보스가 올 때 경고 보기",
+	WarnNewWaveSoon		= "새로운 웨이브 사전 경고 보기(5 웨이브 보스 이후)",
+	ShowAllWaveWarnings	= "모든 웨이브 사전 경고 보기",	--Is this a warning or a pre-warning?
+	TimerNextWave		= "다음 웨이브 타이머 보기(5 웨이브 보스 이후)",
+	ShowAllWaveTimers	= "모든 웨이브의 사전 경고 및 타이머 보기(부정확)"
 })
 
 L:SetMiscLocalization({
-	Falric				= "팔릭",
-	WaveCheck			= "영혼 공격 = (%d+)/10"
+	Falric		= "팔릭",
+	WaveCheck	= "영혼 공격 = (%d+)/10",
+	ARpIntro	= '물러나세요! 저 검에 손을 대면 영혼에 영원한 상처가 남을 거예요! 서리한에 갇힌 영혼들과 대화해봐야 해요. 자리를 좀 비켜주세요. 물러서요.', -- 37594
+	HRpIntro	= '건드릴 엄두가 나지 않는다. 물러나라! 물러나! 내가 검과 대화해볼 테니! 우리의 구원이 그 안에 있을지도 모른다...', -- 37570
+	RpIntroEnd	= '죽은 자와 얘기하고 싶다는 건가? 그 소원을 들어주지.' -- 37614
 })
 
 ------------
@@ -1485,8 +1492,8 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	ACombatStart	= "He is too powerful. We must leave this place at once! My magic can hold him in place for only a short time. Come quickly, heroes!",
-	HCombatStart	= "그는... 너무 강하다. 영웅들이여, 어서... 이쪽으로 오라! 즉시 이곳을 떠나야 한다! 도망치는 동안 그를 잡아놓을 수 있도록 조치를 취하겠다.",
+	-- ACombatStart	= "He is too powerful. We must leave this place at once! My magic can hold him in place for only a short time. Come quickly, heroes!",
+	-- HCombatStart	= "그는... 너무 강하다. 영웅들이여, 어서... 이쪽으로 오라! 즉시 이곳을 떠나야 한다! 도망치는 동안 그를 잡아놓을 수 있도록 조치를 취하겠다.",
 	Ghoul			= "분노한 구울",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
 	Abom			= "육중한 누더기골렘",--creature id 37069
 	WitchDoctor		= "되살아난 의술사",--creature id 36941	
@@ -1494,9 +1501,10 @@ L:SetMiscLocalization({
 	Wave2			= "무덤의 한기에 굴복하라.",
 	Wave3			= "또 막다른 곳이다.",
 	Wave4			= "얼마나 더 싸울 수 있겠느냐?",	
-	YellCombatEnd	= "발사! 발사!",
+	-- YellCombatEnd	= "발사! 발사!",
 	ARpEscapeBegin  = '제이나, 네가 믿었던 대로 동맹이 왔구나. 너희 모두 스컬지의 강력한 하수인이 되리라.', -- 37172
 	HRpEscapeBegin  = '실바나스, 같은 실수를 두 번 하지는 않을 것이다. 이번에는 탈출할 수 없다. 모두 죽음으로 나를 섬기리라!', -- 37173
-	ARpEscapeComplete = '이런... 막다른 곳이군요. 이제 싸울 수밖에 없어요. 영웅들이여, 마음을 단단히 먹어요. 최후의 싸움일 테니까!', -- 36992
-	HRpEscapeComplete = '완전히 막다른 곳이다! 이렇게 끝이 나는구나. 마음을 단단히 먹어라, 영웅들이여. 오늘 최후의 싸움을 하리라!' -- 37170
+	-- ARpEscapeComplete = '이런... 막다른 곳이군요. 이제 싸울 수밖에 없어요. 영웅들이여, 마음을 단단히 먹어요. 최후의 싸움일 테니까!', -- 36992
+	-- HRpEscapeComplete = '완전히 막다른 곳이다! 이렇게 끝이 나는구나. 마음을 단단히 먹어라, 영웅들이여. 오늘 최후의 싸움을 하리라!' -- 37170
+	RpEscapeComplete = '도망칠 곳은 없다... 너는 이제 나의 것이다!' -- 36994
 })

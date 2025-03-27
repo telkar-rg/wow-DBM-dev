@@ -1390,10 +1390,14 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerNextWave	= "Next wave"
+	TimerCombatStart	= "Combat starts",
+	TimerRoleplay		= "Roleplay",
+	TimerNextWave		= "Next wave"
 })
 
 L:SetOptionLocalization({
+	TimerCombatStart	= "Show timer for start of combat",
+	TimerRoleplay		= "Show timer for roleplay event",
 	WarnNewWave			= "Show warning for boss incoming",
 	WarnNewWaveSoon		= "Show pre-warning for new wave (after wave 5 boss)",
 	ShowAllWaveWarnings	= "Show warnings for all waves",
@@ -1403,7 +1407,10 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Falric		= "Falric",
-	WaveCheck	= "Spirit Wave = (%d+)/10"
+	WaveCheck	= "Spirit Wave = (%d+)/10",
+	ARpIntro	= 'Stand back! Touch that blade and your soul will be scarred for all eternity! I must attempt to commune with the spirits locked away within Frostmourne. Give me space. Back up, please.', -- 37594
+	HRpIntro	= 'I dare not touch it. Stand back! Stand back as I attempt to commune with the blade! Perhaps our salvation lies within...', -- 37570
+	RpIntroEnd	= 'So you wish to commune with the dead? You shall have your wish.' -- 37614
 })
 
 --------------
@@ -1478,15 +1485,16 @@ L:SetMiscLocalization({
 	Ghoul			= "Raging Ghoul",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
 	Abom			= "Lumbering Abomination",--creature id 37069
 	WitchDoctor		= "Risen Witch Doctor",--creature id 36941
-	ACombatStart	= "He is too powerful. We must leave this place at once! My magic can hold him in place for only a short time. Come quickly, heroes!",
-	HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
+	-- ACombatStart	= "He is too powerful. We must leave this place at once! My magic can hold him in place for only a short time. Come quickly, heroes!",
+	-- HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
 	Wave1			= "There is no escape!",
 	Wave2			= "Succumb to the chill of the grave.",
 	Wave3			= "Another dead end.",
 	Wave4			= "How long can you fight it?",
-	YellCombatEnd	= "FIRE! FIRE!",
+	-- YellCombatEnd	= "FIRE! FIRE!",
 	ARpEscapeBegin  = 'Your allies have arrived, Jaina, just as you promised. You will all become powerful agents of the Scourge.', -- 37172
 	HRpEscapeBegin  = 'I will not make the same mistake again, Sylvanas. This time there will be no escape. You will all serve me in death!', -- 37173
-	ARpEscapeComplete = 'It... It\'s a dead end. We have no choice but to fight. Steel yourselves, heroes, for this is our last stand', -- 36992
-	HRpEscapeComplete = 'BLASTED DEAD END! So this is how it ends. Prepare yourselves, heroes, for today we make our final stand!' -- 37170
+	-- ARpEscapeComplete = 'Eine Sackgasse. Wir haben keine Wahl. Stählt Euch, Helden, denn dies ist unser letztes Gefecht', -- 36992
+	-- HRpEscapeComplete = 'VERDAMMT... EINE SACKGASSE! So endet es also. Seid bereit, Helden - denn heute ist unser letztes Gefecht!', -- 37170
+	RpEscapeComplete = 'Nowhere to run... You\'re mine now!' -- 36994
 })

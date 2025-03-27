@@ -1380,10 +1380,14 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerNextWave	= "Prochaine vague"
+	TimerCombatStart	= "Le combat débute",
+	TimerRoleplay		= "Jeux de role",
+	TimerNextWave		= "Prochaine vague"
 })
 
 L:SetOptionLocalization({
+	TimerCombatStart	= "Montre le timer pour le début du combat",
+	TimerRoleplay		= "Montre le timer pour l'event de role",
 	WarnNewWave			= "Montre une alerte pour l'arrivée d'un boss",
 	WarnNewWaveSoon		= "Montre une pré-alerte pour la prochaine vague",
 	ShowAllWaveWarnings	= "Montre des alertes et pré-alertes pour toutes les vagues",	--Is this a warning or a pre-warning?
@@ -1393,7 +1397,10 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Falric		= "Falric",
-	WaveCheck	= "Vague d'esprit = (%d+)/10"
+	WaveCheck	= "Vague d'esprit = (%d+)/10",
+	ARpIntro	= 'Reculez ! Touchez seulement cette lame, et votre âme en sera meurtrie pour l’éternité ! Il faut que j’essaie d’entrer en contact avec les esprits emprisonnés dans Deuillegivre. Faites-moi de la place. Reculez, s’il vous plaît.', -- 37594
+	HRpIntro	= 'Je n’ose pas la toucher. Reculez ! Reculez, je vais essayer d’entrer en harmonie avec la lame ! Elle pourrait renfermer la clé de notre salut…', -- 37570
+	RpIntroEnd	= 'Alors comme ça, vous voulez converser avec les morts ? Je vais exaucer votre souhait.' -- 37614
 })
 
 --------------
@@ -1459,9 +1466,10 @@ L:SetOptionLocalization({
 })
 
 L:SetMiscLocalization({
-	CombatStart		= "Il est trop fort. Il faut vite partir d'ici ! Ma magie ne pourra le retenir qu'un court instant. Venez vite, héros !",
-	YellCombatEnd	= "FEU ! FEU !",
+	-- CombatStart		= "Il est trop fort. Il faut vite partir d'ici ! Ma magie ne pourra le retenir qu'un court instant. Venez vite, héros !",
+	-- YellCombatEnd	= "FEU ! FEU !",
 	ARpEscapeBegin  = 'Vos alliés sont arrivés, Jaina, comme vous l\'aviez promis. Vous ferez tous de puissants agents du Fléau.', -- 37172
 	HRpEscapeBegin  = 'Je ne ferai pas la même erreur une deuxième fois, Sylvanas. Cette fois, tu ne m\'échapperas pas. Vous me servirez tous dans la mort', -- 37173
-	RpEscapeComplete = 'Il y a une ouverture là-bas.' -- 38551
+	-- RpEscapeComplete = 'Il y a une ouverture là-bas.' -- 38551
+	RpEscapeComplete = 'Plus aucune issue… Vous êtes à moi maintenant !' -- 36994
 })

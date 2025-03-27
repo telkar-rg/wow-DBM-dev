@@ -1393,10 +1393,14 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerNextWave	= "Следующая волна"
+	TimerCombatStart	= "Начало боя",
+	TimerRoleplay		= "Представление",
+	TimerNextWave		= "Следующая волна"
 })
 
 L:SetOptionLocalization({
+	TimerCombatStart	= "Отсчет времени до начала боя",
+	TimerRoleplay		= "Отсчет времени для представления",
 	WarnNewWave			= "Предупреждение о вступлении босса в бой",
 	WarnNewWaveSoon		= "Предупреждать заранее о новой волне (после босса 5-ой волны)",
 	ShowAllWaveWarnings	= "Предупреждения для всех волн",
@@ -1406,7 +1410,10 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Falric		= "Фалрик",
-	WaveCheck	= "Отражено атак призраков = (%d+)/10"
+	WaveCheck	= "Отражено атак призраков = (%d+)/10",
+	ARpIntro	= 'Отойдите! Тот, кто коснется этого клинка, обречет себя на вечные муки! Я попытаюсь заговорить с душами, заключенными в Ледяной Скорби. Расступитесь. Чуть назад, прошу.', -- 37594
+	HRpIntro	= 'Я не смею его коснуться. Назад! Отступите, я попробую установить связь с мечом. Возможно, спасение находится внутри...', -- 37570
+	RpIntroEnd	= 'Так ты хочешь поговорить с мертвыми? Нет ничего проще.' -- 37614
 })
 
 --------------
@@ -1481,15 +1488,16 @@ L:SetMiscLocalization({
 	Ghoul			= "Гневный вурдалак",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
 	Abom			= "Неуклюжее поганище",--creature id 37069
 	WitchDoctor		= "Воскрешенный ведьмак",--creature id 36941
-	ACombatStart	= "Он слишком силен. Мы должны выбраться отсюда как можно скорее. Моя магия задержит его, но не надолго. Быстрее, герои!",
-	HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
+	-- ACombatStart	= "Он слишком силен. Мы должны выбраться отсюда как можно скорее. Моя магия задержит его, но не надолго. Быстрее, герои!",
+	-- HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
 	Wave1			= "^Бежать некуда.$",
 	Wave2			= "Покоритесь леденящей смерти!",
 	Wave3			= "Вы в ловушке!",
 	Wave4			= "Как долго вы сможете сопротивляться?",
-	YellCombatEnd	= "ОГОНЬ! ОГОНЬ!",
+	-- YellCombatEnd	= "ОГОНЬ! ОГОНЬ!",
 	ARpEscapeBegin  = 'Твои союзники прибыли, Джайна, как ты и обещала. Вы все станете могучими солдатами Плети.', -- 37172
 	HRpEscapeBegin  = 'Я не повторю прежней ошибки, Сильвана. На этот раз тебе не спастись. Вы все будете служить мне после смерти!', -- 37173
-	ARpEscapeComplete = 'Больше некуда бежать. Теперь нам придется сражаться. Готовьтесь, герои, это наша последняя битва!', -- 36992
-	HRpEscapeComplete = 'ПРОКЛЯТЫЙ ТУПИК! Значит, все закончится здесь... Готовьтесь, герои, это наша последняя битва!' -- 37170
+	-- ARpEscapeComplete = 'Больше некуда бежать. Теперь нам придется сражаться. Готовьтесь, герои, это наша последняя битва!', -- 36992
+	-- HRpEscapeComplete = 'ПРОКЛЯТЫЙ ТУПИК! Значит, все закончится здесь... Готовьтесь, герои, это наша последняя битва!' -- 37170
+	RpEscapeComplete = 'Бежать некуда... Теперь вы мои!' -- 36994
 })

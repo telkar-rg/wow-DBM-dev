@@ -1444,10 +1444,14 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerNextWave	= "Siguiente oleada"
+	TimerCombatStart	= "Empieza el combate",
+	TimerRoleplay		= "Diálogo",
+	TimerNextWave		= "Siguiente oleada"
 })
 
 L:SetOptionLocalization({
+	TimerCombatStart	= "Mostrar tiempo para el inicio del combate",
+	TimerRoleplay		= "Mostrar tiempo para Diálogo",
 	WarnNewWave			= "Mostrar aviso cuando llega una oleada",
 	WarnNewWaveSoon		= "Mostrar pre-aviso para nueva oleada(después del 1r boss)",
 	ShowAllWaveWarnings	= "Mostrar pre-aviso para todas las oleadas",	--Is this a warning or a pre-warning?
@@ -1457,7 +1461,10 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Falric		= "Falric",
-	WaveCheck	= "Oleada de espiritus = (%d+)/10"
+	WaveCheck	= "Oleada de espiritus = (%d+)/10",
+	ARpIntro	= '¡Atrás! ¡Si tocáis la espada, vuestra alma quedará marcada toda la eternidad! Debo intentar ponerme en contacto con los espíritus atrapados en la Agonía de Escarcha. ¡Haceos a un lado! ¡Atrás!', -- 37594
+	HRpIntro	= 'No me atrevo a tocarla. ¡Atrás! ¡Atrás mientras intento comunicarme con la espada! Puede que nuestra salvación se halle dentro...', -- 37570
+	RpIntroEnd	= '¿Así que quieres comunicarte con los muertos? Tendrás lo que deseas.' -- 37614
 })
 
 --------------
@@ -1532,15 +1539,16 @@ L:SetMiscLocalization({
 	Ghoul			= "Necrófago enfurecido",--creature id 36940. Not sure how to use these in function above to simplify locals though. :\
 	Abom			= "Abominación torpe",--creature id 37069
 	WitchDoctor		= "Médico brujo resucitado",--creature id 36941
-	ACombatStart	= "Es demasiado poderoso. ¡Debemos abandonar este lugar ahora mismo! Mi magia podrá inmovilizarlo brevemente. ¡Vamos rápido, héroes!",
-	HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
+	-- ACombatStart	= "Es demasiado poderoso. ¡Debemos abandonar este lugar ahora mismo! Mi magia podrá inmovilizarlo brevemente. ¡Vamos rápido, héroes!",
+	-- HCombatStart	= "He's... too powerful. Heroes, quickly... come to me! We must leave this place at once! I will do what I can to hold him in place while we flee.",
 	Wave1			= "¡No hay escapatoria!",
 	Wave2			= "Sucumbid al frío de la tumba.",
 	Wave3			= "Otro final sin salida.",
 	Wave4			= "¿Cuánto vais a aguantar?",
-	YellCombatEnd	= "¡FUEGO! ¡FUEGO!",
+	-- YellCombatEnd	= "¡FUEGO! ¡FUEGO!",
 	ARpEscapeBegin  = 'Han llegado tus aliados, Jaina, como prometiste. Todos seréis poderosos agentes de la Plaga.', -- 37172
 	HRpEscapeBegin  = 'No cometeré el mismo error, Sylvanas. Esta vez no habrá escapatoria. ¡Me serviréis en la muerte!', -- 37173
-	ARpEscapeComplete = 'No... no hay salida. No tenemos más opción que luchar. Armaos de valor, héroes, pues esta es nuestra última batalla.', -- 36992
-	HRpEscapeComplete = '¡MALDICIÓN, NO HAY SALIDA! Así es cómo acaba… ¡Preparaos, héroes, hoy tendrá lugar nuestra última batalla!' -- 37170
+	-- ARpEscapeComplete = 'No... no hay salida. No tenemos más opción que luchar. Armaos de valor, héroes, pues esta es nuestra última batalla.', -- 36992
+	-- HRpEscapeComplete = '¡MALDICIÓN, NO HAY SALIDA! Así es cómo acaba… ¡Preparaos, héroes, hoy tendrá lugar nuestra última batalla!' -- 37170
+	RpEscapeComplete = 'No corráis... ¡Sois míos!' -- 36994
 })

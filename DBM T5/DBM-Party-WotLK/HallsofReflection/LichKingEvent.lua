@@ -6,6 +6,9 @@ mod:RegisterEvents(
 	"SPELL_AURA_REMOVED",
 	"CHAT_MSG_MONSTER_YELL"
 )
+local time_ARpEscapeBegin = 15.5
+local time_HRpEscapeBegin = 15.5
+local time_RpEscapeComplete = 21
 
 local WarnWave1	= mod:NewAnnounce("WarnWave1", 2, nil, nil, false)
 local WarnWave2	= mod:NewAnnounce("WarnWave2", 2, nil, nil, false)
@@ -13,7 +16,7 @@ local WarnWave3	= mod:NewAnnounce("WarnWave3", 2, nil, nil, false)
 local WarnWave4	= mod:NewAnnounce("WarnWave4", 2, nil, nil, false)
 mod:AddBoolOption("ShowWaves", true, "announce")
 
-local timerRoleplay	= mod:NewTimer(20, "TimerRoleplay")
+local timerRoleplay	= mod:NewTimer(time_ARpEscapeBegin, "TimerRoleplay", 59887)
 local timerEscape	= mod:NewAchievementTimer(360, 4526, "achievementEscape")
 
 mod:RemoveOption("HealthFrame")
@@ -44,13 +47,11 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		if self.Options.ShowWaves then
 			WarnWave4:Show()
 		end
-	elseif msg == L.ARpEscapeBegin or msg:find(L.ARpEscapeBegin) then
-		timerRoleplay:Start()
-	elseif msg == L.HRpEscapeBegin or msg:find(L.HRpEscapeBegin) then
-		timerRoleplay:Start()
-	elseif msg == L.ARpEscapeComplete or msg:find(L.ARpEscapeComplete) then
-		timerRoleplay:Start(25)
-	elseif msg == L.HRpEscapeComplete or msg:find(L.HRpEscapeComplete) then
-		timerRoleplay:Start(25)
+	-- elseif msg == L.ARpEscapeBegin or msg:find(L.ARpEscapeBegin) then
+		-- timerRoleplay:Start(time_ARpEscapeBegin)
+	-- elseif msg == L.HRpEscapeBegin or msg:find(L.HRpEscapeBegin) then
+		-- timerRoleplay:Start(time_HRpEscapeBegin)
+	elseif msg == L.RpEscapeComplete or msg:find(L.RpEscapeComplete) then
+		timerRoleplay:Start(time_RpEscapeComplete)
 	end
 end

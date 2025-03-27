@@ -1390,10 +1390,14 @@ L:SetWarningLocalization({
 })
 
 L:SetTimerLocalization({
-	TimerNextWave	= "下一波"
+	TimerCombatStart	= "戰鬥開始",
+	TimerRoleplay		= "角色扮演",
+	TimerNextWave		= "下一波"
 })
 
 L:SetOptionLocalization({
+	TimerCombatStart	= "為戰鬥開始顯示計時器",
+	TimerRoleplay		= "為角色扮演事件顯示計時器",
 	WarnNewWave			= "當首領到來時顯示警告",
 	WarnNewWaveSoon		= "為新一波顯示預先警告 (擊敗首領後)",
 	ShowAllWaveWarnings	= "為所有波數顯示警告",
@@ -1403,7 +1407,10 @@ L:SetOptionLocalization({
 
 L:SetMiscLocalization({
 	Falric		= "法勒瑞克",
-	WaveCheck	= "靈魂波數 = (%d+)/10"
+	WaveCheck	= "靈魂波數 = (%d+)/10",
+	ARpIntro	= '退後!觸碰那把劍將會永遠毀傷你的靈魂!我一定要試著跟那些被困在霜之哀傷中的靈魂溝通。給我一點空間。請退後。', -- 37594
+	HRpIntro	= '我可不敢碰它。退後!在我試圖跟劍溝通時退開!或許我們的救贖之道就在...', -- 37570
+	RpIntroEnd	= '好，你想跟死者溝通?你會達成你的願望。' -- 37614
 })
 
 --------------
@@ -1478,15 +1485,16 @@ L:SetMiscLocalization({
 	Ghoul			= "狂怒食屍鬼",
 	Abom			= "笨拙憎惡體",
 	WitchDoctor		= "復活的巫醫",
-	ACombatStart	= "他太強大了!我們必須立刻離開這裡!我的魔法只能困住他一小段時間。快來吧，英雄們!",
-	HCombatStart	= "他…太強大了。英雄們，快點…到我這裡來!我們要立刻離開這裡!我會盡可能地在我們逃走時把他困住。",
+	-- ACombatStart	= "他太強大了!我們必須立刻離開這裡!我的魔法只能困住他一小段時間。快來吧，英雄們!",
+	-- HCombatStart	= "他…太強大了。英雄們，快點…到我這裡來!我們要立刻離開這裡!我會盡可能地在我們逃走時把他困住。",
 	Wave1			= "無處可逃!",
 	Wave2			= "屈服於墓地的酷寒之下吧!",
 	Wave3			= "又是死路一條!",
 	Wave4			= "你還能支持多久?",
-	YellCombatEnd	= "開火!開火!",
+	-- YellCombatEnd	= "開火!開火!",
 	ARpEscapeBegin  = '珍娜，如同你所承諾的，你的盟友抵達了。你們全都會成為天譴軍團的強大部屬。', -- 37172
 	HRpEscapeBegin  = '我不會再犯同樣的錯誤，希瓦娜斯。這一次你們將無處可逃。你們全都要在死後服侍我!', -- 37173
-	ARpEscapeComplete = '沒...沒有退路了。我們別無選擇只能奮力一戰。拿起你的武器，英雄們，我們將在此背水一戰!', -- 36992
-	HRpEscapeComplete = '天殺的死路!看來結局就是如此了。做好準備，英雄們，今天我們要在這裡背水一戰!' -- 37170
+	-- ARpEscapeComplete = '沒...沒有退路了。我們別無選擇只能奮力一戰。拿起你的武器，英雄們，我們將在此背水一戰!', -- 36992
+	-- HRpEscapeComplete = '天殺的死路!看來結局就是如此了。做好準備，英雄們，今天我們要在這裡背水一戰!' -- 37170
+	RpEscapeComplete = '無路可逃...你們現在是我的了!' -- 36994
 })

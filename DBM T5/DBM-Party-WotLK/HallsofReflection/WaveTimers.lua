@@ -7,15 +7,23 @@ mod:SetZone()
 
 mod:RegisterEvents(
 	"UPDATE_WORLD_STATES",
-	"UNIT_DIED"
+	"UNIT_DIED",
+	"CHAT_MSG_MONSTER_YELL"
 )
+local time_ARpIntro = 156
+local time_HRpIntro = 156
+local time_RpIntroEnd = 31
+local isRoleplay
 
 local warnNewWaveSoon	= mod:NewAnnounce("WarnNewWaveSoon", 2)
 local warnNewWave	= mod:NewAnnounce("WarnNewWave", 3)
+
+local timerCombatStart	= mod:NewTimer(time_RpIntroEnd, "TimerCombatStart", 2457)
 local timerNextWave	= mod:NewTimer(150, "TimerNextWave")
+local timerRoleplay	= mod:NewTimer(time_ARpIntro, "TimerRoleplay", 59887)
 
 mod:AddBoolOption("ShowAllWaveWarnings", true, "announce")
-mod:AddBoolOption("ShowAllWaveTimers", false, "timer")
+-- mod:AddBoolOption("ShowAllWaveTimers", false, "timer")
 
 mod:RemoveOption("HealthFrame")
 
@@ -46,10 +54,10 @@ function mod:UPDATE_WORLD_STATES(args)
 			if self.Options.ShowAllWaveWarnings then
 				warnNewWave:Show("Wave")
 			end
-			if self.Options.ShowAllWaveTimers then
-				timerNextWave:Start()
-				warnNewWaveSoon:Schedule(140)
-			end
+			-- if self.Options.ShowAllWaveTimers then
+				-- timerNextWave:Start()
+				-- warnNewWaveSoon:Schedule(140)
+			-- end
 		end
 	elseif wave == 0 then
 		warnNewWaveSoon:Cancel()
@@ -63,5 +71,21 @@ function mod:UNIT_DIED(args)
 		timerNextWave:Start(60)
 		warnNewWaveSoon:Schedule(50)
 		FalricDead = true
+	end
+end
+
+
+function mod:CHAT_MSG_MONSTER_YELL(msg)
+	if msg == L.RpIntroEnd or msg:find(L.RpIntroEnd) then
+		if not isRoleplay then
+			isRoleplay = nil
+			timerCombatStart:Start()
+		end
+	elseif msg == L.ARpIntro or msg:find(L.ARpIntro) then
+		isRoleplay = 1
+		timerRoleplay:Start(time_ARpIntro)
+	elseif msg == L.HRpIntro or msg:find(L.HRpIntro) then
+		isRoleplay = 1
+		timerRoleplay:Start(time_HRpIntro)
 	end
 end
