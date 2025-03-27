@@ -6,7 +6,10 @@ mod:SetRevision(("$Revision: 4133 $"):sub(12, -3))
 mod:SetCreatureID(32906)
 mod:RegisterCombat("combat")
 mod:RegisterKill("yell", L.YellKill)
+
 mod:SetUsedIcons(3, 4, 5, 7, 8)
+local pathSoundFile_critical = "Sound\\Doodad\\Belltollalliance.wav"
+local pathSoundFile_medium = "Sound\\Doodad\\PVP_Lordaeron_Door_Close.wav"
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
@@ -34,7 +37,7 @@ local warnRoots				= mod:NewTargetAnnounce(62438, 2)
 local specWarnFury			= mod:NewSpecialWarningYou(63571)
 local specWarnTremor		= mod:NewSpecialWarningCast(62859)	-- Hard mode
 local specWarnBeam			= mod:NewSpecialWarningMove(62865)	-- Hard mode
-local specWarnEonarsGift    = mod:NewSpecialWarning("SpecWarnEonarsGift", true, nil, false, DBM.Options.SpecialWarningSound2)
+local specWarnEonarsGift    = mod:NewSpecialWarningCast(62584)
 
 local enrage 				= mod:NewBerserkTimer(600)
 local timerAlliesOfNature	= mod:NewNextTimer(60, 62678)
@@ -46,6 +49,7 @@ local timerEonarsGiftCD     = mod:NewCDTimer(40, 62584)
 mod:AddBoolOption("HealthFrame", true)
 mod:AddBoolOption("PlaySoundOnFury", true)
 mod:AddBoolOption("PlaySoundOnGroundTremor", true)
+mod:AddBoolOption("PlaySoundOnEonarsGift", true)
 
 mod:AddBoolOption("SetIconOnNaturesFury", true)
 mod:AddBoolOption("SetIconOnIronRoots", true)
@@ -83,7 +87,7 @@ function mod:SPELL_CAST_START(args)
 		specWarnTremor:Show()
 		timerTremorCD:Start()
 		if self.Options.PlaySoundOnGroundTremor then
-			PlaySoundFile("Sound\\Doodad\\Belltollalliance.Wav")
+			PlaySoundFile(pathSoundFile_critical)
 		end
 	end
 end 
@@ -176,5 +180,9 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(emote)
 	if emote == L.tree_trigger or emote:find(L.tree_trigger) then
 		specWarnEonarsGift:Show()
 		timerEonarsGiftCD:Start()
+		
+		if self.Options.PlaySoundOnEonarsGift then
+			PlaySoundFile(pathSoundFile_medium)
+		end
 	end
 end

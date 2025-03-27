@@ -27,7 +27,7 @@ end
 
 mod:SetUsedIcons(5, 6, 7, 8)
 local pathSoundFile_critical = "Sound\\Doodad\\Belltollalliance.wav"
-local pathSoundFile_medium = "Sound\\Spells\\Shieldbreak.Wav"
+local pathSoundFile_medium = "Sound\\Doodad\\PVP_Lordaeron_Door_Close.wav"
 
 
 local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050)

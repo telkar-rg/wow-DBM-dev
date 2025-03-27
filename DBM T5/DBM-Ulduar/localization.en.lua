@@ -368,6 +368,7 @@ L:SetOptionLocalization{
 	WarningTremor		= "Show special warning for $spell:62859",
 	PlaySoundOnFury 	= "Play sound when you are affected by $spell:63571",
 	PlaySoundOnGroundTremor = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62859),
+	PlaySoundOnEonarsGift = DBM_CORE_AUTO_SOUND_OPTION_TEXT:format(62584),
 	TimerSimulKill		= "Show timer for mob resurrection",
 	UnstableEnergy		= "Show special warning for $spell:62451",
 	SpecWarnEonarsGift  = "Alert when Freya spawns a Eonar's Gift.",
