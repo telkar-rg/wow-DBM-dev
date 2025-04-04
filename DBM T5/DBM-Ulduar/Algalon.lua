@@ -58,11 +58,19 @@ local warned_preP2 = false
 local warned_star = false
 
 local table_icon = {8,7,6,5,4,3}
+local table_iconMAX,table_iconMIN = 8,3
+local table_stars_uId = {}
+-- local table_stars_icons = {}
+-- local table_stars_GuidIcon = {}
+-- local table_stars_IconGuid = {}
 
 function mod:OnCombatStart(delay)
 	warned_preP2 = false
 	warned_star = false
 	table_icon = {8,7,6,5,4,3}
+	wipe(table_stars_uId)
+	-- wipe(table_stars_GuidIcon)
+	-- wipe(table_stars_IconGuid)
 	
 	local text = select(3, GetWorldStateUIInfo(1)) 
 	local _, _, time = string.find(text, L.PullCheck)
@@ -153,51 +161,69 @@ function mod:CHAT_MSG_TARGETICONS(msg)
 	rt = tonumber(rt)
 	if not rt then return end
 	
-	mod:iconPush(rt)
-	-- for k,v in pairs(table_icon) do
-		-- if v==rt then
-			-- table.remove(table_icon, k)
-			-- break
-		-- end
-	-- end
-	-- table.insert(table_icon, rt)
+	mod:iconUsed(rt)
 end
 
 
-function mod:setIconStar(uId)
-	if DBM.Options.DontSetIcons or DBM:GetRaidRank() == 0 or not(self.Options.SetIconOnCollapsingStar) then return end
-	
-	if self:GetUnitCreatureId(uId) == 32955 then
-		local rt = GetRaidTargetIndex(uId)
-		if rt and (rt>0 and rt<9) then 
-			return 
-		else
-			rt = table_icon[1]
-			SetRaidTarget(uId, rt)
-			-- mod:iconPush(rt)
-		end
-	end
-end
 
-
-function mod:PLAYER_TARGET_CHANGED()
-	mod:setIconStar("target")
-end
-
-
-function mod:UPDATE_MOUSEOVER_UNIT()
-	mod:setIconStar("mouseover")
-end
-
-
-function mod:iconPush(rt)
+function mod:iconUsed(rt)
 	if not rt then return end
 	
+	local isRemove
 	for k,v in pairs(table_icon) do
 		if v==rt then
 			table.remove(table_icon, k)
+			isRemove = 1
 			break
 		end
 	end
-	table.insert(table_icon, rt)
+	if isRemove then
+		table.insert(table_icon, rt)
+		print("-- RT", rt, "used", "--", strjoin(",", tostringall( unpack(table_icon) )))
+	end
 end
+
+
+
+mod:RegisterOnUpdateHandler(function(self, elapsed)
+	if not self:IsInCombat() then return end
+	
+	if DBM.Options.DontSetIcons then return end
+	if DBM:GetRaidRank() == 0 then return end
+	if not(self.Options.SetIconOnCollapsingStar) then return end
+	
+	local guid, rt
+	wipe(table_stars_uId)
+	-- wipe(table_stars_icons)
+	
+	-- get all stars in raid targets
+	for i = 1, GetNumRaidMembers() do
+		local uId = "raid"..i.."target"
+		if self:GetUnitCreatureId(uId) == 32955 then
+			guid = UnitGUID(uId)
+			table_stars_uId[guid] = uId
+			break
+		end
+	end
+	
+	-- get all current icons on stars
+	for guid, uId in pairs(table_stars_uId) do
+		-- time_left = 100 * UnitHealth(uId) / UnitHealthMax(uId) + 1
+		rt = GetRaidTargetIndex(uId)
+		if rt and rt > 0 then
+			mod:iconUsed(rt)
+		end
+	end
+	
+	-- set remaining icons on stars
+	for guid, uId in pairs(table_stars_uId) do
+		rt = GetRaidTargetIndex(uId)
+			table_stars_icons[rt] = guid
+		if rt and rt == 0 then
+			SetRaidTarget(uId, rt)
+			mod:iconUsed(rt)
+		end
+	end
+	
+end, 0.5*(1+random()) )
+
