@@ -9,7 +9,7 @@ mod:RegisterKill("yell", L.YellKill)
 
 mod:SetUsedIcons(3, 4, 5, 7, 8)
 local pathSoundFile_critical = "Sound\\Doodad\\Belltollalliance.wav"
-local pathSoundFile_medium = "Sound\\Doodad\\PVP_Lordaeron_Door_Close.wav"
+local pathSoundFile_medium = "Sound\\Doodad\\UL_Forge_Iron_PressOneShot2.wav"
 
 mod:RegisterEvents(
 	"SPELL_CAST_START",
