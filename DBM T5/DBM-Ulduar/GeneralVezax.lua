@@ -145,6 +145,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 					specWarnShadowCrashNear:Show()
 					if self.Options.CrashArrow then
 						DBM.Arrow:ShowRunAway(x, y, 15, 5)
+						print("DEBUG: Set arrow at", x, y)
 					end
 				end
 			end
