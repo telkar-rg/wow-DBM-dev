@@ -1835,6 +1835,7 @@ function DBM:StartCombat(mod, delay, synced)
 			sendSync("DBMv4-Pull", (delay or 0).."\t"..mod.id.."\t"..(mod.revision or 0))
 		end
 		fireEvent("pull", mod, delay, synced)
+		fireEvent("DBM_Pull", mod, delay, synced)
 		-- http://www.deadlybossmods.com/forum/viewtopic.php?t=1464
 		if DBM.Options.ShowBigBrotherOnCombatStart and BigBrother and type(BigBrother.ConsumableCheck) == "function" then
 			if DBM.Options.BigBrotherAnnounceToRaid then
@@ -1876,6 +1877,7 @@ function DBM:EndCombat(mod, wipe)
 				sendWhisper(k, msg)
 			end
 			fireEvent("wipe", mod)
+			fireEvent("DBM_Wipe", mod)
 		else
 			local thisTime = GetTime() - mod.combatInfo.pull
 			local lastTime = (mod:IsDifficulty("heroic5", "heroic25") and mod.stats.heroicLastTime) or mod:IsDifficulty("normal5", "heroic10") and mod.stats.lastTime
@@ -1902,6 +1904,7 @@ function DBM:EndCombat(mod, wipe)
 				sendWhisper(k, msg)
 			end
 			fireEvent("kill", mod)
+			fireEvent("DBM_Kill", mod)
 		end
 		table.wipe(autoRespondSpam)
 		if mod.OnCombatEnd then mod:OnCombatEnd(wipe) end
@@ -2655,10 +2658,11 @@ do
 			end
 			if DBM.Options.DontShowBossAnnounces then return end	-- don't show the announces if the spam filter option is set
 			local colorCode = ("|cff%.2x%.2x%.2x"):format(self.color.r * 255, self.color.g * 255, self.color.b * 255)
+			local message = pformat(self.text, ...)
 			local text = ("%s%s%s|r%s"):format(
 				(DBM.Options.WarningIconLeft and self.icon and textureCode:format(self.icon)) or "",
 				colorCode,
-				pformat(self.text, ...),
+				message,
 				(DBM.Options.WarningIconRight and self.icon and textureCode:format(self.icon)) or ""
 			)
 			if not cachedColorFunctions[self.color] then
@@ -2687,6 +2691,7 @@ do
 					self.mod:AddMsg(text, nil)
 				end
 			end
+			fireEvent("DBM_Announce", message, self.icon, self.type, self.spellId, self.mod.id, false)
 			PlaySoundFile(DBM.Options.RaidWarningSound)
 		end
 	end
@@ -3146,14 +3151,18 @@ do
 			if not bar then
 				return false, "error" -- creating the timer failed somehow, maybe hit the hard-coded timer limit of 15
 			end
+			local msg
 			if self.type and not self.text then
-				bar:SetText(pformat(self.mod:GetLocalizedTimerText(self.type, self.spellId), ...))
+				msg=(pformat(self.mod:GetLocalizedTimerText(self.type, self.spellId), ...))
 			else
-				bar:SetText(pformat(self.text, ...))
+				msg=(pformat(self.text, ...))
 			end
+			bar:SetText(msg)
+			
 			table.insert(self.startedTimers, id)
 			self.mod:Unschedule(removeEntry, self.startedTimers, id)
 			self.mod:Schedule(timer, removeEntry, self.startedTimers, id)
+			fireEvent("DBM_TimerStart", id, msg, timer, self.icon, self.type, self.spellId, self.mod.id)
 			return bar
 		else
 			return false, "disabled"
@@ -3172,6 +3181,7 @@ do
 	function timerPrototype:Stop(...)
 		if select("#", ...) == 0 then
 			for i = #self.startedTimers, 1, -1 do
+				fireEvent("DBM_TimerStop", self.startedTimers[i])
 				DBM.Bars:CancelBar(self.startedTimers[i])
 				self.startedTimers[i] = nil
 			end
@@ -3179,6 +3189,7 @@ do
 			local id = self.id..pformat((("\t%s"):rep(select("#", ...))), ...)
 			for i = #self.startedTimers, 1, -1 do
 				if self.startedTimers[i] == id then
+					fireEvent("DBM_TimerStop", id)
 					DBM.Bars:CancelBar(id)
 					table.remove(self.startedTimers, i)
 				end
