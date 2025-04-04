@@ -27,7 +27,7 @@ end
 
 mod:SetUsedIcons(5, 6, 7, 8)
 local pathSoundFile_critical = "Sound\\Doodad\\Belltollalliance.wav"
-local pathSoundFile_medium = "Sound\\Doodad\\PVP_Lordaeron_Door_Close.wav"
+local pathSoundFile_medium = "Sound\\Doodad\\UL_Forge_Iron_PressOneShot2.wav"
 
 
 local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050)
@@ -97,7 +97,8 @@ mod:AddBoolOption("SetIconOnBrainLinkTarget",true)
 mod:AddBoolOption("SetIconOnMaladyTarget",true)
 local PlaySoundOnCrusher = mod:NewSoundFile(pathSoundFile_critical, "PlaySoundOnCrusher", true)
 -- local ttsSpawnConstrictor = mod:NewSoundFile("Interface\\AddOns\\DBM-Core\\sounds\\UR_YOGG_new_constrictor_spawned.mp3", "ttsSpawnConstrictor", true)
-mod:AddBoolOption("PlaySoundOnConstrictor", true)
+-- mod:AddBoolOption("PlaySoundOnConstrictor", true)
+local PlaySoundOnConstrictor = mod:NewSoundFile(pathSoundFile_medium, "PlaySoundOnConstrictor", true)
 
 -- mod:AddBoolOption("MaladyArrow")
 
@@ -572,9 +573,7 @@ function mod:AnnounceSpawnConstrictor(playerName)
 	if GetCurrentMapDungeonLevel() == 4 then
 		warnSqueeze:Show(playerName)
 		
-		if self.Options.PlaySoundOnConstrictor then
-			PlaySoundFile(pathSoundFile_medium)
-		end
+		PlaySoundOnConstrictor:Play()
 	end
 end
 
