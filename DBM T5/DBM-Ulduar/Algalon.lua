@@ -218,12 +218,12 @@ mod:RegisterOnUpdateHandler(function(self, elapsed)
 	-- set remaining icons on stars
 	for guid, uId in pairs(table_stars_uId) do
 		rt = GetRaidTargetIndex(uId)
-			table_stars_icons[rt] = guid
-		if rt and rt == 0 then
+		if not rt or rt == 0 then
+			rt=table_icon[1]
 			SetRaidTarget(uId, rt)
 			mod:iconUsed(rt)
 		end
 	end
 	
-end, 0.5*(1+random()) )
+end, (1+random()) )
 
