@@ -260,37 +260,37 @@ function mod:SPELL_SUMMON(args)
 		Guardians = Guardians + 1
 		warnGuardianSpawned:Show(Guardians)
 		
-		if self.Options.SetIconOnEldestGuardian and DBM:GetRaidRank() > 0 then
-			wipe(aliveGuardians)
-			wipe(sortedGuardians)
+		-- if self.Options.SetIconOnEldestGuardian and DBM:GetRaidRank() > 0 then
+			-- wipe(aliveGuardians)
+			-- wipe(sortedGuardians)
 			
-			local uId, guid
-			for i = 1, GetNumRaidMembers() do
-				uId = "raid"..i.."target"
-				guid = UnitGUID(uId)
-				if self:GetCIDFromGUID(guid) == 33136 then
-					aliveGuardians[guid] = 1
-				end
-			end
+			-- local uId, guid
+			-- for i = 1, GetNumRaidMembers() do
+				-- uId = "raid"..i.."target"
+				-- guid = UnitGUID(uId)
+				-- if self:GetCIDFromGUID(guid) == 33136 then
+					-- aliveGuardians[guid] = 1
+				-- end
+			-- end
 			
-			for guid,_ in pairs(aliveGuardians) do
-				table.insert(sortedGuardians, guid)
-			end
+			-- for guid,_ in pairs(aliveGuardians) do
+				-- table.insert(sortedGuardians, guid)
+			-- end
 			
-			sort(sortedGuardians) -- sort, so that eldest(lowest guid) is at index 1
-			if #sortedGuardians > 0 then -- if at least 1 guardian alive
-				for i = 1, GetNumRaidMembers() do
-					uId = "raid"..i.."target"
-					guid = UnitGUID(uId)
-					if UnitGUID(uId) == sortedGuardians[1] then -- search for the eldest alive guardian
-						if not GetRaidTargetIndex(uId) then
-							SetRaidTarget(uId, 8) -- set rt8
-							break
-						end
-					end
-				end
-			end
-		end
+			-- sort(sortedGuardians) -- sort, so that eldest(lowest guid) is at index 1
+			-- if #sortedGuardians > 0 then -- if at least 1 guardian alive
+				-- for i = 1, GetNumRaidMembers() do
+					-- uId = "raid"..i.."target"
+					-- guid = UnitGUID(uId)
+					-- if UnitGUID(uId) == sortedGuardians[1] then -- search for the eldest alive guardian
+						-- if not GetRaidTargetIndex(uId) then
+							-- SetRaidTarget(uId, 8) -- set rt8
+							-- break
+						-- end
+					-- end
+				-- end
+			-- end
+		-- end
 	end
 end
 
