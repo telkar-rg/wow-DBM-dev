@@ -27,7 +27,7 @@ end
 
 mod:SetUsedIcons(5, 6, 7, 8)
 local pathSoundFile_critical = "Sound\\Doodad\\Belltollalliance.wav"
-local pathSoundFile_medium = "Sound\\Doodad\\UL_Forge_Iron_PressOneShot2.wav"
+local pathSoundFile_medium = "Interface\\AddOns\\DBM-Core\\sounds\\C_Drum_Bells_2.ogg"
 
 
 local warnSanity 					= mod:NewAnnounce("WarningSanity", 3, 63050)
@@ -501,7 +501,7 @@ function mod:gotoP2()
 		timerBrainportal:Start(timePortal)
 		warnBrainPortalSoon:Schedule(timePortal-5)
 		specWarnBrainPortalSoon:Schedule(timePortal-5)
-		ttsPortalIn10:Schedule(timePortal-10)
+		ttsPortalIn10:Schedule(timePortal-12)
 		ttsPortalCountdown:Schedule(timePortal-tts5to1Offset)
 		
 		if self.Options.ShowSaraHealth then
