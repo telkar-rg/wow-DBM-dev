@@ -37,7 +37,8 @@ local warnRoots				= mod:NewTargetAnnounce(62438, 2)
 local specWarnFury			= mod:NewSpecialWarningYou(63571)
 local specWarnTremor		= mod:NewSpecialWarningCast(62859)	-- Hard mode
 local specWarnBeam			= mod:NewSpecialWarningMove(62865)	-- Hard mode
-local specWarnEonarsGift    = mod:NewSpecialWarningCast(62584)
+-- local specWarnEonarsGift    = mod:NewSpecialWarningCast(62584)
+local specWarnEonarsGift    = mod:NewSpecialWarning("SpecWarnEonarsGift", true, nil, false, pathSoundFile_medium)
 
 local enrage 				= mod:NewBerserkTimer(600)
 local timerAlliesOfNature	= mod:NewNextTimer(60, 62678)
@@ -49,7 +50,7 @@ local timerEonarsGiftCD     = mod:NewCDTimer(40, 62584)
 mod:AddBoolOption("HealthFrame", true)
 mod:AddBoolOption("PlaySoundOnFury", true)
 mod:AddBoolOption("PlaySoundOnGroundTremor", true)
-mod:AddBoolOption("PlaySoundOnEonarsGift", true)
+-- mod:AddBoolOption("PlaySoundOnEonarsGift", true)
 
 mod:AddBoolOption("SetIconOnNaturesFury", true)
 mod:AddBoolOption("SetIconOnIronRoots", true)
@@ -181,8 +182,8 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(emote)
 		specWarnEonarsGift:Show()
 		timerEonarsGiftCD:Start()
 		
-		if self.Options.PlaySoundOnEonarsGift then
-			PlaySoundFile(pathSoundFile_medium)
-		end
+		-- if self.Options.PlaySoundOnEonarsGift then
+			-- PlaySoundFile(pathSoundFile_medium)
+		-- end
 	end
 end
