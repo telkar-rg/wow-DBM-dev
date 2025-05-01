@@ -579,42 +579,42 @@ end
 
 
 
-mod:RegisterOnUpdateHandler(function(self, elapsed)
-	if not self:IsInCombat() then return end
+-- mod:RegisterOnUpdateHandler(function(self, elapsed)
+	-- if not self:IsInCombat() then return end
 	
-	if DBM.Options.DontSetIcons then return end
-	if DBM:GetRaidRank() == 0 then return end
-	if not(self.Options.SetIconOnEldestGuardian) then return end
-	if phase ~= 1 then return end
-	print("RegisterOnUpdateHandler: Guardian")
+	-- if DBM.Options.DontSetIcons then return end
+	-- if DBM:GetRaidRank() == 0 then return end
+	-- if not(self.Options.SetIconOnEldestGuardian) then return end
+	-- if phase ~= 1 then return end
+	-- print("RegisterOnUpdateHandler: Guardian")
 	
-	local guid, rt
-	wipe(aliveGuardians)
-	wipe(sortedGuardians)
+	-- local guid, rt
+	-- wipe(aliveGuardians)
+	-- wipe(sortedGuardians)
 	
-	-- get all Guardians in raid targets
-	for i = 1, GetNumRaidMembers() do
-		local uId = "raid"..i.."target"
-		if self:GetUnitCreatureId(uId) == 33136 then
-			guid = UnitGUID(uId)
-			aliveGuardians[guid] = uId
-			break
-		end
-	end
+	-- -- get all Guardians in raid targets
+	-- for i = 1, GetNumRaidMembers() do
+		-- local uId = "raid"..i.."target"
+		-- if self:GetUnitCreatureId(uId) == 33136 then
+			-- guid = UnitGUID(uId)
+			-- aliveGuardians[guid] = uId
+			-- break
+		-- end
+	-- end
 	
-	for guid,_ in pairs(aliveGuardians) do
-		table.insert(sortedGuardians, guid)
-	end
+	-- for guid,_ in pairs(aliveGuardians) do
+		-- table.insert(sortedGuardians, guid)
+	-- end
 	
-	if #sortedGuardians > 0 then -- if at least 1 guardian alive
-		sort(sortedGuardians) -- sort, so that eldest(lowest guid) is at index 1
-		local oldestGuid = sortedGuardians[1]
-		uId = aliveGuardians[oldestGuid]
+	-- if #sortedGuardians > 0 then -- if at least 1 guardian alive
+		-- sort(sortedGuardians) -- sort, so that eldest(lowest guid) is at index 1
+		-- local oldestGuid = sortedGuardians[1]
+		-- uId = aliveGuardians[oldestGuid]
 		
-		rt = GetRaidTargetIndex(uId) -- check if already has Icon
-		if rt==0 then
-			SetRaidTarget(uId, 8)
-		end
-	end
+		-- rt = GetRaidTargetIndex(uId) -- check if already has Icon
+		-- if rt==0 then
+			-- SetRaidTarget(uId, 8)
+		-- end
+	-- end
 	
-end, 1 )
+-- end, 1 )
