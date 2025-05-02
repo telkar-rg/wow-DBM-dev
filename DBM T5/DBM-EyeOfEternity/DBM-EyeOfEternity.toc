@@ -1,16 +1,17 @@
 ﻿## Interface: 30300
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Eye of Eternity|r
-## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Eye of Eternity|r
-## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Око Вечности|r
-## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0永恆之眼|r
-## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0永恒之眼|r
-## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0영원의 눈|r
-## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Malygos|r
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefbEye of Eternity|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefbDas Auge der Ewigkeit|r
+## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefbОко Вечности|r
+## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefb永恆之眼|r
+## Title-zhCN:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefb永恒之眼|r
+## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefb영원의 눈|r
+## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefbMalygos|r
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMEyeOfEternity_SavedVars, DBMEyeOfEternity_SavedStats
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Category: WotLK
+## X-DBM-Mod-Sort: 5
 ## X-DBM-Mod-Has-Heroic-Mode: 0
 ## X-DBM-Mod-Name: Eye of Eternity
 ## X-DBM-Mod-Name-frFR: L'Œil de l'éternité
@@ -21,7 +22,6 @@
 ## X-DBM-Mod-Name-koKR: 영원의 눈
 ## X-DBM-Mod-Name-esES: El Ojo de la Eternidad
 ## X-DBM-Mod-Name-esMXS: El Ojo de la Eternidad
-## X-DBM-Mod-Sort: 5
 --## X-DBM-Mod-LoadZoneID: 528
 ## X-DBM-Mod-LoadZone: The Eye of Eternity
 ## X-DBM-Mod-LoadZone-frFR: L'Œil de l'éternité

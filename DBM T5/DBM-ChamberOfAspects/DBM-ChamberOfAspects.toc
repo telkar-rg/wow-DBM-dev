@@ -1,16 +1,17 @@
 ﻿## Interface: 30300
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Chamber of Aspects|r
-## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Kammer der Aspekte|r
-## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Палата Аспектов|r
-## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0守護巨龍之間|r
-## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0흑요석 성소|r
-## Title-frFR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Chambre des Aspects|r
-## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Cámara de los Aspectos|r
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fef6Chamber of Aspects|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fef6Kammer der Aspekte|r
+## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fef6Палата Аспектов|r
+## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fef6守護巨龍之間|r
+## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fef6흑요석 성소|r
+## Title-frFR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fef6Chambre des Aspects|r
+## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fef6Cámara de los Aspectos|r
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMChamberOfAspects_SavedVars, DBMChamberOfAspects_SavedStats
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Category: WotLK
+## X-DBM-Mod-Sort: 1
 ## X-DBM-Mod-SubCategories: The Obsidian Sanctum, The Ruby Sanctum
 ## X-DBM-Mod-SubCategories-deDE: Das Obsidiansanktum, Das Rubinsanktum
 ## X-DBM-Mod-SubCategories-ruRU: Обсидиановое святилище, Рубиновое святилище
@@ -28,7 +29,6 @@
 ## X-DBM-Mod-Name-frFR : Chambre des aspects
 ## X-DBM-Mod-Name-esES: Cámara de los Aspectos
 ## X-DBM-Mod-Name-esMX: Cámara de los Aspectos
-## X-DBM-Mod-Sort: 1
 --## X-DBM-Mod-LoadZoneID: 532,610
 ## X-DBM-Mod-LoadZone: The Obsidian Sanctum,The Ruby Sanctum
 ## X-DBM-Mod-LoadZone-deDE: Das Obsidiansanktum,Das Rubinsanktum

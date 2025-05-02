@@ -1,11 +1,11 @@
 ﻿## Interface: 30300
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Party-WotLK|r
-## Title-frFR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Groupe|r
-## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Gruppe|r
-## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0隊伍|r
-## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Групповые подземелья-WotLK|r
-## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf05인던전 모드|r
-## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Mazmorras|r
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefdParty-WotLK|r
+## Title-frFR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefdGroupe|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefdGruppe-WotLK|r
+## Title-zhTW:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefd隊伍|r
+## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefdГрупповые подземелья-WotLK|r
+## Title-koKR:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefd5인던전 모드|r
+## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40fefdMazmorras|r
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMPartyWotLK_SavedVars, DBMPartyWotLK_SavedStats
@@ -21,7 +21,7 @@
 ## X-DBM-Mod-SubCategories-esMX: Ahn'Kahlet,Azjol-Nerub,CoT: La Matanza de Stratholme,Fortaleza de Drak'Tharon,Gundrak,Cámaras de Relámpagos,Camaras de Piedra,El Nexo,El Oculus,Fortaleza de Utgarde,Pinaculo de Utgarde,Bastion Violeta,Prueba del Campeón,La Forja de Almas,Foso de Saron,Cámaras de Reflexión
 ## X-DBM-Mod-Name: Party-WotLK
 ## X-DBM-Mod-Name-frFR: Groupe
-## X-DBM-Mod-Name-deDE: Gruppe
+## X-DBM-Mod-Name-deDE: Gruppe-WotLK
 ## X-DBM-Mod-Name-ruRU: Групповые подземелья
 ## X-DBM-Mod-Name-zhTW: 隊伍首領
 ## X-DBM-Mod-Name-esES: Mazmorras
