@@ -1,5 +1,5 @@
 ## Interface: 30300
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff40Burning Crusade|r
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff40Burning Crusade|r (Compatibility)
 ## SavedVariablesPerCharacter: DBMBurningCrusade_SavedModOptions
 ## LoadOnDemand: 0
 ## RequiredDeps: DBM-Core

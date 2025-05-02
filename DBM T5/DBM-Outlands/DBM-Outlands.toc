@@ -11,6 +11,7 @@
 ## X-DBM-Tab-BCTab: 1
 ## X-DBM-Tab-Sort: 307
 ## X-DBM-Name: Outlands
+## X-DBM-Name-deDE: Scherbenwelt
 ## X-DBM-Name-esES: Terrallende
 ## X-DBM-Tab-LoadZone: Gruul's Lair,Magtheridon's Lair,Hellfire Peninsula,Shadowmoon Valley
 ## X-DBM-Tab-LoadZone-deDE: Gruuls Unterschlupf,Magtheridons Kammer,Höllenfeuerhalbinsel,Schattenmondtal
