@@ -8,12 +8,12 @@
 ## SavedVariablesPerCharacter: DBMBWL_SavedVars, DBMBWL_SavedStats
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Category: Classic
+## X-DBM-Mod-Sort: 402
 ## X-DBM-Mod-Has-Heroic-Mode: 0
 ## X-DBM-Mod-Name: Blackwing Lair
 ## X-DBM-Mod-Name-deDE: Pechschwingenhort
 ## X-DBM-Mod-Name-esES: Guarida Alanegra
 ## X-DBM-Mod-Name-ruRU: Логово Крыла Тьмы
-## X-DBM-Mod-Sort: 401
 ## X-DBM-Mod-LoadZone: Blackwing Lair
 ## X-DBM-Mod-LoadZone-esES: Guarida Alanegra
 ## X-DBM-Mod-LoadZone-ruRU: Логово Крыла Тьмы
