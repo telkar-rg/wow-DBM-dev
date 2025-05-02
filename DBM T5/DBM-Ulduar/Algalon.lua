@@ -179,7 +179,7 @@ function mod:iconUsed(rt)
 	end
 	if isRemove then
 		table.insert(table_icon, rt)
-		print("-- RT", rt, "used", "--", strjoin(",", tostringall( unpack(table_icon) )))
+		-- print("-- RT", rt, "used", "--", strjoin(",", tostringall( unpack(table_icon) )))
 	end
 end
 
