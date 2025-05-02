@@ -2,6 +2,17 @@
 DBM: modified development for WotLK
 
 ## [Downloads](https://github.com/telkar-rg/wow-DBM-dev/releases)
+### (DBM T5.013 alpha)
+- Halls of Reflection
+  - fixed Speed-Run achievement timer
+  - added Roleplay timer
+- Ulduar
+  - Algalon
+    - changed star marking algorithm (no longer uses mouseover to mark)
+  - General Vezax
+    - fixed detection of Shadow Crash Target
+  - Thorim
+    - added CD timer for Chain Lightning (7.5...15s)
 ### (DBM T5.012 alpha)
 - Trial of the Champions
   - added Combat Start Timer to the Champions and the Black Knight
