@@ -1,7 +1,8 @@
 ﻿## Interface: 30300
 ## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cffffff41Ruins of Ahn'Qiraj|r
-## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Ruinas de Ahn'Qiraj|r
-## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Руины Ан'Киража|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cffffff41Ruinen von Ahn'Qiraj|r
+## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cffffff41Ruinas de Ahn'Qiraj|r
+## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cffffff41Руины Ан'Киража|r
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMAQ20_SavedVars, DBMAQ20_SavedStats
@@ -9,6 +10,7 @@
 ## X-DBM-Mod-Category: Classic
 ## X-DBM-Mod-Has-Heroic-Mode: 0
 ## X-DBM-Mod-Name: The Ruins of Ahn'Qiraj
+## X-DBM-Mod-Name-deDE: Ruinen von Ahn'Qiraj
 ## X-DBM-Mod-Name-esES: Ruinas de Ahn'Qiraj
 ## X-DBM-Mod-Name-ruRU: Руины Ан'Киража
 ## X-DBM-Mod-Sort: 404

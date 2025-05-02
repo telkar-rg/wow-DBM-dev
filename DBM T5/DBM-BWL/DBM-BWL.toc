@@ -1,7 +1,8 @@
 ﻿## Interface: 30300
 ## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cffffff42Blackwing Lair|r
-## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Guarida Alanegra|r
-## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Логово Крыла Тьмы|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cffffff42Pechschwingenhort|r
+## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cffffff42Guarida Alanegra|r
+## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cffffff42Логово Крыла Тьмы|r
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMBWL_SavedVars, DBMBWL_SavedStats
@@ -9,6 +10,7 @@
 ## X-DBM-Mod-Category: Classic
 ## X-DBM-Mod-Has-Heroic-Mode: 0
 ## X-DBM-Mod-Name: Blackwing Lair
+## X-DBM-Mod-Name-deDE: Pechschwingenhort
 ## X-DBM-Mod-Name-esES: Guarida Alanegra
 ## X-DBM-Mod-Name-ruRU: Логово Крыла Тьмы
 ## X-DBM-Mod-Sort: 401
