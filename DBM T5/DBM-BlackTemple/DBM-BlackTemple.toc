@@ -1,5 +1,6 @@
 ﻿## Interface: 30300
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Black Temple|r
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff42Black Temple|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff42Der Schwarze Tempel|r
 ## Author: Tandanu
 ## RequiredDeps: DBM-Core, DBM-BurningCrusade
 ## SavedVariablesPerCharacter: DBMBlackTemple_SavedVars, DBMBlackTemple_SavedStats
@@ -10,13 +11,16 @@
 ## X-DBM-Tab-BCTab: 1
 ## X-DBM-Tab-Sort: 301
 ## X-DBM-Name: Black Temple
+## X-DBM-Name-deDE: Der Schwarze Tempel
 ## X-DBM-Name-zhCN: 黑暗神殿
 ## X-DBM-Name-zhTW: 黑暗神廟
 ## X-DBM-Name-ruRU: Черный храм
 ## X-DBM-Tab-Text: Black Temple
+## X-DBM-Tab-Text-deDE: Der Schwarze Tempel
 ## X-DBM-Tab-Text-zhCN: 黑暗神殿
 ## X-DBM-Tab-Text-zhTW: 黑暗神廟
 ## X-DBM-Tab-Title: Black Temple Boss Mods
+## X-DBM-Tab-Title-deDE: Der Schwarze Tempel Boss Mods
 ## X-DBM-Tab-Title-zhCN: 黑暗神殿
 ## X-DBM-Tab-Title-zhTW: 黑暗神廟
 ## X-DBM-Tab-LoadZone: Black Temple

@@ -1,5 +1,6 @@
 ﻿## Interface: 30300
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Serpentshrine Cavern|r
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff45Serpentshrine Cavern|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff45Höhle des Schlangenschreins|r
 ## Author: Tandanu
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core, DBM-BurningCrusade
@@ -9,14 +10,17 @@
 ## X-DBM-Tab-BCTab: 1
 ## X-DBM-Tab-Sort: 304
 ## X-DBM-Name: Serpentshrine Cavern
+## X-DBM-Name-deDE: Höhle des Schlangenschreins
 ## X-DBM-Name-zhCN: 毒蛇神殿
 ## X-DBM-Name-zhTW: 毒蛇神殿
 ## X-DBM-Name-ruRU: Змеиное святилище
 ## X-DBM-Tab-Text: Serpentshrine
+## X-DBM-Tab-Text-deDE: Schlangenschrein
 ## X-DBM-Tab-Text-zhCN: 毒蛇神殿
 ## X-DBM-Tab-Text-zhTW: 毒蛇神殿
 ## X-DBM-Tab-Text-ruRU: Змеиное святилище
 ## X-DBM-Tab-Title: Serpentshrine Cavern Boss Mods
+## X-DBM-Tab-Title-deDE: Höhle des Schlangenschreins Boss Mods
 ## X-DBM-Tab-Title-zhCN: 毒蛇神殿
 ## X-DBM-Tab-Title-zhTW: 毒蛇神殿
 ## X-DBM-Tab-Title-ruRU: Змеиное святилище Boss Mods

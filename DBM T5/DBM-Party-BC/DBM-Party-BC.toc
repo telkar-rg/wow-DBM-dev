@@ -1,13 +1,14 @@
 ﻿## Interface: 30300
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Party-BC|r
-## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Gruppe-BC|r
-## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Групповые подземелья-BC|r
-## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Mazmorras TBC|r
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff49Party-BC|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff49Gruppe-BC|r
+## Title-ruRU:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff49Групповые подземелья-BC|r
+## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff49Mazmorras TBC|r
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core
 ## SavedVariablesPerCharacter: DBMPartyBC_SavedVars, DBMPartyBC_SavedStats
 ## X-DBM-Mod: 1
 ## X-DBM-Mod-Category: BC
+## X-DBM-Mod-Sort: 325
 ## X-DBM-Mod-SubCategories: Hellfire Ramparts,The Blood Furnace,The Shattered Halls,The Slave Pens,The Underbog,The Steamvault,Auchenai Crypts,Mana-Tombs,Sethekk Halls,Shadow Labyrinth,Old Hillsbrad Foothills,The Black Morass,The Mechanar,The Botanica,The Arcatraz,Magisters' Terrace
 ## X-DBM-Mod-SubCategories-deDE: Höllenfeuerbollwerk,Der Blutkessel,Die zerschmetterten Hallen,Die Sklavenunterkünfte,Tiefensumpf,Die Dampfkammer,Auchenaikrypta,Managruft,Sethekkhallen,Schattenlabyrinth,Vorgebirge des Alten Hügellands,Der schwarze Morast,Die Mechanar,Die Botanika,Die Arkatraz,Terrasse der Magister
 ## X-DBM-Mod-SubCategories-ruRU: Бастионы Адского Пламени,Кузня Крови,Разрушенные залы,Узилище,Нижетопь,Паровое подземелье,Аукенайские гробницы,Гробницы Маны,Сетеккские залы,Темный лабиринт,Старые предгорья Хилсбрада,Черные топи,Механар,Ботаника,Аркатрац,Терраса Магистров
@@ -16,7 +17,6 @@
 ## X-DBM-Mod-Name-deDE: Gruppe-BC
 ## X-DBM-Mod-Name-ruRU: Групповые подземелья-BC
 ## X-DBM-Mod-Name-esES: Mazmorras TBC
-## X-DBM-Mod-Sort: 325
 ## X-DBM-Mod-LoadZone: Hellfire Ramparts,The Blood Furnace,The Shattered Halls,The Slave Pens,The Underbog,The Steamvault,Auchenai Crypts,Mana-Tombs,Sethekk Halls,Shadow Labyrinth,Old Hillsbrad Foothills,The Black Morass,The Mechanar,The Botanica,The Arcatraz,Magisters' Terrace
 ## X-DBM-Mod-LoadZone-deDE: Höllenfeuerbollwerk,Der Blutkessel,Die zerschmetterten Hallen,Die Sklavenunterkünfte,Tiefensumpf,Die Dampfkammer,Auchenaikrypta,Managruft,Sethekkhallen,Schattenlabyrinth,Vorgebirge des Alten Hügellands,Der schwarze Morast,Die Mechanar,Die Botanika,Die Arkatraz,Terrasse der Magister
 ## X-DBM-Mod-LoadZone-ruRU: Бастионы Адского Пламени,Кузня Крови,Разрушенные залы,Узилище,Нижетопь,Паровое подземелье,Аукенайские гробницы,Гробницы Маны,Сетеккские залы,Темный лабиринт,Старые предгорья Хилсбрада,Черные топи,Механар,Ботаника,Аркатрац,Терраса Магистров

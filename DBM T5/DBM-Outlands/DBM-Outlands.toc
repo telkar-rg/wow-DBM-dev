@@ -1,6 +1,7 @@
 ﻿## Interface: 30300
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Outlands|r
-## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Terrallende|r
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff48Outlands|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff48Scherbenwelt|r
+## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff48Terrallende|r
 ## Author: Tandanu and Nitram
 ## LoadOnDemand: 1
 ## RequiredDeps: DBM-Core, DBM-BurningCrusade
@@ -12,6 +13,7 @@
 ## X-DBM-Name: Outlands
 ## X-DBM-Name-esES: Terrallende
 ## X-DBM-Tab-LoadZone: Gruul's Lair,Magtheridon's Lair,Hellfire Peninsula,Shadowmoon Valley
+## X-DBM-Tab-LoadZone-deDE: Gruuls Unterschlupf,Magtheridons Kammer,Höllenfeuerhalbinsel,Schattenmondtal
 ## X-DBM-Tab-LoadZone-esES: Guarida de Gruul,Guarida de Magtheridon
 localization.en.lua
 localization.de.lua

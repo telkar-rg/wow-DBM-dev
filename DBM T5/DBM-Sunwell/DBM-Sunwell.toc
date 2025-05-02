@@ -1,5 +1,6 @@
 ﻿## Interface: 30300
-## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Sunwell|r
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff41Sunwell Plateau|r
+## Title-deDE:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff40ff41Sonnenbrunnenplateau|r
 ## Author: Tandanu
 ## RequiredDeps: DBM-Core, DBM-BurningCrusade
 ## SavedVariablesPerCharacter: DBMSunwell_SavedVars, DBMSunwell_SavedStats
@@ -10,11 +11,13 @@
 ## X-DBM-Tab-BCTab: 1
 ## X-DBM-Tab-Sort: 300
 ## X-DBM-Name: Sunwell Plateau
+## X-DBM-Name-deDE: Sonnenbrunnenplateau
 ## X-DBM-Name-ruRU: Плато Солнечного Колодца
 ## X-DBM-Name-zhCN: 太阳之井高地
 ## X-DBM-Name-zhTW: 太陽之井高地
 ## X-DBM-Name-esES: Meseta de La Fuente del Sol
 ## X-DBM-Tab-Text: Sunwell
+## X-DBM-Tab-Text-deDE: Sonnenbrunnen
 ## X-DBM-Tab-Text-ruRU: Солнечный Источник
 ## X-DBM-Tab-Text-zhCN: 太阳之井高地
 ## X-DBM-Tab-Text-zhTW: 太陽之井
